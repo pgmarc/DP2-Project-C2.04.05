@@ -28,6 +28,8 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link.carbersor" action="https://www.youtube.com/watch?v=w-VlBV4hmcE&ab_channel=Yumirubeats%E2%99%A5slow"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link.dangalmar" action="https://openai.com/"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link.carzarrei" action="https://boardgamegeek.com/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
