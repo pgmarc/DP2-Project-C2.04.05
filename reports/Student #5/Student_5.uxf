@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>120</y>
+      <w>192</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Company
+bg=green
+--
++ name: String {NotBlank, Max(75)}
++ vatNumber: String {NotBlank, Max(25)}
++ summary: String {NotBlank, Max(100)}
++ moreInfo: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>492</x>
+      <y>120</y>
+      <w>162</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Session
+bg=green
+--
++ title: String {NotBlank, Length(75)}
++ abstract: String {NotBlank, Length(100)}
++ timePeriod: 
++ moreInfo: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>510</x>
+      <y>228</y>
+      <w>168</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+CompanyDashboard
+bg=green
+--
++ numberOfPracticaTheoryCourses: int
++ numberOfPraticaHandsOnCourses: int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>198</x>
+      <y>270</y>
+      <w>258</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Practicum
+bg=green
+--
++ code: String {Unique, NotBlank, Pattern(“[A-Z]{1,3}[0-9][0-9]{3}”)}
++ title: String {NotBlank, Length(75)}
++ abstract: String {NotBlank, Length(100)}
++ goals: String {NotBlank, Length(100)}
++ / estimatedHoursOfSessions: int | double {Transient}
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>60</x>
+      <y>270</y>
+      <w>132</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>bg=red
+Estimated total time in hours,
+computed from the corresponding
+sessions plus/minus 10%.
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>114</x>
+      <y>300</y>
+      <w>96</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=..
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;140.0;70.0</additional_attributes>
+  </element>
+</diagram>
