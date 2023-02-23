@@ -26,14 +26,15 @@ public class Consumer extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	// Attributes -------------------------------------------------------------
-	@NotBlank
-	protected String			company;
 
 	@NotBlank
-	protected String			sector;
+	protected String company;
+
+	@NotBlank
+	protected String sector;
 
 	// Derived attributes -----------------------------------------------------
 
