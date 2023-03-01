@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>405</x>
-      <y>99</y>
+      <y>18</y>
       <w>270</w>
       <h>108</h>
     </coordinates>
@@ -24,7 +24,7 @@ bg=green
     <id>UMLClass</id>
     <coordinates>
       <x>315</x>
-      <y>306</y>
+      <y>225</y>
       <w>387</w>
       <h>153</h>
     </coordinates>
@@ -32,7 +32,7 @@ bg=green
 Practicum
 bg=green
 --
-+ code: String {Unique, NotBlank, Pattern("“[A-Z]{1,3}[0-9]{3}")}
++ code: String {Unique, NotBlank, Pattern("[A-Z]{1,3}[0-9]{3}")}
 + title: String {NotBlank, Length(1,75)}
 + abstract: String {NotBlank, Length(1,100)}
 + goals: String {NotBlank, Length(1,100)}
@@ -46,7 +46,7 @@ bg=green
     <id>UMLNote</id>
     <coordinates>
       <x>0</x>
-      <y>360</y>
+      <y>279</y>
       <w>198</w>
       <h>54</h>
     </coordinates>
@@ -60,7 +60,7 @@ bg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>351</x>
-      <y>549</y>
+      <y>468</y>
       <w>261</w>
       <h>117</h>
     </coordinates>
@@ -70,8 +70,8 @@ bg=green
 --
 + title: String {NotBlank, Length(1,75)}
 + abstract: String {NotBlank, Length(1,100)}
-+ startingDate: Date {NotNull, Past}
-+ endingDate: Date {NotNull, Past}
++ startingDate: Date {NotNull}
++ endingDate: Date {NotNull}
 + moreInfo: String {URL}
 
 </panel_attributes>
@@ -81,7 +81,7 @@ bg=green
     <id>UMLNote</id>
     <coordinates>
       <x>351</x>
-      <y>684</y>
+      <y>603</y>
       <w>270</w>
       <h>63</h>
     </coordinates>
@@ -95,7 +95,7 @@ bg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>720</x>
-      <y>306</y>
+      <y>225</y>
       <w>396</w>
       <h>180</h>
     </coordinates>
@@ -119,7 +119,7 @@ bg=green
     <id>UMLNote</id>
     <coordinates>
       <x>720</x>
-      <y>513</y>
+      <y>432</y>
       <w>252</w>
       <h>36</h>
     </coordinates>
@@ -132,7 +132,7 @@ bg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>495</x>
-      <y>450</y>
+      <y>369</y>
       <w>45</w>
       <h>117</h>
     </coordinates>
@@ -144,7 +144,7 @@ m2=1..*</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>297</x>
-      <y>621</y>
+      <y>540</y>
       <w>72</w>
       <h>108</h>
     </coordinates>
@@ -155,7 +155,7 @@ m2=1..*</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>666</x>
-      <y>144</y>
+      <y>63</y>
       <w>261</w>
       <h>180</h>
     </coordinates>
@@ -169,7 +169,7 @@ m2=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>513</x>
-      <y>198</y>
+      <y>117</y>
       <w>90</w>
       <h>126</h>
     </coordinates>
@@ -183,7 +183,7 @@ m2=0..n</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>963</x>
-      <y>423</y>
+      <y>342</y>
       <w>225</w>
       <h>135</h>
     </coordinates>
@@ -194,7 +194,7 @@ m2=0..n</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>189</x>
-      <y>387</y>
+      <y>306</y>
       <w>144</w>
       <h>27</h>
     </coordinates>
