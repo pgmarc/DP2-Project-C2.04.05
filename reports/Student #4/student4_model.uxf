@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>405</x>
+      <y>99</y>
+      <w>270</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Company
+bg=green
+--
++ name: String {NotBlank, Length(1,75)}
++ vatNumber: String {NotBlank, Length(1,25)}
++ summary: String {NotBlank, Length(1,100)}
++ moreInfo: String {URL}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>306</y>
+      <w>387</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Practicum
+bg=green
+--
++ code: String {Unique, NotBlank, Pattern("“[A-Z]{1,3}[0-9]{3}")}
++ title: String {NotBlank, Length(1,75)}
++ abstract: String {NotBlank, Length(1,100)}
++ goals: String {NotBlank, Length(1,100)}
++ / sessionsTotalOfHours: Time {Transient}
++ / sessionsTotalOfHoursPlusTenPercent: Time {Transient}
++ / sessionsTotalOfHoursMinusTenPercent: Time {Transient}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>360</y>
+      <w>198</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Estimated total time in hours,
+computed from the corresponding
+sessions plus/minus 10%
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>351</x>
+      <y>549</y>
+      <w>261</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Session
+bg=green
+--
++ title: String {NotBlank, Length(1,75)}
++ abstract: String {NotBlank, Length(1,100)}
++ startingDate: Date {NotNull, Past}
++ endingDate: Date {NotNull, Past}
++ moreInfo: String {URL}
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>351</x>
+      <y>684</y>
+      <w>270</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>The startingDate should be one week ahead
+of the current date and at least have to
+be one week long
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>306</y>
+      <w>396</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+CompanyDashboard
+bg=green
+--
++ numberOfPracticaByMonthLastYear: Map&lt;CourseType,List&lt;Integer\&gt;&gt;
++ sessionsPeriodLenthAveragePerPractica: Double
++ sessionsPeriodLengthDeviationPerPractica: Double
++ sessionsPeriodLengthMinimumPerPractica: Double
++ sessionsPeriodLengthMaximunPerPractica: Double
++ practicaPeriodLengthAverage: Double
++ practicaPeriodLengthDeviation: Double
++ practicaPeriodLengthMinimun: Double
++ practicaPeriodLengthMaximun: Double
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>720</x>
+      <y>513</y>
+      <w>252</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>numberOfPracticaByMonthLastYear will be
+hands-on only
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>495</x>
+      <y>450</y>
+      <w>45</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>621</y>
+      <w>72</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0;10.0;100.0;60.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>666</x>
+      <y>144</y>
+      <w>261</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+has &gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>260.0;180.0;260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>513</x>
+      <y>198</y>
+      <w>90</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+publishes &gt;
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>963</x>
+      <y>423</y>
+      <w>225</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>170.0;10.0;230.0;10.0;230.0;130.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>387</y>
+      <w>144</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+</diagram>
