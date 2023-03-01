@@ -40,7 +40,7 @@ public class AuditRecord extends AbstractEntity {
 	@NotNull
 	@Digits( integer = 1, fraction = 2 )
 	@Range( min = (long) 0.01, max = 1 )
-	protected Double period;
+	protected double period;
 	
 	
 	@NotBlank
