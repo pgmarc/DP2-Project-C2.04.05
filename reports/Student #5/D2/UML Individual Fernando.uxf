@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>168</x>
+      <y>186</y>
+      <w>186</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Auditor
+--
++ professionalId: String{NotNull, NotBlank, Length(0,25)}
++ firm: String{NotNull, NotBlank, Length(0,75)}
++ certifications: String{NotNull, NotBlank, Length(0,100)}
++ moreInfo: String{NotBlank}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>108</x>
+      <y>288</y>
+      <w>258</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Audit
+--
++  code: String{NotNull, NotBlank, Unique, Pattern("[A-Z]{1,3}[0-9][0-9]{3}")}
++  conclusion: String{NotNull, NotBlank,Length(0,100)}
++  strongPoints: String{NotNull, NotBlank, Length(0,100)}
++  weakPoints: String{NotNull, NotBlank, Length(0,100)}
++/ mark: String(NotNull, Transient)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>78</x>
+      <y>378</y>
+      <w>270</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Mark is computed as the mode of the marks
+in the auditingrecords.
+If a mark is tied, they break randomly
+strongPoints and weakPoints are a String, with each element separated
+by "\r\n" or "\n"
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>288</y>
+      <w>180</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+AuditRecord
+--
++ subject: String{NotBlank, Length(0,75)}
++ assesment: String{NotBlank, Length(0,100)}
++ mark: String{NotBlank}
++ period: double{ Range(0.01, 1)}
++ moreInfo: String{NotBlank}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>450</x>
+      <y>384</y>
+      <w>252</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Marks have to be one of the next:
+( A+, A, B, C, D, F, F- )
+
+Period will be set a a floating number between 0.01, and 1,
+since the range is of 1 hour and the minimum time is 0.01 seconds
+
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>168</y>
+      <w>156</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+AuditorDashboard
+--
++ theoryAudits: int
++ auditTheoryStats: Statistic{NotNull}
++ auditRecordTheoryStats: Statistic{NotNull}
++ handOnAudits: int
++ auditHandOnStats: Statistic{NotNull}
++ auditRecordHandOnStats: Statistic{NotNull}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>678</x>
+      <y>162</y>
+      <w>126</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Statistic&lt;T&gt;
+--
++ average: float
++ deviation: float
++ minimum: T{NotNull}
++ maximum: T{NotNull}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>462</x>
+      <y>108</y>
+      <w>234</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>If no theoryAudits or handOnAudits have been found,
+set to zero
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>324</y>
+      <w>102</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1..n</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
+  </element>
+</diagram>
