@@ -2,14 +2,19 @@
 package acme.entities.practicum;
 
 import javax.persistence.Column;
-import javax.persistence.Transient;
+import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
 import acme.framework.data.AbstractEntity;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Getter
+@Setter
 public class Practicum extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
@@ -31,13 +36,15 @@ public class Practicum extends AbstractEntity {
 	@Length(min = 1, max = 100)
 	protected String			goals;
 
-	@Transient
+	protected boolean			draftMode;
+
+	//@Transient
 	protected Double			sessionsTotalOfHours;
 
-	@Transient
+	//@Transient
 	protected Double			sessionsTotalOfHoursPlusTenPercent;
 
-	@Transient
+	//@Transient
 	protected Double			sessionsTotalOfHoursMinusTenPercent;
 
 }
