@@ -9,7 +9,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
 import acme.datatypes.SessionNature;
 import lombok.Getter;
@@ -38,7 +37,7 @@ public class Session {
 	@Length(min = 1, max = 100)
 	protected String			goals;
 
-	@URL
+	@NotNull
 	protected SessionNature		sessionNature;
 
 	@NotNull
