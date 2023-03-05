@@ -3,8 +3,6 @@ package acme.roles;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -12,8 +10,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.Tutorial;
-import acme.framework.components.accounts.DefaultUserIdentity;
-import acme.framework.components.accounts.UserAccount;
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -46,28 +42,10 @@ public class Assistant extends AbstractRole {
 
 	// Derived attributes -----------------------------------------------------
 
-
-	@Override
-	@Transient
-	public DefaultUserIdentity getIdentity() {
-		DefaultUserIdentity result;
-
-		assert this.userAccount.getIdentity() instanceof DefaultUserIdentity;
-		result = this.userAccount.getIdentity();
-
-		return result;
-	}
-
 	// Relationships ----------------------------------------------------------
 
-
 	@NotNull
 	@OneToMany
-	protected Tutorial		tutorial;
-
-	@NotNull
-	@Valid
-	@OneToMany
-	protected UserAccount	userAccount;
+	protected Tutorial			tutorial;
 
 }
