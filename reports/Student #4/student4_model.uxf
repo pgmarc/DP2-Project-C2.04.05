@@ -5,9 +5,9 @@
     <id>UMLClass</id>
     <coordinates>
       <x>405</x>
-      <y>18</y>
+      <y>63</y>
       <w>270</w>
-      <h>108</h>
+      <h>117</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 Company
@@ -24,9 +24,9 @@ bg=green
     <id>UMLClass</id>
     <coordinates>
       <x>315</x>
-      <y>225</y>
+      <y>270</y>
       <w>387</w>
-      <h>153</h>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Practicum
@@ -34,11 +34,12 @@ bg=green
 --
 + code: String {Unique, NotBlank, Pattern("[A-Z]{1,3}[0-9]{3}")}
 + title: String {NotBlank, Length(1,75)}
-+ abstract: String {NotBlank, Length(1,100)}
++ abstrac: String {NotBlank, Length(1,100)}
 + goals: String {NotBlank, Length(1,100)}
-+ / sessionsTotalOfHours: Time {Transient}
-+ / sessionsTotalOfHoursPlusTenPercent: Time {Transient}
-+ / sessionsTotalOfHoursMinusTenPercent: Time {Transient}
++ draftMode: boolean
++ / sessionsTotalOfHours: double {Transient}
++ / sessionsTotalOfHoursPlusTenPercent: double {Transient}
++ / sessionsTotalOfHoursMinusTenPercent: double {Transient}
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -46,7 +47,7 @@ bg=green
     <id>UMLNote</id>
     <coordinates>
       <x>0</x>
-      <y>279</y>
+      <y>324</y>
       <w>198</w>
       <h>54</h>
     </coordinates>
@@ -60,7 +61,7 @@ bg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>351</x>
-      <y>468</y>
+      <y>513</y>
       <w>261</w>
       <h>117</h>
     </coordinates>
@@ -69,7 +70,7 @@ Session
 bg=green
 --
 + title: String {NotBlank, Length(1,75)}
-+ abstract: String {NotBlank, Length(1,100)}
++ abstrac: String {NotBlank, Length(1,100)}
 + startingDate: Date {NotNull}
 + endingDate: Date {NotNull}
 + moreInfo: String {URL}
@@ -81,7 +82,7 @@ bg=green
     <id>UMLNote</id>
     <coordinates>
       <x>351</x>
-      <y>603</y>
+      <y>648</y>
       <w>270</w>
       <h>63</h>
     </coordinates>
@@ -95,8 +96,8 @@ bg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>720</x>
-      <y>225</y>
-      <w>396</w>
+      <y>270</y>
+      <w>423</w>
       <h>180</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
@@ -104,14 +105,14 @@ CompanyDashboard
 bg=green
 --
 + numberOfPracticaByMonthLastYear: Map&lt;CourseType,List&lt;Integer\&gt;&gt;
-+ sessionsPeriodLenthAveragePerPractica: Double
-+ sessionsPeriodLengthDeviationPerPractica: Double
-+ sessionsPeriodLengthMinimumPerPractica: Double
-+ sessionsPeriodLengthMaximunPerPractica: Double
-+ practicaPeriodLengthAverage: Double
-+ practicaPeriodLengthDeviation: Double
-+ practicaPeriodLengthMinimun: Double
-+ practicaPeriodLengthMaximun: Double
++ sessionsPeriodLenthAveragePerPractica: double
++ sessionsPeriodLengthDeviationPerPractica: double
++ sessionsPeriodLengthMinimumPerPractica: double
++ sessionsPeriodLengthMaximunPerPractica: double
++ practicaPeriodLengthAverage: double
++ practicaPeriodLengthDeviation: double
++ practicaPeriodLengthMinimun: double
++ practicaPeriodLengthMaximun: double
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -119,7 +120,7 @@ bg=green
     <id>UMLNote</id>
     <coordinates>
       <x>720</x>
-      <y>432</y>
+      <y>477</y>
       <w>252</w>
       <h>36</h>
     </coordinates>
@@ -132,19 +133,19 @@ bg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>495</x>
-      <y>369</y>
+      <y>423</y>
       <w>45</w>
-      <h>117</h>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>297</x>
-      <y>540</y>
+      <y>585</y>
       <w>72</w>
       <h>108</h>
     </coordinates>
@@ -154,47 +155,33 @@ m2=1..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>666</x>
-      <y>63</y>
-      <w>261</w>
-      <h>180</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-x
-has &gt;
-m1=1
-m2=1</panel_attributes>
-    <additional_attributes>260.0;180.0;260.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>513</x>
-      <y>117</y>
+      <y>171</y>
       <w>90</w>
-      <h>126</h>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 publishes &gt;
 m1=1
 m2=0..n</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>963</x>
-      <y>342</y>
+      <y>387</y>
       <w>225</w>
       <h>135</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>170.0;10.0;230.0;10.0;230.0;130.0;10.0;130.0</additional_attributes>
+    <additional_attributes>200.0;10.0;230.0;10.0;230.0;130.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>189</x>
-      <y>306</y>
+      <y>351</y>
       <w>144</w>
       <h>27</h>
     </coordinates>
