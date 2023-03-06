@@ -3,7 +3,6 @@ package acme.roles;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -14,28 +13,25 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity 
+@Entity
 public class Auditor extends AbstractRole {
 
-	protected static final long serialVersionUID = 1L;
-	
-	@NotNull
+	protected static final long	serialVersionUID	= 1L;
+
 	@NotBlank
-	@Length( max = 25 )
-	protected String professionalId;
-	
-	@NotNull
+	@Length(max = 25)
+	protected String			professionalId;
+
 	@NotBlank
-	@Length( max = 75 )
-	protected String firm;
-	
-	@NotNull
+	@Length(max = 75)
+	protected String			firm;
+
 	@NotBlank
-	@Length( max = 100 )
-	protected String certifications;
-	
+	@Length(max = 100)
+	protected String			certifications;
+
 	@NotBlank
 	@URL
-	protected String moreInfo;
-	
+	protected String			moreInfo;
+
 }

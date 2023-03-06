@@ -1,3 +1,4 @@
+
 package acme.entities;
 
 import javax.persistence.Entity;
@@ -20,34 +21,28 @@ import lombok.Setter;
 @Setter
 public class AuditRecord extends AbstractEntity {
 
-	protected static final long serialVersionUID = 1L;
-	
-	@NotNull
+	protected static final long	serialVersionUID	= 1L;
+
 	@NotBlank
-	@Length( max = 75 )
-	protected String subject;
-	
-	@NotNull
+	@Length(max = 75)
+	protected String			subject;
+
 	@NotBlank
-	@Length( max = 100 )
-	protected String assesment;
-	
-	@NotNull
+	@Length(max = 100)
+	protected String			assesment;
+
 	@NotBlank
-	@Pattern( regexp = "(?:A\\+|A|B|C|D|F|F\\-)" )
-	protected String mark;
-	
-	@NotNull
-	@Digits( integer = 1, fraction = 2 )
-	@Range( min = (long) 0.01, max = 1 )
-	protected double period;
-	
-	
-	@NotBlank
+	@Pattern(regexp = "(?:A\\+|A|B|C|D|F|F\\-)")
+	protected String			mark;
+
+	@Digits(integer = 1, fraction = 2)
+	@Range(min = (long) 0.01, max = 1)
+	protected double			period;
+
 	@URL
-	protected String moreInfo;
+	protected String			moreInfo;
 
 	@NotNull
-	@ManyToOne( optional = false )
-	protected Audit audit;
+	@ManyToOne(optional = false)
+	protected Audit				audit;
 }
