@@ -59,7 +59,7 @@ bg=red</panel_attributes>
     <coordinates>
       <x>372</x>
       <y>306</y>
-      <w>180</w>
+      <w>228</w>
       <h>78</h>
     </coordinates>
     <panel_attributes>bg=green
@@ -68,7 +68,7 @@ AuditRecord
 --
 + subject: String{NotBlank, Length(0,75)}
 + assesment: String{NotBlank, Length(0,100)}
-+ mark: String{NotBlank}
++ mark: String{NotBlank, Pattern("(?:A\+|A|B|C|D|F|F\-)")}
 + period: double{ Range(0.01, 1)}
 + moreInfo: String{NotBlank}</panel_attributes>
     <additional_attributes/>
@@ -79,12 +79,9 @@ AuditRecord
       <x>372</x>
       <y>402</y>
       <w>252</w>
-      <h>66</h>
+      <h>36</h>
     </coordinates>
-    <panel_attributes>Marks have to be one of the next:
-( A+, A, B, C, D, F, F- )
-
-Period will be set a a floating number between 0.01, and 1,
+    <panel_attributes>Period will be set a a floating number between 0.01, and 1,
 since the range is of 1 hour and the minimum time is 0.01 seconds
 
 
