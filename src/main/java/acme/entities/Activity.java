@@ -35,7 +35,7 @@ public class Activity extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			_abstract;
+	protected String			abstract_;
 
 	@URL
 	protected String			moreInfo;
