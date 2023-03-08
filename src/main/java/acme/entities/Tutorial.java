@@ -9,9 +9,10 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.framework.data.AbstractEntity;
 import acme.roles.Assistant;
 
-public class Tutorial {
+public class Tutorial extends AbstractEntity {
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
