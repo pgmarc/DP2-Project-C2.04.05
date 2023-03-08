@@ -3,16 +3,16 @@ package acme.helpers;
 
 import javax.validation.constraints.NotNull;
 
-public class Statistic<E, T> {
+public class Statistic {
 
 	@NotNull
-	protected T			minimum;
+	protected double	minimum		= 0;
 
 	@NotNull
-	protected T			maximum;
+	protected double	maximum		= 0;
 
-	protected double	average;
+	protected double	average		= 0;
 
-	protected double	deviation;
+	protected double	deviation	= 0;
 
 }
