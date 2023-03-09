@@ -22,16 +22,16 @@ public class LecturerDashboard extends AbstractForm {
 
 	protected int				totalHandsOnLectures;
 
-	@Digits(fraction = 2, integer = 2)
+	@Digits(fraction = 2, integer = 3)
 	protected double			minimumLearningTimeLectures;
 
-	@Digits(fraction = 2, integer = 2)
+	@Digits(fraction = 2, integer = 3)
 	protected double			maximumLearningTimeLectures;
 
-	@Digits(fraction = 2, integer = 2)
+	@Digits(fraction = 2, integer = 3)
 	protected double			minimumLearningTimeCourses;
 
-	@Digits(fraction = 2, integer = 2)
+	@Digits(fraction = 2, integer = 3)
 	protected double			maximumLearningTimeCourses;
 
 	protected double			averageLectures;
