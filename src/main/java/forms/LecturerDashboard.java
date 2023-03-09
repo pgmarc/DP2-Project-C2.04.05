@@ -34,4 +34,11 @@ public class LecturerDashboard extends AbstractForm {
 	@Digits(fraction = 2, integer = 2)
 	protected double			maximumLearningTimeCourses;
 
+	protected double			averageLectures;
+
+	protected double			deviationLectures;
+
+	protected double			averageCourses;
+
+	protected double			deviationCourses;
 }
