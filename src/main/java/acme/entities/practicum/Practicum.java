@@ -3,11 +3,17 @@ package acme.entities.practicum;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+import javax.validation.Valid;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -38,13 +44,25 @@ public class Practicum extends AbstractEntity {
 
 	protected boolean			draftMode;
 
-	//@Transient
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
+
+	@Transient
+	@Digits(integer = 4, fraction = 2)
 	protected Double			sessionsTotalOfHours;
 
-	//@Transient
-	protected Double			sessionsTotalOfHoursPlusTenPercent;
+	@Transient
+	@Digits(integer = 4, fraction = 2)
+	protected double			sessionsTotalOfHoursPlusTenPercent;
 
-	//@Transient
-	protected Double			sessionsTotalOfHoursMinusTenPercent;
+	@Transient
+	@Digits(integer = 4, fraction = 2)
+	protected double			sessionsTotalOfHoursMinusTenPercent;
+
+	@Transient
+	@Digits(integer = 4, fraction = 2)
+	protected double			practicaPeriodLength;
 
 }

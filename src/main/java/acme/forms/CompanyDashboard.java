@@ -1,30 +1,31 @@
 
 package acme.forms;
 
-import java.util.List;
+import java.util.Map;
 
+import acme.entities.practicum.Practicum;
 import acme.framework.data.AbstractForm;
 
 public class CompanyDashboard extends AbstractForm {
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long		serialVersionUID	= 1L;
 
-	private List<Integer>		numberOfPracticaByMonthLastYear;
+	protected int[]					practicaPerCourseLastYear;
 
-	protected Double			sessionsPeriodLenthAveragePerPractica;
+	private Map<Practicum, Double>	sessionsPeriodLengthAveragePerPractica;
 
-	protected Double			sessionsPeriodLengthDeviationPerPractica;
+	private Map<Practicum, Double>	sessionsPeriodLengthDeviationPerPractica;
 
-	protected Double			sessionsPeriodLengthMinimumPerPractica;
+	private Map<Practicum, Double>	sessionsPeriodLengthMinimumPerPractica;
 
-	protected Double			sessionsPeriodLengthMaximunPerPractica;
+	private Map<Practicum, Double>	sessionsPeriodLengthMaximunPerPractica;
 
-	protected Double			practicaPeriodLengthAverage;
+	protected double				practicaPeriodLengthAverage;
 
-	protected Double			practicaPeriodLengthDeviation;
+	protected double				practicaPeriodLengthDeviation;
 
-	protected Double			practicaPeriodLengthMinimun;
+	protected double				practicaPeriodLengthMinimun;
 
-	protected Double			practicaPeriodLengthMaximun;
+	protected double				practicaPeriodLengthMaximun;
 
 }
