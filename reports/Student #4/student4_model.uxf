@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>9</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>405</x>
-      <y>63</y>
-      <w>270</w>
-      <h>117</h>
+      <x>360</x>
+      <y>0</y>
+      <w>300</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 Company
@@ -23,10 +23,10 @@ bg=green
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
-      <y>270</y>
-      <w>387</w>
-      <h>162</h>
+      <x>260</x>
+      <y>230</y>
+      <w>430</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Practicum
@@ -40,6 +40,7 @@ bg=green
 + / sessionsTotalOfHours: double {Transient}
 + / sessionsTotalOfHoursPlusTenPercent: double {Transient}
 + / sessionsTotalOfHoursMinusTenPercent: double {Transient}
++ / practicaPeriodLength: double {Transient}
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -47,9 +48,9 @@ bg=green
     <id>UMLNote</id>
     <coordinates>
       <x>0</x>
-      <y>324</y>
-      <w>198</w>
-      <h>54</h>
+      <y>290</y>
+      <w>220</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Estimated total time in hours,
 computed from the corresponding
@@ -60,10 +61,10 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>351</x>
-      <y>513</y>
-      <w>261</w>
-      <h>117</h>
+      <x>300</x>
+      <y>500</y>
+      <w>290</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Session
@@ -81,10 +82,10 @@ bg=green
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>351</x>
-      <y>648</y>
-      <w>270</w>
-      <h>63</h>
+      <x>300</x>
+      <y>650</y>
+      <w>300</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>The startingDate should be one week ahead
 of the current date and at least have to
@@ -95,20 +96,20 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>720</x>
-      <y>270</y>
-      <w>423</w>
-      <h>180</h>
+      <x>710</x>
+      <y>230</y>
+      <w>470</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 CompanyDashboard
 bg=green
 --
-+ numberOfPracticaByMonthLastYear: Map&lt;CourseType,List&lt;Integer\&gt;&gt;
-+ sessionsPeriodLenthAveragePerPractica: double
-+ sessionsPeriodLengthDeviationPerPractica: double
-+ sessionsPeriodLengthMinimumPerPractica: double
-+ sessionsPeriodLengthMaximunPerPractica: double
++ practicaPerCourseLastYear: int[]
++ sessionsPeriodLenthAveragePerPractica: Map&lt;Practicum,Double&gt;
++ sessionsPeriodLengthDeviationPerPractica: Map&lt;Practicum,Double&gt;
++ sessionsPeriodLengthMinimumPerPractica: Map&lt;Practicum,Double&gt;
++ sessionsPeriodLengthMaximunPerPractica: Map&lt;Practicum,Double&gt;
 + practicaPeriodLengthAverage: double
 + practicaPeriodLengthDeviation: double
 + practicaPeriodLengthMinimun: double
@@ -117,25 +118,12 @@ bg=green
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>720</x>
-      <y>477</y>
-      <w>252</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>numberOfPracticaByMonthLastYear will be
-hands-on only
-bg=red</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>495</x>
-      <y>423</y>
-      <w>45</w>
-      <h>108</h>
+      <x>460</x>
+      <y>400</y>
+      <w>50</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
 m2=1..*</panel_attributes>
@@ -144,10 +132,10 @@ m2=1..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>297</x>
-      <y>585</y>
-      <w>72</w>
-      <h>108</h>
+      <x>240</x>
+      <y>580</y>
+      <w>80</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
     <additional_attributes>60.0;10.0;10.0;10.0;10.0;100.0;60.0;100.0</additional_attributes>
@@ -155,10 +143,10 @@ m2=1..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>513</x>
-      <y>171</y>
-      <w>90</w>
-      <h>117</h>
+      <x>480</x>
+      <y>120</y>
+      <w>100</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 publishes &gt;
@@ -169,23 +157,43 @@ m2=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>963</x>
-      <y>387</y>
-      <w>225</w>
-      <h>135</h>
+      <x>210</x>
+      <y>320</y>
+      <w>70</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>200.0;10.0;230.0;10.0;230.0;130.0;10.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>730</x>
+      <y>490</y>
+      <w>420</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>- practicaPerCourseLastYear is a list of 12 positions (months)
+containing integers counting the number of ACTIVE practica
+each month during last year
+--
+- A practicum is ACTIVE during a particular month
+if there’s AT LEAST ONE SESSION of that practicum scheduled
+during that month
+--
+- practicaPerCourseLastYear will count HANDS-ON courses only
+bg=red</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>189</x>
-      <y>351</y>
-      <w>144</w>
-      <h>27</h>
+      <x>930</x>
+      <y>420</y>
+      <w>30</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
 </diagram>
