@@ -1,5 +1,5 @@
 
-package forms;
+package acme.forms;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Digits;
@@ -34,11 +34,11 @@ public class LecturerDashboard extends AbstractForm {
 	@Digits(fraction = 2, integer = 3)
 	protected double			maximumLearningTimeCourses;
 
-	protected double			averageLectures;
+	protected Double			averageLectures;
 
-	protected double			deviationLectures;
+	protected Double			deviationLectures;
 
-	protected double			averageCourses;
+	protected Double			averageCourses;
 
-	protected double			deviationCourses;
+	protected Double			deviationCourses;
 }
