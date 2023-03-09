@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>392</x>
+      <y>32</y>
+      <w>240</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Company
+bg=green
+--
++ name: String {NotBlank, Length(1,75)}
++ vatNumber: String {NotBlank, Length(1,25)}
++ summary: String {NotBlank, Length(1,100)}
++ moreInfo: String {URL}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>312</x>
+      <y>216</y>
+      <w>344</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Practicum
+bg=green
+--
++ code: String {Unique, NotBlank, Pattern("[A-Z]{1,3}[0-9]{3}")}
++ title: String {NotBlank, Length(1,75)}
++ abstrac: String {NotBlank, Length(1,100)}
++ goals: String {NotBlank, Length(1,100)}
++ draftMode: boolean
++ / sessionsTotalOfHours: double {Transient}
++ / sessionsTotalOfHoursPlusTenPercent: double {Transient}
++ / sessionsTotalOfHoursMinusTenPercent: double {Transient}
++ / practicaPeriodLength: double {Transient}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>104</x>
+      <y>264</y>
+      <w>176</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Estimated total time in hours,
+computed from the corresponding
+sessions plus/minus 10%
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>344</x>
+      <y>432</y>
+      <w>232</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Session
+bg=green
+--
++ title: String {NotBlank, Length(1,75)}
++ abstrac: String {NotBlank, Length(1,100)}
++ startingDate: Date {NotNull}
++ endingDate: Date {NotNull}
++ moreInfo: String {URL}
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>344</x>
+      <y>552</y>
+      <w>240</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>The startingDate should be one week ahead
+of the current date and at least have to
+be one week long
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>216</y>
+      <w>376</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+CompanyDashboard
+bg=green
+--
++ practicaPerCourseLastYear: int[]
++ sessionsPeriodLenthAveragePerPractica: Map&lt;Practicum,Double&gt;
++ sessionsPeriodLengthDeviationPerPractica: Map&lt;Practicum,Double&gt;
++ sessionsPeriodLengthMinimumPerPractica: Map&lt;Practicum,Double&gt;
++ sessionsPeriodLengthMaximunPerPractica: Map&lt;Practicum,Double&gt;
++ practicaPeriodLengthAverage: double
++ practicaPeriodLengthDeviation: double
++ practicaPeriodLengthMinimun: double
++ practicaPeriodLengthMaximun: double
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>360</y>
+      <w>40</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>296</x>
+      <y>496</y>
+      <w>64</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0;10.0;100.0;60.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>128</y>
+      <w>80</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+publishes &gt;
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>272</x>
+      <y>288</y>
+      <w>56</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>688</x>
+      <y>424</y>
+      <w>336</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>- practicaPerCourseLastYear is a list of 12 positions (months)
+containing integers counting the number of ACTIVE practica
+each month during last year
+--
+- A practicum is ACTIVE during a particular month
+if there’s AT LEAST ONE SESSION of that practicum scheduled
+during that month
+--
+- practicaPerCourseLastYear will count HANDS-ON courses only
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>848</x>
+      <y>368</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+</diagram>
