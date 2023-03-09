@@ -2,6 +2,7 @@
 package acme.entities;
 
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -43,6 +44,12 @@ public class Tutorial extends AbstractEntity {
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
+	@Valid
 	@ManyToOne(optional = false)
 	protected Assistant			assistant;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
 }
