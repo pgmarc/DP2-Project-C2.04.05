@@ -1,6 +1,7 @@
 
 package acme.entities;
 
+import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
@@ -21,7 +22,8 @@ public class Tutorial extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
+	@Column(unique = true)
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{4}")
 	protected String			code;
 
 	@NotBlank
