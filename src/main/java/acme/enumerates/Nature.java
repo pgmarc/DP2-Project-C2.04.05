@@ -2,5 +2,5 @@
 package acme.enumerates;
 
 public enum Nature {
-	THEORETICAL, HANDSON, BALANCED
+	THEORETICAL, HANDS_ON, BALANCED
 }
