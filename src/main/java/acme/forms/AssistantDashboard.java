@@ -17,19 +17,19 @@ public class AssistantDashboard extends AbstractForm {
 
 	protected int				totalNumberOfTutorials;
 
-	protected double			averageSessionTime;
+	protected Double			averageSessionTime;
 
-	protected double			maximumSessionTime;
+	protected Double			maximumSessionTime;
 
-	protected double			minimumSessionTime;
+	protected Double			minimumSessionTime;
 
-	protected double			standardDeviationTime;
+	protected Double			standardDeviationTime;
 
-	protected double			averageTutorialTime;
+	protected Double			averageTutorialTime;
 
-	protected double			maximumTutorialTime;
+	protected Double			maximumTutorialTime;
 
-	protected double			minimumTutorialTime;
+	protected Double			minimumTutorialTime;
 
-	protected double			standardDeviationTutorialTime;
+	protected Double			standardDeviationTutorialTime;
 }
