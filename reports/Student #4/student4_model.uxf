@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>392</x>
-      <y>32</y>
-      <w>240</w>
-      <h>104</h>
+      <x>378</x>
+      <y>120</y>
+      <w>180</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 Company
@@ -23,10 +23,10 @@ bg=green
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>312</x>
-      <y>216</y>
-      <w>344</w>
-      <h>152</h>
+      <x>342</x>
+      <y>252</y>
+      <w>240</w>
+      <h>114</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Practicum
@@ -34,23 +34,23 @@ bg=green
 --
 + code: String {Unique, NotBlank, Pattern("[A-Z]{1,3}[0-9]{3}")}
 + title: String {NotBlank, Length(1,75)}
-+ abstrac: String {NotBlank, Length(1,100)}
++ practicumAbstract: String {NotBlank, Length(1,100)}
 + goals: String {NotBlank, Length(1,100)}
 + draftMode: boolean
-+ / sessionsTotalOfHours: double {Transient}
-+ / sessionsTotalOfHoursPlusTenPercent: double {Transient}
-+ / sessionsTotalOfHoursMinusTenPercent: double {Transient}
-+ / practicaPeriodLength: double {Transient}
++ startingDate: Date {NotNull, Temporal(TIMESTAMP)}
++ endingDate: Date {NotNull, Temporal(TIMESTAMP)}
++ estimatedTotalTime: double {Min(168.00)}
++ practicaPeriodLength: double {Min(168.00)}
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>104</x>
-      <y>264</y>
-      <w>176</w>
-      <h>48</h>
+      <x>186</x>
+      <y>288</y>
+      <w>132</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Estimated total time in hours,
 computed from the corresponding
@@ -61,19 +61,19 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>344</x>
-      <y>432</y>
-      <w>232</w>
-      <h>104</h>
+      <x>366</x>
+      <y>414</y>
+      <w>204</w>
+      <h>78</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-Session
+PracticumSession
 bg=green
 --
 + title: String {NotBlank, Length(1,75)}
-+ abstrac: String {NotBlank, Length(1,100)}
-+ startingDate: Date {NotNull}
-+ endingDate: Date {NotNull}
++ sessionAbstract: String {NotBlank, Length(1,100)}
++ startingDate: Date {NotNull, Temporal(Timestamp)}
++ endingDate: Date {NotNull, Temporal(Timestamp)}
 + moreInfo: String {URL}
 
 </panel_attributes>
@@ -82,10 +82,10 @@ bg=green
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>344</x>
-      <y>552</y>
-      <w>240</w>
-      <h>56</h>
+      <x>138</x>
+      <y>444</y>
+      <w>180</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>The startingDate should be one week ahead
 of the current date and at least have to
@@ -96,10 +96,10 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>672</x>
-      <y>216</y>
-      <w>376</w>
-      <h>160</h>
+      <x>606</x>
+      <y>252</y>
+      <w>276</w>
+      <h>114</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 CompanyDashboard
@@ -120,47 +120,37 @@ bg=green
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>472</x>
+      <x>462</x>
       <y>360</y>
-      <w>40</w>
-      <h>88</h>
+      <w>30</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
-m2=1..*</panel_attributes>
+m2=1..*
+has</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>296</x>
-      <y>496</y>
-      <w>64</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;10.0;10.0;100.0;60.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>488</x>
-      <y>128</y>
-      <w>80</w>
-      <h>104</h>
+      <x>456</x>
+      <y>180</y>
+      <w>60</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 publishes &gt;
 m1=1
 m2=0..n</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>272</x>
-      <y>288</y>
-      <w>56</w>
-      <h>24</h>
+      <x>312</x>
+      <y>306</y>
+      <w>42</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
     <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
@@ -168,10 +158,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>688</x>
-      <y>424</y>
-      <w>336</w>
-      <h>112</h>
+      <x>606</x>
+      <y>414</y>
+      <w>252</w>
+      <h>78</h>
     </coordinates>
     <panel_attributes>- practicaPerCourseLastYear is a list of 12 positions (months)
 containing integers counting the number of ACTIVE practica
@@ -188,12 +178,55 @@ bg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>848</x>
-      <y>368</y>
-      <w>24</w>
-      <h>72</h>
+      <x>726</x>
+      <y>360</y>
+      <w>18</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>102</x>
+      <y>330</y>
+      <w>216</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>- startingDate is the startingDate of the first session
+endingDate is the endingDate of the last session
+--
+- Min(168.00) is the minimun time a practica could last 
+derived from the minimun length of a session which is
+at least one week.
+(one week is 24 hours X 7 days = 168 hours)
+--
+- practicaPeriodLength is the time elapsed between
+startingDate and endingDate
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>312</x>
+      <y>342</y>
+      <w>42</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>312</x>
+      <y>462</y>
+      <w>66</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
   </element>
 </diagram>

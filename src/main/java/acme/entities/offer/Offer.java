@@ -29,11 +29,11 @@ public class Offer extends AbstractEntity {
 	@NotNull
 	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				instatiationMoment;
+	protected Date				instantiationMoment;
 
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String			header;
+	protected String			heading;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
@@ -47,7 +47,6 @@ public class Offer extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endingDate;
 
-	//positive
 	@NotNull
 	@Valid
 	protected Money				price;
