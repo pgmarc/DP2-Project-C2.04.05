@@ -1,4 +1,4 @@
 key,code,key:lecturer,title,course-abstract,nature,retail-price,more-info,draft-mode
 course-01,A 001,lecturer-01,Introduction to Computer Science,"Learn algorithms, data structures, programming languages, and software engineering principles in this intro course.",balanced,EUR 9999.99,https://example.com/A-001,true
-course-02,Z 999,lecturer-02,a,a,hands_on,USD 0.00,null,false
-course-03,H 542,lecturer-01,La vida es una constante lucha entre dar todo por alguien más y querer recibir algo a cambio.,Un pequeño paso puede ser el comienzo de un gran viaje.,theoretical,GBP 50.49,https://example.com/H-542,true
+course-02,ZZ 999,lecturer-02,a,a,hands_on,USD 0.00,null,false
+course-03,HHH 542,lecturer-01,La vida es una constante lucha entre dar todo por alguien más y querer recibir algo a cambio.,Un pequeño paso puede ser el comienzo de un gran viaje.,theoretical,GBP 50.49,https://example.com/H-542,true
