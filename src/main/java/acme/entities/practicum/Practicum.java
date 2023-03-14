@@ -27,46 +27,46 @@ import lombok.Setter;
 @Setter
 public class Practicum extends AbstractEntity {
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	@Column(unique = true)
 	@NotBlank
 	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
-	protected String			code;
+	protected String code;
 
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String			title;
+	protected String title;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String			practicumAbstract;
+	protected String practicumAbstract;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String			goals;
+	protected String goals;
 
-	protected boolean			draftMode;
-
-	@NotNull
-	@Temporal(TemporalType.DATE)
-	protected Date				startingDate;
+	protected boolean draftMode;
 
 	@NotNull
 	@Temporal(TemporalType.DATE)
-	protected Date				endingDate;
+	protected Date startingDate;
+
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	protected Date endingDate;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Course			course;
+	protected Course course;
 
 	@Digits(integer = 4, fraction = 2)
 	@DecimalMin(value = "168.00")
-	protected double			estimatedTotalTime;
+	protected double estimatedTotalTime;
 
 	@Digits(integer = 4, fraction = 2)
 	@DecimalMin(value = "168.00")
-	protected double			practicaPeriodLength;
+	protected double practicaPeriodLength;
 
 }

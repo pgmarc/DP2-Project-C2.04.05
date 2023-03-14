@@ -1,20 +1,20 @@
 
-package acme.entities.offer;
+package acme.entities.session;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.datatypes.Money;
+import acme.entities.practicum.Practicum;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,36 +22,31 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Offer extends AbstractEntity {
+public class Session extends AbstractEntity {
 
-	protected static final long serialVersionUID = 1L;
-
-	@NotNull
-	@PastOrPresent
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date instantiationMoment;
+	protected static final long	serialVersionUID	= 1L;
 
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String heading;
+	protected String			title;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String summary;
+	protected String			abstrac;
 
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date startingDate;
+	@Temporal(TemporalType.DATE)
+	protected Date				startingDate;
 
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date endingDate;
+	@Temporal(TemporalType.DATE)
+	protected Date				endingDate;
+
+	@URL
+	protected String			moreInfo;
 
 	@NotNull
 	@Valid
-	protected Money price;
-
-	@URL
-	protected String moreInfo;
-
+	@ManyToOne(optional = false)
+	protected Practicum			practicum;
 }
