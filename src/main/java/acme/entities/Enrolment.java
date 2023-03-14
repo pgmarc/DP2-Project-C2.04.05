@@ -31,7 +31,7 @@ public class Enrolment extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
 	protected String			code;
 
 	@NotBlank
@@ -45,7 +45,7 @@ public class Enrolment extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 
 	@Transient
-	@Digits(integer = 0, fraction = 2)
+	@Digits(integer = 3, fraction = 2)
 	public double				workTime; //This property must be computed in the service
 
 	// Relationships ----------------------------------------------------------

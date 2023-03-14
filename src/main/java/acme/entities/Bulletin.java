@@ -28,7 +28,7 @@ public class Bulletin extends AbstractEntity {
 
 	@NotNull
 	@Past
-	protected Date				instantionMoment;
+	protected Date				instantiationMoment;
 
 	@NotBlank
 	@Length(max = 75)

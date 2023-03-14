@@ -8,7 +8,6 @@ import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -31,23 +30,22 @@ public class Activity extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			title;
+	protected String			titleWorkspace;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			abstract_;
+	protected String			abstractWorkspace;
 
 	@URL
 	protected String			moreInfo;
 
+	@NotNull
 	protected ActivityType		type;
 
 	@NotNull
-	@Past
 	protected Date				startDate;
 
 	@NotNull
-	@Past
 	protected Date				endDate;
 
 	// Relationships ----------------------------------------------------------
