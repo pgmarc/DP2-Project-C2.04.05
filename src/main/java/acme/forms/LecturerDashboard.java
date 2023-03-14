@@ -1,14 +1,12 @@
 
 package acme.forms;
 
-import javax.persistence.Entity;
 import javax.validation.constraints.Digits;
 
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
 public class LecturerDashboard extends AbstractForm {
