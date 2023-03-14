@@ -15,4 +15,5 @@ public class Course extends AbstractEntity {
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long serialVersionUID = 1L;
+
 }

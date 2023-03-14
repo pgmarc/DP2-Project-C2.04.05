@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -23,7 +22,6 @@ public class Note extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@Past
 	protected Date				instantiationMoment;
 
 	@NotBlank

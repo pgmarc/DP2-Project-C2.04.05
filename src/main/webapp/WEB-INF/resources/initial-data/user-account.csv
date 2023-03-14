@@ -5,3 +5,5 @@ user-account-student-01,true,"UserIdentity{name: 'Student', surname: 'Nuevo', em
 user-account-student-02,true,"UserIdentity{name: 'Almancio', surname: 'Fernandez Montes', email: 'arbol.decision@acme.com'}",student2,student2
 user-account-company-01,true,"UserIdentity{name: 'ACME JOBS', surname: 'Acme', email: 'acmecompany@acme.com'}",company1,company1
 user-account-company-02,true,"UserIdentity{name: 'Antonio', surname: 'González', email: 'zevenet@zev.com'}",company2,company2
+user-account-auditor-01,true,"UserIdentity{name: 'Fernando José', surname: 'Mateos Gómez', email: 'test1@email.com'}",auditor1,auditor1
+user-account-auditor-02,true,"UserIdentity{name: 'Fernando José', surname: 'Mateos Gómez', email: 'test2@email.com'}",auditor2,auditor2
