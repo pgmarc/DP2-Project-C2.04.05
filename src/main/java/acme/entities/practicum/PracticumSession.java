@@ -1,5 +1,5 @@
 
-package acme.entities.session;
+package acme.entities.practicum;
 
 import java.util.Date;
 
@@ -14,7 +14,6 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.practicum.Practicum;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;

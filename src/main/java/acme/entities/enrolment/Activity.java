@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.enrolment;
 
 import java.util.Date;
 
@@ -30,11 +30,11 @@ public class Activity extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			titleWorkspace;
+	protected String			activityTitle;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			abstractWorkspace;
+	protected String			activityAbstract;
 
 	@URL
 	protected String			moreInfo;

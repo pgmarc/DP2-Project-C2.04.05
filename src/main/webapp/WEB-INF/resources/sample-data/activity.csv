@@ -1,4 +1,4 @@
-key,title-workspace,abstract-workspace,more-info,type,start-date,end-date,key:enrolment
+key,activity-title,activity-abstract,more-info,type,start-date,end-date,key:enrolment
 activity-01,The Ultimate Guide to Creating a Successful Online Store: Strategies Tips,Learn the basics of Acme programming,null,THEORY,2022/01/01 22:00,2022/01/01 22:50,enrolment-01
 activity-02,Web Development Fundamentals,Discover the art of web: learn to develop software,https://example.com/webdev-info,HANDS_ON,2020/02/29 14:00,2020/02/29 14:30,enrolment-01
 activity-03,Web Development with HTML and CSS,You will learn how to create a website using HTML and CSS in this activity,null,HANDS_ON,2023/06/20 22:50,2023/06/21 00:30,enrolment-02

@@ -1,12 +1,12 @@
 
-package acme.entities;
+package acme.entities.message;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Transient;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -18,16 +18,10 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Bulletin extends AbstractEntity {
+public class Note extends AbstractEntity {
 
-	// Serialisation identifier -----------------------------------------------
+	private static final long	serialVersionUID	= 1L;
 
-	protected static final long	serialVersionUID	= 1L;
-
-	// Attributes -------------------------------------------------------------
-
-	@NotNull
-	@Past
 	protected Date				instantiationMoment;
 
 	@NotBlank
@@ -38,9 +32,14 @@ public class Bulletin extends AbstractEntity {
 	@Length(max = 100)
 	protected String			message;
 
-	protected boolean			critical;
+	@Email
+	protected String			email;
 
 	@URL
 	protected String			moreInfo;
+
+	@NotBlank
+	@Transient
+	protected String			fullName;
 
 }

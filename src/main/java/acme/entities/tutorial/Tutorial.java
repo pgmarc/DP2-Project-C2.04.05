@@ -1,26 +1,27 @@
 
-package acme.entities;
+package acme.entities.tutorial;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
 import acme.entities.course.Course;
-import acme.enumerates.Nature;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Lecture extends AbstractEntity {
+public class Tutorial extends AbstractEntity {
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
@@ -28,28 +29,36 @@ public class Lecture extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
+	@Column(unique = true)
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{4}")
+	protected String			code;
+
+	@NotBlank
 	@Length(min = 1, max = 75)
 	protected String			title;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String			lectureAbstract;
-
-	@Digits(fraction = 2, integer = 3)
-	protected double			estimatedLearningTime;
-
-	protected Nature			nature;
+	protected String			abstrac;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String			body;
+	protected String			goals;
 
-	@URL
-	protected String			moreInfo;
+	@Digits(integer = 3, fraction = 2)
+	protected double			estimatedHours;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 	@NotNull
 	@Valid
-	@ManyToOne
-	protected Course			course;
+	@ManyToOne(optional = false)
+	protected Assistant			assistant;
 
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
 }

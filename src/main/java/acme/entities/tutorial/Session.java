@@ -1,16 +1,17 @@
 
-package acme.entities;
+package acme.entities.tutorial;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
+import acme.datatypes.SessionNature;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Banner extends AbstractEntity {
+public class Session extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -26,25 +27,34 @@ public class Banner extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotNull
-	@Past
-	protected Date				lastModified;
-
-	@NotNull
-	protected Date				displayStart;
-
-	@NotNull
-	protected Date				displayFinish;
-
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String			slogan;
+	protected String			title;
 
-	@URL
-	protected String			moreInfo;
+	@NotBlank
+	@Length(min = 1, max = 100)
+	protected String			abstrac;
+
+	@NotBlank
+	@Length(min = 1, max = 100)
+	protected String			goals;
+
+	@NotNull
+	protected SessionNature		sessionNature;
+
+	@NotNull
+	protected Date				startDate;
+
+	@NotNull
+	protected Date				finishDate;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Tutorial			tutorial;
 
 }

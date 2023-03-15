@@ -62,8 +62,8 @@ has &gt;</panel_attributes>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Activity
 --
-+ title: String {NotBlank, Length(1,75)}
-+ abstract: String {NotBlank, Length(1,100)}
++ activityTitle: String {NotBlank, Length(1,75)}
++ activityAbstract: String {NotBlank, Length(1,100)}
 + moreInfo: String {URL}
 + activityType: ActivityType {NotNull}
 + startDate: Date {NotNull}

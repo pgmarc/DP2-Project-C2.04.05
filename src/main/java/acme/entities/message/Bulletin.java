@@ -1,10 +1,9 @@
 
-package acme.entities;
+package acme.entities.message;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -19,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Peep extends AbstractEntity {
+public class Bulletin extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -36,16 +35,12 @@ public class Peep extends AbstractEntity {
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 75)
-	protected String			nick;
-
-	@NotBlank
 	@Length(max = 100)
 	protected String			message;
 
-	@Email
-	protected String			email;
+	protected boolean			critical;
 
 	@URL
 	protected String			moreInfo;
+
 }
