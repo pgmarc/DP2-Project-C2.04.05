@@ -1,4 +1,4 @@
-key,code,tile,abstrac,goals,estimated-hours,key:assistant,key:course
+key,code,title,abstrac,goals,estimated-hours,key:assistant,key:course
 tutorial-01,"AAA2222","How to multiply.","We will learn basic math.","Learn mathematics.",1.0,assistant-01,course-01
 tutorial-02,"B4444","How to make sound.","We will learn how sound is made.","Make sounds.",5.5,assistant-02,course-01
 tutorial-03,"A1111","How to teach.","We will learn how to communicate knowledge.","Teach others.\nLearn.",2.0,assistant-03,course-01

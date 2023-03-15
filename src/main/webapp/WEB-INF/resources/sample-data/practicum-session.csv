@@ -1,7 +1,7 @@
 key,key:practicum,title,session-abstract,starting-date,ending-date,more-info
-session-01,practicum-01,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com
-session-02,practicum-02,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com
-session-03,practicum-02,This is a title,Session abstract,2022/08/26 00:00,2022/09/02 00:00,null
-session-04,practicum-03,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com
-session-05,practicum-03,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com
-session-06,practicum-03,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,null
+practicum-session-01,practicum-01,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com
+practicum-session-02,practicum-02,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com
+practicum-session-03,practicum-02,This is a title,Session abstract,2022/08/26 00:00,2022/09/02 00:00,null
+practicum-session-04,practicum-03,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com
+practicum-session-05,practicum-03,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com
+practicum-session-06,practicum-03,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,null

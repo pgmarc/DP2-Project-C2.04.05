@@ -14,7 +14,6 @@ import javax.validation.constraints.PastOrPresent;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,34 +23,34 @@ import lombok.Setter;
 @Setter
 public class Offer extends AbstractEntity {
 
-	protected static final long serialVersionUID = 1L;
+	protected static final long	serialVersionUID	= 1L;
 
 	@NotNull
 	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date instantiationMoment;
+	protected Date				instantiationMoment;
 
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String heading;
+	protected String			heading;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String summary;
+	protected String			summary;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date startingDate;
+	protected Date				startingDate;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date endingDate;
+	protected Date				endingDate;
 
 	@NotNull
 	@Valid
-	protected Money price;
+	protected Double			price;
 
 	@URL
-	protected String moreInfo;
+	protected String			moreInfo;
 
 }
