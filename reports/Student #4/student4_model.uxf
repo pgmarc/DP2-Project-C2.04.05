@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>6</zoom_level>
+  <zoom_level>11</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>378</x>
-      <y>120</y>
-      <w>180</w>
-      <h>66</h>
+      <x>572</x>
+      <y>0</y>
+      <w>330</w>
+      <h>121</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 Company
@@ -23,10 +23,10 @@ bg=green
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>342</x>
-      <y>252</y>
-      <w>240</w>
-      <h>114</h>
+      <x>506</x>
+      <y>242</y>
+      <w>440</w>
+      <h>209</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Practicum
@@ -40,17 +40,17 @@ bg=green
 + startingDate: Date {NotNull, Temporal(TIMESTAMP)}
 + endingDate: Date {NotNull, Temporal(TIMESTAMP)}
 + estimatedTotalTime: double {Min(168.00)}
-+ practicaPeriodLength: double {Min(168.00)}
++ / practicaPeriodLength: double {Transient, Min(168.00)}
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>186</x>
-      <y>288</y>
-      <w>132</w>
-      <h>36</h>
+      <x>220</x>
+      <y>308</y>
+      <w>242</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>Estimated total time in hours,
 computed from the corresponding
@@ -61,10 +61,10 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>366</x>
-      <y>414</y>
-      <w>204</w>
-      <h>78</h>
+      <x>550</x>
+      <y>539</y>
+      <w>374</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 PracticumSession
@@ -82,10 +82,10 @@ bg=green
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>138</x>
-      <y>444</y>
-      <w>180</w>
-      <h>42</h>
+      <x>132</x>
+      <y>594</y>
+      <w>330</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>The startingDate should be one week ahead
 of the current date and at least have to
@@ -96,10 +96,10 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>606</x>
-      <y>252</y>
-      <w>276</w>
-      <h>114</h>
+      <x>990</x>
+      <y>242</y>
+      <w>506</w>
+      <h>209</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 CompanyDashboard
@@ -120,10 +120,10 @@ bg=green
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>462</x>
-      <y>360</y>
-      <w>30</w>
-      <h>66</h>
+      <x>726</x>
+      <y>440</y>
+      <w>55</w>
+      <h>121</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
 m2=1..*
@@ -133,10 +133,10 @@ has</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>456</x>
-      <y>180</y>
-      <w>60</w>
-      <h>84</h>
+      <x>715</x>
+      <y>110</y>
+      <w>110</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 publishes &gt;
@@ -147,10 +147,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>312</x>
-      <y>306</y>
-      <w>42</w>
-      <h>18</h>
+      <x>451</x>
+      <y>341</y>
+      <w>77</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
     <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
@@ -158,10 +158,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>606</x>
-      <y>414</y>
-      <w>252</w>
-      <h>78</h>
+      <x>990</x>
+      <y>539</y>
+      <w>462</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>- practicaPerCourseLastYear is a list of 12 positions (months)
 containing integers counting the number of ACTIVE practica
@@ -178,10 +178,10 @@ bg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>726</x>
-      <y>360</y>
-      <w>18</w>
-      <h>66</h>
+      <x>1210</x>
+      <y>440</y>
+      <w>33</w>
+      <h>121</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
@@ -189,10 +189,10 @@ bg=red</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>102</x>
-      <y>330</y>
-      <w>216</w>
-      <h>90</h>
+      <x>66</x>
+      <y>385</y>
+      <w>396</w>
+      <h>165</h>
     </coordinates>
     <panel_attributes>- startingDate is the startingDate of the first session
 endingDate is the endingDate of the last session
@@ -203,17 +203,18 @@ at least one week.
 (one week is 24 hours X 7 days = 168 hours)
 --
 - practicaPeriodLength is the time elapsed between
-startingDate and endingDate
+startingDate and endingDate. Will be computed in hours but
+visualized by the client in days
 bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>312</x>
-      <y>342</y>
-      <w>42</w>
-      <h>18</h>
+      <x>451</x>
+      <y>407</y>
+      <w>77</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
     <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
@@ -221,10 +222,10 @@ bg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>312</x>
-      <y>462</y>
-      <w>66</w>
-      <h>18</h>
+      <x>451</x>
+      <y>627</y>
+      <w>121</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
     <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
