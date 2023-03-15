@@ -1,0 +1,4 @@
+key,key:course,title,lecture-abstract,estimated-learning-time,nature,body,more-info
+lecture-01,course-01,Introduction to Computer Science 01,"Learn algorithms, data structures, programming languages, and software engineering major lectures!!!",000.00,BALANCED,Esta lecture no sirve de mucho pero esta graciosa cuanto menos y es obligatoria para aprobar jajaja.,https://example.com/A-001
+lecture-02,course-02,a,a,999.99,HANDS_ON,a,null
+lecture-03,course-02,La vida es una constante lucha entre dar todo por alguien más y recibir mas,Un pequeño paso puede ser el comienzo de un gran viaje.,150.43,THEORETICAL,Un gran paso puede ser el comienzo de un pequeño viaje,https://example.com/H-542

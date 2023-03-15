@@ -1,14 +1,12 @@
 
-package forms;
+package acme.forms;
 
-import javax.persistence.Entity;
 import javax.validation.constraints.Digits;
 
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
 public class LecturerDashboard extends AbstractForm {
@@ -34,11 +32,11 @@ public class LecturerDashboard extends AbstractForm {
 	@Digits(fraction = 2, integer = 3)
 	protected double			maximumLearningTimeCourses;
 
-	protected double			averageLectures;
+	protected Double			averageLectures;
 
-	protected double			deviationLectures;
+	protected Double			deviationLectures;
 
-	protected double			averageCourses;
+	protected Double			averageCourses;
 
-	protected double			deviationCourses;
+	protected Double			deviationCourses;
 }
