@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
-import acme.datatypes.SessionNature;
+import acme.enumerates.SessionNature;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
