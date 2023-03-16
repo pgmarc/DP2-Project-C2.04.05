@@ -10,20 +10,20 @@ import acme.helpers.Statistic;
 
 public class AdministratorDashboard extends AbstractForm {
 
-	protected double				peepsRatioEmailAndLink;
+	private static final long			serialVersionUID	= 1L;
+
+	protected double					peepsRatioEmailAndLink;
 
 	@NotNull
-	protected Map<String, Integer>	numberOfPrincipalWithRole;
+	protected Map<String, Integer>		numberOfPrincipalWithRole;
 
 	@NotNull
-	protected Map<Boolean, Double>	bulletinRatio;
+	protected Map<Boolean, Double>		bulletinRatio;
 
-	// Uncomment when Currency is created
-	//@NotNull
-	//protected Map<Currency, Statistic>	budgetStatistics;
-
-	// Requires Note class when being implemented
 	@NotNull
-	protected Statistic				noteStatistics;
+	protected Map<String, Statistic>	budgetStatistics;
+
+	@NotNull
+	protected Statistic					noteStatistics;
 
 }

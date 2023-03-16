@@ -1,16 +1,19 @@
 
 package acme.entities.audit;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
@@ -36,9 +39,16 @@ public class AuditRecord extends AbstractEntity {
 	@Pattern(regexp = "(?:A\\+|A|B|C|D|F|F\\-)")
 	protected String			mark;
 
-	@Digits(integer = 1, fraction = 2)
-	@Range(min = (long) 0.01, max = 1)
-	protected double			period;
+	// initDate and endDate between 1 hour of length
+	@NotNull
+	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				initDate;
+
+	@NotNull
+	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				endDate;
 
 	@URL
 	protected String			moreInfo;

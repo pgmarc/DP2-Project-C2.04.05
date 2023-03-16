@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>252</x>
-      <y>216</y>
+      <x>90</x>
+      <y>210</y>
       <w>186</w>
       <h>78</h>
     </coordinates>
@@ -22,8 +22,8 @@ Auditor
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>192</x>
-      <y>318</y>
+      <x>30</x>
+      <y>312</y>
       <w>258</w>
       <h>78</h>
     </coordinates>
@@ -41,8 +41,8 @@ Audit
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>162</x>
-      <y>408</y>
+      <x>0</x>
+      <y>402</y>
       <w>270</w>
       <h>54</h>
     </coordinates>
@@ -57,8 +57,8 @@ bg=red</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>534</x>
-      <y>414</y>
+      <x>372</x>
+      <y>408</y>
       <w>252</w>
       <h>30</h>
     </coordinates>
@@ -72,8 +72,8 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>534</x>
-      <y>318</y>
+      <x>372</x>
+      <y>312</y>
       <w>222</w>
       <h>78</h>
     </coordinates>
@@ -84,15 +84,16 @@ AuditRecord
 + subject: String{NotBlank, Length(0,75)}
 + assesment: String{NotBlank, Length(0,100)}
 + mark: String{NotBlank, Pattern("(?:A\+|A|B|C|D|F|F\-)")}
-+ period: double{ Range(0.01, 1)}
++ initDate: Date{NotNull, Past}
++ endDate: Date{NotNull, Past}
 + moreInfo: String{NotBlank}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>534</x>
-      <y>210</y>
+      <x>372</x>
+      <y>204</y>
       <w>222</w>
       <h>90</h>
     </coordinates>
@@ -109,8 +110,8 @@ AuditorDashboard
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>444</x>
-      <y>354</y>
+      <x>282</x>
+      <y>348</y>
       <w>102</w>
       <h>24</h>
     </coordinates>
@@ -121,8 +122,8 @@ m2=1..n</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>210</x>
-      <y>120</y>
+      <x>48</x>
+      <y>114</y>
       <w>192</w>
       <h>24</h>
     </coordinates>
