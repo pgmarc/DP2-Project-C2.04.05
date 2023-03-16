@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -12,7 +14,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.ActivityType;
+import acme.enumerates.ActivityType;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,11 +32,11 @@ public class Activity extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			activityTitle;
+	protected String			title;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			activityAbstract;
+	protected String			abstract$;
 
 	@URL
 	protected String			moreInfo;
@@ -43,9 +45,11 @@ public class Activity extends AbstractEntity {
 	protected ActivityType		type;
 
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				startDate;
 
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endDate;
 
 	// Relationships ----------------------------------------------------------
