@@ -14,6 +14,7 @@ import javax.validation.constraints.PastOrPresent;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -48,7 +49,7 @@ public class Offer extends AbstractEntity {
 
 	@NotNull
 	@Valid
-	protected Double			price;
+	protected Money				price;
 
 	@URL
 	protected String			moreInfo;
