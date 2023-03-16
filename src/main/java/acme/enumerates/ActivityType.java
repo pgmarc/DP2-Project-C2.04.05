@@ -1,5 +1,5 @@
 
-package acme.datatypes;
+package acme.enumerates;
 
 public enum ActivityType {
 
