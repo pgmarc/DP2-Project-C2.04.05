@@ -65,7 +65,7 @@ Activity
 + title: String {NotBlank, Length(1,75)}
 + abstract$: String {NotBlank, Length(1,100)}
 + moreInfo: String {URL}
-+ activityType: ActivityType {NotNull}
++ activityType: Nature {NotNull}
 + startDate: Date {NotNull, Temporal(TIMESTAMP)}
 + endDate: Date {NotNull, , Temporal(TIMESTAMP)}
 bg=green</panel_attributes>
@@ -181,7 +181,7 @@ bg=red</panel_attributes>
       <h>70</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enum&gt;&gt;
-ActivityType
+Nature
 --
 + Theory
 + Hands-on
