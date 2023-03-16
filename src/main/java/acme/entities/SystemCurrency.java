@@ -6,7 +6,6 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Value;
 
-import acme.enumerates.Currency;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,8 +21,8 @@ public class SystemCurrency extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotNull
-	@Value("${Currency.EUR}")
-	protected Currency			currentCurrency;
+	@Value("EUR")
+	protected String			currentCurrency;
 
 	@Value("EUR;USD;GBP")
 	protected String			supportedCurrencies;
