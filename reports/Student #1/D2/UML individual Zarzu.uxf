@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>200</x>
-      <y>220</y>
+      <x>260</x>
+      <y>280</y>
       <w>350</w>
       <h>120</h>
     </coordinates>
@@ -23,7 +23,7 @@ bg=GREEN</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>770</x>
-      <y>240</y>
+      <y>300</y>
       <w>350</w>
       <h>150</h>
     </coordinates>
@@ -43,8 +43,8 @@ bg=GREEN</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>780</x>
-      <y>520</y>
-      <w>350</w>
+      <y>540</y>
+      <w>410</w>
       <h>150</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
@@ -52,7 +52,7 @@ _Lecture_
 --
 +title: String {NotBlank, Lenght:(1,75)}
 +abstract: String {NotBlank, Lenght:(1,100)}
-+estimatedLearningTime: double {Digits(fraction=2)}
++estimatedLearningTime: double {Digits(integer=3,fraction=2)}
 +body: String {NotBlank, Lenght:(1,100)}
 +nature: Nature {NotNull}
 +link: String {URL}
@@ -62,9 +62,9 @@ bg=GREEN</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>190</x>
+      <x>260</x>
       <y>470</y>
-      <w>390</w>
+      <w>460</w>
       <h>210</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
@@ -74,20 +74,20 @@ _LecturerDashboard_
 +totalHandsOnLectures: int
 +averageLectures:  double
 +deviationLectures:  double
-+minimumLearningTimeLectures: double {Digits(fraction=2)}
-+maximumLearningTimeLectures: double {Digits(fraction=2)}
++minimumLearningTimeLectures: double {Digits(integer=3,fraction=2)}
++maximumLearningTimeLectures: double {Digits(integer=3,fraction=2)}
 +averageCourses:  double
 +deviationCourses:  double
-+minimumLearningTimeCourses: double {Digits(fraction=2)}
-+maximumLearningTimeCourses: double {Digits(fraction=2)}
++minimumLearningTimeCourses: double {Digits(integer=3,fraction=2)}
++maximumLearningTimeCourses: double {Digits(integer=3,fraction=2)}
 bg=GREEN</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>610</x>
-      <y>100</y>
+      <x>640</x>
+      <y>160</y>
       <w>150</w>
       <h>100</h>
     </coordinates>
@@ -103,29 +103,55 @@ bg=GREEN</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>270</y>
-      <w>250</w>
+      <x>600</x>
+      <y>330</y>
+      <w>190</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
 m2=0..n
 has &gt;</panel_attributes>
-    <additional_attributes>10.0;20.0;230.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>910</x>
-      <y>380</y>
+      <y>440</y>
       <w>120</w>
-      <h>160</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
 m2=0..n
  aggregates v</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>710</x>
+      <y>740</y>
+      <w>460</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>The decimal part of estimatedLearningTime refers to a percentage
+of an hour while the integer part refers to the complete
+ammount of hours
+bg=red
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>910</x>
+      <y>680</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
 </diagram>
