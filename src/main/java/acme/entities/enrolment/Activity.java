@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.enumerates.ActivityType;
+import acme.enumerates.Nature;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,7 +42,7 @@ public class Activity extends AbstractEntity {
 	protected String			moreInfo;
 
 	@NotNull
-	protected ActivityType		type;
+	protected Nature			type;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
