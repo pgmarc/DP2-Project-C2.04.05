@@ -1,3 +1,4 @@
+
 package acme.entities.course;
 
 import javax.persistence.Column;
