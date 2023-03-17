@@ -1,0 +1,4 @@
+key,code,conclusion,strong-points,weak-points,mark,key:course
+audit-01,ABC0123,This is a pretty large conclusion for an auditory. Lets begin by saying this is a test suuuper large,Only One strong point,Experimental;Enormous;Big;Testing;Unreachable;Supercalifragilisticoespialidoso;Failable;Notbigenough,C,course-03
+audit-02,ZNA0129,A,Experimental;Enormous;Big;Testing;Unreachable;Supercalifragilisticoespialidoso;Failable;Notbigenough,Only one weak point,B,course-01
+audit-03,AZD0124,Contains some kind of conclusion,Only one strong point,Only one weak Point,A+,course-02

@@ -1,0 +1,17 @@
+key,instantiation-moment,heading,summary,starting-date,ending-date,price,more-info
+offer-01,2022/03/14 23:59,This is a heading,Summary,2022/03/15 23:59,2022/03/22 23:59,EUR 15.00,http://example.com
+offer-02,2022/07/30 00:00,This is a heading,Summary,2022/07/31 00:00,2022/03/23 12:00,USD 15.00,http://example.com
+offer-03,2021/01/01 00:00,This is a heading,Summary,2022/01/02 00:00,2023/03/23 12:00,GBP 15.00,http://example.com
+offer-04,2021/12/31 23:59,This is a heading,Summary,2022/01/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
+offer-05,2021/02/28 23:59,This is a heading,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
+offer-06,2021/02/28 23:59,a,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
+offer-07,2021/02/28 23:59,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
+offer-08,2021/02/28 23:59,This is a header,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
+offer-09,2021/02/28 23:59,"\ª!""·$%&/()=?¿*P¨´´-.,{}|@\#~€¬^:;áéíóúàèìòù",Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
+offer-10,2021/02/28 23:59,Это безумие,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
+offer-11,2021/02/28 23:59,هذا جنون,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
+offer-12,2021/02/28 23:59,This is a heading,a,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
+offer-13,2021/02/28 23:59,This is a heading,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
+offer-14,2021/02/28 23:59,This is a heading,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,null
+offer-15,2021/02/28 23:59,This is a heading,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
+offer-16,2021/02/28 23:59,This is a heading,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
