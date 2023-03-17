@@ -22,8 +22,8 @@
 	<description>Proyect developed for DP2. C1.04.05</description>
 
 	<groupId>Acme</groupId>	
-	<artifactId>Acme-L3-D01</artifactId>
-	<version>1.0.0</version>
+	<artifactId>Acme-L3-D02</artifactId>
+	<version>2.0.0</version>
 	<packaging>war</packaging>
 
 	<parent>
