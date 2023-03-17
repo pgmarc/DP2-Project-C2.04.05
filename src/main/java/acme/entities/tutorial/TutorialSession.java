@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
-import acme.enumerates.SessionNature;
+import acme.enumerates.Nature;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,7 +42,7 @@ public class TutorialSession extends AbstractEntity {
 	protected String			goals;
 
 	@NotNull
-	protected SessionNature		sessionNature;
+	protected Nature			sessionNature;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
