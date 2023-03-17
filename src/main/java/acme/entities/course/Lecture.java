@@ -4,6 +4,7 @@ package acme.entities.course;
 import javax.persistence.Entity;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -34,6 +35,7 @@ public class Lecture extends AbstractEntity {
 	@Digits(fraction = 2, integer = 3)
 	protected double			estimatedLearningTime;
 
+	@NotNull
 	protected Nature			nature;
 
 	@NotBlank
