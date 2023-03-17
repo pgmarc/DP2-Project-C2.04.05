@@ -41,6 +41,7 @@ public class Course extends AbstractEntity {
 	@Length(min = 1, max = 100)
 	protected String			courseAbstract;
 
+	@NotNull
 	protected Nature			nature;
 
 	@NotNull
