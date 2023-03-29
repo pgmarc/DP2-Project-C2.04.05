@@ -1,5 +1,5 @@
 
-package acme.features.any.courses;
+package acme.features.any.course;
 
 import java.util.List;
 

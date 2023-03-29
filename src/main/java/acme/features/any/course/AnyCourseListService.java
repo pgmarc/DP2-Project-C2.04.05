@@ -1,5 +1,7 @@
 
-package acme.features.any.courses;
+package acme.features.any.course;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +12,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AnyCourseShowService extends AbstractService<Any, Course> {
+public class AnyCourseListService extends AbstractService<Any, Course> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -22,11 +24,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
@@ -36,8 +34,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 
 	@Override
 	public void load() {
-		final int id = super.getRequest().getData("id", int.class);
-		final Course object = this.repository.showCourse(id);
+		final List<Course> object = this.repository.listCourses();
 
 		super.getBuffer().setData(object);
 	}
