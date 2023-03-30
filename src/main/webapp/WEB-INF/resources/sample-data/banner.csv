@@ -1,2 +1,3 @@
-key,title,lastModified,displayStart,displayFinish,slogan,moreInfo
-banner-01,2017/01/01 22:00,2017/01/01 22:00,2017/01/01 22:00,"slogan","hola"
+key,lastModified,displayStart,displayFinish,slogan,target,picture
+banner-01,2017/01/01 22:00,2017/01/01 22:00,2030/01/01 22:00,"slogan","https://www.youtube.com/","https://i.imgur.com/2bvab7y.jpeg"
+banner-02,2017/01/01 22:00,2017/01/01 22:00,2024/01/01 22:00,".","https://www.youtube.com/","https://i.imgur.com/aTco5L6.jpeg"
