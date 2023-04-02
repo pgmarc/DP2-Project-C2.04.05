@@ -18,5 +18,6 @@ administrator.banner.list.label.slogan = Eslogan
 administrator.banner.list.label.lastModified = Última modificación
 administrator.banner.list.label.target = Enlace
 
-administrator.banner.form.button.create = Registrar
+administrator.banner.form.button.create = Crear
 administrator.banner.form.button.update = Actualizar
+administrator.banner.form.button.delete = Borrar

@@ -21,6 +21,15 @@ public class AdministratorBannerController extends AbstractController<Administra
 	@Autowired
 	protected AdministratorBannerListService	listService;
 
+	@Autowired
+	protected AdministratorBannerDeleteService	deleteService;
+
+	@Autowired
+	protected AdministratorBannerCreateService	createService;
+
+	@Autowired
+	protected AdministratorBannerUpdateService	updateService;
+
 	//Constructors
 
 
@@ -28,6 +37,9 @@ public class AdministratorBannerController extends AbstractController<Administra
 	public void initialise() {
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
 	}
 
 }

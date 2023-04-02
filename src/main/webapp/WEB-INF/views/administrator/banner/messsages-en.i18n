@@ -18,5 +18,6 @@ administrator.banner.list.label.slogan = Slogan
 administrator.banner.list.label.lastModified = Last modified
 administrator.banner.list.label.target = Target link
 
-administrator.banner.form.button.create = Register
+administrator.banner.form.button.create = Create
 administrator.banner.form.button.update = Update
+administrator.banner.form.button.update = Delete

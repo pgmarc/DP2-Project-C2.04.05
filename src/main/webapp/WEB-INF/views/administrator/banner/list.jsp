@@ -20,3 +20,5 @@
 	<acme:list-column code="administrator.banner.list.label.lastModified" path="lastModified"/>
 	<acme:list-column code="administrator.banner.list.label.target" path="target"/>
 </acme:list>
+
+<acme:button code="administrator.banner.form.button.create" action="/administrator/banner/create"/>
