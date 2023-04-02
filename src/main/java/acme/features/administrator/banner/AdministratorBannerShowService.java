@@ -27,7 +27,7 @@ public class AdministratorBannerShowService extends AbstractService<Administrato
 
 	@Override
 	public void authorise() {
-		super.getResponse().setChecked(true);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
