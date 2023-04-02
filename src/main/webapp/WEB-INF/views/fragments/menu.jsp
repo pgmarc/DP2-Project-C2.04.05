@@ -38,6 +38,10 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.banner" access="hasRole('Administrator')">
+			<acme:menu-suboption code="master.menu.banner.list" action="/administrator/banner/list"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
