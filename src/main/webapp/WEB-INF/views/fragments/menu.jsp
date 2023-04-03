@@ -43,10 +43,12 @@
 
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.note" action="/authenticated/note/list"/>
-      
+      	</acme:menu-option>
+      	
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
 			<acme:menu-suboption code="master.menu.any.peeps" action="/any/peep/list"/>
-      
+      	</acme:menu-option>
+      	
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
 			<acme:menu-suboption code="master.menu.any.courses" action="/any/course/list"/>
 		</acme:menu-option>
