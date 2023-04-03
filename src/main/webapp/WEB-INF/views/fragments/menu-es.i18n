@@ -55,3 +55,10 @@ master.menu.user-account.become-consumer = Hazte consumidor
 # master.menu.authenticated ####################################################
 master.menu.authenticated = Autenticado
 master.menu.authenticated.note = Notas
+
+# master.menu.any ###################################################
+master.menu.any = Cualquiera
+master.menu.any.peeps = Peeps
+master.menu.any.Courses = Cursos
+
+
