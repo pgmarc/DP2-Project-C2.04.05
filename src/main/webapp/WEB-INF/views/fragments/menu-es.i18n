@@ -57,10 +57,19 @@ master.menu.user-account.become-lecturer = Hazte profesor
 
 # master.menu.authenticated ####################################################
 master.menu.authenticated = Autenticado
+<<<<<<< HEAD
 master.menu.authenticated.note = Notas
+=======
+master.menu.authenticated.note = Notas
+>>>>>>> 3cb6c8e8000eb363851ea72620a10059d54918e3
 
 # master.menu.any ###################################################
 master.menu.any = Cualquiera
 master.menu.any.peeps = Peeps
 master.menu.any.Courses = Cursos
+<<<<<<< HEAD
 
+=======
+
+
+>>>>>>> 3cb6c8e8000eb363851ea72620a10059d54918e3
