@@ -1,16 +1,5 @@
-/*
- * AuthenticatedConsumerUpdateService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
-package acme.features.authenticated.consumer;
+package acme.features.authenticated.lecturer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,15 +11,15 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.BinderHelper;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
-import acme.roles.Consumer;
+import acme.roles.Lecturer;
 
 @Service
-public class AuthenticatedConsumerUpdateService extends AbstractService<Authenticated, Consumer> {
+public class AuthenticatedLecturerUpdateService extends AbstractService<Authenticated, Lecturer> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedConsumerRepository repository;
+	protected AuthenticatedLecturerRepository repository;
 
 	// AbstractService interface ----------------------------------------------ç
 
@@ -47,43 +36,40 @@ public class AuthenticatedConsumerUpdateService extends AbstractService<Authenti
 
 	@Override
 	public void load() {
-		Consumer	object;
-		Principal	principal;
-		int			userAccountId;
+		Lecturer object;
+		Principal principal;
+		int userAccountId;
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		object = this.repository.findOneConsumerByUserAccountId(userAccountId);
+		object = this.repository.findOneLecturerByUserAccountId(userAccountId);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final Consumer object) {
-		assert object != null;
-
-		super.bind(object, "company", "sector");
+	public void bind(final Lecturer object) {
+		super.bind(object, "almaMater", "resume", "listOfQualifications", "link");
 	}
 
 	@Override
-	public void validate(final Consumer object) {
+	public void validate(final Lecturer object) {
 		assert object != null;
 	}
 
 	@Override
-	public void perform(final Consumer object) {
+	public void perform(final Lecturer object) {
 		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
-	public void unbind(final Consumer object) {
-		assert object != null;
-
+	public void unbind(final Lecturer object) {
+		assert object!=null;
 		Tuple tuple;
 
-		tuple = BinderHelper.unbind(object, "company", "sector");
+		tuple = BinderHelper.unbind(object, "almaMater", "resume", "listOfQualifications", "link");
 		super.getResponse().setData(tuple);
 	}
 
