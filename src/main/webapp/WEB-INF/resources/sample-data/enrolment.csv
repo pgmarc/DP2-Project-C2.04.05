@@ -1,3 +1,3 @@
-key,code,motivation,goals,work-time,key:student,key:course
-enrolment-01,KXG569,I,a,2.50,student-01,course-01
-enrolment-02,YOG560,Quiero aprender a programar y construir aplicaciones para poder trabajar.,Desarrollar habilidades avanzadas de programación; Aprender nuevas técnicas de desarrollo web HTML.,2.50,student-02,course-02
+key,code,motivation,goals,work-time,draft-mode,key:student,key:course
+enrolment-01,KXG569,I,a,2.50,0,student-01,course-01
+enrolment-02,YOG560,Quiero aprender a programar y construir aplicaciones para poder trabajar.,Desarrollar habilidades avanzadas de programación; Aprender nuevas técnicas de desarrollo web HTML.,2.50,1,student-02,course-02

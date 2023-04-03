@@ -1,16 +1,5 @@
-/*
- * AuthenticatedConsumerUpdateService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
-package acme.features.authenticated.consumer;
+package acme.features.authenticated.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,18 +8,17 @@ import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
-import acme.framework.helpers.BinderHelper;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
-import acme.roles.Consumer;
+import acme.roles.Student;
 
 @Service
-public class AuthenticatedConsumerUpdateService extends AbstractService<Authenticated, Consumer> {
+public class AuthenticatedStudentUpdateService extends AbstractService<Authenticated, Student> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedConsumerRepository repository;
+	protected AuthenticatedStudentRepository repository;
 
 	// AbstractService interface ----------------------------------------------ç
 
@@ -47,43 +35,43 @@ public class AuthenticatedConsumerUpdateService extends AbstractService<Authenti
 
 	@Override
 	public void load() {
-		Consumer object;
+		Student object;
 		Principal principal;
 		int userAccountId;
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		object = this.repository.findOneConsumerByUserAccountId(userAccountId);
+		object = this.repository.findOneStudentByUserAccountId(userAccountId);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final Consumer object) {
+	public void bind(final Student object) {
 		assert object != null;
 
-		super.bind(object, "company", "sector");
+		super.bind(object, "statement", "moreInfo", "strongFeatures", "weakFeatures");
 	}
 
 	@Override
-	public void validate(final Consumer object) {
+	public void validate(final Student object) {
 		assert object != null;
 	}
 
 	@Override
-	public void perform(final Consumer object) {
+	public void perform(final Student object) {
 		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
-	public void unbind(final Consumer object) {
+	public void unbind(final Student object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = BinderHelper.unbind(object, "company", "sector");
+		tuple = super.unbind(object, "statement", "moreInfo", "strongFeatures", "weakFeatures");
 		super.getResponse().setData(tuple);
 	}
 
