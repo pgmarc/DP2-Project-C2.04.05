@@ -51,6 +51,8 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.lecturer = Datos de profesor
+master.menu.user-account.become-lecturer = Hazte profesor
 
 # master.menu.authenticated ####################################################
 master.menu.authenticated = Autenticado
@@ -60,5 +62,4 @@ master.menu.authenticated.note = Notas
 master.menu.any = Cualquiera
 master.menu.any.peeps = Peeps
 master.menu.any.Courses = Cursos
-
 
