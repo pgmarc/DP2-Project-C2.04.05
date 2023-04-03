@@ -20,6 +20,9 @@ public class AuthenticatedEnrolmentController extends AbstractController<Authent
 	protected AuthenticatedEnrolmentShowService		showService;
 
 	@Autowired
+	protected AuthenticatedEnrolmentUpdateService	updateService;
+
+	@Autowired
 	protected AuthenticatedEnrolmentCreateService	createService;
 
 
@@ -28,5 +31,6 @@ public class AuthenticatedEnrolmentController extends AbstractController<Authent
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
 	}
 }

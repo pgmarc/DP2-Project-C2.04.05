@@ -4,69 +4,45 @@ package acme.features.authenticated.enrolment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.course.Course;
 import acme.entities.enrolment.Enrolment;
 import acme.framework.components.accounts.Authenticated;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
-import acme.roles.Student;
 
 @Service
-public class AuthenticatedEnrolmentCreateService extends AbstractService<Authenticated, Enrolment> {
+public class AuthenticatedEnrolmentUpdateService extends AbstractService<Authenticated, Enrolment> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AuthenticatedEnrolmentRepository repository;
 
-	// AbstractService<Authenticated, Consumer> ---------------------------
+	// AbstractService interface ----------------------------------------------ç
 
-
-	@Override
-	public void check() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			super.getResponse().setChecked(true);
-		else {
-			boolean status;
-
-			status = super.getRequest().hasData("courseId", int.class);
-
-			super.getResponse().setChecked(status);
-		}
-	}
 
 	@Override
 	public void authorise() {
+		super.getResponse().setAuthorised(true);
+	}
+
+	@Override
+	public void check() {
 		boolean status;
 
-		status = super.getRequest().getPrincipal().hasRole(Student.class);
+		status = super.getRequest().hasData("id", int.class);
 
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void load() {
 		Enrolment object;
-		Student student;
-		Course course;
-		Principal principal;
-		int userAccountId;
-		int courseId;
+		int id;
 
-		principal = super.getRequest().getPrincipal();
-		userAccountId = principal.getAccountId();
-		courseId = super.getRequest().getData("courseId", int.class);
-
-		student = this.repository.findOneStudentByUserAccountId(userAccountId);
-		course = this.repository.findOneCourseById(courseId);
-
-		object = new Enrolment();
-		object.setStudent(student);
-		object.setDraftMode(true);
-		object.setCourse(course);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneEnrolmentById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -92,12 +68,11 @@ public class AuthenticatedEnrolmentCreateService extends AbstractService<Authent
 
 	@Override
 	public void unbind(final Enrolment object) {
+		assert object != null;
+
 		Tuple tuple;
-		final int courseId = super.getRequest().getData("courseId", int.class);
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
-		tuple.put("courseId", courseId);
-
 		super.getResponse().setData(tuple);
 	}
 

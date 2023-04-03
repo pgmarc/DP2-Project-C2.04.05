@@ -1,21 +1,21 @@
 
-package acme.features.authenticated.enrolment;
+package acme.features.authenticated.activity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.enrolment.Enrolment;
+import acme.entities.enrolment.Activity;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedEnrolmentShowService extends AbstractService<Authenticated, Enrolment> {
+public class AuthenticatedActivityShowService extends AbstractService<Authenticated, Activity> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedEnrolmentRepository repository;
+	protected AuthenticatedActivityRepository repository;
 
 	// AbstractService<Authenticated, Consumer> ---------------------------
 
@@ -37,15 +37,15 @@ public class AuthenticatedEnrolmentShowService extends AbstractService<Authentic
 	@Override
 	public void load() {
 		final int id = super.getRequest().getData("id", int.class);
-		final Enrolment object = this.repository.findOneEnrolmentById(id);
+		final Activity object = this.repository.findOneActivityById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Enrolment object) {
+	public void unbind(final Activity object) {
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode");
+		tuple = super.unbind(object, "title", "abstract$", "moreInfo", "type", "startDate", "endDate", "enrolment");
 
 		super.getResponse().setData(tuple);
 	}

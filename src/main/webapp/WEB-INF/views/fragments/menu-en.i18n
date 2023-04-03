@@ -61,3 +61,6 @@ master.menu.user-account.student= Student data
 
 master.menu.student.enrolment.head= Enrolments
 master.menu.student.enrolment= Your Enrolments
+
+master.menu.student.course.head= Courses
+master.menu.student.course= All the courses

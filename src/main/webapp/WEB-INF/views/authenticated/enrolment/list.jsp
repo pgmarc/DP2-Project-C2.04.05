@@ -10,6 +10,3 @@
 	<acme:list-column code="authenticated.enrolment.list.label.workTime" path="workTime"/>
 
 </acme:list>
-
-<acme:button code="authenticated.enrolment.form.button.create" 
-action="/authenticated/enrolment/create"/>

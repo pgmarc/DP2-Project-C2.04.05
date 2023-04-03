@@ -21,3 +21,7 @@ authenticated.enrolment.list.label.workTime = WorkTime
 authenticated.enrolment.list.label.course = Course
 
 authenticated.enrolment.form.button.create = Create
+authenticated.enrolment.form.button.update = Update
+authenticated.enrolment.form.button.delete = Delete
+authenticated.enrolment.form.button.publish = Publish
+authenticated.enrolment.form.button.workspace = Workspace

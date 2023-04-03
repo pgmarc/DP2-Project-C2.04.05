@@ -1,7 +1,7 @@
 
 package acme.features.authenticated.course;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,5 +16,5 @@ public interface AuthenticatedCourseRepository extends AbstractRepository {
 	Course findOneCourseById(int id);
 
 	@Query("SELECT c FROM Course c WHERE c.draftMode = 0")
-	Collection<Course> findAllPublishCourses();
+	List<Course> findAllPublishCourses();
 }

@@ -11,7 +11,6 @@ import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Consumer;
 import acme.roles.Student;
 
 @Service
@@ -25,7 +24,7 @@ public class AuthenticatedEnrolmentListService extends AbstractService<Authentic
 	public void authorise() {
 		boolean status;
 
-		status = !super.getRequest().getPrincipal().hasRole(Consumer.class);
+		status = super.getRequest().getPrincipal().hasRole(Student.class);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -53,7 +52,7 @@ public class AuthenticatedEnrolmentListService extends AbstractService<Authentic
 	@Override
 	public void unbind(final Enrolment object) {
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "student", "course");
+		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode", "student", "course");
 
 		super.getResponse().setData(tuple);
 	}
