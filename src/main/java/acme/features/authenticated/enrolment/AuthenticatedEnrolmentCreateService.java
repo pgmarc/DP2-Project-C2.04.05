@@ -93,10 +93,8 @@ public class AuthenticatedEnrolmentCreateService extends AbstractService<Authent
 	@Override
 	public void unbind(final Enrolment object) {
 		Tuple tuple;
-		final int courseId = super.getRequest().getData("courseId", int.class);
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
-		tuple.put("courseId", courseId);
 
 		super.getResponse().setData(tuple);
 	}

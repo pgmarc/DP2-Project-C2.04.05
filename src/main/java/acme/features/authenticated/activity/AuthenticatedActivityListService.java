@@ -50,7 +50,8 @@ public class AuthenticatedActivityListService extends AbstractService<Authentica
 	@Override
 	public void unbind(final Activity object) {
 		Tuple tuple;
-		tuple = super.unbind(object, "title", "abstract$", "moreInfo", "type", "startDate", "endDate", "enrolment");
+
+		tuple = super.unbind(object, "title", "abstract$", "moreInfo", "type", "startDate", "endDate");
 
 		super.getResponse().setData(tuple);
 	}

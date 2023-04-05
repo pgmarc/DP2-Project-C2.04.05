@@ -22,5 +22,6 @@ authenticated.activity.list.label.type = Tipo
 authenticated.activity.list.label.startDate = Fecha Inicio	
 authenticated.activity.list.label.endDate = Fecha Final	
 
-authenticated.enrolment.form.button.create = Crear
-authenticated.enrolment.form.button.create = Espacio de trabajo
+authenticated.activity.form.button.create = Crear
+authenticated.activity.form.button.update = Actualizar
+authenticated.activity.form.button.workspace = Espacio de trabajo

@@ -23,4 +23,5 @@ authenticated.activity.list.label.startDate = Start Date
 authenticated.activity.list.label.endDate = End Date	
 
 authenticated.activity.form.button.create = Create
+authenticated.activity.form.button.update = Update
 authenticated.activity.form.button.workspace = Workspace

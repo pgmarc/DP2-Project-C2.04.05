@@ -9,7 +9,7 @@
 	<acme:input-textarea code="authenticated.enrolment.list.label.goals" path="goals"/>
 	<acme:input-double code="authenticated.enrolment.list.label.workTime" path="workTime" readonly="true"/>
 	
-	<acme:submit test="${_command == 'create'}" code="authenticated.enrolment.form.button.create" action="/authenticated/enrolment/create?courseId=${courseId}"/>
+	<acme:submit test="${_command == 'create'}" code="authenticated.enrolment.form.button.create" action="/authenticated/enrolment/create?courseId=${param.courseId}"/>
 	<acme:submit test="${_command == 'update'}" code="authenticated.enrolment.form.button.update" action="/authenticated/enrolment/update"/>
 	<acme:button test="${_command == 'show' && draftMode == true}" code="authenticated.enrolment.form.button.update" action="/authenticated/enrolment/update?id=${id}"/>
 	<acme:button test="${_command == 'show' && draftMode == true}" code="authenticated.enrolment.form.button.delete" action="/authenticated/enrolment/update?id=${id}"/>

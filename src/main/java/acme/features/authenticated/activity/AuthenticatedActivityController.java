@@ -14,15 +14,23 @@ import acme.framework.controllers.AbstractController;
 public class AuthenticatedActivityController extends AbstractController<Authenticated, Activity> {
 
 	@Autowired
-	protected AuthenticatedActivityListService	listService;
+	protected AuthenticatedActivityListService		listService;
 
 	@Autowired
-	protected AuthenticatedActivityShowService	showService;
+	protected AuthenticatedActivityShowService		showService;
+
+	@Autowired
+	protected AuthenticatedActivityCreateService	createService;
+
+	@Autowired
+	protected AuthenticatedActivityUpdateService	updateService;
 
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
 	}
 }

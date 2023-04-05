@@ -12,3 +12,5 @@
 	<acme:list-column code="authenticated.activity.list.label.endDate" path="endDate"/>
 
 </acme:list>
+
+<acme:button code="authenticated.activity.form.button.create" action="/authenticated/activity/create?enrolmentId=${param.id}"/>
