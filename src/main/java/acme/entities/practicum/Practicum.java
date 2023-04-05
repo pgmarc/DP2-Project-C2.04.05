@@ -20,6 +20,7 @@ import org.hibernate.validator.constraints.Length;
 
 import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -61,6 +62,11 @@ public class Practicum extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Course			course;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Company			company;
 
 	@Digits(integer = 4, fraction = 2)
 	@DecimalMin(value = "168.00")
