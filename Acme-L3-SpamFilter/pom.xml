@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+  - pom.xml 
+  -   
+  - Copyright (C) 2012-2023 Rafael Corchuelo. 
+  -
+  - In keeping with the traditional purpose of furthering education and research, it is 
+  - the policy of the copyright owner to permit non-commercial use and redistribution of 
+  - this software. It has been tested carefully, but it is not guaranteed for any particular 
+  - purposes. The copyright owner does not offer any warranties or representations, nor do 
+  - they accept any liabilities with respect to them. 
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	
+	<name>Acme-L3-SpamFilter</name>
+	<description>Spam Filter Developed for DP2. C1.04.05</description>
+
+	<groupId>Acme</groupId>	
+	<artifactId>Acme-L3-SpamFilter</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.2</version>
+		<relativePath/>	
+	</parent>
+	
+	<properties>
+		<sourceDirectory>${basedir}/src</sourceDirectory>
+		<targetDirectory>${basedir}/target</targetDirectory>
+		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>			
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>acme.Launcher</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

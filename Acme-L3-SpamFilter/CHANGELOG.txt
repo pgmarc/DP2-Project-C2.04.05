@@ -1,0 +1,15 @@
+#############################################################################################################
+#
+# Subject: Design and Testing 2
+#
+# Students:
+#			- Bermejo Soria, Carlos
+#			- Gallardo Martos, Daniel
+#			- Gonzalez Marcos, Pedro
+#			- Mateos Gómez, Fernando José
+#			- Zarzuela Reina, Carlos
+#
+#############################################################################################################
+
+Deliverable 3, V1.0.0:
+- First Version of Spam Filter
