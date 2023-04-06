@@ -14,6 +14,6 @@
 	<acme:button test="${_command == 'show' && draftMode == true}" code="authenticated.enrolment.form.button.update" action="/authenticated/enrolment/update?id=${id}"/>
 	<acme:button test="${_command == 'show' && draftMode == true}" code="authenticated.enrolment.form.button.delete" action="/authenticated/enrolment/update?id=${id}"/>
 	<acme:button test="${_command == 'show' && draftMode == true}" code="authenticated.enrolment.form.button.publish" action="/authenticated/enrolment/update?id=${id}"/>
-	<acme:button test="${_command == 'show'}" code="authenticated.enrolment.form.button.workspace" action="/authenticated/activity/list?id=${id}"/>
+	<acme:button test="${_command == 'show' && draftMode == false}" code="authenticated.enrolment.form.button.workspace" action="/authenticated/activity/list?id=${id}"/>
 
 </acme:form>

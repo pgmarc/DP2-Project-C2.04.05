@@ -76,7 +76,7 @@ public class AuthenticatedActivityUpdateService extends AbstractService<Authenti
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate") && !super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isBeforeOrEqual(object.getStartDate(), object.getEndDate()), "*", "Fecha final debe estar después de fecha inicial");
+			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "*", "Fecha final debe estar después de fecha inicial");
 	}
 
 	@Override

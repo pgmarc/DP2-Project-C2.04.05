@@ -33,15 +33,17 @@ public class AuthenticatedActivityCreateService extends AbstractService<Authenti
 
 	@Override
 	public void check() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			super.getResponse().setChecked(true);
-		else {
-			boolean status;
+		boolean status;
 
-			status = super.getRequest().hasData("enrolmentId", int.class);
+		status = super.getRequest().hasData("enrolmentId", int.class);
 
-			super.getResponse().setChecked(status);
+		if (status) {
+			final int enrolmentId = super.getRequest().getData("enrolmentId", int.class);
+			final Enrolment enrolment = this.repository.findOneEnrolmentById(enrolmentId);
+			status = !enrolment.isDraftMode();
 		}
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -80,7 +82,7 @@ public class AuthenticatedActivityCreateService extends AbstractService<Authenti
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate") && !super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isBeforeOrEqual(object.getStartDate(), object.getEndDate()), "*", "Fecha final debe estar después de fecha inicial");
+			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "*", "Fecha final debe estar después de fecha inicial");
 	}
 
 	@Override
