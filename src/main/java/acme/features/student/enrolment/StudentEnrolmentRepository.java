@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.enrolment;
+package acme.features.student.enrolment;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 import acme.roles.Student;
 
 @Repository
-public interface AuthenticatedEnrolmentRepository extends AbstractRepository {
+public interface StudentEnrolmentRepository extends AbstractRepository {
 
 	@Query("SELECT e FROM Enrolment e WHERE e.id = :id")
 	Enrolment findOneEnrolmentById(int id);

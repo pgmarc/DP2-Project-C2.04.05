@@ -48,11 +48,11 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.student.enrolment.head" access="hasRole('Student')">
-			<acme:menu-suboption code="master.menu.student.enrolment" action="/authenticated/enrolment/list"/>
+			<acme:menu-suboption code="master.menu.student.enrolment" action="/student/enrolment/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.student.course.head" access="hasRole('Student')">
-			<acme:menu-suboption code="master.menu.student.course" action="/authenticated/course/list"/>
+			<acme:menu-suboption code="master.menu.student.course" action="/student/course/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

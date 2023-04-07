@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.activity;
+package acme.features.student.activity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.enrolment.Activity;
 import acme.entities.enrolment.Enrolment;
 import acme.enumerates.Nature;
-import acme.features.authenticated.enrolment.AuthenticatedEnrolmentRepository;
-import acme.framework.components.accounts.Authenticated;
+import acme.features.student.enrolment.StudentEnrolmentRepository;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
@@ -18,15 +17,15 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class AuthenticatedActivityCreateService extends AbstractService<Authenticated, Activity> {
+public class StudentActivityCreateService extends AbstractService<Student, Activity> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedActivityRepository	repository;
+	protected StudentActivityRepository		repository;
 
 	@Autowired
-	protected AuthenticatedEnrolmentRepository	enrolmentRepository;
+	protected StudentEnrolmentRepository	enrolmentRepository;
 
 	// AbstractService<Authenticated, Activity> ---------------------------
 

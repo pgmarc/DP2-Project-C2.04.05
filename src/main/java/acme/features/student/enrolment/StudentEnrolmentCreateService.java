@@ -1,12 +1,11 @@
 
-package acme.features.authenticated.enrolment;
+package acme.features.student.enrolment;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
 import acme.entities.enrolment.Enrolment;
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
@@ -15,12 +14,12 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class AuthenticatedEnrolmentCreateService extends AbstractService<Authenticated, Enrolment> {
+public class StudentEnrolmentCreateService extends AbstractService<Student, Enrolment> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedEnrolmentRepository repository;
+	protected StudentEnrolmentRepository repository;
 
 	// AbstractService<Authenticated, Consumer> ---------------------------
 

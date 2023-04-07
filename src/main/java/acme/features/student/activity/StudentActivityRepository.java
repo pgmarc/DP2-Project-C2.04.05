@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.activity;
+package acme.features.student.activity;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import acme.entities.enrolment.Enrolment;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedActivityRepository extends AbstractRepository {
+public interface StudentActivityRepository extends AbstractRepository {
 
 	@Query("SELECT a FROM Activity a WHERE a.id = :id")
 	Activity findOneActivityById(int id);

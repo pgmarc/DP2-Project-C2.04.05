@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.enrolment;
+package acme.features.student.enrolment;
 
 import javax.annotation.PostConstruct;
 
@@ -7,23 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.entities.enrolment.Enrolment;
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
+import acme.roles.Student;
 
 @Controller
-public class AuthenticatedEnrolmentController extends AbstractController<Authenticated, Enrolment> {
+public class StudentEnrolmentController extends AbstractController<Student, Enrolment> {
 
 	@Autowired
-	protected AuthenticatedEnrolmentListService		listService;
+	protected StudentEnrolmentListService	listService;
 
 	@Autowired
-	protected AuthenticatedEnrolmentShowService		showService;
+	protected StudentEnrolmentShowService	showService;
 
 	@Autowired
-	protected AuthenticatedEnrolmentUpdateService	updateService;
+	protected StudentEnrolmentUpdateService	updateService;
 
 	@Autowired
-	protected AuthenticatedEnrolmentCreateService	createService;
+	protected StudentEnrolmentCreateService	createService;
 
 
 	@PostConstruct

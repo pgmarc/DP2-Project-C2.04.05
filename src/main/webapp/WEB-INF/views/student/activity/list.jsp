@@ -13,4 +13,4 @@
 
 </acme:list>
 
-<acme:button code="authenticated.activity.form.button.create" action="/authenticated/activity/create?enrolmentId=${param.id}"/>
+<acme:button code="authenticated.activity.form.button.create" action="/student/activity/create?enrolmentId=${param.id}"/>

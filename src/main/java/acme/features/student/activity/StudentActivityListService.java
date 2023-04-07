@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.activity;
+package acme.features.student.activity;
 
 import java.util.List;
 
@@ -7,16 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolment.Activity;
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class AuthenticatedActivityListService extends AbstractService<Authenticated, Activity> {
+public class StudentActivityListService extends AbstractService<Student, Activity> {
 
 	@Autowired
-	protected AuthenticatedActivityRepository repository;
+	protected StudentActivityRepository repository;
 
 
 	@Override

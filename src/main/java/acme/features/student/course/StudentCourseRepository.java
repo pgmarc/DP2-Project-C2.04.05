@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.course;
+package acme.features.student.course;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import acme.entities.course.Course;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedCourseRepository extends AbstractRepository {
+public interface StudentCourseRepository extends AbstractRepository {
 
 	@Query("SELECT c FROM Course c WHERE c.id = :id")
 	Course findOneCourseById(int id);

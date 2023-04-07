@@ -1,21 +1,21 @@
 
-package acme.features.authenticated.activity;
+package acme.features.student.activity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolment.Activity;
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Student;
 
 @Service
-public class AuthenticatedActivityShowService extends AbstractService<Authenticated, Activity> {
+public class StudentActivityShowService extends AbstractService<Student, Activity> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedActivityRepository repository;
+	protected StudentActivityRepository repository;
 
 	// AbstractService<Authenticated, Consumer> ---------------------------
 

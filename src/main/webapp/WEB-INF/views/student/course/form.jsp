@@ -13,4 +13,4 @@
 </acme:form>
 
 <acme:button code="authenticated.course.list.label.enrolment" 
-action="/authenticated/enrolment/create?courseId=${id}"/>
+action="/student/enrolment/create?courseId=${id}"/>

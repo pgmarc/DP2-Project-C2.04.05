@@ -19,10 +19,10 @@
 	<acme:input-moment code="authenticated.activity.list.label.endDate" path="endDate"/>
 	
 	<acme:submit test="${_command == 'create'}" code="authenticated.activity.form.button.create" 
-	action="/authenticated/activity/create?enrolmentId=${param.enrolmentId}"/>
+	action="/student/activity/create?enrolmentId=${param.enrolmentId}"/>
 	<acme:submit test="${_command == 'update'}" code="authenticated.activity.form.button.update" 
-	action="/authenticated/activity/update"/>
+	action="/student/activity/update"/>
 	<acme:button test="${_command == 'show'}" code="authenticated.activity.form.button.update" 
-	action="/authenticated/activity/update?id=${id}"/>
+	action="/student/activity/update?id=${id}"/>
 
 </acme:form>
