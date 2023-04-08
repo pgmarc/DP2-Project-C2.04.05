@@ -17,16 +17,22 @@
 
 <acme:form>
 	<acme:input-textbox code="administrator.banner.form.label.slogan" path="slogan"/>
-	<jstl:if test="${!acme:anyOf(_command, 'create|update')}">
-		<acme:input-moment code="administrator.banner.form.label.lastModified" path="lastModified"/>
+	<jstl:if test="${_command != 'create'}">
+		<acme:input-moment readonly="true" code="administrator.banner.form.label.lastModified" path="lastModified"/>
 	</jstl:if>
 	<acme:input-moment code="administrator.banner.form.label.displayStart" path="displayStart"/>
 	<acme:input-moment code="administrator.banner.form.label.displayFinish" path="displayFinish"/>
 	<acme:input-url code="administrator.banner.form.label.target" path="target"/>
 	
-	<acme:submit test="${acme:anyOf(_command, 'show|update')}" code="administrator.banner.form.button.update" action="/administrator/banner/update"/>
-	<acme:submit test="${acme:anyOf(_command, 'show|delete')}" code="administrator.banner.form.button.delete" action="/administrator/banner/delete"/>
-	<acme:submit test="${_command == 'create'}" code="administrator.banner.form.button.create" action="/administrator/banner/create"/>
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+			<acme:submit code="administrator.banner.form.button.update" action="/administrator/banner/update"/>
+			<acme:submit code="administrator.banner.form.button.delete" action="/administrator/banner/delete"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="administrator.banner.form.button.create" action="/administrator/banner/create"/>
+		</jstl:when>		
+	</jstl:choose>
 </acme:form>
 
 

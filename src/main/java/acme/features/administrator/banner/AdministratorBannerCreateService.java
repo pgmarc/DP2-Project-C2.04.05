@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 import acme.entities.offer.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.MomentHelper;
+import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -31,7 +33,11 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -81,4 +87,11 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 		super.getResponse().setData(tuple);
 	}
+
+	@Override
+	public void onSuccess() {
+		if (super.getRequest().getMethod().equals(HttpMethod.POST))
+			PrincipalHelper.handleUpdate();
+	}
+
 }
