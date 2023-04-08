@@ -13,6 +13,7 @@ administrator.banner.form.label.lastModified = Última modificación
 administrator.banner.form.label.displayStart = Inicio de despliegue
 administrator.banner.form.label.displayFinish = Final de despliegue
 administrator.banner.form.label.target = Enlace
+administrator.banner.form.label.picture = Imagen
 
 administrator.banner.list.label.slogan = Eslogan
 administrator.banner.list.label.lastModified = Última modificación
@@ -21,3 +22,5 @@ administrator.banner.list.label.target = Enlace
 administrator.banner.form.button.create = Crear
 administrator.banner.form.button.update = Actualizar
 administrator.banner.form.button.delete = Borrar
+
+administrator.banner.error.short-display-period = El periodo de despliegue es demasiado corto

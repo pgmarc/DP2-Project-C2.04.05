@@ -60,7 +60,8 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	public void bind(final Banner object) {
 		assert object != null;
 
-		super.bind(object, "lastModified", "displayStart", "displayFinish", "slogan", "picture", "target");
+		super.bind(object, "displayStart", "displayFinish", "slogan", "picture", "target");
+		object.setLastModified(MomentHelper.getCurrentMoment());
 	}
 
 	@Override
@@ -79,6 +80,8 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	public void perform(final Banner object) {
 		assert object != null;
 
+		object.setLastModified(MomentHelper.getCurrentMoment());
+
 		this.repository.save(object);
 	}
 
@@ -88,7 +91,8 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "lastModified", "displayStart", "displayFinish", "slogan", "picture", "target");
+		tuple = super.unbind(object, "displayStart", "displayFinish", "slogan", "picture", "target");
+		tuple.put("lastModified", MomentHelper.getCurrentMoment());
 
 		super.getResponse().setData(tuple);
 	}

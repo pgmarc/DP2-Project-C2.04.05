@@ -22,6 +22,7 @@
 	</jstl:if>
 	<acme:input-moment code="administrator.banner.form.label.displayStart" path="displayStart"/>
 	<acme:input-moment code="administrator.banner.form.label.displayFinish" path="displayFinish"/>
+	<acme:input-url code="administrator.banner.form.label.picture" path="picture"/>
 	<acme:input-url code="administrator.banner.form.label.target" path="target"/>
 	
 	<jstl:choose>
