@@ -1,12 +1,12 @@
 
-package acme.features.authenticated.bulletin;
+package acme.features.administrator.bulletin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.message.Bulletin;
+import acme.features.authenticated.bulletin.AuthenticatedBulletinRepository;
 import acme.framework.components.accounts.Administrator;
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.MomentHelper;
@@ -14,7 +14,7 @@ import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedBulletinCreateService extends AbstractService<Authenticated, Bulletin> {
+public class AdministratorBulletinCreateService extends AbstractService<Administrator, Bulletin> {
 
 	// Internal state ---------------------------------------------------------
 

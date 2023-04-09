@@ -12,5 +12,14 @@
 	<jstl:if test="${_command == 'show' }">
 		<acme:input-moment code="authenticated.bulletin.list.label.instantiationMoment" path="instantiationMoment"/>
 	</jstl:if>
+	
+	<jstl:if test="${_command == 'create'}">
+		<tags:modal modalBody="authenticated.bulletin.form.button.create.modal.body" 
+		modalTitle="authenticated.bulletin.form.button.create.modal.title" 
+		buttonName="authenticated.bulletin.form.button.create" 
+		action="/administrator/bulletin/create"  
+		modalButtonCancelName="authenticated.bulletin.form.button.close" 
+		modalButtonSubmitName="authenticated.bulletin.form.button.create"/>
+	</jstl:if>
 
 </acme:form>

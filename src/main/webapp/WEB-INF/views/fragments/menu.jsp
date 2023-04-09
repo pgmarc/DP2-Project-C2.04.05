@@ -41,7 +41,7 @@
 
 		<acme:menu-option code="master.menu.bulletin" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.bulletin.list" action="/authenticated/bulletin/list"/>
-			<acme:menu-suboption code="master.menu.bulletin.create" access="hasRole('Administrator')" action="/authenticated/bulletin/create"/>
+			<acme:menu-suboption code="master.menu.bulletin.create" access="hasRole('Administrator')" action="/administrator/bulletin/create"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
