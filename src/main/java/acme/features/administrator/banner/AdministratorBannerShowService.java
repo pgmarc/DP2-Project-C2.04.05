@@ -22,12 +22,20 @@ public class AdministratorBannerShowService extends AbstractService<Administrato
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getResponse().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
