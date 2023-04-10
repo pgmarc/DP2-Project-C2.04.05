@@ -12,7 +12,7 @@ public class Filter {
 		final String formattedInput = input.replaceAll("\\s+", " ").toLowerCase();
 		int spamCounter = 0;
 		for (final String dangerousWord : dictionary)
-			if (!formattedInput.contains(dangerousWord)) {
+			if (formattedInput.contains(dangerousWord)) {
 				if (++spamCounter / (double) dictionary.size() < treeshold)
 					continue;
 				return true;
