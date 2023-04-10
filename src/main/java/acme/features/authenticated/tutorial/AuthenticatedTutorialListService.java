@@ -31,7 +31,7 @@ public class AuthenticatedTutorialListService extends AbstractService<Authentica
 	public void authorise() {
 		boolean status;
 
-		status = super.getRequest().getPrincipal().hasRole(Authenticated.class);
+		status = super.getRequest().getPrincipal().isAuthenticated();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -51,7 +51,7 @@ public class AuthenticatedTutorialListService extends AbstractService<Authentica
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "abstrac", "goals", "estimatedHours");
+		tuple = super.unbind(object, "code", "title", "abstrac", "goals", "estimatedHours");
 		tuple.put("assistant", object.getAssistant());
 		tuple.put("course", object.getCourse());
 

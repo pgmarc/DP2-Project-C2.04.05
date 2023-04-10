@@ -24,7 +24,7 @@ public class AuthenticatedTutorialShowService extends AbstractService<Authentica
 	public void check() {
 		boolean status;
 
-		status = super.getResponse().hasData("id", int.class);
+		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -33,7 +33,7 @@ public class AuthenticatedTutorialShowService extends AbstractService<Authentica
 	public void authorise() {
 		boolean status;
 
-		status = super.getRequest().getPrincipal().hasRole(Authenticated.class);
+		status = super.getRequest().getPrincipal().isAuthenticated();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -43,7 +43,7 @@ public class AuthenticatedTutorialShowService extends AbstractService<Authentica
 		final Tutorial tutorial;
 		int id;
 
-		id = super.getBuffer().getData("id", int.class);
+		id = super.getRequest().getData("id", int.class);
 		tutorial = this.repository.findOneTutorialById(id);
 
 		super.getBuffer().setData(tutorial);
@@ -55,7 +55,7 @@ public class AuthenticatedTutorialShowService extends AbstractService<Authentica
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "abstrac", "goals", "estimatedHours");
+		tuple = super.unbind(object, "code", "title", "abstrac", "goals", "estimatedHours");
 		tuple.put("assistant", object.getAssistant());
 		tuple.put("course", object.getCourse());
 
