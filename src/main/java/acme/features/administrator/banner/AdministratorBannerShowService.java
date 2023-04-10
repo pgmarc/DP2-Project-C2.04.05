@@ -24,7 +24,7 @@ public class AdministratorBannerShowService extends AbstractService<Administrato
 	public void check() {
 		boolean status;
 
-		status = super.getResponse().hasData("id", int.class);
+		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
 	}
