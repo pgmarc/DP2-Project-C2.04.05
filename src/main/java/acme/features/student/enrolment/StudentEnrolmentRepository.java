@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.course.Course;
+import acme.entities.enrolment.Activity;
 import acme.entities.enrolment.Enrolment;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Student;
@@ -26,6 +27,6 @@ public interface StudentEnrolmentRepository extends AbstractRepository {
 	@Query("SELECT c FROM Course c WHERE c.id = :id")
 	Course findOneCourseById(int id);
 
-	@Query("SELECT c FROM Course c WHERE c.draftMode = 0")
-	List<Course> findAllPublishCourses();
+	@Query("SELECT a FROM Activity a WHERE a.enrolment.id = :id")
+	List<Activity> findAllActivitiesByEnrolmentId(int id);
 }

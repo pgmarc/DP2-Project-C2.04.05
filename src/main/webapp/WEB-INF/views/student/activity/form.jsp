@@ -24,5 +24,7 @@
 	action="/student/activity/update"/>
 	<acme:button test="${_command == 'show'}" code="authenticated.activity.form.button.update" 
 	action="/student/activity/update?id=${id}"/>
+	<acme:submit test="${_command == 'show'}" code="authenticated.enrolment.form.button.delete" 
+	action="/student/activity/delete?id=${id}"/>
 
 </acme:form>

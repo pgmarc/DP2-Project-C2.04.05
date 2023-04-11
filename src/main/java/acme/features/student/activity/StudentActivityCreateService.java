@@ -87,18 +87,24 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	@Override
 	public void perform(final Activity object) {
 		assert object != null;
+
+		this.updateWorkTime(object);
+
+		this.repository.save(object);
+	}
+
+	private void updateWorkTime(final Activity object) {
 		Enrolment enrolment;
 		int enrolmentId;
 		long horas;
 		double minutosEnPorcentaje;
 
 		horas = MomentHelper.computeDuration(object.getStartDate(), object.getEndDate()).toMinutes() / 60;
-		minutosEnPorcentaje = (MomentHelper.computeDuration(object.getStartDate(), object.getEndDate()).toMinutes() - horas * 60) * 10 / 6;
+		minutosEnPorcentaje = (double) (MomentHelper.computeDuration(object.getStartDate(), object.getEndDate()).toMinutes() - horas * 60) / 60;
 		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
 		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
-		enrolment.setWorkTime(enrolment.getWorkTime() + horas + minutosEnPorcentaje / 100);
-
-		this.repository.save(object);
+		final double newWorkTime = Math.round((enrolment.getWorkTime() + horas + minutosEnPorcentaje) * 100.0) / 100.0;
+		enrolment.setWorkTime(newWorkTime);
 	}
 
 	@Override

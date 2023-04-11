@@ -25,6 +25,9 @@ public class StudentEnrolmentController extends AbstractController<Student, Enro
 	@Autowired
 	protected StudentEnrolmentCreateService	createService;
 
+	@Autowired
+	protected StudentEnrolmentDeleteService	deleteService;
+
 
 	@PostConstruct
 	protected void initialise() {
@@ -32,5 +35,6 @@ public class StudentEnrolmentController extends AbstractController<Student, Enro
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
 	}
 }

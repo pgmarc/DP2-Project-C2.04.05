@@ -11,8 +11,9 @@
 	
 	<acme:submit test="${_command == 'create'}" code="authenticated.enrolment.form.button.create" action="/student/enrolment/create?courseId=${param.courseId}"/>
 	<acme:submit test="${_command == 'update'}" code="authenticated.enrolment.form.button.update" action="/student/enrolment/update"/>
+	<acme:submit test="${_command == 'delete'}" code="authenticated.enrolment.form.button.delete" action="/student/enrolment/delete?id=${id}"/>
 	<acme:button test="${_command == 'show' && draftMode == true}" code="authenticated.enrolment.form.button.update" action="/student/enrolment/update?id=${id}"/>
-	<acme:button test="${_command == 'show' && draftMode == true}" code="authenticated.enrolment.form.button.delete" action="/student/enrolment/update?id=${id}"/>
+	<acme:button test="${_command == 'show' && draftMode == true}" code="authenticated.enrolment.form.button.delete" action="/student/enrolment/delete?id=${id}"/>
 	<acme:button test="${_command == 'show' && draftMode == true}" code="authenticated.enrolment.form.button.publish" action="/student/enrolment/update?id=${id}"/>
 	<acme:button test="${_command == 'show' && draftMode == false}" code="authenticated.enrolment.form.button.workspace" action="/student/activity/list?id=${id}"/>
 
