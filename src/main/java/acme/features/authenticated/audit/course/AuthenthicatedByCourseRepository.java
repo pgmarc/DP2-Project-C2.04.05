@@ -1,5 +1,5 @@
 
-package acme.features.any;
+package acme.features.authenticated.audit.course;
 
 import java.util.Collection;
 
@@ -10,7 +10,7 @@ import acme.entities.audit.Audit;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AnyAuditorByCourseRepository extends AbstractRepository {
+public interface AuthenthicatedByCourseRepository extends AbstractRepository {
 
 	@Query("select a from Audit a where a.course.id = :id")
 	Collection<Audit> findManyAuditsByCourseId(int id);

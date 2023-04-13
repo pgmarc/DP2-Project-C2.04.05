@@ -1,7 +1,5 @@
 
-package acme.features.any;
-
-import java.util.Collection;
+package acme.features.authenticated.audit.course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,33 +10,43 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuditorAuditListService extends AbstractService<Authenticated, Audit> {
+public class AuthenthicatedAuditShowService extends AbstractService<Authenticated, Audit> {
 
 	@Autowired
-	protected AnyAuditorByCourseRepository repository;
+	protected AuthenthicatedByCourseRepository repository;
 
 
 	@Override
 	public void check() {
+		boolean status;
 
-		final boolean status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("id", int.class);
+
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int auditId;
+		Audit audit;
+
+		auditId = super.getRequest().getData("id", int.class);
+		audit = this.repository.findOneAuditById(auditId);
+		status = audit != null;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Collection<Audit> objects;
-		int courseId;
+		Audit object;
+		int id;
 
-		courseId = super.getRequest().getData("id", int.class);
-		objects = this.repository.findManyAuditsByCourseId(courseId);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneAuditById(id);
 
-		super.getBuffer().setData(objects);
+		super.getBuffer().setData(object);
 	}
 
 	@Override
@@ -51,4 +59,5 @@ public class AuditorAuditListService extends AbstractService<Authenticated, Audi
 
 		super.getResponse().setData(tuple);
 	}
+
 }
