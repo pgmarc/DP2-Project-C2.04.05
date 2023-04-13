@@ -59,7 +59,7 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstrac", "goals", "estimatedHours");
+		tuple = super.unbind(object, "code", "title", "abstrac", "goals", "estimatedHours", "draftMode");
 		tuple.put("assistant", object.getAssistant());
 		tuple.put("course", object.getCourse());
 
