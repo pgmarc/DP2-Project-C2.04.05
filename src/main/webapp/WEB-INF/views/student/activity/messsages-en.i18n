@@ -25,3 +25,5 @@ authenticated.activity.list.label.endDate = End Date
 authenticated.activity.form.button.create = Create
 authenticated.activity.form.button.update = Update
 authenticated.activity.form.button.workspace = Workspace
+
+authenticated.activity.form.validate.dates=(Negative range) End date must be after start date

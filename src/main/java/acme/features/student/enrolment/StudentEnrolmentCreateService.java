@@ -80,6 +80,10 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+		final Enrolment EnrolmentWithSameCode = this.repository.findOneEnrolmentByCode(object.getCode());
+
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(EnrolmentWithSameCode == null || EnrolmentWithSameCode.equals(object), "code", "authenticated.activity.form.validate.code");
 	}
 
 	@Override

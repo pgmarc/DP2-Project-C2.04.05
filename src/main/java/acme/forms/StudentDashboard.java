@@ -19,6 +19,8 @@ public class StudentDashboard extends AbstractForm {
 
 	protected int				numberOfHandsOnActivities;
 
+	protected int				numberOfBalancedActivities;
+
 	protected double			averageWorkbook;
 
 	protected double			maximumWorkbook;

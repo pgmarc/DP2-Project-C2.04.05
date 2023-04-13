@@ -81,7 +81,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate") && !super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "*", "Fecha final debe estar después de fecha inicial");
+			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "*", "authenticated.activity.form.validate.dates");
 	}
 
 	@Override

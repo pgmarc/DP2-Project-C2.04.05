@@ -25,3 +25,5 @@ authenticated.activity.list.label.endDate = Fecha Final
 authenticated.activity.form.button.create = Crear
 authenticated.activity.form.button.update = Actualizar
 authenticated.activity.form.button.workspace = Espacio de trabajo
+
+authenticated.activity.form.validate.dates=(Intervalo negativo) Fecha final debe estar después de fecha inicial

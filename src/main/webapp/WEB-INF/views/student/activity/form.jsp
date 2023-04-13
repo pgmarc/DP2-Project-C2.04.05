@@ -4,19 +4,24 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="authenticated.activity.list.label.title" path="title"/>
-	<acme:input-textarea code="authenticated.activity.list.label.abstract" path="abstract$"/>
-	<acme:input-url code="authenticated.activity.list.label.moreInfo" path="moreInfo"/>
 	<jstl:choose>
 		<jstl:when test="${_command == 'show'}">
+			<acme:input-textbox code="authenticated.activity.list.label.title" path="title" readonly="true"/>
+			<acme:input-textarea code="authenticated.activity.list.label.abstract" path="abstract$" readonly="true"/>
+			<acme:input-url code="authenticated.activity.list.label.moreInfo" path="moreInfo" readonly="true"/>
 			<acme:input-textbox code="authenticated.activity.list.label.type" path="type" readonly="true"/>
+			<acme:input-moment code="authenticated.activity.list.label.startDate" path="startDate" readonly="true"/>
+			<acme:input-moment code="authenticated.activity.list.label.endDate" path="endDate" readonly="true"/>
 		</jstl:when>
 		<jstl:otherwise>
+			<acme:input-textbox code="authenticated.activity.list.label.title" path="title"/>
+			<acme:input-textarea code="authenticated.activity.list.label.abstract" path="abstract$"/>
+			<acme:input-url code="authenticated.activity.list.label.moreInfo" path="moreInfo"/>
 			<acme:input-select code="authenticated.activity.list.label.type" path="type" choices="${types}"/>
+			<acme:input-moment code="authenticated.activity.list.label.startDate" path="startDate"/>
+			<acme:input-moment code="authenticated.activity.list.label.endDate" path="endDate"/>
 		</jstl:otherwise>
 	</jstl:choose>
-	<acme:input-moment code="authenticated.activity.list.label.startDate" path="startDate"/>
-	<acme:input-moment code="authenticated.activity.list.label.endDate" path="endDate"/>
 	
 	<acme:submit test="${_command == 'create'}" code="authenticated.activity.form.button.create" 
 	action="/student/activity/create?enrolmentId=${param.enrolmentId}"/>

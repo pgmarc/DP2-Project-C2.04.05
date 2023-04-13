@@ -25,3 +25,5 @@ authenticated.enrolment.form.button.update = Update
 authenticated.enrolment.form.button.delete = Delete
 authenticated.enrolment.form.button.publish = Publish
 authenticated.enrolment.form.button.workspace = Workspace
+
+authenticated.activity.form.validate.code = (Duplicate Code) Another enrolment already has this code

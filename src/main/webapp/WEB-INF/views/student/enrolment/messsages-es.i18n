@@ -20,6 +20,8 @@ authenticated.enrolment.list.label.goals = Objetivos
 authenticated.enrolment.list.label.workTime = Tiempo de trabajo
 authenticated.enrolment.list.label.course = Curso
 
+authenticated.activity.form.validate.code = (Codigo Duplicado) Otra matrícula ya tiene este código
+
 authenticated.enrolment.form.button.create = Crear
 authenticated.enrolment.form.button.update = Actualizar
 authenticated.enrolment.form.button.delete = Borrar

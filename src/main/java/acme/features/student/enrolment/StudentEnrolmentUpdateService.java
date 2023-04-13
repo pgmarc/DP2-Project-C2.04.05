@@ -57,6 +57,10 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+		final Enrolment enrolmentWithSameCode = this.repository.findOneEnrolmentByCode(object.getCode());
+
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(enrolmentWithSameCode == null || enrolmentWithSameCode.getId() == object.getId(), "code", "authenticated.activity.form.validate.code");
 	}
 
 	@Override

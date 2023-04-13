@@ -44,6 +44,10 @@ public class Enrolment extends AbstractEntity {
 
 	protected boolean			draftMode;
 
+	protected String			holder;
+
+	protected Integer			lowerNibbleCreditCard;
+
 	// Derived attributes -----------------------------------------------------
 
 	@Digits(integer = 3, fraction = 2)
