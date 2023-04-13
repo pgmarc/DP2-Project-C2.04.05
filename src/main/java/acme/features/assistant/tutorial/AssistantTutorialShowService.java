@@ -32,12 +32,14 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 	@Override
 	public void authorise() {
 		boolean status;
-		int assistantId;
+		Tutorial tutorial;
+		Assistant assistant;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		assistantId = this.repository.findOneTutorialById(id).getAssistant().getId();
-		status = super.getRequest().getPrincipal().hasRole(Assistant.class) && assistantId == super.getRequest().getPrincipal().getActiveRoleId();
+		tutorial = this.repository.findOneTutorialById(id);
+		assistant = tutorial == null ? null : tutorial.getAssistant();
+		status = super.getRequest().getPrincipal().hasRole(assistant) && assistant.getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -60,8 +62,8 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "title", "abstrac", "goals", "estimatedHours", "draftMode");
-		tuple.put("assistant", object.getAssistant());
-		tuple.put("course", object.getCourse());
+		tuple.put("assistantName", object.getAssistant().getIdentity().getFullName());
+		tuple.put("courseId", object.getCourse().getId());
 
 		super.getResponse().setData(tuple);
 	}

@@ -21,9 +21,7 @@
 	<acme:input-textarea code="assistant.tutorial.form.label.abstrac" path="abstrac"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
 	<acme:input-double code="assistant.tutorial.form.label.estimatedHours" path="estimatedHours"/>
-	<!-- 
-	<acme:input-textbox code="assistant.tutorial.form.label.course" path="course"/>
-	<acme:input-textbox code="assistant.tutorial.form.label.assistant" path="assistant"/>
+	<acme:input-textbox code="assistant.tutorial.form.label.assistant" path="assistantName"/>
 
-	 -->
 </acme:form>
+
