@@ -27,7 +27,8 @@ public class AssistantTutorialController extends AbstractController<Assistant, T
 	@PostConstruct
 	public void initialise() {
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("list", this.listMineService);
 
-		super.addCustomCommand("list-mine", "list", this.listMineService);
+		//		super.addCustomCommand("list-mine", "list", this.listMineService);
 	}
 }

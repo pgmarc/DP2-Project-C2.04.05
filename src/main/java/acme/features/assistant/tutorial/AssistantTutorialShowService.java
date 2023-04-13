@@ -32,10 +32,12 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 	@Override
 	public void authorise() {
 		boolean status;
+		int assistantId;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		status = super.getRequest().getPrincipal().hasRole(Assistant.class) && this.repository.findOneTutorialById(id).getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		assistantId = this.repository.findOneTutorialById(id).getAssistant().getId();
+		status = super.getRequest().getPrincipal().hasRole(Assistant.class) && assistantId == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
