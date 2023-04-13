@@ -10,3 +10,17 @@
 
 assistant.tutorial.list.label.title = Título
 assistant.tutorial.list.label.code = Código
+assistant.tutorial.list.button.create = Crear
+
+assistant.tutorial.form.label.code = Código
+assistant.tutorial.form.label.title = Título
+assistant.tutorial.form.label.abstrac = Resumen
+assistant.tutorial.form.label.goals = Objetivos
+assistant.tutorial.form.label.estimatedHours = Horas estimadas
+assistant.tutorial.form.label.course = Curso
+assistant.tutorial.form.label.assistant = Asistente
+assistant.tutorial.form.button.session = Sesiones
+assistant.tutorial.form.button.create = Crear
+assistant.tutorial.form.button.delete = Borrar
+assistant.tutorial.form.button.publish = Publicar
+assistant.tutorial.form.button.update = Actualizar

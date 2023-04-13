@@ -21,6 +21,18 @@ public class AssistantTutorialController extends AbstractController<Assistant, T
 	@Autowired
 	protected AssistantTutorialListMineService	listMineService;
 
+	@Autowired
+	protected AssistantTutorialCreateService	createService;
+
+	@Autowired
+	protected AssistantTutorialDeleteService	deleteService;
+
+	@Autowired
+	protected AssistantTutorialUpdateService	updateService;
+
+	@Autowired
+	protected AssistantTutorialPublishService	publishService;
+
 	//Constructors
 
 
@@ -28,7 +40,11 @@ public class AssistantTutorialController extends AbstractController<Assistant, T
 	public void initialise() {
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("list", this.listMineService);
+		super.addBasicCommand("create", this.listMineService);
+		super.addBasicCommand("delete", this.listMineService);
+		super.addBasicCommand("update", this.listMineService);
 
-		//		super.addCustomCommand("list-mine", "list", this.listMineService);
+		//		super.addCustomCommand("publish", "update", this.listMineService);
+
 	}
 }
