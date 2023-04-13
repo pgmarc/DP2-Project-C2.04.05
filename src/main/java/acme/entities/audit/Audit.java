@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.springframework.beans.factory.annotation.Value;
 
 import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
@@ -48,8 +47,7 @@ public class Audit extends AbstractEntity {
 	@Transient
 	protected String			mark;
 
-	@Value("true")
-	boolean						isPublished;
+	boolean						draftMode;
 
 	@NotNull
 	@ManyToOne

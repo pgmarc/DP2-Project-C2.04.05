@@ -1,5 +1,5 @@
 
-package acme.features.auditor;
+package acme.features.auditor.audit;
 
 import java.util.Collection;
 
@@ -19,33 +19,34 @@ public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
 
 
 	@Override
-	public void authorise() {
-		final boolean status = super.getRequest().getPrincipal().hasRole(Auditor.class);
+	public void check() {
 
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
-	public void check() {
-		final boolean status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+	public void authorise() {
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		final int id = super.getRequest().getData("id", int.class);
-		Collection<Audit> audits;
+		Collection<Audit> objects;
+		int auditId;
 
-		audits = this.repository.findAuditByAuditor(id);
+		auditId = super.getRequest().getPrincipal().getActiveRoleId();
+		objects = this.repository.findManyAuditsByAuditorId(auditId);
 
-		super.getBuffer().setData(audits);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
 	public void unbind(final Audit object) {
+		assert object != null;
+
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "course", "isPublished");
+
+		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
 
 		super.getResponse().setData(tuple);
 	}

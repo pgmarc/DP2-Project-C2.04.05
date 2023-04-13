@@ -1,0 +1,18 @@
+auditor.audit-record.list.label.subject: Subject
+auditor.audit-record.list.label.assesment: Assesment
+auditor.audit-record.list.label.mark: Mark
+auditor.audit-record.list.label.initDate: Initial Date
+auditor.audit-record.list.label.endDate: End Date
+auditor.audit-record.list.label.moreInfo: More Info
+auditor.audit-record.list.button.create: Create
+
+auditor.audit-record.form.label.subject: Subject
+auditor.audit-record.form.label.assesment: Assesment
+auditor.audit-record.form.label.mark: Mark
+auditor.audit-record.form.label.initDate: Initial Date
+auditor.audit-record.form.label.endDate: End Date
+auditor.audit-record.form.label.moreInfo: More Info
+
+assistant.tutorial-session.form.button.update: Update
+assistant.tutorial-session.form.button.delete: Delete
+assistant.tutorial-session.form.button.create: Create
