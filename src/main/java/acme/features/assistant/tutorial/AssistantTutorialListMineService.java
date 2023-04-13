@@ -12,7 +12,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialListService extends AbstractService<Assistant, Tutorial> {
+public class AssistantTutorialListMineService extends AbstractService<Assistant, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
 
