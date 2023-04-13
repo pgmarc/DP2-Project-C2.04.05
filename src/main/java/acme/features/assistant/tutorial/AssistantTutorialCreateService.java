@@ -15,6 +15,7 @@ package acme.features.assistant.tutorial;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
 import acme.entities.tutorial.Tutorial;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -61,14 +62,13 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void bind(final Tutorial object) {
 		assert object != null;
+		Course course;
 
-		Tuple tuple;
+		course = new Course();
 
-		tuple = super.unbind(object, "code", "title", "abstrac", "goals", "estimatedHours", "draftMode");
-		tuple.put("assistantName", object.getAssistant().getIdentity().getFullName());
-		tuple.put("courseId", object.getCourse().getId());
-
-		super.getResponse().setData(tuple);
+		super.bind(object, "code", "title", "abstrac", "goals", "estimatedHours", "draftMode");
+		object.setAssistant(this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId()));
+		object.setCourse(course);
 	}
 
 	@Override
