@@ -14,6 +14,7 @@ authenticated.note.list.label.fullName = Nombre completo
 authenticated.note.list.label.message = Mensaje
 authenticated.note.list.label.email = Email
 authenticated.note.list.label.moreInfo = Más información
+authenticated.note.list.button.create = Crear
 
 authenticated.note.form.label.instantiationMoment = Momento de instanciación
 authenticated.note.form.label.title = Titulo
@@ -21,3 +22,4 @@ authenticated.note.form.label.fullName = Nombre completo
 authenticated.note.form.label.message = Mensaje
 authenticated.note.form.label.email = Email
 authenticated.note.form.label.moreInfo = Más información
+authenticated.note.form.button.create = Crear

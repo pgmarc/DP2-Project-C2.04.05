@@ -23,3 +23,4 @@
 	<acme:list-column code="authenticated.note.list.label.email" path="email"/>
 	<acme:list-column code="authenticated.note.list.label.moreInfo" path="moreInfo"/>
 </acme:list>
+<acme:button code="authenticated.note.list.button.create" action="/authenticated/note/create"/>
