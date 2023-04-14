@@ -1,10 +1,14 @@
 
 package acme.features.assistant.tutorial;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
 import acme.entities.tutorial.Tutorial;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
@@ -58,13 +62,19 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 	@Override
 	public void unbind(final Tutorial object) {
 		assert object != null;
-
+		int assistantId;
+		Collection<Course> courses;
+		SelectChoices choices;
 		Tuple tuple;
 
+		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
+		courses = this.repository.findAllCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
+
 		tuple = super.unbind(object, "code", "title", "abstrac", "goals", "estimatedHours", "draftMode");
-		tuple.put("assistantName", object.getAssistant().getIdentity().getFullName());
-		tuple.put("courseId", object.getCourse().getId());
-		tuple.put("courseCode", object.getCourse().getCode());
+		tuple.put("assistantName", this.repository.findOneAssistantById(assistantId));
+		tuple.put("courseId", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

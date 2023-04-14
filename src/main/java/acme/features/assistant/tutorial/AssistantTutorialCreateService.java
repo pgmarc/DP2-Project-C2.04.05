@@ -58,6 +58,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		object = new Tutorial();
 		object.setDraftMode(true);
 		object.setAssistant(assistant);
+		object.setCourse(new Course());
 
 		super.getBuffer().setData(object);
 	}

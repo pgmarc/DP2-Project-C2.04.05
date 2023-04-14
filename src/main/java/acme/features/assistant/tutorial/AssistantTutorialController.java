@@ -40,11 +40,11 @@ public class AssistantTutorialController extends AbstractController<Assistant, T
 	public void initialise() {
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("list", this.listMineService);
-		super.addBasicCommand("create", this.listMineService);
-		super.addBasicCommand("delete", this.listMineService);
-		super.addBasicCommand("update", this.listMineService);
+		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("update", this.updateService);
 
-		//		super.addCustomCommand("publish", "update", this.listMineService);
+		super.addCustomCommand("publish", "update", this.listMineService);
 
 	}
 }
