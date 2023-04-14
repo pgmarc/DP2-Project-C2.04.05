@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
+import acme.entities.enrolment.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -45,7 +46,13 @@ public class StudentCourseShowService extends AbstractService<Student, Course> {
 	@Override
 	public void unbind(final Course object) {
 		Tuple tuple;
+		final int courseId = super.getRequest().getData("id", int.class);
+		final int accountId = super.getRequest().getPrincipal().getAccountId();
+		final int studentId = this.repository.findOneStudentByUserAccountId(accountId).getId();
+		final Enrolment enrolment = this.repository.findOneEnrolmentByCourseIdAndStudentId(courseId, studentId);
+
 		tuple = super.unbind(object, "code", "title", "courseAbstract", "nature", "retailPrice", "moreInfo", "lecturer", "draftMode");
+		tuple.put("enrolment", enrolment == null ? null : enrolment.getId());
 
 		super.getResponse().setData(tuple);
 	}

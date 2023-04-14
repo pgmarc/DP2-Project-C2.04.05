@@ -12,5 +12,8 @@
 	<acme:input-url code="authenticated.course.list.label.moreInfo" path="moreInfo"/>
 </acme:form>
 
-<acme:button code="authenticated.course.list.label.enrolment" 
+<acme:button code="authenticated.course.list.label.lectures" 
+action="/student/lecture/list?courseId=${id}"/>
+
+<acme:button test="${enrolment == null}" code="authenticated.course.list.label.enrolment" 
 action="/student/enrolment/create?courseId=${id}"/>

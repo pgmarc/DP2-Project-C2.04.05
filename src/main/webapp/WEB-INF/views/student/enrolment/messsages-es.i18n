@@ -13,18 +13,25 @@ authenticated.enrolment.list.label.motivation = Motivación
 authenticated.enrolment.list.label.goals = Objetivos
 authenticated.enrolment.list.label.workTime = Tiempo de trabajo
 authenticated.enrolment.list.label.course = Curso
+authenticated.enrolment.list.label.courseCode = Codigo del curso
+authenticated.enrolment.list.label.courseTitle = Titulo del curso
 
 authenticated.enrolment.list.label.code = Código
 authenticated.enrolment.list.label.motivation = Motivación
 authenticated.enrolment.list.label.goals = Objetivos
 authenticated.enrolment.list.label.workTime = Tiempo de trabajo
 authenticated.enrolment.list.label.course = Curso
+authenticated.enrolment.list.label.holder = Nombre de propietario
+authenticated.enrolment.list.label.lowerNibble = Cuatro últimos dígitos
 
 authenticated.activity.form.validate.code = (Codigo Duplicado) Otra matrícula ya tiene este código
 
 authenticated.enrolment.form.button.create = Crear
 authenticated.enrolment.form.button.update = Actualizar
 authenticated.enrolment.form.button.delete = Borrar
-authenticated.enrolment.form.button.publish = Publicar
+authenticated.enrolment.form.button.Finalized = Finalizar Matrícula
 authenticated.enrolment.form.button.workspace = Espacio de trabajo
 
+authenticated.enrolment.list.label.validate.holder = Debes introducir el nombre del propietario
+authenticated.enrolment.list.label.validate.lowerNibble = Debes introducir los últimos 4 dígitos
+authenticated.activity.form.validate.workTime = No puedes exceder las mil horas de trabajo en esta matrícula

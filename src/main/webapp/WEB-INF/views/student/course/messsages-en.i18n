@@ -23,3 +23,4 @@ authenticated.course.list.label.price = Price
 authenticated.course.list.label.moreInfo = More Information
 
 authenticated.course.list.label.enrolment = Enroll
+authenticated.course.list.label.lectures = Lectures

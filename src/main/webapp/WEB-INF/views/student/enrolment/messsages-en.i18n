@@ -19,11 +19,19 @@ authenticated.enrolment.list.label.motivation = Motivation
 authenticated.enrolment.list.label.goals = Goals
 authenticated.enrolment.list.label.workTime = WorkTime
 authenticated.enrolment.list.label.course = Course
+authenticated.enrolment.list.label.holder = Holder Name
+authenticated.enrolment.list.label.lowerNibble = Lower Nibble
+authenticated.enrolment.list.label.courseCode = Course Code
+authenticated.enrolment.list.label.courseTitle = Course Title
+
+authenticated.enrolment.list.label.validate.holder = You must enter a holder name
+authenticated.enrolment.list.label.validate.lowerNibble = You must enter the lower nibble
 
 authenticated.enrolment.form.button.create = Create
 authenticated.enrolment.form.button.update = Update
 authenticated.enrolment.form.button.delete = Delete
-authenticated.enrolment.form.button.publish = Publish
+authenticated.enrolment.form.button.finalized = Finalized Enrolment
 authenticated.enrolment.form.button.workspace = Workspace
 
 authenticated.activity.form.validate.code = (Duplicate Code) Another enrolment already has this code
+authenticated.activity.form.validate.workTime = you can`t exceed a thousand hours of workTime in this enrolment

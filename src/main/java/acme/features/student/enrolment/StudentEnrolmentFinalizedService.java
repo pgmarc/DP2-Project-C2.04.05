@@ -12,14 +12,14 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentUpdateService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentFinalizedService extends AbstractService<Student, Enrolment> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected StudentEnrolmentRepository repository;
 
-	// AbstractService interface ----------------------------------------------ç
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -32,7 +32,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		masterId = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findOneEnrolmentById(masterId);
 		student = enrolment == null ? null : enrolment.getStudent();
-		status = enrolment != null && enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
+		status = enrolment != null && super.getRequest().getPrincipal().hasRole(student);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -61,22 +61,26 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		super.bind(object, "code", "motivation", "goals", "workTime");
+		super.bind(object, "holder", "lowerNibble");
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
-		final Enrolment enrolmentWithSameCode = this.repository.findOneEnrolmentByCode(object.getCode());
 
-		if (!super.getBuffer().getErrors().hasErrors("code"))
-			super.state(enrolmentWithSameCode == null || enrolmentWithSameCode.getId() == object.getId(), "code", "authenticated.activity.form.validate.code");
+		if (!super.getBuffer().getErrors().hasErrors("holder"))
+			super.state(object.getHolder() != null && !object.getHolder().equals(""), "holder", "authenticated.enrolment.list.label.validate.holder");
+
+		if (!super.getBuffer().getErrors().hasErrors("lowerNibble"))
+			super.state(object.getLowerNibble() != null, "lowerNibble", "authenticated.enrolment.list.label.validate.lowerNibble");
+
 	}
 
 	@Override
 	public void perform(final Enrolment object) {
 		assert object != null;
 
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 
@@ -86,7 +90,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
+		tuple = super.unbind(object, "holder", "lowerNibble");
 		super.getResponse().setData(tuple);
 	}
 

@@ -31,7 +31,17 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Enrolment enrolment;
+		Student student;
+
+		masterId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findOneEnrolmentById(masterId);
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = enrolment != null && super.getRequest().getPrincipal().hasRole(student);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -46,6 +56,8 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 	public void unbind(final Enrolment object) {
 		Tuple tuple;
 		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode");
+		tuple.put("courseCode", object.getCourse().getCode());
+		tuple.put("courseTitle", object.getCourse().getTitle());
 
 		super.getResponse().setData(tuple);
 	}

@@ -6,8 +6,8 @@
 <acme:list>
 	<acme:list-column code="authenticated.enrolment.list.label.code" path="code"/>
 	<acme:list-column code="authenticated.enrolment.list.label.motivation" path="motivation"/>
-	<acme:list-column code="authenticated.enrolment.list.label.goals" path="goals"/>
-	<acme:list-column code="authenticated.enrolment.list.label.workTime" path="workTime"/>
+	<acme:list-column code="authenticated.enrolment.list.label.courseCode" path="courseCode"/>
+	<acme:list-column code="authenticated.enrolment.list.label.courseTitle" path="courseTitle"/>
 
 </acme:list>
 

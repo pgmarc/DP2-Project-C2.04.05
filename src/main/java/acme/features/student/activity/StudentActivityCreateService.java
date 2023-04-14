@@ -36,12 +36,6 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 		status = super.getRequest().hasData("enrolmentId", int.class);
 
-		if (status) {
-			final int enrolmentId = super.getRequest().getData("enrolmentId", int.class);
-			final Enrolment enrolment = this.repository.findOneEnrolmentById(enrolmentId);
-			status = !enrolment.isDraftMode();
-		}
-
 		super.getResponse().setChecked(status);
 	}
 
@@ -49,7 +43,14 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	public void authorise() {
 		boolean status;
 
-		status = super.getRequest().getPrincipal().hasRole(Student.class);
+		status = super.getRequest().hasData("enrolmentId", int.class);
+
+		if (status) {
+			final int enrolmentId = super.getRequest().getData("enrolmentId", int.class);
+			final Enrolment enrolment = this.repository.findOneEnrolmentById(enrolmentId);
+			final Student student = enrolment == null ? null : enrolment.getStudent();
+			status = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -82,6 +83,15 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate") && !super.getBuffer().getErrors().hasErrors("endDate"))
 			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "*", "authenticated.activity.form.validate.dates");
+
+		if (!super.getBuffer().getErrors().hasErrors()) {
+			final long horas = MomentHelper.computeDuration(object.getStartDate(), object.getEndDate()).toMinutes() / 60;
+			final double minutosEnPorcentaje = (double) (MomentHelper.computeDuration(object.getStartDate(), object.getEndDate()).toMinutes() - horas * 60) / 60;
+			final int enrolmentId = super.getRequest().getData("enrolmentId", int.class);
+			final Enrolment enrolment = this.repository.findOneEnrolmentById(enrolmentId);
+			final double newWorkTime = Math.round((enrolment.getWorkTime() + horas + minutosEnPorcentaje) * 100.0) / 100.0;
+			super.state(newWorkTime < 1000.0, "*", "authenticated.activity.form.validate.workTime");
+		}
 	}
 
 	@Override

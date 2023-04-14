@@ -26,22 +26,31 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 	@Override
 	public void check() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			super.getResponse().setChecked(true);
-		else {
-			boolean status;
+		boolean status;
 
-			status = super.getRequest().hasData("courseId", int.class);
+		status = super.getRequest().hasData("courseId", int.class);
 
-			super.getResponse().setChecked(status);
-		}
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
+		Enrolment enrolment;
+		int courseId;
+		int studentId;
+		int accountId;
 
 		status = super.getRequest().getPrincipal().hasRole(Student.class);
+
+		if (status) {
+			courseId = super.getRequest().getData("courseId", int.class);
+			accountId = super.getRequest().getPrincipal().getAccountId();
+			studentId = this.repository.findOneStudentByUserAccountId(accountId).getId();
+			enrolment = this.repository.findOneEnrolmentByCourseIdAndStudentId(courseId, studentId);
+
+			status = enrolment == null;
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
