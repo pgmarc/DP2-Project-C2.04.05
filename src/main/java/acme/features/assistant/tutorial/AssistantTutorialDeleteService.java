@@ -74,11 +74,13 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 	public void bind(final Tutorial object) {
 		assert object != null;
 		Course course;
+		Assistant assistant;
 
 		course = object.getCourse();
+		assistant = object.getAssistant();
 
 		super.bind(object, "code", "title", "abstrac", "goals", "estimatedHours", "draftMode");
-		object.setAssistant(object.getAssistant());
+		object.setAssistant(assistant);
 		object.setCourse(course);
 	}
 

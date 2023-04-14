@@ -71,11 +71,13 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 	public void bind(final Tutorial object) {
 		assert object != null;
 		Course course;
+		Assistant assistant;
 
 		course = object.getCourse();
+		assistant = object.getAssistant();
 
 		super.bind(object, "code", "title", "abstrac", "goals", "estimatedHours", "draftMode");
-		object.setAssistant(object.getAssistant());
+		object.setAssistant(assistant);
 		object.setCourse(course);
 	}
 
@@ -85,7 +87,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 			Assistant assistant;
 
 			assistant = object.getAssistant();
-			super.state(assistant.getId() == super.getRequest().getPrincipal().getActiveRoleId(), "estimatedHours", "assistant.tutorial.form.error.assistant");
+			super.state(assistant.getId() == super.getRequest().getPrincipal().getActiveRoleId(), "assistant", "assistant.tutorial.form.error.assistant");
 		}
 	}
 
