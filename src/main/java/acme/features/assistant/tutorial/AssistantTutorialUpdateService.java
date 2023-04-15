@@ -76,7 +76,8 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 		course = object.getCourse();
 		assistant = object.getAssistant();
 
-		super.bind(object, "code", "title", "abstrac", "goals", "estimatedHours", "draftMode");
+		super.bind(object, "code", "title", "abstrac", "goals", "estimatedHours");
+		object.setDraftMode(true);
 		object.setAssistant(assistant);
 		object.setCourse(course);
 	}
