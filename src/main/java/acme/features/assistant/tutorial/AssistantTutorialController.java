@@ -44,7 +44,7 @@ public class AssistantTutorialController extends AbstractController<Assistant, T
 		super.addBasicCommand("delete", this.deleteService);
 		super.addBasicCommand("update", this.updateService);
 
-		super.addCustomCommand("publish", "update", this.listMineService);
+		super.addCustomCommand("publish", "update", this.publishService);
 
 	}
 }

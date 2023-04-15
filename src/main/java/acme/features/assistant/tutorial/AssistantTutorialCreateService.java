@@ -12,14 +12,11 @@
 
 package acme.features.assistant.tutorial;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
 import acme.entities.tutorial.Tutorial;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
@@ -37,7 +34,11 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("courseId", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -52,13 +53,16 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void load() {
 		Tutorial object;
+		Course course;
 		Assistant assistant;
 
+		course = this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class));
 		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
+
 		object = new Tutorial();
 		object.setDraftMode(true);
 		object.setAssistant(assistant);
-		object.setCourse(new Course());
+		object.setCourse(course);
 
 		super.getBuffer().setData(object);
 	}
@@ -72,7 +76,8 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		course = this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class));
 		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
 
-		super.bind(object, "code", "title", "abstrac", "goals", "estimatedHours", "draftMode");
+		super.bind(object, "code", "title", "abstrac", "goals", "estimatedHours");
+		object.setDraftMode(true);
 		object.setAssistant(assistant);
 		object.setCourse(course);
 	}
@@ -99,19 +104,16 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void unbind(final Tutorial object) {
 		assert object != null;
-		int assistantId;
-		Collection<Course> courses;
-		SelectChoices choices;
+		Assistant assistant;
+		Course course;
 		Tuple tuple;
 
-		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
-		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "code", object.getCourse());
+		assistant = object.getAssistant();
+		course = object.getCourse();
 
 		tuple = super.unbind(object, "code", "title", "abstrac", "goals", "estimatedHours", "draftMode");
-		tuple.put("assistantName", this.repository.findOneAssistantById(assistantId));
-		tuple.put("courseId", choices.getSelected().getKey());
-		tuple.put("courses", choices);
+		tuple.put("assistantName", assistant.getIdentity().getFullName());
+		tuple.put("courseId", course.getId());
 
 		super.getResponse().setData(tuple);
 	}

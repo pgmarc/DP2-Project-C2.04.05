@@ -17,14 +17,13 @@ assistant.tutorial.form.label.title = Title
 assistant.tutorial.form.label.abstrac = Abstract
 assistant.tutorial.form.label.goals = Goals
 assistant.tutorial.form.label.estimatedHours = Estimated Hours
-assistant.tutorial.form.label.course = Course
 assistant.tutorial.form.label.assistant = Assistant
+assistant.tutorial.form.button.course = Course
 assistant.tutorial.form.button.session = Sessions
 assistant.tutorial.form.button.create = Create
 assistant.tutorial.form.button.delete = Delete
 assistant.tutorial.form.button.publish = Publish
 assistant.tutorial.form.button.update = Update
-assistant.tutorial.form.label.courses = Select a course
 
 assistant.tutorial.form.error.assistant = The assistant editing this form is not the author
 
