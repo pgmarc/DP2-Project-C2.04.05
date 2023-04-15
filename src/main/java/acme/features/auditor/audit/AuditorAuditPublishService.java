@@ -53,7 +53,7 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	public void bind(final Audit object) {
 		assert object != null;
 
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
 		object.setDraftMode(false);
 	}
 
@@ -85,7 +85,7 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
+		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints");
 
 		super.getResponse().setData(tuple);
 	}

@@ -21,13 +21,13 @@ public class AuthenthicatedAuditListService extends AbstractService<Authenticate
 	@Override
 	public void check() {
 
-		final boolean status = super.getRequest().hasData("id", int.class);
+		final boolean status = super.getRequest().hasData("courseId", int.class);
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		super.getResponse().setAuthorised(super.getRequest().getPrincipal().hasRole(Authenticated.class) && this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class)) != null);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class AuthenthicatedAuditListService extends AbstractService<Authenticate
 		Collection<Audit> objects;
 		int courseId;
 
-		courseId = super.getRequest().getData("id", int.class);
+		courseId = super.getRequest().getData("courseId", int.class);
 		objects = this.repository.findManyAuditsByCourseId(courseId);
 
 		super.getBuffer().setData(objects);

@@ -11,7 +11,6 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.BinderHelper;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
-import acme.roles.Assistant;
 import acme.roles.Auditor;
 
 @Service
@@ -37,7 +36,7 @@ public class AuthenticatedAuditorUpdateService extends AbstractService<Authentic
 
 	@Override
 	public void load() {
-		Assistant object;
+		Auditor object;
 		Principal principal;
 		int userAccountId;
 

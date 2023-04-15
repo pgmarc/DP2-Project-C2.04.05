@@ -59,6 +59,12 @@ master.menu.user-account.become-lecturer = Become a lecturer
 master.menu.authenticated = Authenticated
 master.menu.authenticated.note = Notes
 
+# master.menu.auditor ############################################################
+master.menu.auditor = Auditor
+master.menu.auditor.audit.list = List Audits
+master.menu.user-account.become-auditor = Become an auditor
+master.menu.user-account.auditor = Update Auditor
+
 # master.menu.any ###################################################
 master.menu.any = Any
 master.menu.any.peeps = Peeps

@@ -1,7 +1,6 @@
 
 package acme.features.auditor.auditRecord;
 
-import java.time.Duration;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +36,7 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 
 		auditId = super.getRequest().getData("masterId", int.class);
 		audit = this.repository.findOneAuditById(auditId);
-		status = audit != null && audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor()) && super.getRequest().getPrincipal().getUsername().equals(audit.getAuditor().getUserAccount().getUsername());
+		status = audit != null && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -58,7 +57,6 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		assert object != null;
 
 		Tuple tuple;
-		final Duration duration;
 
 		tuple = super.unbind(object, "subject", "assesment", "mark", "initDate", "endDate", "moreInfo");
 
@@ -71,12 +69,13 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 
 		int masterId;
 		final Audit audit;
-		final boolean showCreate;
+		boolean showCreate;
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		audit = this.repository.findOneAuditById(masterId);
-		showCreate = audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
+		showCreate = super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 
+		super.getResponse().setGlobal("showCreate", showCreate);
 		super.getResponse().setGlobal("masterId", masterId);
 	}
 

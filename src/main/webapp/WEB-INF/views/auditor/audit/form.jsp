@@ -8,7 +8,6 @@
 	<acme:input-textbox code="auditor.audit.form.label.conclusion" path="conclusion"/>
 	<acme:input-textarea code="auditor.audit.form.label.strongPoints" path="strongPoints"/>
 	<acme:input-textbox code="auditor.audit.form.label.weakPoints" path="weakPoints"/>
-
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">
 			<acme:button code="auditor.audit.form.button.audit-records" action="/auditor/audit-record/list?masterId=${id}"/>			

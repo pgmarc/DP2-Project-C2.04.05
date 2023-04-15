@@ -33,7 +33,7 @@ public class AuthenthicatedAuditShowService extends AbstractService<Authenticate
 
 		auditId = super.getRequest().getData("id", int.class);
 		audit = this.repository.findOneAuditById(auditId);
-		status = audit != null;
+		status = audit != null && super.getRequest().getPrincipal().hasRole(Authenticated.class);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -55,7 +55,7 @@ public class AuthenthicatedAuditShowService extends AbstractService<Authenticate
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
+		tuple = super.unbind(object, "id", "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
 
 		super.getResponse().setData(tuple);
 	}

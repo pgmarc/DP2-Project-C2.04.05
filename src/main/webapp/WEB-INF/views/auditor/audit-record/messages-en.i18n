@@ -13,6 +13,6 @@ auditor.audit-record.form.label.initDate: Initial Date
 auditor.audit-record.form.label.endDate: End Date
 auditor.audit-record.form.label.moreInfo: More Info
 
-assistant.tutorial-session.form.button.update: Update
-assistant.tutorial-session.form.button.delete: Delete
-assistant.tutorial-session.form.button.create: Create
+auditor.audit-record.form.button.update: Update
+auditor.audit-record.form.button.delete: Delete
+auditor.audit-record.form.button.create: Create

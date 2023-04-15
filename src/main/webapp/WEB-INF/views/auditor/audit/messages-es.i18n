@@ -10,8 +10,11 @@ auditor.audit.form.label.conclusion = Conclusión
 auditor.audit.form.label.strongPoints = Puntos Fuertes
 auditor.audit.form.label.weakPoints = Puntos Débiles
 auditor.audit.form.button.audit-records = Registro de Auditoria
+auditor.audit.form.label.draftMode = Modo Borrador
 auditor.audit.form.button.create.audit-records = Crear Registro de Auditoria
 auditor.audit.form.button.update = Modificar
 auditor.audit.form.button.delete = Borrar
 auditor.audit.form.button.publish = Publicar
 auditor.audit.form.button.create = Crear
+
+auditor.audit.form.error.duplicated-code="Codigo Duplicado"

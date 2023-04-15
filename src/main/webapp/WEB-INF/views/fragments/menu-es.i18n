@@ -63,3 +63,9 @@ master.menu.authenticated.note = Notas
 master.menu.any = Cualquiera
 master.menu.any.peeps = Peeps
 master.menu.any.Courses = Cursos
+
+# master.menu.auditor ############################################################
+master.menu.auditor = Auditor
+master.menu.auditor.audit.list = Listar Auditorias
+master.menu.user-account.become-auditor = Hazte Auditor
+master.menu.user-account.auditor = Datos de Auditor
