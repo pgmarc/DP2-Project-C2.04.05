@@ -18,6 +18,10 @@ any.course.list.label.lecturer = Profesor
 
 any.course.form.label.code = Código
 any.course.form.label.title = Titulo
+
+any.audit.form.button.audit.create = Crear Auditoria
+any.audit.form.button.audit.list = Listar Auditorias por Curso
+
 any.course.form.label.courseAbstract = Resumen
 any.course.form.label.nature = Naturaleza
 any.course.form.label.retailPrice = Precio

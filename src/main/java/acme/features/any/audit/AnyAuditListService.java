@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.audit.course;
+package acme.features.any.audit;
 
 import java.util.Collection;
 
@@ -7,15 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.audit.Audit;
+import acme.framework.components.accounts.Any;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenthicatedAuditListService extends AbstractService<Authenticated, Audit> {
+public class AnyAuditListService extends AbstractService<Any, Audit> {
 
 	@Autowired
-	protected AuthenthicatedByCourseRepository repository;
+	protected AnyAuditRepository repository;
 
 
 	@Override

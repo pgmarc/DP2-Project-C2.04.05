@@ -12,7 +12,13 @@ auditor.audit-record.form.label.mark: Mark
 auditor.audit-record.form.label.initDate: Initial Date
 auditor.audit-record.form.label.endDate: End Date
 auditor.audit-record.form.label.moreInfo: More Info
+auditor.audit-record.form.error.end-before-start: End date must later than initial date
 
 auditor.audit-record.form.button.update: Update
 auditor.audit-record.form.button.delete: Delete
+auditor.audit-record.form.button.create: Create
+
+auditor.audit-record.form.button.create.modal.body: Are you sure, this audit record is necesary?
+auditor.audit-record.form.button.create.modal.title: Create an Audit Record
+auditor.audit-record.form.button.close: Cancel
 auditor.audit-record.form.button.create: Create
