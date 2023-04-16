@@ -12,6 +12,8 @@
 assistant.tutorialsession.form.error.tutorial = The tutorial has already been published
 assistant.tutorialsession.form.error.finishDate = Start date must be before finish date in a 1 to 5 hours interval
 assistant.tutorialsession.form.error.startDate = Start date must be at least one day ahead from the current date
+assistant.tutorialsession.form.error.nature = Select a valid nature
+assistant.tutorialsession.form.error.title = You can't leave a tutorial without sessions
 
 assistant.tutorialsession.list.label.title = Title
 assistant.tutorialsession.list.label.abstrac = Abstract

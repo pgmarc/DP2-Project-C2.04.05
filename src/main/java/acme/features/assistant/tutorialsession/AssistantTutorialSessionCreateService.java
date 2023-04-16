@@ -106,6 +106,12 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 			super.state(MomentHelper.isLongEnough(MomentHelper.getCurrentMoment(), start, 1, ChronoUnit.DAYS), "startDate", "assistant.tutorialsession.form.error.startDate");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("sessionNature")) {
+			Nature nature;
+
+			nature = object.getSessionNature();
+			super.state(nature != null, "sessionNature", "assistant.tutorialsession.form.error.nature");
+		}
 	}
 
 	@Override

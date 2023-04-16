@@ -11,6 +11,8 @@
 assistant.tutorialsession.form.error.tutorial = El tutorial ya ha sido publicado
 assistant.tutorialsession.form.error.finishDate = La fecha de origen debe ser anterior a la de fin en un intervalo de 1 a 5 horas
 assistant.tutorialsession.form.error.startDate = La fecha de origen debe ser al menos un día posterior a la fecha actual
+assistant.tutorialsession.form.error.nature = Selecciona una naturaleza válida
+assistant.tutorialsession.form.error.title = No puede dejar a un tutorial sin sesiones
 
 assistant.tutorialsession.list.label.title = Título
 assistant.tutorialsession.list.label.abstrac = Resumen

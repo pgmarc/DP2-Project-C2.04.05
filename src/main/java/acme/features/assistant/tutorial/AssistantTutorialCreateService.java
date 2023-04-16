@@ -12,11 +12,20 @@
 
 package acme.features.assistant.tutorial;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
 import acme.entities.tutorial.Tutorial;
+import acme.entities.tutorial.TutorialSession;
+import acme.enumerates.Nature;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
@@ -34,11 +43,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("courseId", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
@@ -53,16 +58,16 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void load() {
 		Tutorial object;
-		Course course;
+		Course defaultCourse;
 		Assistant assistant;
 
-		course = this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class));
+		defaultCourse = ((List<Course>) this.repository.findAllCourses()).get(0);
 		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
 
 		object = new Tutorial();
 		object.setDraftMode(true);
 		object.setAssistant(assistant);
-		object.setCourse(course);
+		object.setCourse(defaultCourse);
 
 		super.getBuffer().setData(object);
 	}
@@ -73,7 +78,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		Course course;
 		Assistant assistant;
 
-		course = this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class));
+		course = object.getCourse();
 		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
 
 		super.bind(object, "code", "title", "abstrac", "goals", "estimatedHours");
@@ -92,13 +97,24 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 			assistant = object.getAssistant();
 			super.state(assistant.getId() == super.getRequest().getPrincipal().getActiveRoleId(), "assistant", "assistant.tutorial.form.error.assistant");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("course")) {
+			Course course;
+
+			course = object.getCourse();
+			super.state(course != null, "course", "assistant.tutorial.form.error.course");
+		}
 	}
 
 	@Override
 	public void perform(final Tutorial object) {
 		assert object != null;
+		final TutorialSession session;
+
+		session = this.createDefaultSession(object);
+		object.setEstimatedHours(1.);
 
 		this.repository.save(object);
+		this.repository.save(session);
 	}
 
 	@Override
@@ -106,16 +122,49 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		assert object != null;
 		Assistant assistant;
 		Course course;
+		Collection<Course> courses;
 		Tuple tuple;
+		SelectChoices choices;
 
 		assistant = object.getAssistant();
 		course = object.getCourse();
+		courses = this.repository.findAllCourses();
+		choices = SelectChoices.from(courses, "code", course);
 
 		tuple = super.unbind(object, "code", "title", "abstrac", "goals", "estimatedHours", "draftMode");
+		tuple.put("assistant", assistant);
+		tuple.put("course", this.repository.findOneCourseByCode(choices.getSelected().getKey()));
+		tuple.put("courses", choices);
 		tuple.put("assistantName", assistant.getIdentity().getFullName());
 		tuple.put("courseId", course.getId());
 
 		super.getResponse().setData(tuple);
+	}
+
+	private TutorialSession createDefaultSession(final Tutorial tutorial) {
+		TutorialSession session;
+		SimpleDateFormat dateFormatter;
+		Date start = new Date();
+		Date finish = new Date();
+
+		dateFormatter = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+		try {
+			start = dateFormatter.parse("2023/07/30 22:00");
+			finish = dateFormatter.parse("2023/07/30 23:00");
+		} catch (final ParseException e) {
+			e.printStackTrace();
+		}
+
+		session = new TutorialSession();
+		session.setTitle("Default session");
+		session.setAbstrac("This is a default session");
+		session.setGoals("Update this session");
+		session.setSessionNature(Nature.THEORETICAL);
+		session.setStartDate(start);
+		session.setFinishDate(finish);
+		session.setTutorial(tutorial);
+
+		return session;
 	}
 
 }

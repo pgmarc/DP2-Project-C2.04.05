@@ -90,7 +90,14 @@ public class AssistantTutorialSessionDeleteService extends AbstractService<Assis
 
 			tutorial = this.repository.findOneTutorialByTutorialSessionId(super.getRequest().getData("id", int.class));
 
-			super.state(tutorial.isDraftMode(), "assistant", "assistant.tutorialsession.form.error.tutorial");
+			super.state(tutorial.isDraftMode(), "tutorial", "assistant.tutorialsession.form.error.tutorial");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			int numOfSessions;
+
+			numOfSessions = this.repository.findTutorialSessionsByTutorialId(object.getTutorial().getId()).size();
+
+			super.state(numOfSessions > 1, "title", "assistant.tutorialsession.form.error.title");
 		}
 	}
 
