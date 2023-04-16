@@ -19,8 +19,7 @@
 	<acme:list-column code="assistant.tutorialsession.list.label.title" path="title"/>
 	<acme:list-column code="assistant.tutorialsession.list.label.abstrac" path="abstrac"/>
 </acme:list>
-<p>${tutorialId}<p/>
 
-<acme:button code="assistant.tutorialsession.list.button.create" action="/assistant/tutorial-session/create?tutorialId?=${tutorialId}"/>
+<acme:button test="${showCreate}" code="assistant.tutorialsession.list.button.create" action="/assistant/tutorial-session/create?tutorialId=${tId}"/>
 
 

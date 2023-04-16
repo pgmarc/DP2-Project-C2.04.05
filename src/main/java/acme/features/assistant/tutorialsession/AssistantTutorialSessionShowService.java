@@ -1,15 +1,13 @@
 
 package acme.features.assistant.tutorialsession;
 
-import java.util.Arrays;
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.tutorial.Tutorial;
 import acme.entities.tutorial.TutorialSession;
 import acme.enumerates.Nature;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
@@ -57,17 +55,17 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 	@Override
 	public void unbind(final TutorialSession object) {
 		assert object != null;
-		Tuple tuple;
 		Tutorial tutorial;
-		Collection<Nature> natures;
+		Tuple tuple;
+		SelectChoices choices;
 
-		natures = Arrays.asList(Nature.values());
-		tutorial = this.repository.findOneTutorialByTutorialSessionId(super.getRequest().getData("id", int.class));
+		tutorial = object.getTutorial();
+		choices = SelectChoices.from(Nature.class, object.getSessionNature());
 
 		tuple = super.unbind(object, "title", "abstrac", "goals", "startDate", "finishDate");
-		tuple.put("natures", natures);
-		tuple.put("sessionNature", object.getSessionNature().toString());
-		tuple.put("tutorialId", tutorial);
+		tuple.put("natures", choices);
+		tuple.put("sessionNature", choices.getSelected().getKey());
+		tuple.put("tutorialId", tutorial.getId());
 		tuple.put("draftMode", tutorial.isDraftMode());
 
 		super.getResponse().setData(tuple);

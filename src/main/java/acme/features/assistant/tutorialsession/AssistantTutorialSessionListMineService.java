@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.tutorial.Tutorial;
 import acme.entities.tutorial.TutorialSession;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -54,13 +55,18 @@ public class AssistantTutorialSessionListMineService extends AbstractService<Ass
 	@Override
 	public void unbind(final TutorialSession object) {
 		assert object != null;
-
 		Tuple tuple;
 		int tutorialId;
+		Tutorial tutorial;
+		boolean showCreate;
 
 		tutorialId = super.getRequest().getData("tutorialId", int.class);
+		tutorial = this.repository.findOneTutorialById(tutorialId);
+		showCreate = tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+
 		tuple = super.unbind(object, "title", "abstrac", "goals", "sessionNature", "startDate", "finishDate");
-		tuple.put("tutorialId", super.getRequest().getData("tutorialId", int.class));
+		super.getResponse().setGlobal("tId", tutorialId);
+		super.getResponse().setGlobal("showCreate", showCreate);
 
 		super.getResponse().setData(tuple);
 	}

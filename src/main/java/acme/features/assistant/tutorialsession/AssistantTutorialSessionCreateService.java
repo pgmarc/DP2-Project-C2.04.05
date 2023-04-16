@@ -13,8 +13,6 @@
 package acme.features.assistant.tutorialsession;
 
 import java.time.temporal.ChronoUnit;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +21,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.tutorial.Tutorial;
 import acme.entities.tutorial.TutorialSession;
 import acme.enumerates.Nature;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -66,6 +65,12 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 		object = new TutorialSession();
 		object.setTutorial(tutorial);
+		object.setTitle("");
+		object.setAbstrac("");
+		object.setGoals("");
+		object.setStartDate(new Date());
+		object.setFinishDate(new Date());
+		object.setSessionNature(Nature.THEORETICAL);
 
 		super.getBuffer().setData(object);
 	}
@@ -73,12 +78,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 	@Override
 	public void bind(final TutorialSession object) {
 		assert object != null;
-		Tutorial tutorial;
-
-		tutorial = this.repository.findOneTutorialById(super.getRequest().getData("tutorialId", int.class));
-
 		super.bind(object, "title", "abstrac", "goals", "sessionNature", "startDate", "finishDate");
-		object.setTutorial(tutorial);
 	}
 
 	@Override
@@ -113,7 +113,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		assert object != null;
 		Tutorial tutorial;
 
-		tutorial = this.repository.findOneTutorialByTutorialSessionId(object.getId());
+		tutorial = this.repository.findOneTutorialById(super.getRequest().getData("tutorialId", int.class));
 		tutorial = this.getUpdatedTutorial(tutorial, object);
 
 		this.repository.save(object);
@@ -125,14 +125,14 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		assert object != null;
 		Tutorial tutorial;
 		Tuple tuple;
-		Collection<Nature> natures;
+		SelectChoices choices;
 
-		natures = Arrays.asList(Nature.values());
-		tutorial = object.getTutorial();
+		tutorial = this.repository.findOneTutorialById(super.getRequest().getData("tutorialId", int.class));
+		choices = SelectChoices.from(Nature.class, object.getSessionNature());
 
 		tuple = super.unbind(object, "title", "abstrac", "goals", "startDate", "finishDate");
-		tuple.put("natures", natures);
-		tuple.put("sessionNature", object.getSessionNature().toString());
+		tuple.put("natures", choices);
+		tuple.put("sessionNature", choices.getSelected().getKey());
 		tuple.put("tutorialId", tutorial.getId());
 		tuple.put("draftMode", tutorial.isDraftMode());
 

@@ -19,27 +19,19 @@
 	<acme:input-textbox code="assistant.tutorialsession.form.label.title" path="title"/>
 	<acme:input-textarea code="assistant.tutorialsession.form.label.abstrac" path="abstrac"/>
 	<acme:input-textarea code="assistant.tutorialsession.form.label.goals" path="goals"/>
-	<jstl:if test="${_command == 'create'}">
-		<acme:input-select code="assistant.tutorialsession.form.label.natures" path="sessionNatures" choices="${natures}"/>
-	</jstl:if>
-	<jstl:if test="${_command != 'create'}">
-		<acme:input-textbox code="assistant.tutorialsession.form.label.nature" path="sessionNature"/>
-	</jstl:if>
+	<acme:input-select code="assistant.tutorialsession.form.label.natures" path="sessionNature" choices="${natures}"/>
 	<acme:input-moment code="assistant.tutorialsession.form.label.start" path="startDate"/>
 	<acme:input-moment code="assistant.tutorialsession.form.label.finish" path="finishDate"/>
-	
-	
-	<jstl:choose>	 
-		<jstl:when test="${_command == 'show'}">
-			<acme:button code="assistant.tutorialsession.form.button.tutorial" action="/assistant/tutorial/show?id=${tutorialId}"/>				
-		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
-			<acme:submit code="assistant.tutorialsession.form.button.update" action="/assistant/tutorial-session/update"/>
-			<acme:submit code="assistant.tutorialsession.form.button.delete" action="/assistant/tutorial-session/delete"/>
-		</jstl:when>
-		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="assistant.tutorialsession.form.button.create" action="/assistant/tutorial-session/create"/>
-		</jstl:when>		
-	</jstl:choose>
+		 
+	<jstl:if test="${_command == 'show'}">
+		<acme:button code="assistant.tutorialsession.form.button.tutorial" action="/assistant/tutorial/show?id=${tutorialId}"/>				
+	</jstl:if>
+	<jstl:if test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
+		<acme:submit code="assistant.tutorialsession.form.button.update" action="/assistant/tutorial-session/update"/>
+		<acme:submit code="assistant.tutorialsession.form.button.delete" action="/assistant/tutorial-session/delete"/>
+	</jstl:if>
+	<jstl:if test="${_command == 'create'}">
+		<acme:submit code="assistant.tutorialsession.form.button.create" action="/assistant/tutorial-session/create?tutorialId=${tutorialId}"/>
+	</jstl:if>		
 </acme:form>
 

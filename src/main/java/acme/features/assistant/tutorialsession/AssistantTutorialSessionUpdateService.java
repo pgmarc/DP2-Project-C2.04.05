@@ -20,6 +20,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.tutorial.Tutorial;
 import acme.entities.tutorial.TutorialSession;
+import acme.enumerates.Nature;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -126,11 +128,14 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 		assert object != null;
 		Tutorial tutorial;
 		Tuple tuple;
+		SelectChoices choices;
 
 		tutorial = object.getTutorial();
+		choices = SelectChoices.from(Nature.class, object.getSessionNature());
 
 		tuple = super.unbind(object, "title", "abstrac", "goals", "startDate", "finishDate");
-		tuple.put("sessionNature", object.getSessionNature().toString());
+		tuple.put("natures", choices);
+		tuple.put("sessionNature", choices.getSelected().getKey());
 		tuple.put("tutorialId", tutorial.getId());
 		tuple.put("draftMode", tutorial.isDraftMode());
 
