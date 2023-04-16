@@ -11,6 +11,7 @@ import acme.framework.components.accounts.Any;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Auditor;
 
 @Service
 public class AnyAuditListService extends AbstractService<Any, Audit> {
@@ -50,6 +51,8 @@ public class AnyAuditListService extends AbstractService<Any, Audit> {
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
 
+		super.getResponse().setGlobal("showCreate", super.getRequest().getPrincipal().hasRole(Auditor.class));
+		super.getResponse().setGlobal("courseId", super.getRequest().getData("courseId", int.class));
 		super.getResponse().setData(tuple);
 	}
 }

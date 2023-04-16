@@ -71,9 +71,9 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 		courseId = super.getRequest().getData("courseId", int.class);
 		course = this.repository.findOneCourseById(courseId);
 
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
 		object.setAuditor(auditor);
-		object.setDraftMode(true);
+		object.setDraftMode(object.isDraftMode());
 		object.setCourse(course);
 	}
 
@@ -112,9 +112,10 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 		auditor = this.repository.findOneAuditorById(auditorId);
 		courseId = super.getRequest().getData("courseId", int.class);
 		course = this.repository.findOneCourseById(courseId);
-		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode", "mark");
+		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints");
 		tuple.put("auditor", auditor);
 		tuple.put("course", course);
+		super.getResponse().setGlobal("courseId", courseId);
 
 		super.getResponse().setData(tuple);
 	}

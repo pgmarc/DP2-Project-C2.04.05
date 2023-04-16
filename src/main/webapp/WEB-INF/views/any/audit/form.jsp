@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form> 
-	<jstl:when test="${_command == 'show'}">
+	<jstl:if test="${_command == 'show'}">
 		<acme:input-textbox code="auditor.audit.form.label.auditor" path="auditor"/>
 		<acme:input-textbox code="auditor.audit.form.label.code" path="code"/>
 		<acme:input-textbox code="auditor.audit.form.label.conclusion" path="conclusion"/>
@@ -12,5 +12,5 @@
 		<acme:input-textbox code="auditor.audit.form.label.weakPoints" path="weakPoints"/>
 		<acme:input-checkbox code="auditor.audit.form.label.draftMode" path="draftMode"/>
 		<acme:input-textbox code="auditor.audit.form.label.mark" path="mark"/>	 
-	</jstl:when>		
+	</jstl:if>		
 </acme:form>
