@@ -1,11 +1,15 @@
 
 package acme.features.assistant.tutorialsession;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.tutorial.Tutorial;
 import acme.entities.tutorial.TutorialSession;
+import acme.enumerates.Nature;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
@@ -55,10 +59,14 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 		assert object != null;
 		Tuple tuple;
 		Tutorial tutorial;
+		Collection<Nature> natures;
 
+		natures = Arrays.asList(Nature.values());
 		tutorial = this.repository.findOneTutorialByTutorialSessionId(super.getRequest().getData("id", int.class));
 
-		tuple = super.unbind(object, "title", "abstrac", "goals", "sessionNature", "startDate", "finishDate");
+		tuple = super.unbind(object, "title", "abstrac", "goals", "startDate", "finishDate");
+		tuple.put("natures", natures);
+		tuple.put("sessionNature", object.getSessionNature().toString());
 		tuple.put("tutorialId", tutorial);
 		tuple.put("draftMode", tutorial.isDraftMode());
 

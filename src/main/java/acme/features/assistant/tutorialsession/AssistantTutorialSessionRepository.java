@@ -22,7 +22,7 @@ public interface AssistantTutorialSessionRepository extends AbstractRepository {
 	@Query("SELECT ts FROM TutorialSession ts WHERE ts.id = :id")
 	TutorialSession findOneTutorialSessionsById(int id);
 
-	@Query("SELECT t FROM Tutorial t JOIN TutorialSession ts WHERE ts.id = :id")
-	Tutorial findOneTutorialByTutorialSessionId(int id);
+	@Query("SELECT t FROM Tutorial t WHERE t.id = (SELECT ts.tutorial.id FROM TutorialSession ts WHERE ts.id = :tutorialSessionId)")
+	Tutorial findOneTutorialByTutorialSessionId(int tutorialSessionId);
 
 }

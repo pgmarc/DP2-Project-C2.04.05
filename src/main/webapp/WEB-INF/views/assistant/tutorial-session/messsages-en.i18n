@@ -10,5 +10,23 @@
 
 
 assistant.tutorialsession.form.error.tutorial = The tutorial has already been published
+assistant.tutorialsession.form.error.finishDate = Start date must be before finish date in a 1 to 5 hours interval
+assistant.tutorialsession.form.error.startDate = Start date must be at least one day ahead from the current date
+
+assistant.tutorialsession.list.label.title = Title
+assistant.tutorialsession.list.label.abstrac = Abstract
+assistant.tutorialsession.list.button.create = Create
+
+assistant.tutorialsession.form.label.title = Title
+assistant.tutorialsession.form.label.abstrac = Abstract
+assistant.tutorialsession.form.label.goals = Goals
+assistant.tutorialsession.form.label.natures = Select a nature
+assistant.tutorialsession.form.label.nature = Nature
+assistant.tutorialsession.form.label.start = Start Date
+assistant.tutorialsession.form.label.finish = Finish Date
+assistant.tutorialsession.form.button.tutorial = Tutorial
+assistant.tutorialsession.form.button.update = Update
+assistant.tutorialsession.form.button.delete = Delete
+assistant.tutorialsession.form.button.create = Create
 
 

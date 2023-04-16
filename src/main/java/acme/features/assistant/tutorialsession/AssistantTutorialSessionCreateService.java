@@ -12,12 +12,19 @@
 
 package acme.features.assistant.tutorialsession;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.tutorial.Tutorial;
 import acme.entities.tutorial.TutorialSession;
+import acme.enumerates.Nature;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
@@ -83,13 +90,34 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 			super.state(tutorial.isDraftMode(), "assistant", "assistant.tutorialsession.form.error.tutorial");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
+			final Date start = object.getStartDate();
+			final Date finish = object.getFinishDate();
+			boolean state;
+
+			state = MomentHelper.isBefore(start, finish);
+			state = state && MomentHelper.isLongEnough(start, finish, 1, ChronoUnit.HOURS);
+			state = state && !MomentHelper.isLongEnough(start, finish, 5, ChronoUnit.HOURS);
+
+			super.state(state, "finishDate", "assistant.tutorialsession.form.error.finishDate");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+			final Date start = object.getStartDate();
+
+			super.state(MomentHelper.isLongEnough(MomentHelper.getCurrentMoment(), start, 1, ChronoUnit.DAYS), "startDate", "assistant.tutorialsession.form.error.startDate");
+		}
 	}
 
 	@Override
 	public void perform(final TutorialSession object) {
 		assert object != null;
+		Tutorial tutorial;
+
+		tutorial = this.repository.findOneTutorialByTutorialSessionId(object.getId());
+		tutorial = this.getUpdatedTutorial(tutorial, object);
 
 		this.repository.save(object);
+		this.repository.save(tutorial);
 	}
 
 	@Override
@@ -97,14 +125,32 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		assert object != null;
 		Tutorial tutorial;
 		Tuple tuple;
+		Collection<Nature> natures;
 
+		natures = Arrays.asList(Nature.values());
 		tutorial = object.getTutorial();
 
-		tuple = super.unbind(object, "title", "abstrac", "goals", "sessionNature", "startDate", "finishDate");
+		tuple = super.unbind(object, "title", "abstrac", "goals", "startDate", "finishDate");
+		tuple.put("natures", natures);
+		tuple.put("sessionNature", object.getSessionNature().toString());
 		tuple.put("tutorialId", tutorial.getId());
 		tuple.put("draftMode", tutorial.isDraftMode());
 
 		super.getResponse().setData(tuple);
+	}
+
+	private Tutorial getUpdatedTutorial(final Tutorial tutorial, final TutorialSession object) {
+		double newHours;
+		Date start;
+		Date finish;
+
+		start = object.getStartDate();
+		finish = object.getFinishDate();
+		newHours = (double) MomentHelper.computeDuration(start, finish).toMinutes() / 60;
+
+		tutorial.setEstimatedHours(tutorial.getEstimatedHours() + newHours);
+
+		return tutorial;
 	}
 
 }

@@ -60,7 +60,7 @@ public class AssistantTutorialSessionListMineService extends AbstractService<Ass
 
 		tutorialId = super.getRequest().getData("tutorialId", int.class);
 		tuple = super.unbind(object, "title", "abstrac", "goals", "sessionNature", "startDate", "finishDate");
-		tuple.put("tutorialId", this.repository.findOneTutorialById(tutorialId).getId());
+		tuple.put("tutorialId", super.getRequest().getData("tutorialId", int.class));
 
 		super.getResponse().setData(tuple);
 	}

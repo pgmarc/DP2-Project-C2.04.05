@@ -12,12 +12,15 @@
 
 package acme.features.assistant.tutorialsession;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.tutorial.Tutorial;
 import acme.entities.tutorial.TutorialSession;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
@@ -92,7 +95,12 @@ public class AssistantTutorialSessionDeleteService extends AbstractService<Assis
 	@Override
 	public void perform(final TutorialSession object) {
 		assert object != null;
+		Tutorial tutorial;
 
+		tutorial = this.repository.findOneTutorialByTutorialSessionId(object.getId());
+		tutorial = this.getUpdatedTutorial(tutorial, object);
+
+		this.repository.save(tutorial);
 		this.repository.delete(object);
 	}
 
@@ -104,11 +112,28 @@ public class AssistantTutorialSessionDeleteService extends AbstractService<Assis
 
 		tutorial = object.getTutorial();
 
-		tuple = super.unbind(object, "title", "abstrac", "goals", "sessionNature", "startDate", "finishDate");
+		tuple = super.unbind(object, "title", "abstrac", "goals", "startDate", "finishDate");
+		tuple.put("sessionNature", object.getSessionNature().toString());
 		tuple.put("tutorialId", tutorial.getId());
 		tuple.put("draftMode", tutorial.isDraftMode());
 
 		super.getResponse().setData(tuple);
+	}
+
+	private Tutorial getUpdatedTutorial(final Tutorial tutorial, final TutorialSession object) {
+		TutorialSession oldSession;
+		double oldHours;
+		Date oldStart;
+		Date oldFinish;
+
+		oldSession = this.repository.findOneTutorialSessionsById(object.getId());
+		oldStart = oldSession.getStartDate();
+		oldFinish = oldSession.getFinishDate();
+		oldHours = (double) MomentHelper.computeDuration(oldStart, oldFinish).toMinutes() / 60;
+
+		tutorial.setEstimatedHours(tutorial.getEstimatedHours() - oldHours);
+
+		return tutorial;
 	}
 
 }

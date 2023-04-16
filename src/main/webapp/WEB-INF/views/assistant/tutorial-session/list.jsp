@@ -16,10 +16,11 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="assistant.tutorial.list.label.title" path="title"/>
-	<acme:list-column code="assistant.tutorial.list.label.code" path="code"/>
+	<acme:list-column code="assistant.tutorialsession.list.label.title" path="title"/>
+	<acme:list-column code="assistant.tutorialsession.list.label.abstrac" path="abstrac"/>
 </acme:list>
+<p>${tutorialId}<p/>
 
-<acme:button code="assistant.tutorial.list.button.create" action="/assistant/tutorial/create?courseId=1"/>
+<acme:button code="assistant.tutorialsession.list.button.create" action="/assistant/tutorial-session/create?tutorialId?=${tutorialId}"/>
 
 
