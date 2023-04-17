@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface LecturerCourseLectureRepository extends AbstractRepository {
 
-	@Query("select cl from CourseLecture cl where cl.course.lecturer.userAccount.id = :id and cl.lecture.lecturer.userAccount.id = :id and cl.course.draftMode = true and cl.lecture.draftMode = true")
+	@Query("select cl from CourseLecture cl where cl.course.lecturer.userAccount.id = :id and cl.lecture.lecturer.userAccount.id = :id and cl.course.draftMode = true")
 	public List<CourseLecture> getCourseLecturesFromLecturer(int id);
 
 	@Query("select cl from CourseLecture cl where cl.id = :id")
