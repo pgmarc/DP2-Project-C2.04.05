@@ -10,3 +10,6 @@
 
 administrator.system-currency.form.label.current-currency = Current currency
 administrator.system-currency.form.label.supported-currencies = Supported currencies
+administrator.system-currency.form.button.update= Update
+administrator.system-currency.form.button.submitUpdate= Submit
+administrator.systemCurrency.form.error.notSupportedCurrency = The current currency must be supported

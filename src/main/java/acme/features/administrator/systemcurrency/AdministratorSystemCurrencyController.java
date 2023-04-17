@@ -14,12 +14,15 @@ import acme.framework.controllers.AbstractController;
 public class AdministratorSystemCurrencyController extends AbstractController<Administrator, SystemCurrency> {
 
 	@Autowired
-	protected AdministratorSystemCurrencyShowService showService;
+	protected AdministratorSystemCurrencyShowService	showService;
 
+	@Autowired
+	protected AdministratorSystemCurrencyUpdateService	updateService;
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("update", this.updateService);
 	}
 
 }

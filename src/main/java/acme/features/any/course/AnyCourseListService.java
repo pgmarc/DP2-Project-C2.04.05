@@ -11,7 +11,6 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
-
 @Service
 public class AnyCourseListService extends AbstractService<Any, Course> {
 
