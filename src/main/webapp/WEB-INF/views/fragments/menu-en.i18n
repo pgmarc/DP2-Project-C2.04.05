@@ -34,6 +34,9 @@ master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 master.menu.administrator.system-currency = System currency
 
+master.menu.banner = Banners
+master.menu.banner.list = Banner list
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider

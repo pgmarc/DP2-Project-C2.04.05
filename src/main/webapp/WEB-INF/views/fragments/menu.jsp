@@ -41,6 +41,10 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
 	
+		<acme:menu-option code="master.menu.banner" access="hasRole('Administrator')">
+			<acme:menu-suboption code="master.menu.banner.list" action="/administrator/banner/list"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.auditor.audit.list" action="/auditor/audit/list"/>
 		</acme:menu-option>
