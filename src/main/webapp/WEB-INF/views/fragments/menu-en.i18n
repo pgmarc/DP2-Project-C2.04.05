@@ -60,6 +60,12 @@ master.menu.student.course= All the courses
 master.menu.student.dashboard.head= Dashboard
 master.menu.student.dashboard= Your dashboard
 
+# master.menu.bulletin ##########################################################
+
+master.menu.bulletin = Bulletins
+master.menu.bulletin.list = List Bulletins
+master.menu.bulletin.create = Create a bulletin
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
