@@ -1,7 +1,7 @@
-key,title-workspace,abstract-workspace,more-info,type,start-date,end-date,key:enrolment
-activity-01,The Ultimate Guide to Creating a Successful Online Store: Strategies Tips,Learn the basics of Acme programming,null,THEORY,2022/01/01 22:00,2022/01/01 22:50,enrolment-01
-activity-02,Web Development Fundamentals,Discover the art of web: learn to develop software,https://example.com/webdev-info,HANDS_ON,2020/02/29 14:00,2020/02/29 14:30,enrolment-01
-activity-03,Web Development with HTML and CSS,You will learn how to create a website using HTML and CSS in this activity,null,HANDS_ON,2023/06/20 22:50,2023/06/21 00:30,enrolment-02
-activity-04,Li,you will review the concepts of linear algebra,https://example.com/linear-algebra-review,HANDS_ON,2023/06/20 22:50,2023/06/21 00:30,enrolment-01
-activity-05,Data Analysis with Pandas,You will learn how to use Pandas library for data analysis,null,THEORY,2020/02/29 14:00,2020/02/29 14:30,enrolment-02
-activity-06,Web Development with Spring,Y,https://example.com/spring,THEORY,2022/01/01 22:00,2022/01/01 23:00,enrolment-02
+key,title,abstract$,more-info,type,start-date,end-date,key:enrolment
+activity-01,The Ultimate Guide to Creating a Successful Online Store:  Strategies Tips.,Learn the basics of Acme programming,null,THEORETICAL,2022/01/01 22:00,2022/01/01 22:20,enrolment-01
+activity-02,Web Development Fundamentals,Discover the art of web: learn to develop software,https://example.com/webdev-info,BALANCED,2020/02/29 14:00,2020/02/29 14:30,enrolment-01
+activity-03,Web Development with HTML and CSS,"You will learn how to create a website using HTML and CSS in this activity. For Example, Angular.",null,HANDS_ON,2023/06/20 22:50,2023/06/21 22:51,enrolment-02
+activity-04,L,you will review the concepts of linear algebra,https://example.com/linear-algebra-review,HANDS_ON,2023/06/20 22:50,2023/06/21 00:30,enrolment-01
+activity-05,Data Analysis with Pandas,You will learn_ how$ toñ use /(Pandas) library for data analysis,null,THEORETICAL,2020/02/29 14:00,2020/02/29 14:29,enrolment-02
+activity-06,"Web Development with Spring, -¨¨<{}",Y,https://example.com/spring,BALANCED,2017/01/01 22:00,2017/01/01 23:00,enrolment-02

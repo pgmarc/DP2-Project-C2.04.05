@@ -1,3 +1,4 @@
+
 package acme.entities.course;
 
 import javax.persistence.Column;
@@ -40,8 +41,6 @@ public class Course extends AbstractEntity {
 	@Length(min = 1, max = 100)
 	protected String			courseAbstract;
 
-	protected Nature			nature;
-
 	@NotNull
 	protected Money				retailPrice;
 
@@ -53,5 +52,9 @@ public class Course extends AbstractEntity {
 	protected Lecturer			lecturer;
 
 	protected boolean			draftMode;
+
+	// Derived attributes
+	@NotNull
+	public Nature				nature;
 
 }
