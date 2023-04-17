@@ -64,3 +64,6 @@ master.menu.student.enrolment= Tus Matrículas
 
 master.menu.student.course.head= Cursos
 master.menu.student.course= Todos los cursos
+
+master.menu.student.dashboard.head= Tablero
+master.menu.student.dashboard= Tu Tablero

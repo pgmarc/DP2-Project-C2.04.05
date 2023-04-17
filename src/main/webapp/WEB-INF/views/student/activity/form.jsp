@@ -26,7 +26,7 @@
 	<acme:submit test="${_command == 'create'}" code="authenticated.activity.form.button.create" 
 	action="/student/activity/create?enrolmentId=${param.enrolmentId}"/>
 	<acme:submit test="${_command == 'update'}" code="authenticated.activity.form.button.update" 
-	action="/student/activity/update"/>
+	action="/student/activity/update?id=${id}"/>
 	<acme:button test="${_command == 'show'}" code="authenticated.activity.form.button.update" 
 	action="/student/activity/update?id=${id}"/>
 	<acme:submit test="${_command == 'show'}" code="authenticated.enrolment.form.button.delete" 

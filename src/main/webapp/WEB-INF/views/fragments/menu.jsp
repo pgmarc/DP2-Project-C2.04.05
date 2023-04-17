@@ -54,6 +54,10 @@
 		<acme:menu-option code="master.menu.student.course.head" access="hasRole('Student')">
 			<acme:menu-suboption code="master.menu.student.course" action="/student/course/list"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.student.dashboard.head" access="hasRole('Student')">
+			<acme:menu-suboption code="master.menu.student.dashboard" action="/student/student-dashboard/show"/>
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>

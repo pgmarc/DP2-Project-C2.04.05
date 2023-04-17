@@ -90,7 +90,16 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate") && !super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "*", "Fecha final debe estar después de fecha inicial");
+			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "*", "authenticated.activity.form.validate.dates");
+
+		if (!super.getBuffer().getErrors().hasErrors()) {
+			final long horas = MomentHelper.computeDuration(object.getStartDate(), object.getEndDate()).toMinutes() / 60;
+			final double minutosEnPorcentaje = (double) (MomentHelper.computeDuration(object.getStartDate(), object.getEndDate()).toMinutes() - horas * 60) / 60;
+			final int enrolmentId = object.getEnrolment().getId();
+			final Enrolment enrolment = this.repository.findOneEnrolmentById(enrolmentId);
+			final double newWorkTime = Math.round((enrolment.getWorkTime() + horas + minutosEnPorcentaje) * 100.0) / 100.0;
+			super.state(newWorkTime < 1000.0, "*", "authenticated.activity.form.validate.workTime");
+		}
 	}
 
 	@Override
