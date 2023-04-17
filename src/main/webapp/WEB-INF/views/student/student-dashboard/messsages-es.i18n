@@ -1,0 +1,24 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+student.dashboard.form.title.general-indicators = Your dashboard
+student.dashboard.form.title.application-statuses = Application statuses  
+
+student.dashboard.form.label.number-theory =  Numero de actividades teoricas
+student.dashboard.form.label.number-handson =  Numero de actividades practicas
+student.dashboard.form.label.number-balanced =  Numero de actividades balanceadas
+student.dashboard.form.label.avg-workbook =  Media de tiempo de trabajo en tu espacio de trabajo
+student.dashboard.form.label.max-workbook =  Periodo maximo de trabajo en tu espacio de trabajo
+student.dashboard.form.label.min-workbook =  Periodo minimo de trabajo en tu espacio de trabajo
+student.dashboard.form.label.stddev-workbook =  desviacion de tiempo de trabajo en tu espacio de trabajo
+student.dashboard.form.label.avg-learning =  Tiempo de aprendizaje medio en tus matriculas
+student.dashboard.form.label.max-learning =  Tiempo de aprendizaje maximo en tus matriculas
+student.dashboard.form.label.min-learning =  Tiempo de aprendizaje minimo en tus matriculas
+student.dashboard.form.label.stddev-learning =  Desviacion del tiempo de aprendizaje en tus matriculas
