@@ -34,7 +34,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 		courseId = super.getRequest().getData("courseId", int.class);
 		course = this.repository.findOneCourseById(courseId);
-		status = course != null && super.getRequest().getPrincipal().hasRole(Auditor.class);
+		status = course != null && super.getRequest().getPrincipal().hasRole(Auditor.class) && !course.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}

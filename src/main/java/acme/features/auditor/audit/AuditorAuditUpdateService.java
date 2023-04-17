@@ -86,7 +86,9 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints");
 
+		tuple.put("draftMode", object.isDraftMode());
 		super.getResponse().setData(tuple);
+
 	}
 
 }

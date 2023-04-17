@@ -13,6 +13,7 @@ auditor.audit-record.form.label.initDate: Initial Date
 auditor.audit-record.form.label.endDate: End Date
 auditor.audit-record.form.label.moreInfo: More Info
 auditor.audit-record.form.error.end-before-start: End date must later than initial date
+auditor.audit-record.form.error.duration: Duration must be of less than 1 hour 
 
 auditor.audit-record.form.button.update: Update
 auditor.audit-record.form.button.delete: Delete

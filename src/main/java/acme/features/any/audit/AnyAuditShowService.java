@@ -71,7 +71,7 @@ public class AnyAuditShowService extends AbstractService<Any, Audit> {
 		Tuple tuple;
 
 		tuple = super.unbind(object, "id", "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
-		tuple.put("auditor", super.getRequest().getPrincipal().getUsername());
+		tuple.put("auditor", object.getAuditor().getUserAccount().getUsername());
 
 		super.getResponse().setData(tuple);
 	}

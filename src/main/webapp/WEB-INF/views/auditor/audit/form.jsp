@@ -7,7 +7,7 @@
 	<acme:input-textbox code="auditor.audit.form.label.code" path="code"/>
 	<acme:input-textbox code="auditor.audit.form.label.conclusion" path="conclusion"/>
 	<acme:input-textarea code="auditor.audit.form.label.strongPoints" path="strongPoints"/>
-	<acme:input-textbox code="auditor.audit.form.label.weakPoints" path="weakPoints"/>
+	<acme:input-textarea code="auditor.audit.form.label.weakPoints" path="weakPoints"/>
 	<jstl:if test="${_command == 'create'}">
 		<acme:input-checkbox code="auditor.audit.form.label.draftMode" path="draftMode" />
 	</jstl:if>
