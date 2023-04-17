@@ -6,8 +6,10 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
+
 import acme.enumerates.Nature;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;

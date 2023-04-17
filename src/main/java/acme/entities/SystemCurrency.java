@@ -20,7 +20,7 @@ public class SystemCurrency extends AbstractEntity {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-  
+
 	@Length(min = 3, max = 3)
 	@NotBlank
 	@Value("EUR")

@@ -19,6 +19,7 @@ public class AdministratorSystemCurrencyController extends AbstractController<Ad
 	@Autowired
 	protected AdministratorSystemCurrencyUpdateService	updateService;
 
+
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("show", this.showService);

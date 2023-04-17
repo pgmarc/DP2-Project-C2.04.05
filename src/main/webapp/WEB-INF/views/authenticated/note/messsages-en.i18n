@@ -14,6 +14,7 @@ authenticated.note.list.label.fullName = Full name
 authenticated.note.list.label.message = Message
 authenticated.note.list.label.email = Email
 authenticated.note.list.label.moreInfo = MoreInfo
+authenticated.note.list.button.create = Create
 
 authenticated.note.form.label.instantiationMoment = Instantiation Moment
 authenticated.note.form.label.title = Title
@@ -21,3 +22,8 @@ authenticated.note.form.label.fullName = Full name
 authenticated.note.form.label.message = Message
 authenticated.note.form.label.email = Email
 authenticated.note.form.label.moreInfo = MoreInfo
+authenticated.note.form.button.create = Create
+authenticated.note.form.button.close = Cancel
+authenticated.note.form.button.create.modal.title = Are you sure you want to create this note?
+authenticated.note.form.button.create.modal.body = Please note that you will not be able to modify or delete it in the future
+

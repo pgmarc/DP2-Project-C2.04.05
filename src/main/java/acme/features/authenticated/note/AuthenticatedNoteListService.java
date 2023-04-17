@@ -1,6 +1,7 @@
 
 package acme.features.authenticated.note;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.message.Note;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -30,7 +32,9 @@ public class AuthenticatedNoteListService extends AbstractService<Authenticated,
 
 	@Override
 	public void load() {
-		final List<Note> object = this.repository.listNotes();
+		Date today;
+		today = MomentHelper.getCurrentMoment();
+		final List<Note> object = this.repository.listNotes(today);
 		super.getBuffer().setData(object);
 	}
 
