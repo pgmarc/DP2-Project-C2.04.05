@@ -23,3 +23,6 @@ authenticated.note.form.label.message = Mensaje
 authenticated.note.form.label.email = Email
 authenticated.note.form.label.moreInfo = Más información
 authenticated.note.form.button.create = Crear
+authenticated.note.form.button.close = Cancelar
+authenticated.note.form.button.create.modal.title = ¿Está seguro de que quiere crear esta nota?
+authenticated.note.form.button.create.modal.body = Tenga en cuenta que no podrá modificarla ni borrarla en el futuro
