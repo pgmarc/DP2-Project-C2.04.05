@@ -40,28 +40,47 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
+	
+		<acme:menu-option code="master.menu.banner" access="hasRole('Administrator')">
+			<acme:menu-suboption code="master.menu.banner.list" action="/administrator/banner/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
+			<acme:menu-suboption code="master.menu.auditor.audit.list" action="/auditor/audit/list"/>
+		</acme:menu-option>
 
-		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+     	<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.note" action="/authenticated/note/list"/>
       	</acme:menu-option>
       	
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
 			<acme:menu-suboption code="master.menu.any.peeps" action="/any/peep/list"/>
 			<acme:menu-suboption code="master.menu.any.courses" action="/any/course/list"/>
-    </acme:menu-option>
-     
-    <acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">
-			<acme:menu-suboption code="master.menu.lecturer.courses" action="/lecturer/course/list-mine"/>
-			<acme:menu-suboption code="master.menu.lecturer.lectures" action="/lecturer/lecture/list-all"/>
-			<acme:menu-suboption code="master.menu.lecturer.courseLectures" action="/lecturer/course-lecture/list"/>
+      	</acme:menu-option>
+      	
+		<acme:menu-option code="master.menu.bulletin" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.bulletin.list" action="/authenticated/bulletin/list"/>
+			<acme:menu-suboption code="master.menu.bulletin.create" access="hasRole('Administrator')" action="/administrator/bulletin/create"/>
 		</acme:menu-option>
-     
+		
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
+		</acme:menu-option>
+
+		<acme:menu-option code="master.menu.student.enrolment.head" access="hasRole('Student')">
+			<acme:menu-suboption code="master.menu.student.enrolment" action="/student/enrolment/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.student.course.head" access="hasRole('Student')">
+			<acme:menu-suboption code="master.menu.student.course" action="/student/course/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.student.dashboard.head" access="hasRole('Student')">
+			<acme:menu-suboption code="master.menu.student.dashboard" action="/student/student-dashboard/show"/>
 		</acme:menu-option>
 	</acme:menu-left>
 
@@ -77,9 +96,12 @@
 			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-lecturer" action="/authenticated/lecturer/create" access="!hasRole('Lecturer')"/>
 			<acme:menu-suboption code="master.menu.user-account.lecturer" action="/authenticated/lecturer/update" access="hasRole('Lecturer')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
+			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-student" action="/authenticated/student/create" access="!hasRole('Student')"/>
+			<acme:menu-suboption code="master.menu.user-account.student" action="/authenticated/student/update" access="hasRole('Student')"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
 	</acme:menu-right>
 </acme:menu-bar>
-

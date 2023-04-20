@@ -1,6 +1,6 @@
 
 <%@page language="java"%>
-
+<%@page language="java" import="acme.framework.helpers.PrincipalHelper"%>
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
@@ -13,3 +13,10 @@
 	<acme:input-url code="any.course.form.label.moreInfo" path="moreInfo"/>
 	<acme:input-textbox code="lecturer.course.form.label.lecturer" path="lecturer"/>
 </acme:form>
+
+<jstl:choose>
+	<jstl:when test="hasRole('Auditor')">
+		<acme:button code="any.audit.form.button.audit.create" action="/auditor/audit/create?courseId=${id}"/>
+	</jstl:when>
+</jstl:choose>
+<acme:button code="any.audit.form.button.audit.list" action="/any/audit/list?courseId=${id}"/> 		

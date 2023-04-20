@@ -40,8 +40,13 @@ public class Banner extends AbstractEntity {
 	@Length(min = 1, max = 75)
 	protected String			slogan;
 
+	@NotBlank
 	@URL
-	protected String			moreInfo;
+	protected String			picture;
+
+	@NotBlank
+	@URL
+	protected String			target;
 
 	// Derived attributes -----------------------------------------------------
 

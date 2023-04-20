@@ -24,5 +24,8 @@ any.course.form.label.retailPrice = Price
 any.course.form.label.moreInfo = More info
 any.course.form.label.lecturer = Lecturer
 
+any.audit.form.button.audit.create = Create Audit
+any.audit.form.button.audit.list = List Audits by Course
+
 
 
