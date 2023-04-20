@@ -112,7 +112,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 		auditor = this.repository.findOneAuditorById(auditorId);
 		courseId = super.getRequest().getData("courseId", int.class);
 		course = this.repository.findOneCourseById(courseId);
-		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints");
+		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
 		tuple.put("auditor", auditor);
 		tuple.put("course", course);
 		super.getResponse().setGlobal("courseId", courseId);
