@@ -34,6 +34,9 @@ master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 master.menu.administrator.system-currency = System currency
 
+master.menu.banner = Banners
+master.menu.banner.list = Banner list
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -48,15 +51,6 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.student = Student
 master.menu.student.link = Favourite link
-
-# master.menu.user-account ####################################################
-
-master.menu.user-account = Account
-master.menu.user-account.general-data = General data
-master.menu.user-account.provider = Provider data
-master.menu.user-account.become-provider = Become a provider
-master.menu.user-account.consumer = Consumer data
-master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.become-student = Become a student
 master.menu.user-account.student= Student data
 
@@ -69,9 +63,32 @@ master.menu.student.course= All the courses
 master.menu.student.dashboard.head= Dashboard
 master.menu.student.dashboard= Your dashboard
 
+# master.menu.bulletin ##########################################################
+
+master.menu.bulletin = Bulletins
+master.menu.bulletin.list = List Bulletins
+master.menu.bulletin.create = Create a bulletin
+
+# master.menu.user-account ####################################################
+
+master.menu.user-account = Account
+master.menu.user-account.general-data = General data
+master.menu.user-account.provider = Provider data
+master.menu.user-account.become-provider = Become a provider
+master.menu.user-account.consumer = Consumer data
+master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.lecturer = Lecturer data
+master.menu.user-account.become-lecturer = Become a lecturer
+
 # master.menu.authenticated ####################################################
 master.menu.authenticated = Authenticated
 master.menu.authenticated.note = Notes
+
+# master.menu.auditor ############################################################
+master.menu.auditor = Auditor
+master.menu.auditor.audit.list = List Audits
+master.menu.user-account.become-auditor = Become an auditor
+master.menu.user-account.auditor = Update Auditor
 
 # master.menu.any ###################################################
 master.menu.any = Any
