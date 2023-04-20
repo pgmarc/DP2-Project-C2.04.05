@@ -1,4 +1,7 @@
 key,code,key:lecturer,title,course-abstract,nature,retail-price,more-info,draft-mode
 course-01,A 000,lecturer-01,Introduction to Computer Science,"Learn algorithms, data structures, programming languages, and software engineering major principles!",BALANCED,EUR 9999.99,https://example.com/A-001,true
-course-02,ZZ 999,lecturer-02,a,a,HANDS_ON,USD 0.00,null,false
+course-02,ZZ 999,lecturer-02,a,a,BALANCED,USD 0.00,null,false
 course-03,HHH 542,lecturer-01,La vida es una constante lucha entre dar todo por alguien más y recibir mas,Un pequeño paso puede ser el comienzo de un gran viaje.,THEORETICAL,GBP 50.49,https://example.com/H-542,true
+course-04,HER 473,lecturer-01,Diseño y Pruebas II,La muerte a pellizcos,BALANCED,GBP 50.49,null,false
+course-05,FLU 307,lecturer-01,Modelado y Visualización Gráfica,Lo mejor que hay en todo tercero de IS,BALANCED,EUR 70.50,null,false
+course-06,PDN 839,lecturer-01,Arquitectura y Servicio de Redes,¿Pero esto que es? ¿Se come?,BALANCED,EUR 300.50,null,false
