@@ -100,3 +100,8 @@ master.menu.user-account.auditor = Update Auditor
 master.menu.any = Any
 master.menu.any.peeps = Peeps
 master.menu.any.courses = Courses
+
+# master.menu.tutorial ####################################################
+
+master.menu.tutorial = Tutorials
+master.menu.tutorial.list = Tutorial list

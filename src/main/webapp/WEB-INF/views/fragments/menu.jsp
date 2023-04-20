@@ -67,6 +67,10 @@
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 
+		<acme:menu-option code="master.menu.tutorial" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.tutorial.list" action="/authenticated/tutorial/list"/>
+		</acme:menu-option>
+
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
