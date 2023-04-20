@@ -14,6 +14,7 @@ import org.hibernate.validator.constraints.Length;
 
 import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Auditor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,9 +47,16 @@ public class Audit extends AbstractEntity {
 	@Transient
 	protected String			mark;
 
+	boolean						draftMode;
+
 	@NotNull
 	@ManyToOne
 	@Valid
 	protected Course			course;
+
+	@NotNull
+	@ManyToOne
+	@Valid
+	protected Auditor			auditor;
 
 }

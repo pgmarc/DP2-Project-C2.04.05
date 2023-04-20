@@ -2,3 +2,4 @@ key,code,title,abstrac,goals,estimated-hours,draft-mode,key:assistant,key:course
 tutorial-01,"AAA2222","How to multiply.","We will learn basic math.","Learn mathematics.;Learn.",1.0,true,assistant-01,course-01
 tutorial-02,"B4444","`","+","Ç",5.5,false,assistant-02,course-01
 tutorial-03,"AA1111","How to make the best stuff that you will ever make, just pay attention, etc","You will learn how to teach others and communicate your knowledge, which can be a really fun game!!!","Teach others.;Learn.;Gain the power to communicate others what you have in your mind and experiences",5.0,false,assistant-03,course-02
+
