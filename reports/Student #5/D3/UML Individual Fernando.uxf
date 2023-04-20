@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>72</x>
+      <x>90</x>
       <y>42</y>
       <w>186</w>
       <h>78</h>
@@ -22,10 +22,10 @@ Auditor
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
+      <x>48</x>
       <y>198</y>
       <w>258</w>
-      <h>78</h>
+      <h>84</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Entity&gt;&gt;
@@ -35,13 +35,14 @@ Audit
 +  conclusion: String{NotNull, NotBlank,Length(0,100)}
 +  strongPoints: String{NotNull, NotBlank, Length(0,100)}
 +  weakPoints: String{NotNull, NotBlank, Length(0,100)}
-+/ mark: String(NotNull, Transient)</panel_attributes>
++/ mark: String(NotNull, Transient)
++ draftMode: boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>0</x>
+      <x>18</x>
       <y>288</y>
       <w>270</w>
       <h>54</h>
@@ -57,7 +58,7 @@ bg=red</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>372</x>
+      <x>390</x>
       <y>294</y>
       <w>252</w>
       <h>30</h>
@@ -72,7 +73,7 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>372</x>
+      <x>390</x>
       <y>198</y>
       <w>222</w>
       <h>78</h>
@@ -92,7 +93,7 @@ AuditRecord
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>372</x>
+      <x>390</x>
       <y>90</y>
       <w>222</w>
       <h>90</h>
@@ -110,7 +111,7 @@ AuditorDashboard
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>282</x>
+      <x>300</x>
       <y>234</y>
       <w>102</w>
       <h>24</h>
@@ -122,7 +123,7 @@ m2=1..n</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>48</x>
+      <x>66</x>
       <y>0</y>
       <w>192</w>
       <h>24</h>
@@ -135,7 +136,7 @@ bg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>150</x>
+      <x>168</x>
       <y>114</y>
       <w>30</w>
       <h>96</h>
