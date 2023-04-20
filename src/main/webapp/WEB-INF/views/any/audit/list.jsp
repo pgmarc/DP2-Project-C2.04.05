@@ -13,6 +13,6 @@
 	<acme:list-column code="auditor.audit.list.label.weakPoints" path="weakPoints"/>			
 </acme:list>
 
-<jstl:if test="${ showCreate == true }">
+<jstl:if test="${ showCreate }">
 	<acme:button code="auditor.audit.form.button.audit" action="/auditor/audit/create?courseId=${courseId}"/>
 </jstl:if>			
