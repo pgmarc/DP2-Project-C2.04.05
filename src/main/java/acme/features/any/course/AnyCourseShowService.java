@@ -8,6 +8,7 @@ import acme.entities.course.Course;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Lecturer;
 
 @Service
 public class AnyCourseShowService extends AbstractService<Any, Course> {
@@ -45,8 +46,9 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 	@Override
 	public void unbind(final Course object) {
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "title", "courseAbstract", "nature", "retailPrice", "moreInfo", "lecturer");
-
+		final Lecturer lecturer = object.getLecturer();
+		tuple = super.unbind(object, "code", "title", "courseAbstract", "nature", "retailPrice", "moreInfo");
+		tuple.put("lecturer", lecturer.getIdentity().getFullName());
 		super.getResponse().setData(tuple);
 	}
 }

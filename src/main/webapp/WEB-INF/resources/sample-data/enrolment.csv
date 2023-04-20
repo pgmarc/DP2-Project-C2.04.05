@@ -1,5 +1,5 @@
 key,code,motivation,goals,work-time,draft-mode,holder,lower-nibble,key:student,key:course
-enrolment-01,KXG569,I,a,2.50,0,John Doe,6666,student-01,course-01
+enrolment-01,KXG569,I,a,2.50,0,John Doe,6666,student-01,course-02
 enrolment-02,YOG560,Quiero aprender a programar y construir aplicaciones para poder trabajar.,Desarrollar habilidades avanzadas de programación; Aprender nuevas técnicas de desarrollo web HTML.,1.50,0,A,2323,student-02,course-02
-enrolment-03,ZOG000,Enrolment sin publicar,Para probar la creación de actividades,0.00,1,null,null,student-01,course-03
-enrolment-04,ZOG001,Enrolment sin actividades,Para probar la creación y borrado de actividades,0.00,0,Isabel Terrado,9898,student-02,course-03
+enrolment-03,ZOG000,Enrolment sin publicar,Para probar la creación de actividades,0.00,1,null,null,student-01,course-02
+enrolment-04,ZOG001,Enrolment sin actividades,Para probar la creación y borrado de actividades,0.00,0,Isabel Terrado,9898,student-02,course-02

@@ -11,5 +11,5 @@
 	<acme:list-column code="any.course.list.label.nature" path="nature"/>
 	<acme:list-column code="any.course.list.label.retailPrice" path="retailPrice"/>
 	<acme:list-column code="any.course.list.label.moreInfo" path="moreInfo"/>
-
+	<acme:list-column code="lecturer.course.list.label.lecturer" path="lecturer"/>
 </acme:list>

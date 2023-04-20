@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-﻿# master.menu #################################################################
+# master.menu #################################################################
 
 master.menu.home = Inicio
 master.menu.sign-up = Registrarse
@@ -83,6 +83,12 @@ master.menu.user-account.become-lecturer = Hazte profesor
 # master.menu.authenticated ####################################################
 master.menu.authenticated = Autenticado
 master.menu.authenticated.note = Notas
+
+# master.menu.lecturer ###################################################
+master.menu.lecturer = Profesor
+master.menu.lecturer.courses = Mis cursos
+master.menu.lecturer.lectures = Mis clases
+master.menu..lecturer.courseLectures = Añadir clases a cursos
 
 # master.menu.any ###################################################
 master.menu.any = Cualquiera

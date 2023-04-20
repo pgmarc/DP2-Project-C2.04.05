@@ -80,6 +80,12 @@ master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.lecturer = Lecturer data
 master.menu.user-account.become-lecturer = Become a lecturer
 
+# master.menu.lecturer ###################################################
+master.menu.lecturer = Lecturer
+master.menu.lecturer.courses = My courses
+master.menu.lecturer.lectures = My lectures
+master.menu.lecturer.courseLectures = Add lectures to courses
+
 # master.menu.authenticated ####################################################
 master.menu.authenticated = Authenticated
 master.menu.authenticated.note = Notes
