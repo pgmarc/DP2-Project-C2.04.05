@@ -1,0 +1,34 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+assistant.tutorialsession.form.error.tutorial = The tutorial has already been published
+assistant.tutorialsession.form.error.finishDate = Start date must be before finish date in a 1 to 5 hours interval
+assistant.tutorialsession.form.error.startDate = Start date must be at least one day ahead from the current date
+assistant.tutorialsession.form.error.nature = Select a valid nature
+assistant.tutorialsession.form.error.title = You can't leave a tutorial without sessions
+
+assistant.tutorialsession.list.label.title = Title
+assistant.tutorialsession.list.label.abstrac = Abstract
+assistant.tutorialsession.list.button.create = Create
+
+assistant.tutorialsession.form.label.title = Title
+assistant.tutorialsession.form.label.abstrac = Abstract
+assistant.tutorialsession.form.label.goals = Goals
+assistant.tutorialsession.form.label.natures = Select a nature
+assistant.tutorialsession.form.label.nature = Nature
+assistant.tutorialsession.form.label.start = Start Date
+assistant.tutorialsession.form.label.finish = Finish Date
+assistant.tutorialsession.form.button.tutorial = Tutorial
+assistant.tutorialsession.form.button.update = Update
+assistant.tutorialsession.form.button.delete = Delete
+assistant.tutorialsession.form.button.create = Create
+
+
