@@ -6,11 +6,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 import javax.validation.Valid;
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -50,12 +46,8 @@ public class Practicum extends AbstractEntity {
 
 	protected boolean			draftMode;
 
-	@NotNull
-	@Temporal(TemporalType.DATE)
 	protected Date				startingDate;
 
-	@NotNull
-	@Temporal(TemporalType.DATE)
 	protected Date				endingDate;
 
 	@NotNull
@@ -69,12 +61,9 @@ public class Practicum extends AbstractEntity {
 	protected Company			company;
 
 	@Digits(integer = 4, fraction = 2)
-	@DecimalMin(value = "168.00")
 	protected double			estimatedTotalTime;
 
 	@Digits(integer = 4, fraction = 2)
-	@DecimalMin(value = "168.00")
-	@Transient
 	protected double			practicaPeriodLength;
 
 }

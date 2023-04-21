@@ -25,6 +25,8 @@ public class PracticumSession extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
+	boolean						addendum;
+
 	@NotBlank
 	@Length(min = 1, max = 75)
 	protected String			title;
