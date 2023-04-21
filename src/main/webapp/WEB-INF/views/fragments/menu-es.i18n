@@ -24,6 +24,11 @@ master.menu.anonymous.favourite-link.carbersor = 77938703Y: Bermejo Soria, Carlo
 master.menu.anonymous.favourite-link.dangalmar = 29504092Z: Gallardo Martos, Daniel
 master.menu.anonymous.favourite-link.carzarrei = 32099918Z: Zarzuela Reina, Carlos
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.offers = Ver ofertas
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
@@ -42,6 +47,11 @@ master.menu.provider.favourite-link = Enlace favorito
 
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
+
+# master.menu.company ##########################################################
+
+master.menu.company = Compañia
+master.menu.company.list = Prácticas de empresa
 
 # master.menu.user-account ####################################################
 
