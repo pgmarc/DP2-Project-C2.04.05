@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-﻿# master.menu #################################################################
+# master.menu #################################################################
 
 master.menu.home = Inicio
 master.menu.sign-up = Registrarse
@@ -32,6 +32,10 @@ master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.system-currency = Moneda del sistema
+
+master.menu.banner = Anuncios
+master.menu.banner.list = Lista de anuncios
 
 # master.menu.provider ########################################################
 
@@ -43,6 +47,28 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.student ##########################################################
+
+master.menu.student = Estudiante
+master.menu.student.link = Enlace Favorito
+master.menu.user-account.become-student = Hazte estudiante
+master.menu.user-account.student= Datos de estudiante
+
+master.menu.student.enrolment.head= Matrículas
+master.menu.student.enrolment= Tus Matrículas
+
+master.menu.student.course.head= Cursos
+master.menu.student.course= Todos los cursos
+
+master.menu.student.dashboard.head= Tablero
+master.menu.student.dashboard= Tu Tablero
+
+# master.menu.bulletin ##########################################################
+
+master.menu.bulletin = Boletín
+master.menu.bulletin.list = Listar boletines
+master.menu.bulletin.create = Crear un boletín
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
@@ -51,3 +77,34 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.become-assistant = Hazte asistente
+master.menu.user-account.assistant = Datos de asistente
+master.menu.user-account.lecturer = Datos de profesor
+master.menu.user-account.become-lecturer = Hazte profesor
+
+# master.menu.authenticated ####################################################
+master.menu.authenticated = Autenticado
+master.menu.authenticated.note = Notas
+
+# master.menu.lecturer ###################################################
+master.menu.lecturer = Profesor
+master.menu.lecturer.courses = Mis cursos
+master.menu.lecturer.lectures = Mis clases
+master.menu..lecturer.courseLectures = Añadir clases a cursos
+
+# master.menu.any ###################################################
+master.menu.any = Cualquiera
+master.menu.any.peeps = Peeps
+master.menu.any.Courses = Cursos
+
+# master.menu.auditor ############################################################
+master.menu.auditor = Auditor
+master.menu.auditor.audit.list = Listar Auditorias
+master.menu.user-account.become-auditor = Hazte Auditor
+master.menu.user-account.auditor = Datos de Auditor
+
+# master.menu.tutorial ####################################################
+
+master.menu.tutorial = Tutoriales
+master.menu.tutorial.list = Lista de tutoriales
+master.menu.tutorial.list-mine = Mis tutoriales

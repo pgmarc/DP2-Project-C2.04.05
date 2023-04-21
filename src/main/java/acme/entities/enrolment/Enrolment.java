@@ -4,9 +4,10 @@ package acme.entities.enrolment;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -43,9 +44,16 @@ public class Enrolment extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
+	protected boolean			draftMode;
+
+	protected String			holder;
+
+	@Min(1000)
+	@Max(9999)
+	protected Integer			lowerNibble;
+
 	// Derived attributes -----------------------------------------------------
 
-	@Transient
 	@Digits(integer = 3, fraction = 2)
 	public double				workTime; //This property must be computed in the service
 

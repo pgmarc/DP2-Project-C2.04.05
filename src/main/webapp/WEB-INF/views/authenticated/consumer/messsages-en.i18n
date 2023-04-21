@@ -8,8 +8,10 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.consumer.form.label.company = Company
-authenticated.consumer.form.label.sector = Sector
+authenticated.assistant.form.label.supervisor = Supervisor
+authenticated.assistant.form.label.expertiseFields = Expertise Fields
+authenticated.assistant.form.label.resume = Resumé
+authenticated.assistant.form.label.moreInfo = More Info
 
-authenticated.consumer.form.button.create = Register
-authenticated.consumer.form.button.update = Update
+authenticated.assistant.form.button.create = Register
+authenticated.assistant.form.button.update = Update

@@ -42,9 +42,6 @@ public class Course extends AbstractEntity {
 	protected String			courseAbstract;
 
 	@NotNull
-	protected Nature			nature;
-
-	@NotNull
 	protected Money				retailPrice;
 
 	@URL
@@ -56,4 +53,7 @@ public class Course extends AbstractEntity {
 
 	protected boolean			draftMode;
 
+	// Derived attributes
+	@NotNull
+	public Nature				nature;
 }
