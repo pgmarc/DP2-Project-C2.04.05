@@ -7,7 +7,7 @@
 	<acme:input-textbox code="authenticated.company.form.label.name" path="name"/>
 	<acme:input-textbox code="authenticated.company.form.label.vatNumber" path="vatNumber"/>
 	<acme:input-textbox code="authenticated.company.form.label.summary" path="summary"/>
-	<acme:input-textbox code="authenticated.company.form.label.moreInfo" path="moreInfo"/>
+	<acme:input-url code="authenticated.company.form.label.moreInfo" path="moreInfo"/>
 	
 	<acme:submit test="${_command == 'create'}" code="authenticated.company.form.button.create" action="/authenticated/company/create"/>
 	<acme:submit test="${_command == 'update'}" code="authenticated.company.form.button.update" action="/authenticated/company/update"/>
