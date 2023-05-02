@@ -48,6 +48,8 @@ public class Tutorial extends AbstractEntity {
 	@Digits(integer = 3, fraction = 2)
 	protected double			estimatedHours;
 
+	protected boolean			draftMode;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
@@ -61,4 +63,7 @@ public class Tutorial extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Course			course;
+
+	// Other methods ----------------------------------------------------------
+
 }
