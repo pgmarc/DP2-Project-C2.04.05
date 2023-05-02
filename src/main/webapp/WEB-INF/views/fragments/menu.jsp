@@ -41,10 +41,7 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
-			<acme:menu-suboption code="master.menu.authenticated.offers" action="/authenticated/offer/list"/>
-		</acme:menu-option>
-	
+		
 		<acme:menu-option code="master.menu.banner" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.banner.list" action="/administrator/banner/list"/>
 		</acme:menu-option>
@@ -55,6 +52,7 @@
 
      	<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.note" action="/authenticated/note/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.offers" action="/authenticated/offer/list"/>
       	</acme:menu-option>
       	
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
