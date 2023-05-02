@@ -1,8 +1,8 @@
-key,key:practicum,title,session-abstract,starting-date,ending-date,more-info,addendum
-practicum-session-01,practicum-01,Implementing the data model,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false
-practicum-session-02,practicum-02,Advanced feature of Acme framework,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false
-practicum-session-03,practicum-02,This is a title,Session abstract,2022/08/26 00:00,2022/09/02 00:00,null,false
-practicum-session-04,practicum-03,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false
-practicum-session-05,practicum-05,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false
-practicum-session-06,practicum-05,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,null,false
-practicum-session-07,practicum-05,Best practices in acme,Auxiliary session due to worker strike,2022/08/06 00:00,2022/08/13 00:00,null,true
+key,key:practicum,title,session-abstract,starting-date,ending-date,more-info,addendum,duration
+practicum-session-01,practicum-01,Implementing the data model,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false,168.00
+practicum-session-02,practicum-02,Advanced feature of Acme framework,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false,168.00
+practicum-session-03,practicum-02,This is a title,Session abstract,2022/08/26 00:00,2022/09/02 00:00,null,false,168.00
+practicum-session-04,practicum-03,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false,168.00
+practicum-session-05,practicum-05,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false,168.00
+practicum-session-06,practicum-05,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,null,false,168.00
+practicum-session-07,practicum-05,Best practices in acme,Auxiliary session due to worker strike,2022/08/06 00:00,2022/08/13 00:00,null,true,168.00
