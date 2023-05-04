@@ -18,6 +18,7 @@ assistant.tutorial.form.label.abstrac = Resumen
 assistant.tutorial.form.label.goals = Objetivos
 assistant.tutorial.form.label.estimatedHours = Horas estimadas
 assistant.tutorial.form.label.assistant = Asistente
+assistant.tutorial.form.label.draftMode = Modo borrador
 assistant.tutorial.form.label.courses = Seleccione un curso
 assistant.tutorial.form.button.course = Curso
 assistant.tutorial.form.button.session = Sesiones
