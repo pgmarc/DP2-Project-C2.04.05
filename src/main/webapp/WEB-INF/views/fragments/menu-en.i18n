@@ -97,6 +97,8 @@ master.menu.auditor = Auditor
 master.menu.auditor.audit.list = List Audits
 master.menu.user-account.become-auditor = Become an auditor
 master.menu.user-account.auditor = Update Auditor
+master.menu.auditor.dashboard = My Dashboard
+master.menu.auditor.dashboard.head = Dashboard
 
 # master.menu.any ###################################################
 master.menu.any = Any

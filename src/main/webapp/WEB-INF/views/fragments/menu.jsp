@@ -48,7 +48,11 @@
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.auditor.audit.list" action="/auditor/audit/list"/>
 		</acme:menu-option>
-
+		
+		<acme:menu-option code="master.menu.auditor.dashboard.head" access="hasRole('Auditor')">
+			<acme:menu-suboption code="master.menu.auditor.dashboard" action="/auditor/auditor-dashboard/show"/>
+		</acme:menu-option>
+		
      	<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.note" action="/authenticated/note/list"/>
       	</acme:menu-option>
