@@ -66,10 +66,15 @@ public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
-		if (!object.isDraftMode())
-			tuple.put("draftMode", "auditor.audit.list.label.draftMode.off");
+		if (!object.isDraftMode()) {
+			if (super.getRequest().getLocale().getLanguage().equals("es"))
+				tuple.put("draftMode", "No es Borrador");
+			else
+				tuple.put("draftMode", "Not Draft");
+		} else if (super.getRequest().getLocale().getLanguage().equals("es"))
+			tuple.put("draftMode", "Borrador");
 		else
-			tuple.put("draftMode", "auditor.audit.list.label.draftMode.on");
+			tuple.put("draftMode", "Draft");
 
 		super.getResponse().setData(tuple);
 	}

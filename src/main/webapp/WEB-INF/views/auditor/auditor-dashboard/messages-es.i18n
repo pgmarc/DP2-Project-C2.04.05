@@ -1,11 +1,12 @@
 auditor.dashboard.form.title.general-indicators = Tu tablón
 auditor.dashboard.form.label.theory = Total de Auditorías de cursos de teoria
 auditor.dashboard.form.label.handon =  Total de Auditorías de cursos de paso
+auditor.dashboard.form.label.balanced = Total de Auditorias de cursos balanceados
 auditor.dashboard.form.label.audit-record-max =  Número máximo de registros de auditorias de una auditoria
 auditor.dashboard.form.label.audit-record-min =  Número minimo de registros de auditorias de una auditoria
 auditor.dashboard.form.label.audit-record-average =  Media de registros de auditorias de una auditoria
 auditor.dashboard.form.label.audit-record-deviation =  Desviación de registros de auditorias de una auditoria
-auditor.dashboard.form.label.audit-record-time-max =  Duración máxima de un registro de auditoria
-auditor.dashboard.form.label.audit-record-time-min =  Duración mínima de un registro de auditoria
-auditor.dashboard.form.label.audit-record-time-average =  Duración media de un registro de auditoria
-auditor.dashboard.form.label.audit-record-time-deviation =  Desviación de la duración de los registros de auditoria
+auditor.dashboard.form.label.audit-record-time-max =  Duración máxima de un registro de auditoria( en horas )
+auditor.dashboard.form.label.audit-record-time-min =  Duración mínima de un registro de auditoria( en horas )
+auditor.dashboard.form.label.audit-record-time-average =  Duración media de un registro de auditoria( en horas )
+auditor.dashboard.form.label.audit-record-time-deviation =  Desviación de la duración de los registros de auditoria( en horas )

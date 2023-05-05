@@ -26,6 +26,14 @@
 	</tr>
 	<tr>
 		<th scope="row">
+			<acme:message code="auditor.dashboard.form.label.balanced"/>
+		</th>
+		<td>
+			<acme:print value="${balancedAudits}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<acme:message code="auditor.dashboard.form.label.audit-record-max"/>
 		</th>
 		<td>

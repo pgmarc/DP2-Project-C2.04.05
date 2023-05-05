@@ -1,6 +1,8 @@
 
 package acme.features.audit.auditor.dashboard;
 
+import java.util.Collection;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -27,18 +29,18 @@ public interface AuditorDashboardRepository extends AbstractRepository {
 	@Query("SELECT AVG( SELECT COUNT(ar) FROM AuditRecord ar WHERE ar.audit.id = a.id ) FROM Audit a WHERE a.auditor.id = :id")
 	Double findAverageAuditRecordByAuditor(int id);
 
-	//	@Query("SELECT STDDEV( SELECT COUNT(ar) FROM AuditRecord ar WHERE ar.audit.id = a.id ) FROM Audit a WHERE a.auditor.id = :id")
-	//	Double findDeviationAuditRecordByAuditor(int id);
+	@Query("SELECT ( SELECT COUNT(ar) FROM AuditRecord ar WHERE ar.audit.id = a.id ) FROM Audit a WHERE a.auditor.id = :id")
+	Collection<Integer> findDeviationAuditRecordByAuditor(int id);
 
-	@Query("SELECT MAX( SELECT TIMESTAMPDIFF( SECOND, ar.endDate, ar.initDate ) / 3600 FROM AuditRecord ar WHERE ar.audit.id = a.id ) FROM Audit a WHERE a.auditor.id = :id")
+	@Query("SELECT MAX( SELECT TIMESTAMPDIFF( SECOND, ar.initDate, ar.endDate ) / 3600 FROM AuditRecord ar WHERE ar.audit.id = a.id ) FROM Audit a WHERE a.auditor.id = :id")
 	Double findMaxAuditRecordDurationByAuditor(int id);
 
-	@Query("SELECT MIN( SELECT TIMESTAMPDIFF( SECOND, ar.endDate, ar.initDate ) / 3600 FROM AuditRecord ar WHERE ar.audit.id = a.id ) FROM Audit a WHERE a.auditor.id = :id")
+	@Query("SELECT MIN( SELECT TIMESTAMPDIFF( SECOND, ar.initDate, ar.endDate ) / 3600 FROM AuditRecord ar WHERE ar.audit.id = a.id ) FROM Audit a WHERE a.auditor.id = :id")
 	Double findMinAuditRecordDurationByAuditor(int id);
 
-	@Query("SELECT AVG( SELECT TIMESTAMPDIFF( SECOND, ar.endDate, ar.initDate ) / 3600 FROM AuditRecord ar WHERE ar.audit.id = a.id ) FROM Audit a WHERE a.auditor.id = :id")
+	@Query("SELECT AVG( SELECT TIMESTAMPDIFF( SECOND, ar.initDate, ar.endDate ) / 3600 FROM AuditRecord ar WHERE ar.audit.id = a.id ) FROM Audit a WHERE a.auditor.id = :id")
 	Double findAverageAuditRecordDurationByAuditor(int id);
-	//
-	//	@Query("SELECT STDDEV( SELECT TIMESTAMPDIFF( SECOND, ar.endDate, ar.initDate ) / 3600 FROM AuditRecord ar WHERE ar.audit.id = a.id ) FROM Audit a WHERE a.auditor.id = :id")
-	//	Double findDeviationAuditRecordDurationByAuditor(int id);
+
+	@Query("SELECT ( SELECT TIMESTAMPDIFF( SECOND, ar.initDate, ar.endDate ) / 3600 FROM AuditRecord ar WHERE ar.audit.id = a.id ) FROM Audit a WHERE a.auditor.id = :id")
+	Collection<Integer> findDeviationAuditRecordDurationByAuditor(int id);
 }

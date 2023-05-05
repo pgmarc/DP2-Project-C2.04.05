@@ -18,6 +18,8 @@ public class AuditorDashboard extends AbstractForm {
 
 	protected int				handOnAudits;
 
+	protected int				balancedAudits;
+
 	@NotNull
 	protected Statistic			auditStats;
 

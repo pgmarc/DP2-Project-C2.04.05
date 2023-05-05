@@ -41,9 +41,9 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 	public void unbind(final AuditorDashboard object) {
 		Tuple tuple;
 
-		tuple = super.unbind(object, "theoryAudits", "handOnAudits", "auditStats", "auditRecordStats");
-		tuple.put("auditStatsMax", object.getAuditStats().getMaximum());
-		tuple.put("auditStatsMin", object.getAuditStats().getMinimum());
+		tuple = super.unbind(object, "theoryAudits", "handOnAudits", "balancedAudits", "auditStats", "auditRecordStats");
+		tuple.put("auditStatsMax", (int) object.getAuditStats().getMaximum());
+		tuple.put("auditStatsMin", (int) object.getAuditStats().getMinimum());
 		tuple.put("auditStatsAvg", object.getAuditStats().getAverage());
 		tuple.put("auditStatsDesv", object.getAuditStats().getDeviation());
 
