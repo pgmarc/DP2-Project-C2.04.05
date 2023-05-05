@@ -31,3 +31,5 @@ Deliverable 3, V3.0.0:
 - CRUD sobre Tutorial
 - CRUD sobre Tutorial-Session
 - Modificar perfil de los principales Roles
+
+Deliverable 4, V4.0.0:
