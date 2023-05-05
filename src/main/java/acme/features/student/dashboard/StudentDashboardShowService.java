@@ -1,6 +1,9 @@
 
 package acme.features.student.dashboard;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,17 +57,25 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
 		userAccountId = principal.getAccountId();
 		student = this.repository.findOneStudentByUserAccountId(userAccountId);
 
+		final List<Double> workTimeActivities = this.repository.findDatesOfActivitiesByStudentId(student.getId()).stream().map(activity -> (double) activity.getWorkTime()).collect(Collectors.toList());
+		final double MEDIA_WORKTIME = workTimeActivities.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
+		final double VARIANZA_WORKTIME = workTimeActivities.stream().mapToDouble(Double::doubleValue).map(d -> Math.pow(d - MEDIA_WORKTIME, 2)).average().orElse(0.0);
+
+		final List<Double> learningTimesByCourses = this.repository.findLearningTimeCoursesByStudentId(student.getId());
+		final double MEDIA_LEARNING_TIME = learningTimesByCourses.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
+		final double VARIANZA_LEARNING_TIME = learningTimesByCourses.stream().mapToDouble(Double::doubleValue).map(d -> Math.pow(d - MEDIA_LEARNING_TIME, 2)).average().orElse(0.0);
+
 		numberOfTheoryActivities = this.repository.findNumberOfTheoryActivitiesByStudentId(student.getId());
 		numberOfHandsOnActivities = this.repository.findNumberOfHandsOnActivitiesByStudentId(student.getId());
 		numberOfBalancedActivities = this.repository.findNumberOfBalancedActivitiesByStudentId(student.getId());
-		averageWorkbook = this.repository.findAverageWorkbookByStudentId(student.getId()) == null ? 0.0 : this.repository.findAverageWorkbookByStudentId(student.getId());
-		maximumWorkbook = this.repository.findMaximumWorkbookByStudentId(student.getId()) == null ? 0.0 : this.repository.findMaximumWorkbookByStudentId(student.getId());
-		minimumWorkbook = this.repository.findMinimumWorkbookByStudentId(student.getId()) == null ? 0.0 : this.repository.findMinimumWorkbookByStudentId(student.getId());
-		deviationWorkbook = this.repository.findDeviationWorkbookByStudentId(student.getId()) == null ? 0.0 : this.repository.findDeviationWorkbookByStudentId(student.getId());
-		averageCourse = this.repository.findAverageLearningTimeCourseByStudentId(student.getId()) == null ? 0.0 : this.repository.findAverageLearningTimeCourseByStudentId(student.getId());
-		maximumCourse = this.repository.findMaximumLearningTimeCourseByStudentId(student.getId()) == null ? 0.0 : this.repository.findMaximumLearningTimeCourseByStudentId(student.getId());
-		minimumCourse = this.repository.findMinimumLearningTimeCourseByStudentId(student.getId()) == null ? 0.0 : this.repository.findMinimumLearningTimeCourseByStudentId(student.getId());
-		deviationCourse = this.repository.findDeviationLearningTimeCourseByStudentId(student.getId()) == null ? 0.0 : this.repository.findDeviationLearningTimeCourseByStudentId(student.getId());
+		averageWorkbook = MEDIA_WORKTIME;
+		maximumWorkbook = workTimeActivities.stream().mapToDouble(Double::doubleValue).max().orElse(0.0);
+		minimumWorkbook = workTimeActivities.stream().mapToDouble(Double::doubleValue).min().orElse(0.0);
+		deviationWorkbook = Math.sqrt(VARIANZA_WORKTIME);
+		averageCourse = MEDIA_LEARNING_TIME;
+		maximumCourse = learningTimesByCourses.stream().mapToDouble(Double::doubleValue).max().orElse(0.0);
+		minimumCourse = learningTimesByCourses.stream().mapToDouble(Double::doubleValue).min().orElse(0.0);
+		deviationCourse = Math.sqrt(VARIANZA_LEARNING_TIME);
 
 		dashboard = new StudentDashboard();
 		dashboard.setNumberOfTheoryActivities(numberOfTheoryActivities);
