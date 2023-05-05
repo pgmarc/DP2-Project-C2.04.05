@@ -15,6 +15,7 @@ lecturer.course.list.label.nature = Nature
 lecturer.course.list.label.retailPrice = Price
 lecturer.course.list.label.moreInfo = More info
 lecturer.course.list.label.lecturer = Lecturer
+lecturer.course.list.label.draftMode = Draft Mode
 lecturer.course.list.button.create = Create
 
 lecturer.course.form.label.code = Code
@@ -24,6 +25,7 @@ lecturer.course.form.label.nature = Nature
 lecturer.course.form.label.retailPrice = Price
 lecturer.course.form.label.moreInfo = More info
 lecturer.course.form.label.lecturer = Lecturer
+lecturer.course.form.label.draftMode = Draft Mode
 lecturer.course.form.button.lectures = Lectures
 lecturer.course.form.button.submitUpdate = Submit
 lecturer.course.form.button.create = Create
@@ -32,3 +34,8 @@ lecturer.course.form.button.publish = Publish
 lecturer.course.form.button.delete = Delete
 lecturer.course.form.error.theoryReject = Pure theoretical courses can't be published
 lecturer.course.form.error.notPublishedLectures = All the lectures in this course must be published before publishing the course
+lecturer.course.form.error.duplicatedCode = This code is already in use, please choose another code
+lecturer.course.form.error.invalidCurrency = Please insert a valid currency
+lecturer.course.form.error.negativePrice = The price can't be negative
+
+
