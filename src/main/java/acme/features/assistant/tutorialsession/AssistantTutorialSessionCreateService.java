@@ -116,12 +116,13 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 	@Override
 	public void perform(final TutorialSession object) {
 		Tutorial tutorial;
+		Tutorial updatedTutorial;
 
 		tutorial = this.repository.findOneTutorialById(super.getRequest().getData("tutorialId", int.class));
-		tutorial = this.getUpdatedTutorial(tutorial, object);
+		updatedTutorial = this.getUpdatedTutorial(tutorial, object);
 
 		this.repository.save(object);
-		this.repository.save(tutorial);
+		this.repository.save(updatedTutorial);
 	}
 
 	@Override

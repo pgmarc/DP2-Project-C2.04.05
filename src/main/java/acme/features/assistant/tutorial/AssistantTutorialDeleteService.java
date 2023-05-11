@@ -86,6 +86,7 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 
 	@Override
 	public void validate(final Tutorial object) {
+		//No need for validation
 	}
 
 	@Override
