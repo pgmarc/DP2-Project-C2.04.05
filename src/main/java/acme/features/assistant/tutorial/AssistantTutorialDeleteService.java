@@ -72,7 +72,6 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 
 	@Override
 	public void bind(final Tutorial object) {
-		assert object != null;
 		Course course;
 		Assistant assistant;
 
@@ -87,12 +86,10 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 
 	@Override
 	public void validate(final Tutorial object) {
-		assert object != null;
 	}
 
 	@Override
 	public void perform(final Tutorial object) {
-		assert object != null;
 
 		Collection<TutorialSession> sessions;
 
@@ -103,7 +100,6 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 
 	@Override
 	public void unbind(final Tutorial object) {
-		assert object != null;
 
 		Tuple tuple;
 

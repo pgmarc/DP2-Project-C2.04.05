@@ -77,7 +77,6 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 	@Override
 	public void bind(final TutorialSession object) {
-		assert object != null;
 		super.bind(object, "title", "abstrac", "goals", "sessionNature", "startDate", "finishDate");
 	}
 
@@ -116,7 +115,6 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 	@Override
 	public void perform(final TutorialSession object) {
-		assert object != null;
 		Tutorial tutorial;
 
 		tutorial = this.repository.findOneTutorialById(super.getRequest().getData("tutorialId", int.class));
@@ -128,7 +126,6 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 	@Override
 	public void unbind(final TutorialSession object) {
-		assert object != null;
 		Tutorial tutorial;
 		Tuple tuple;
 		SelectChoices choices;

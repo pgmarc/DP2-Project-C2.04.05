@@ -74,7 +74,6 @@ public class AssistantTutorialSessionDeleteService extends AbstractService<Assis
 
 	@Override
 	public void bind(final TutorialSession object) {
-		assert object != null;
 		Tutorial tutorial;
 
 		tutorial = this.repository.findOneTutorialByTutorialSessionId(super.getRequest().getData("id", int.class));
@@ -103,7 +102,6 @@ public class AssistantTutorialSessionDeleteService extends AbstractService<Assis
 
 	@Override
 	public void perform(final TutorialSession object) {
-		assert object != null;
 		Tutorial tutorial;
 
 		tutorial = this.repository.findOneTutorialByTutorialSessionId(object.getId());
@@ -115,7 +113,6 @@ public class AssistantTutorialSessionDeleteService extends AbstractService<Assis
 
 	@Override
 	public void unbind(final TutorialSession object) {
-		assert object != null;
 		Tutorial tutorial;
 		Tuple tuple;
 		SelectChoices choices;

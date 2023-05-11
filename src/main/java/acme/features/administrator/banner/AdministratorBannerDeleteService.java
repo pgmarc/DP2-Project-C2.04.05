@@ -51,26 +51,22 @@ public class AdministratorBannerDeleteService extends AbstractService<Administra
 
 	@Override
 	public void bind(final Banner object) {
-		assert object != null;
 
 		super.bind(object, "lastModified", "displayStart", "displayFinish", "slogan", "picture", "target");
 	}
 
 	@Override
 	public void validate(final Banner object) {
-		assert object != null;
 	}
 
 	@Override
 	public void perform(final Banner object) {
-		assert object != null;
 
 		this.repository.delete(object);
 	}
 
 	@Override
 	public void unbind(final Banner object) {
-		assert object != null;
 
 		Tuple tuple;
 

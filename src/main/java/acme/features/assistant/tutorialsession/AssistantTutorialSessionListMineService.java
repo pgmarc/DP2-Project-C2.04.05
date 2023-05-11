@@ -54,7 +54,6 @@ public class AssistantTutorialSessionListMineService extends AbstractService<Ass
 
 	@Override
 	public void unbind(final TutorialSession object) {
-		assert object != null;
 		Tuple tuple;
 		int tutorialId;
 		Tutorial tutorial;

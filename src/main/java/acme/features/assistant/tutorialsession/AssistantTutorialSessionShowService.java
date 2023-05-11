@@ -54,7 +54,6 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 
 	@Override
 	public void unbind(final TutorialSession object) {
-		assert object != null;
 		Tutorial tutorial;
 		Tuple tuple;
 		SelectChoices choices;

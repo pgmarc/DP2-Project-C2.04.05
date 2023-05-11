@@ -51,7 +51,6 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 	@Override
 	public void bind(final Banner object) {
-		assert object != null;
 
 		super.bind(object, "displayStart", "displayFinish", "slogan", "picture", "target");
 		object.setLastModified(MomentHelper.getCurrentMoment());
@@ -59,7 +58,6 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 	@Override
 	public void validate(final Banner object) {
-		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("displayFinish")) {
 			final Date start = object.getDisplayStart();
@@ -71,14 +69,12 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 	@Override
 	public void perform(final Banner object) {
-		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Banner object) {
-		assert object != null;
 
 		Tuple tuple;
 

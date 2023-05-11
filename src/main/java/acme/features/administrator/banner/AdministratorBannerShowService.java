@@ -51,7 +51,6 @@ public class AdministratorBannerShowService extends AbstractService<Administrato
 
 	@Override
 	public void unbind(final Banner object) {
-		assert object != null;
 
 		Tuple tuple;
 
