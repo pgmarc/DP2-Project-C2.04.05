@@ -1,0 +1,15 @@
+authenticated.practicum.form.label.code = Código
+authenticated.practicum.form.label.title = Título
+authenticated.practicum.form.label.practicumAbstract = Abstracto
+authenticated.practicum.form.label.goals = Objetivos
+authenticated.practicum.form.label.startingDate = Empieza
+authenticated.practicum.form.label.endingDate = Termina
+authenticated.practicum.form.label.estimatedTotalTime= Timpo total estimados (horas)
+authenticated.practicum.form.label.practicaPeriodLength= Duración (Días)
+authenticated.practicum.list.label.code = Código
+authenticated.practicum.list.label.title = Título
+
+authenticated.company.form.label.name = Nombre
+authenticated.company.form.label.vatNumber = CIF
+authenticated.company.form.label.summary = Sobre nosotros
+authenticated.company.form.label.moreInfo = Más información
