@@ -29,7 +29,18 @@
 
 	<acme:footer-logo logo="images/logo.png">
 		<acme:footer-copyright code="master.company.name"/>
-	</acme:footer-logo>		
+	</acme:footer-logo>	
+	
+	<jstl:if test="${banner != null}">
+	<div class="panel-body" style="height: 10%; width: 10%; text-align: center;">	
+		<a href="${banner.target}" target="_blank">
+			<img src="${banner.picture}" alt="${banner.slogan}" style="color: white; border-color: black;" class="rounded" style="max-width: 100%;
+    max-height: 100%;border-style: solid;"
+			width="100%" height="10%"/>
+		</a>
+	</div>
+	</jstl:if>
+	
 
 </acme:footer-panel>
 

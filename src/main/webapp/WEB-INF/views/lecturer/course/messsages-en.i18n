@@ -1,0 +1,41 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for lecturer particular
+# purposes.  The copyright owner does not offer lecturer warranties or representations, nor do
+# they accept lecturer liabilities with respect to them.
+
+lecturer.course.list.label.code = Code
+lecturer.course.list.label.title = Title
+lecturer.course.list.label.courseAbstract = Abstract
+lecturer.course.list.label.nature = Nature
+lecturer.course.list.label.retailPrice = Price
+lecturer.course.list.label.moreInfo = More info
+lecturer.course.list.label.lecturer = Lecturer
+lecturer.course.list.label.draftMode = Draft Mode
+lecturer.course.list.button.create = Create
+
+lecturer.course.form.label.code = Code
+lecturer.course.form.label.title = Title
+lecturer.course.form.label.courseAbstract = Abstract
+lecturer.course.form.label.nature = Nature
+lecturer.course.form.label.retailPrice = Price
+lecturer.course.form.label.moreInfo = More info
+lecturer.course.form.label.lecturer = Lecturer
+lecturer.course.form.label.draftMode = Draft Mode
+lecturer.course.form.button.lectures = Lectures
+lecturer.course.form.button.submitUpdate = Submit
+lecturer.course.form.button.create = Create
+lecturer.course.form.button.update = Update
+lecturer.course.form.button.publish = Publish
+lecturer.course.form.button.delete = Delete
+lecturer.course.form.error.theoryReject = Pure theoretical courses can't be published
+lecturer.course.form.error.notPublishedLectures = All the lectures in this course must be published before publishing the course
+lecturer.course.form.error.duplicatedCode = This code is already in use, please choose another code
+lecturer.course.form.error.invalidCurrency = Please insert a valid currency
+lecturer.course.form.error.negativePrice = The price can't be negative
+
+

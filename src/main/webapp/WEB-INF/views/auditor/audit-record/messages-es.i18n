@@ -1,0 +1,25 @@
+auditor.audit-record.list.label.subject: Asignatura
+auditor.audit-record.list.label.assesment: Evaluación
+auditor.audit-record.list.label.mark: Nota
+auditor.audit-record.list.label.initDate: Fecha de Inicio
+auditor.audit-record.list.label.endDate: Fecha Fin
+auditor.audit-record.list.label.moreInfo: Más Información
+auditor.audit-record.list.button.create: Crear
+
+auditor.audit-record.form.label.subject: Asignatura
+auditor.audit-record.form.label.assesment: Evaluación
+auditor.audit-record.form.label.mark: Nota
+auditor.audit-record.form.label.initDate: Fecha de Inicio
+auditor.audit-record.form.label.endDate: Fecha Fin
+auditor.audit-record.form.label.moreInfo: Más Información
+
+assistant.tutorial-session.form.button.update: Modificar
+assistant.tutorial-session.form.button.delete: Borrar
+assistant.tutorial-session.form.button.create: Crear
+auditor.audit-record.form.error.end-before-start: La fecha de finalización debe ser posterior a la de inicio
+auditor.audit-record.form.error.duration: La duración debe de ser de menos de una hora
+
+auditor.audit-record.form.button.create.modal.body: ¿Estás seguro, que este registro de auditoria es necesario?
+auditor.audit-record.form.button.create.modal.title: Crea un Registro de Auditoria
+auditor.audit-record.form.button.close: Cancelar
+auditor.audit-record.form.button.create: Crear

@@ -1,0 +1,43 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.enrolment.list.label.code = Code
+authenticated.enrolment.list.label.motivation = Motivation
+authenticated.enrolment.list.label.goals = Goals
+authenticated.enrolment.list.label.workTime = WorkTime
+authenticated.enrolment.list.label.course = Course
+
+authenticated.enrolment.list.label.code = Code
+authenticated.enrolment.list.label.motivation = Motivation
+authenticated.enrolment.list.label.goals = Goals
+authenticated.enrolment.list.label.workTime = WorkTime
+authenticated.enrolment.list.label.course = Course
+authenticated.enrolment.list.label.holder = Holder Name
+authenticated.enrolment.list.label.creditCardNumber = Credit Card Number
+authenticated.enrolment.list.label.expiryDate = Expiration Date
+authenticated.enrolment.list.label.securityCode = Security Code (CVC or CVV)
+authenticated.enrolment.list.label.courseCode = Course Code
+authenticated.enrolment.list.label.courseTitle = Course Title
+
+authenticated.enrolment.list.label.validate.holder = You must enter a holder name
+authenticated.enrolment.list.label.validate.lowerNibble = You must enter the lower nibble
+
+authenticated.enrolment.form.button.create = Create
+authenticated.enrolment.form.button.update = Update
+authenticated.enrolment.form.button.delete = Delete
+authenticated.enrolment.form.button.finalized = Finalized Enrolment
+authenticated.enrolment.form.button.workspace = Workspace
+
+authenticated.activity.form.validate.code = (Duplicate Code) Another enrolment already has this code
+authenticated.enrolment.list.label.validate.creditCardNumber = You must introduce a valid credit card number
+authenticated.enrolment.list.label.validate.expiryDate.format = Expiration date must have the following format YY/MM
+authenticated.enrolment.list.label.validate.expiryDate = The date must be in the future
+authenticated.enrolment.list.label.validate.securityCode = The security code have 3 digits
+authenticated.activity.form.validate.workTime = you can`t exceed a thousand hours of workTime in this enrolment

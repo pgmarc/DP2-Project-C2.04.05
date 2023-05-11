@@ -15,3 +15,21 @@ Deliverable 1, V1.0.0:
 - Modified CHANGELOG.txt
 - Modified CONTRIBUTORS.txt
 - pom.xml modified
+
+Deliverable 2, V2.0.0:
+- Modelado de Entidades principales
+- Diagrama UML
+
+Deliverable 3, V3.0.0:
+- CRUD sobre Audit
+- CRUD sobre Audit-Record
+- CRUD sobre Enrollement
+- CRUD sobre Banner
+- CRUD sobre Bulletin
+- CRUD sobre SystemCurrency
+- CRUD sobre Peep
+- CRUD sobre Tutorial
+- CRUD sobre Tutorial-Session
+- Modificar perfil de los principales Roles
+
+Deliverable 4, V4.0.0:
