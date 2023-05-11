@@ -16,6 +16,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.enumerates.Nature;
 import acme.framework.data.AbstractEntity;
+import acme.framework.helpers.MomentHelper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -58,5 +59,15 @@ public class Activity extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Enrolment			enrolment;
+
+
+	public double getWorkTime() {
+		long horas;
+		double minutosEnPorcentaje;
+
+		horas = MomentHelper.computeDuration(this.getStartDate(), this.getEndDate()).toMinutes() / 60;
+		minutosEnPorcentaje = (double) (MomentHelper.computeDuration(this.getStartDate(), this.getEndDate()).toMinutes() - horas * 60) / 60;
+		return Math.round((horas + minutosEnPorcentaje) * 100.0) / 100.0;
+	}
 
 }

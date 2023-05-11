@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -48,8 +46,6 @@ public class Enrolment extends AbstractEntity {
 
 	protected String			holder;
 
-	@Min(1000)
-	@Max(9999)
 	protected Integer			lowerNibble;
 
 	// Derived attributes -----------------------------------------------------
