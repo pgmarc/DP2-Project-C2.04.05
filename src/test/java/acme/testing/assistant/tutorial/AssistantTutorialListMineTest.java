@@ -15,11 +15,15 @@ public class AssistantTutorialListMineTest extends TestHarness {
 		super.signIn("assistant1", "assistant1");
 
 		super.clickOnMenu("Tutorials", "My tutorials");
+		super.checkCurrentPath("/assistant/tutorial/list");
 		super.checkListingExists();
+		super.checkNotListingEmpty();
 		super.sortListing(0, "asc");
 
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.checkColumnHasValue(recordIndex, 1, code);
+
+		super.checkButtonExists("Create");
 
 		super.signOut();
 	}
