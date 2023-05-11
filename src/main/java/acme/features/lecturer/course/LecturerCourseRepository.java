@@ -29,4 +29,10 @@ public interface LecturerCourseRepository extends AbstractRepository {
 	@Query("select l from Lecturer l where l.userAccount.id = :id")
 	public Lecturer getLecturerByAccountId(int id);
 
+	@Query("select c from Course c")
+	public List<Course> getAllCourses();
+
+	@Query("select sc.supportedCurrencies from SystemCurrency sc")
+	public String getSupportedCurrencies();
+
 }
