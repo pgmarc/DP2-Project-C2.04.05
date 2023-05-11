@@ -82,20 +82,20 @@ master.menu.user-account.assistant = Datos de asistente
 master.menu.user-account.lecturer = Datos de profesor
 master.menu.user-account.become-lecturer = Hazte profesor
 
-# master.menu.authenticated ####################################################
-master.menu.authenticated = Autenticado
-master.menu.authenticated.note = Notas
+# master.menu.notes ####################################################
+master.menu.note = Notas
 
-# master.menu.lecturer ###################################################
-master.menu.lecturer = Profesor
+# master.menu.courses ###################################################
+master.menu.courses= Cursos
+master.menu.any.courses = Todos los cursos
 master.menu.lecturer.courses = Mis cursos
-master.menu.lecturer.lectures = Mis clases
-master.menu..lecturer.courseLectures = Añadir clases a cursos
+master.menu.lecturer.courseLectures = Añadir clases a los cursos
 
-# master.menu.any ###################################################
-master.menu.any = Cualquiera
-master.menu.any.peeps = Peeps
-master.menu.any.Courses = Cursos
+# master.menu.lectures ###################################################
+master.menu.lectures = Mis clases
+
+# master.menu.peeps ###################################################
+master.menu.peeps = Peeps
 
 # master.menu.auditor ############################################################
 master.menu.auditor = Auditor

@@ -15,7 +15,9 @@
 		</jstl:when>
 		<jstl:when test="${_command == 'finalized'}">
 			<acme:input-textbox code="authenticated.enrolment.list.label.holder" path="holder"/>
-			<acme:input-textbox code="authenticated.enrolment.list.label.lowerNibble" path="lowerNibble"/>
+			<acme:input-textbox code="authenticated.enrolment.list.label.creditCardNumber" path="creditCardNumber"/>
+			<acme:input-textbox code="authenticated.enrolment.list.label.expiryDate" path="expiryDate"/>
+			<acme:input-textbox code="authenticated.enrolment.list.label.securityCode" path="securityCode"/>
 			<acme:submit code="authenticated.enrolment.form.button.finalized" action="/student/enrolment/finalized?id=${id}"/>
 			
 		</jstl:when>

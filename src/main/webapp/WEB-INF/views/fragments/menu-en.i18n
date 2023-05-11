@@ -88,22 +88,17 @@ master.menu.lecturer.courses = My courses
 master.menu.lecturer.lectures = My lectures
 master.menu.lecturer.courseLectures = Add lectures to courses
 
-# master.menu.authenticated ####################################################
-master.menu.authenticated = Authenticated
-master.menu.authenticated.note = Notes
+# master.menu.notes ####################################################
+master.menu.note = Notes
 
 # master.menu.auditor ############################################################
 master.menu.auditor = Auditor
 master.menu.auditor.audit.list = List Audits
 master.menu.user-account.become-auditor = Become an auditor
 master.menu.user-account.auditor = Update Auditor
-master.menu.auditor.dashboard = My Dashboard
-master.menu.auditor.dashboard.head = Dashboard
 
-# master.menu.any ###################################################
-master.menu.any = Any
-master.menu.any.peeps = Peeps
-master.menu.any.courses = Courses
+# master.menu.peeps ###################################################
+master.menu.peeps = Peeps
 
 # master.menu.tutorial ####################################################
 
