@@ -13,8 +13,6 @@
 package acme.features.lecturer.lecture;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +20,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.course.Course;
 import acme.entities.course.Lecture;
 import acme.enumerates.Nature;
+import acme.features.lecturer.UpdateCourseNature;
 import acme.features.lecturer.course.LecturerCourseRepository;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -39,21 +38,6 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	@Autowired
 	protected LecturerCourseRepository	courseRepository;
 
-
-	private void updateCourseNature(final Course object) {
-		Stream<Nature> lectures;
-		lectures = this.repository.getLecturesFromCourse(object.getId()).stream().map(Lecture::getNature);
-		final int theoryLectures = lectures.filter(n -> n == Nature.THEORETICAL).collect(Collectors.toList()).size();
-		final int handsOnLectures = lectures.filter(n -> n == Nature.HANDS_ON).collect(Collectors.toList()).size();
-		final int balancedLectures = lectures.filter(n -> n == Nature.BALANCED).collect(Collectors.toList()).size();
-		if (theoryLectures > handsOnLectures && theoryLectures > balancedLectures)
-			object.setNature(Nature.THEORETICAL);
-		else if (handsOnLectures > theoryLectures && handsOnLectures > balancedLectures)
-			object.setNature(Nature.HANDS_ON);
-		else
-			object.setNature(Nature.BALANCED);
-		this.courseRepository.save(object);
-	}
 
 	@Override
 	public void check() {
@@ -106,7 +90,8 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 		courses = this.courseRepository.getCoursesFromLecture(object.getId());
 
 		this.repository.save(object);
-		courses.stream().forEach(this::updateCourseNature);
+		courses.stream().forEach(c -> UpdateCourseNature.updateCourseNature(c, this.repository, this.courseRepository));
+
 	}
 
 	@Override

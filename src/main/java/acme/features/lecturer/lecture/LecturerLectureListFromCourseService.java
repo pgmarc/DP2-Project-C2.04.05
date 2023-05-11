@@ -46,7 +46,7 @@ public class LecturerLectureListFromCourseService extends AbstractService<Lectur
 	public void unbind(final Lecture object) {
 		Tuple tuple;
 		final Lecturer lecturer = object.getLecturer();
-		tuple = super.unbind(object, "title", "lectureAbstract", "nature", "body", "moreInfo", "draftMode");
+		tuple = super.unbind(object, "title", "lectureAbstract", "nature");
 		tuple.put("lecturer", lecturer.getIdentity().getFullName());
 		tuple.put("lecturerId", lecturer.getId());
 		super.getResponse().setData(tuple);
