@@ -102,6 +102,8 @@ master.menu.auditor = Auditor
 master.menu.auditor.audit.list = Listar Auditorias
 master.menu.user-account.become-auditor = Hazte Auditor
 master.menu.user-account.auditor = Datos de Auditor
+master.menu.auditor.dashboard = Mi Dashboard
+master.menu.auditor.dashboard.head = Dashboard
 
 # master.menu.tutorial ####################################################
 

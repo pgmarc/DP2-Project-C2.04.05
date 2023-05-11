@@ -82,14 +82,11 @@ master.menu.user-account.assistant = Assistant
 master.menu.user-account.lecturer = Lecturer data
 master.menu.user-account.become-lecturer = Become a lecturer
 
-# master.menu.courses ###################################################
-master.menu.courses= Courses
-master.menu.any.courses = All courses
+# master.menu.lecturer ###################################################
+master.menu.lecturer = Lecturer
 master.menu.lecturer.courses = My courses
+master.menu.lecturer.lectures = My lectures
 master.menu.lecturer.courseLectures = Add lectures to courses
-
-# master.menu.lectures ###################################################
-master.menu.lectures = My lectures
 
 # master.menu.notes ####################################################
 master.menu.note = Notes
