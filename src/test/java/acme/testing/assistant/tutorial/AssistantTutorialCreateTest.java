@@ -51,4 +51,28 @@ public class AssistantTutorialCreateTest extends TestHarness {
 
 		super.signOut();
 	}
+
+	@ParameterizedTest()
+	@CsvFileSource(resources = "/assistant/tutorial/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200negative(final int recordIndex, final String code, final String title, final String abstrac, final String goals) {
+
+		super.signIn("assistant1", "assistant1");
+
+		super.clickOnMenu("Tutorials", "My tutorials");
+		super.checkCurrentPath("/assistant/tutorial/list");
+		super.checkListingExists();
+
+		super.clickOnButton("Create");
+		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("abstrac", abstrac);
+		super.fillInputBoxIn("goals", goals);
+
+		super.checkSubmitExists("Create");
+		super.clickOnSubmit("Create");
+		super.checkErrorsExist();
+		super.checkCurrentPath("/assistant/tutorial/create");
+
+		super.signOut();
+	}
 }
