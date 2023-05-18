@@ -43,8 +43,10 @@ public class AuditorAuditRecordUpdateTest extends TestHarness {
 		super.fillInputBoxIn("endDate", endDate);
 
 		if (this.auditPath == null) {
-			this.auditPath = super.getCurrentPath();
+			this.auditPath = super.getCurrentPath().replaceAll("show", "update");
 			this.auditQuery = super.getCurrentQuery();
+			this.auditQuery = this.auditQuery.substring(1, this.auditQuery.length());
+
 		}
 
 		super.clickOnSubmit("Update");
