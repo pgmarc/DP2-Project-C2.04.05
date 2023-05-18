@@ -1,6 +1,7 @@
 
 package acme.testing.assistant.tutorial;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -27,4 +28,22 @@ public class AssistantTutorialListMineTest extends TestHarness {
 
 		super.signOut();
 	}
+
+	@Test
+	public void test200negative() {
+		//No negative testing needed
+	}
+
+	@Test
+	public void test300hacking() {
+
+		super.signIn("Administrator1", "administrator1");
+
+		super.request("/assistant/tutorial/list");
+		super.checkCurrentPath("/assistant/tutorial/list");
+		super.checkPanicExists();
+
+		super.signOut();
+	}
+
 }
