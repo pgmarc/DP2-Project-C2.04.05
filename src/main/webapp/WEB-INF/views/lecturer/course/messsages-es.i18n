@@ -37,4 +37,5 @@ lecturer.course.form.error.notPublishedLectures = Todas las clases del curso deb
 lecturer.course.form.error.duplicatedCode = Este código ya está en uso, por favor elija otro código
 lecturer.course.form.error.invalidPrice = Por favor inserte una moneda válida
 lecturer.course.form.error.negativePrice = El precio no puede ser negativo
-
+lecturer.course.form.error.notYourCourse = Solo puedes añadir lectures a tus propios cursos
+lecturer.course.form.error.lectureInCourse =La lecture ya esta en ese curso
