@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class AuditorAuditUpdateTest extends TestHarness {
+class AuditorAuditUpdateTest extends TestHarness {
 
 	private String	auditPath	= null;
 	private String	auditQuery	= null;
@@ -15,7 +15,7 @@ public class AuditorAuditUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String conclusion, final String strongPoints, final String weakPoints) {
+	void test100Positive(final int recordIndex, final String code, final String conclusion, final String strongPoints, final String weakPoints) {
 
 		super.signIn("auditor1", "auditor1");
 
@@ -44,7 +44,7 @@ public class AuditorAuditUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code, final String conclusion, final String strongPoints, final String weakPoints) {
+	void test200Negative(final int recordIndex, final String code, final String conclusion, final String strongPoints, final String weakPoints) {
 		super.signIn("auditor1", "auditor1");
 
 		super.clickOnMenu("Auditor", "List Audits");
@@ -66,7 +66,7 @@ public class AuditorAuditUpdateTest extends TestHarness {
 	}
 
 	@Test
-	public void test300Hacking() {
+	void test300Hacking() {
 		super.signIn("student1", "student1");
 		super.request(this.auditPath, this.auditQuery);
 		super.checkPanicExists();

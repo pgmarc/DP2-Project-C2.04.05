@@ -51,7 +51,8 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 
 	@Override
 	public void bind(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
 		object.setDraftMode(false);
@@ -59,7 +60,8 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 
 	@Override
 	public void validate(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Audit audit;
@@ -73,7 +75,8 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 
 	@Override
 	public void perform(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		object.setDraftMode(false);
 		this.repository.save(object);
@@ -81,7 +84,8 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 
 	@Override
 	public void unbind(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Tuple tuple;
 

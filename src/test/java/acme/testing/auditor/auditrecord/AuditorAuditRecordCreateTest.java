@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class AuditorAuditRecordCreateTest extends TestHarness {
+class AuditorAuditRecordCreateTest extends TestHarness {
 
 	private String	auditPath	= null;
 	private String	auditQuery	= null;
@@ -15,7 +15,7 @@ public class AuditorAuditRecordCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/auditrecord/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String subject, final String assesment, final String mark, final String initDate, final String endDate, final String moreInfo) {
+	void test100Positive(final int recordIndex, final String subject, final String assesment, final String mark, final String initDate, final String endDate, final String moreInfo) {
 
 		super.signIn("auditor1", "auditor1");
 
@@ -52,7 +52,7 @@ public class AuditorAuditRecordCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/auditrecord/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String subject, final String assesment, final String mark, final String initDate, final String endDate, final String moreInfo) {
+	void test200Negative(final int recordIndex, final String subject, final String assesment, final String mark, final String initDate, final String endDate, final String moreInfo) {
 
 		super.signIn("auditor1", "auditor1");
 
@@ -83,13 +83,11 @@ public class AuditorAuditRecordCreateTest extends TestHarness {
 	}
 
 	@Test
-	public void test300Hacking() {
+	void test300Hacking() {
 		super.signIn("student1", "student1");
 		super.request(this.auditPath, this.auditQuery);
 		super.checkPanicExists();
 
 		super.signOut();
 	}
-
-	// Ancillary methods ------------------------------------------------------
 }

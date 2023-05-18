@@ -7,11 +7,11 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class AuditorAuditListTest extends TestHarness {
+class AuditorAuditListTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String mark, final String draftMode) {
+	void test100Positive(final int recordIndex, final String code, final String mark, final String draftMode) {
 
 		super.signIn("auditor1", "auditor1");
 
@@ -27,11 +27,7 @@ public class AuditorAuditListTest extends TestHarness {
 	}
 
 	@Test
-	public void test200Negative() {
-	}
-
-	@Test
-	public void test300Hacking() {
+	void test300Hacking() {
 
 		super.signIn("student1", "student1");
 		super.request("/auditor/audit/list");

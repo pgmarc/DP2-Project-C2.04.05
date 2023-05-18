@@ -1,5 +1,5 @@
 
-package acme.features.auditor.auditRecord;
+package acme.features.auditor.auditrecord;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,15 +14,19 @@ import acme.roles.Auditor;
 @Service
 public class AuditorAuditRecordCreateService extends AbstractService<Auditor, AuditRecord> {
 
+	private static final String				ENDDATE		= "endDate";
+	private static final String				INITDATE	= "initDate";
+	private static final String				MASTERID	= "masterId";
+
 	@Autowired
-	protected AuditorAuditRecordRepository repository;
+	protected AuditorAuditRecordRepository	repository;
 
 
 	@Override
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("masterId", int.class);
+		status = super.getRequest().hasData(AuditorAuditRecordCreateService.MASTERID, int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -33,7 +37,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		int auditId;
 		Audit audit;
 
-		auditId = super.getRequest().getData("masterId", int.class);
+		auditId = super.getRequest().getData(AuditorAuditRecordCreateService.MASTERID, int.class);
 		audit = this.repository.findOneAuditById(auditId);
 		status = audit != null && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 
@@ -46,7 +50,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		Audit audit;
 		int auditId;
 
-		auditId = super.getRequest().getData("masterId", int.class);
+		auditId = super.getRequest().getData(AuditorAuditRecordCreateService.MASTERID, int.class);
 		audit = this.repository.findOneAuditById(auditId);
 		object = new AuditRecord();
 		object.setAudit(audit);
@@ -56,55 +60,58 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 
 	@Override
 	public void bind(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Audit audit;
 		int auditId;
 
-		auditId = super.getRequest().getData("masterId", int.class);
+		auditId = super.getRequest().getData(AuditorAuditRecordCreateService.MASTERID, int.class);
 		audit = this.repository.findOneAuditById(auditId);
 
-		super.bind(object, "subject", "assesment", "mark", "initDate", "endDate", "moreInfo");
+		super.bind(object, "subject", "assesment", "mark", AuditorAuditRecordCreateService.INITDATE, AuditorAuditRecordCreateService.ENDDATE, "moreInfo");
 		object.setAudit(audit);
 
 	}
 
 	@Override
 	public void validate(final AuditRecord object) {
-		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("initDate") && !super.getBuffer().getErrors().hasErrors("endDate"))
-			if (!MomentHelper.isBefore(object.getInitDate(), object.getEndDate()))
-				super.state(false, "endDate", "auditor.audit-record.form.error.end-before-start");
-			else {
+		if (!super.getBuffer().getErrors().hasErrors(AuditorAuditRecordCreateService.INITDATE) && !super.getBuffer().getErrors().hasErrors(AuditorAuditRecordCreateService.ENDDATE)) {
+			if (!MomentHelper.isBefore(object.getInitDate(), object.getEndDate())) {
+				super.state(false, AuditorAuditRecordCreateService.ENDDATE, "auditor.audit-record.form.error.end-before-start");
+			} else {
 				final double hours = MomentHelper.computeDuration(object.getInitDate(), object.getEndDate()).toHours();
 				final double minutes = MomentHelper.computeDuration(object.getInitDate(), object.getEndDate()).toMinutes();
 				if (hours > 1 || hours == 1 && minutes > 0)
-					super.state(false, "endDate", "auditor.audit-record.form.error.duration");
+					super.state(false, AuditorAuditRecordCreateService.ENDDATE, "auditor.audit-record.form.error.duration");
 			}
+		}
 	}
 
 	@Override
 	public void perform(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Audit audit;
 		int auditId;
 
 		Tuple tuple;
 
-		auditId = super.getRequest().getData("masterId", int.class);
+		auditId = super.getRequest().getData(AuditorAuditRecordCreateService.MASTERID, int.class);
 		audit = this.repository.findOneAuditById(auditId);
-		tuple = super.unbind(object, "subject", "assesment", "mark", "initDate", "endDate", "moreInfo");
+		tuple = super.unbind(object, "subject", "assesment", "mark", AuditorAuditRecordCreateService.INITDATE, AuditorAuditRecordCreateService.ENDDATE, "moreInfo");
 		tuple.put("tutorial", audit);
-		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
+		tuple.put(AuditorAuditRecordCreateService.MASTERID, super.getRequest().getData(AuditorAuditRecordCreateService.MASTERID, int.class));
 		tuple.put("draftMode", object.getAudit().isDraftMode());
 
 		super.getResponse().setData(tuple);
