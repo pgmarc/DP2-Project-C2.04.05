@@ -34,10 +34,11 @@ lecturer.course.form.button.publish = Publish
 lecturer.course.form.button.delete = Delete
 lecturer.course.form.error.theoryReject = Pure theoretical courses can't be published
 lecturer.course.form.error.notPublishedLectures = All the lectures in this course must be published before publishing the course
+lecturer.course.form.error.emptyCourseReject = The course must have at least one lecture
 lecturer.course.form.error.duplicatedCode = This code is already in use, please choose another code
 lecturer.course.form.error.invalidCurrency = Please insert a valid currency
 lecturer.course.form.error.negativePrice = The price can't be negative
-lecturer.course.form.error.notYourCourse = You can add lectures only to your own courses
+lecturer.course.form.error.notYourCourse = You can add your lectures only to your own courses
 lecturer.course.form.error.lectureInCourse = The lecture is already in the course
 
 

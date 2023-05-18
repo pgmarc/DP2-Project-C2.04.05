@@ -77,6 +77,10 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	@Override
 	public void validate(final Course object) {
 		final int courseId = object.getId();
+		//		if (!super.getBuffer().getErrors().hasErrors("*")) {
+		//			final List<Lecture> lectures = this.repository.getLecturesFromCourse(courseId);
+		//			super.state(!lectures.isEmpty(), "*", "lecturer.course.form.error.emptyCourseReject");
+		//		}
 		if (!super.getBuffer().getErrors().hasErrors("*")) {
 			final List<Lecture> lectures = this.repository.getLecturesFromCourse(object.getId());
 			final Stream<Boolean> lecturesDraftModes = lectures.stream().map(Lecture::isDraftMode);
@@ -84,8 +88,10 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		}
 		if (!super.getBuffer().getErrors().hasErrors("*")) {
 			final List<Lecture> natures = this.repository.getLecturesFromCourse(courseId);
-			super.state(!natures.stream().allMatch(n -> n.getNature() == Nature.THEORETICAL), "*", "lecturer.course.form.error.theoryReject");
+			if (!natures.isEmpty())
+				super.state(!natures.stream().allMatch(n -> n.getNature() == Nature.THEORETICAL), "*", "lecturer.course.form.error.theoryReject");
 		}
+
 	}
 
 	@Override
