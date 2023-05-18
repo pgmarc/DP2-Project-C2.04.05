@@ -34,6 +34,7 @@ public class AuditorAuditShowTest extends TestHarness {
 		if (this.auditPath == null) {
 			this.auditPath = super.getCurrentPath();
 			this.auditQuery = super.getCurrentQuery();
+			this.auditQuery = this.auditQuery.substring(1, this.auditQuery.length());
 		}
 
 		super.signOut();

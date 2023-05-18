@@ -32,8 +32,9 @@ public class AuditorAuditUpdateTest extends TestHarness {
 		super.fillInputBoxIn("weakPoints", weakPoints);
 
 		if (this.auditPath == null) {
-			this.auditPath = super.getCurrentPath();
+			this.auditPath = super.getCurrentPath().replaceAll("show", "update");
 			this.auditQuery = super.getCurrentQuery();
+			this.auditQuery = this.auditQuery.substring(1, this.auditQuery.length());
 		}
 
 		super.clickOnSubmit("Update");
@@ -42,7 +43,7 @@ public class AuditorAuditUpdateTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/auditor/audit/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/auditor/audit/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String code, final String conclusion, final String strongPoints, final String weakPoints) {
 		super.signIn("auditor1", "auditor1");
 

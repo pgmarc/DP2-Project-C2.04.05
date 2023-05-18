@@ -40,8 +40,10 @@ public class AuditorAuditCreateTest extends TestHarness {
 		super.clickOnSubmit("Create");
 
 		if (this.auditPath == null) {
-			this.auditPath = super.getCurrentPath();
+			this.auditPath = "/auditor/audit/create";
 			this.auditQuery = super.getCurrentQuery();
+			this.auditQuery = this.auditQuery.substring(1, this.auditQuery.length());
+			this.auditPath = this.auditPath.replace("show", "create");
 		}
 
 		super.signOut();
@@ -82,7 +84,6 @@ public class AuditorAuditCreateTest extends TestHarness {
 		super.signIn("student1", "student1");
 		super.request(this.auditPath, this.auditQuery);
 		super.checkPanicExists();
-
 		super.signOut();
 	}
 
