@@ -100,9 +100,17 @@ master.menu.lecturer = Lecturer
 master.menu.lecturer.courses = My courses
 master.menu.lecturer.lectures = My lectures
 master.menu.lecturer.courseLectures = Add lectures to courses
+master.menu.courses = Courses
+master.menu.any.courses = Any Courses  
 
 # master.menu.notes ####################################################
 master.menu.note = Notes
+
+# master.menu.courses ###################################################
+master.menu.courses= Courses
+master.menu.any.courses = All Courses
+master.menu.lecturer.courses = My Courses
+master.menu.lecturer.courseLectures = Add lecture to course
 
 # master.menu.auditor ############################################################
 master.menu.auditor = Auditor

@@ -18,20 +18,21 @@ import acme.roles.Auditor;
 @Service
 public class AnyAuditListService extends AbstractService<Any, Audit> {
 
+	private static final String		COURSEID	= "courseId";
 	@Autowired
-	protected AnyAuditRepository repository;
+	protected AnyAuditRepository	repository;
 
 
 	@Override
 	public void check() {
 
-		final boolean status = super.getRequest().hasData("courseId", int.class);
+		final boolean status = super.getRequest().hasData(AnyAuditListService.COURSEID, int.class);
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(super.getRequest().getPrincipal().hasRole(Any.class) && this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class)) != null);
+		super.getResponse().setAuthorised(super.getRequest().getPrincipal().hasRole(Any.class) && this.repository.findOneCourseById(super.getRequest().getData(AnyAuditListService.COURSEID, int.class)) != null);
 	}
 
 	@Override
@@ -39,7 +40,7 @@ public class AnyAuditListService extends AbstractService<Any, Audit> {
 		Collection<Audit> objects;
 		int courseId;
 
-		courseId = super.getRequest().getData("courseId", int.class);
+		courseId = super.getRequest().getData(AnyAuditListService.COURSEID, int.class);
 		objects = this.repository.findManyAuditsByCourseId(courseId);
 
 		for (final Audit audit : objects)
@@ -47,8 +48,8 @@ public class AnyAuditListService extends AbstractService<Any, Audit> {
 				audit.setMark(this.getMark(this.repository.getMarkByAudit(audit.getId())));
 
 		super.getBuffer().setData(objects);
-		super.getResponse().setGlobal("showCreate", !this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class)).isDraftMode() && super.getRequest().getPrincipal().hasRole(Auditor.class));
-		super.getResponse().setGlobal("courseId", super.getRequest().getData("courseId", int.class));
+		super.getResponse().setGlobal("showCreate", !this.repository.findOneCourseById(super.getRequest().getData(AnyAuditListService.COURSEID, int.class)).isDraftMode() && super.getRequest().getPrincipal().hasRole(Auditor.class));
+		super.getResponse().setGlobal(AnyAuditListService.COURSEID, super.getRequest().getData(AnyAuditListService.COURSEID, int.class));
 	}
 
 	private String getMark(final Collection<String> markByAudit) {
@@ -62,13 +63,14 @@ public class AnyAuditListService extends AbstractService<Any, Audit> {
 
 	@Override
 	public void unbind(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
-		super.getResponse().setGlobal("showCreate", !this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class)).isDraftMode() && super.getRequest().getPrincipal().hasRole(Auditor.class));
-		super.getResponse().setGlobal("courseId", super.getRequest().getData("courseId", int.class));
+		super.getResponse().setGlobal("showCreate", !this.repository.findOneCourseById(super.getRequest().getData(AnyAuditListService.COURSEID, int.class)).isDraftMode() && super.getRequest().getPrincipal().hasRole(Auditor.class));
+		super.getResponse().setGlobal(AnyAuditListService.COURSEID, super.getRequest().getData(AnyAuditListService.COURSEID, int.class));
 		super.getResponse().setData(tuple);
 	}
 }

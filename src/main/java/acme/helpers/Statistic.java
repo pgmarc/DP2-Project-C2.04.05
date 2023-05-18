@@ -40,7 +40,6 @@ public class Statistic {
 		final Integer minimum = repository.findMinAuditRecordByAuditor(auditorId);
 		final Integer maximum = repository.findMaxAuditRecordByAuditor(auditorId);
 		final Double average = repository.findAverageAuditRecordByAuditor(auditorId);
-		final double deviation = 0.;
 
 		if (minimum != null)
 			auditStats.minimum = minimum;
@@ -64,7 +63,9 @@ public class Statistic {
 			auditRecordLenghts.average = durationAverage;
 		auditRecordLenghts.deviation = Statistic.deviationFunction(repository.findDeviationAuditRecordDurationByAuditor(auditorId), durationAverage);
 
-		Integer totalTheory, totalOnHands, totalBalanced;
+		Integer totalTheory;
+		Integer totalOnHands;
+		Integer totalBalanced;
 		totalTheory = repository.findNumberOfTheoryCoursesByAuditor(auditorId);
 		totalOnHands = repository.findNumberOfHandsOnCoursesByAuditor(auditorId);
 		totalBalanced = repository.findNumberOfBalancedCoursesByAuditor(auditorId);

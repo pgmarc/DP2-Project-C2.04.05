@@ -7,7 +7,8 @@
 	<acme:message code="auditor.dashboard.form.title.general-indicators"/>
 </h2>
 
-<table class="table table-sm">
+<table class="table table-sm" >
+ <caption>Audit stats by an Auditor</caption>
 	<tr>
 		<th scope="row">
 			<acme:message code="auditor.dashboard.form.label.theory"/>
