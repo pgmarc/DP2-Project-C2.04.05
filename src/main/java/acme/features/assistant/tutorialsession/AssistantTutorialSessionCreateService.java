@@ -118,10 +118,10 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		Tutorial tutorial;
 		Tutorial updatedTutorial;
 
-		tutorial = this.repository.findOneTutorialById(super.getRequest().getData("tutorialId", int.class));
-		updatedTutorial = this.getUpdatedTutorial(tutorial, object);
-
 		this.repository.save(object);
+
+		tutorial = this.repository.findOneTutorialById(super.getRequest().getData("tutorialId", int.class));
+		updatedTutorial = this.getUpdatedTutorial(tutorial);
 		this.repository.save(updatedTutorial);
 	}
 
@@ -143,16 +143,20 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		super.getResponse().setData(tuple);
 	}
 
-	private Tutorial getUpdatedTutorial(final Tutorial tutorial, final TutorialSession object) {
-		double newHours;
+	private Tutorial getUpdatedTutorial(final Tutorial tutorial) {
+		double newHours = 0.;
 		Date start;
 		Date finish;
+		tutorial.setEstimatedHours(0.);
 
-		start = object.getStartDate();
-		finish = object.getFinishDate();
-		newHours = (double) MomentHelper.computeDuration(start, finish).toMinutes() / 60;
+		for (final TutorialSession ts : this.repository.findTutorialSessionsByTutorialId(tutorial.getId())) {
+			start = ts.getStartDate();
+			finish = ts.getFinishDate();
+			newHours += (double) MomentHelper.computeDuration(start, finish).toMinutes() / 60;
+		}
 
-		tutorial.setEstimatedHours(tutorial.getEstimatedHours() + newHours);
+		newHours = Double.valueOf(String.format("%.2f", newHours));
+		tutorial.setEstimatedHours(newHours > 999.99 ? 999.99 : newHours);
 
 		return tutorial;
 	}
