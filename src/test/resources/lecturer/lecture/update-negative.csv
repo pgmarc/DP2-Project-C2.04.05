@@ -1,0 +1,10 @@
+recordIndex,title,lectureAbstract,nature,body,moreInfo
+1,,,"---",,-
+1,,Esta lecture no tiene titulo,THEORETICAL,Con un cuerpo tamaño medio como cualquier otra lecture bien redactada,https://example.com/lecture-negative-1
+1,Lecture sin descripcion,,BALANCED,Se explicaran cosas teóricas y se pondrán en práctica en la misma clase,
+1,Lecture sin nature,Esta si tiene descripcion,"---",Y tambien tiene un cuerpo correcto,
+1,Lecture sin cuerpo,Esta lecture tiene descripcion pero no cuerpo,HANDS_ON,,https://example.com/lecture-negative-3
+1,Lecture con URL mal formada,Esta si tiene su descripción,BALANCED,Tambien tiene su cuerpo bien escrito,Pero esto no es una URL
+1,Lecture con un titulo mucho mas largo de lo permitido en los requisitos para que de error,Con su buena descripcion,THEORETICAL,Con un cuerpo consistente y bien escrito,
+1,Lecture con descripción muy larga,Esta lecture tiene una descripcion exageradamente larga superando por mucho el maximo de 100 caracteres permitidos,HANDS_ON,Su cuerpo esta bien chido,https://example.com/lecture-negative-49
+1,Lecture con un cuerpo invalido,Con su descripcion bien formada,BALANCED,Este cuerpo tiene que ser bien largo para poder superar los 100 caracteres y probar las validaciones correctamente,

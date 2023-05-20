@@ -1,14 +1,3 @@
-/*
- * EmployerJobShowTest.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.testing.lecturer.course;
 
@@ -21,28 +10,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.entities.course.Course;
 import acme.testing.TestHarness;
+import acme.testing.lecturer.LecturerTestRepository;
 
-public class LecturerCoursePublishTest extends TestHarness {
+class LecturerCoursePublishTest extends TestHarness {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseTestRepository	repository;
+	protected LecturerTestRepository	repository;
 
 	// Test data --------------------------------------------------------------
 
-	final String							path	= "/lecturer/course/publish";
+	final String						path	= "/lecturer/course/publish";
 
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/course/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code) {
-		// HINT: this test signs in as an employer, lists all of the jobs, click on  
-		// HINT+ one of them, and checks that the form has the expected data.
-
+	void test100Positive(final int recordIndex, final String code) {
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Courses", "My courses");
+		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.clickOnListingRecord(recordIndex);
@@ -50,6 +38,7 @@ public class LecturerCoursePublishTest extends TestHarness {
 		super.checkSubmitExists("Publish");
 		super.clickOnSubmit("Publish");
 
+		super.checkListingExists();
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.clickOnListingRecord(recordIndex);
 		super.checkInputBoxHasValue("draftMode", "false");
@@ -60,10 +49,11 @@ public class LecturerCoursePublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/course/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code) {
+	void test200Negative(final int recordIndex, final String code) {
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Courses", "My courses");
+		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.clickOnListingRecord(recordIndex);
@@ -74,9 +64,7 @@ public class LecturerCoursePublishTest extends TestHarness {
 	}
 
 	@Test
-	public void test300Hacking() {
-		// HINT: this test tries to show an unpublished job by someone who is not the principal.
-
+	void test300Hacking() {
 		Collection<Course> courses;
 		String param;
 
@@ -108,9 +96,7 @@ public class LecturerCoursePublishTest extends TestHarness {
 	}
 
 	@Test
-	public void test301Hacking() {
-		// HINT: this test tries to show an unpublished job by someone who is not the principal.
-
+	void test301Hacking() {
 		Collection<Course> courses;
 		String param;
 

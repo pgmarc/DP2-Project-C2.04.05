@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.testing.lecturer.course;
+package acme.testing.lecturer.lecture;
 
 import java.util.Collection;
 
@@ -19,11 +19,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.course.Course;
+import acme.entities.course.Lecture;
 import acme.testing.TestHarness;
 import acme.testing.lecturer.LecturerTestRepository;
 
-class LecturerCourseUpdateTest extends TestHarness {
+class LecturerLectureUpdateTest extends TestHarness {
 
 	// Internal state ---------------------------------------------------------
 
@@ -32,15 +32,15 @@ class LecturerCourseUpdateTest extends TestHarness {
 
 	// Test methods ------------------------------------------------------------
 
-	final String						path	= "/lecturer/course/update";
+	final String						path	= "/lecturer/lecture/update";
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/lecturer/course/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	void test100Positive(final int recordIndex, final String code, final String title, final String courseAbstract, final String price, final String moreInfo) {
+	@CsvFileSource(resources = "/lecturer/lecture/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	void test100Positive(final int recordIndex, final String title, final String lectureAbstract, final String nature, final String body, final String moreInfo) {
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Courses", "My courses");
+		super.clickOnMenu("My lectures");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
@@ -48,29 +48,29 @@ class LecturerCourseUpdateTest extends TestHarness {
 
 		super.clickOnButton("Update");
 		super.checkFormExists();
-		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("courseAbstract", courseAbstract);
-		super.fillInputBoxIn("retailPrice", price);
+		super.fillInputBoxIn("lectureAbstract", lectureAbstract);
+		super.fillInputBoxIn("nature", nature);
+		super.fillInputBoxIn("body", body);
 		super.fillInputBoxIn("moreInfo", moreInfo);
 		super.clickOnSubmit("Submit");
 
 		super.checkFormExists();
-		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("courseAbstract", courseAbstract);
-		super.checkInputBoxHasValue("retailPrice", price);
+		super.checkInputBoxHasValue("lectureAbstract", lectureAbstract);
+		super.checkInputBoxHasValue("nature", nature);
+		super.checkInputBoxHasValue("body", body);
 		super.checkInputBoxHasValue("moreInfo", moreInfo);
 
 		super.signOut();
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/lecturer/course/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	void test200Negative(final int recordIndex, final String code, final String title, final String courseAbstract, final String price, final String moreInfo) {
+	@CsvFileSource(resources = "/lecturer/lecture/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	void test200Negative(final int recordIndex, final String title, final String lectureAbstract, final String nature, final String body, final String moreInfo) {
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Courses", "My courses");
+		super.clickOnMenu("My lectures");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
@@ -78,13 +78,13 @@ class LecturerCourseUpdateTest extends TestHarness {
 
 		super.clickOnButton("Update");
 		super.checkFormExists();
-		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("courseAbstract", courseAbstract);
-		super.fillInputBoxIn("retailPrice", price);
+		super.fillInputBoxIn("lectureAbstract", lectureAbstract);
+		if (nature != null)
+			super.fillInputBoxIn("nature", nature);
+		super.fillInputBoxIn("body", body);
 		super.fillInputBoxIn("moreInfo", moreInfo);
 		super.clickOnSubmit("Submit");
-
 		super.checkErrorsExist();
 
 		super.signOut();
@@ -92,13 +92,13 @@ class LecturerCourseUpdateTest extends TestHarness {
 
 	@Test
 	void test300Hacking() {
-		Collection<Course> courses;
+		Collection<Lecture> lectures;
 		String param;
 
-		courses = this.repository.findManyCoursesByLecturerUsername("lecturer1");
-		for (final Course course : courses)
-			if (course.isDraftMode()) {
-				param = String.format("id=%d", course.getId());
+		lectures = this.repository.findManyLecturesByLecturerUsername("lecturer1");
+		for (final Lecture lecture : lectures)
+			if (lecture.isDraftMode()) {
+				param = String.format("id=%d", lecture.getId());
 
 				super.checkLinkExists("Sign in");
 				super.request(this.path, param);
@@ -123,13 +123,13 @@ class LecturerCourseUpdateTest extends TestHarness {
 
 	@Test
 	void test301Hacking() {
-		Collection<Course> courses;
+		Collection<Lecture> lectures;
 		String param;
 
-		courses = this.repository.findManyCoursesByLecturerUsername("lecturer1");
-		for (final Course course : courses)
-			if (!course.isDraftMode()) {
-				param = String.format("id=%d", course.getId());
+		lectures = this.repository.findManyLecturesByLecturerUsername("lecturer1");
+		for (final Lecture lecture : lectures)
+			if (!lecture.isDraftMode()) {
+				param = String.format("id=%d", lecture.getId());
 
 				super.signIn("lecturer1", "lecturer1");
 				super.request(this.path, param);

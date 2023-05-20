@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.testing.lecturer.course;
+package acme.testing.lecturer;
 
 import java.util.Collection;
 
@@ -20,7 +20,7 @@ import acme.entities.course.Course;
 import acme.entities.course.Lecture;
 import acme.framework.repositories.AbstractRepository;
 
-public interface LecturerCourseTestRepository extends AbstractRepository {
+public interface LecturerTestRepository extends AbstractRepository {
 
 	@Query("select c from Course c where c.lecturer.userAccount.username = :username")
 	Collection<Course> findManyCoursesByLecturerUsername(String username);

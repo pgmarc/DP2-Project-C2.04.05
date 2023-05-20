@@ -6,7 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
 import acme.entities.course.Lecture;
+import acme.features.lecturer.course.LecturerCourseRepository;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -17,7 +20,10 @@ public class LecturerLectureListFromCourseService extends AbstractService<Lectur
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerLectureRepository repository;
+	protected LecturerLectureRepository	repository;
+
+	@Autowired
+	protected LecturerCourseRepository	courseRepository;
 
 	// AbstractService<Authenticated, Consumer> ---------------------------
 
@@ -31,7 +37,12 @@ public class LecturerLectureListFromCourseService extends AbstractService<Lectur
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		final Principal principal = super.getRequest().getPrincipal();
+		final int id = super.getRequest().getData("masterId", int.class);
+		final Course course = this.courseRepository.getCourseById(id);
+		status = course.getLecturer().getUserAccount().getId() == principal.getAccountId();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

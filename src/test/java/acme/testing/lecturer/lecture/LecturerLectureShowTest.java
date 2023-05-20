@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.testing.lecturer.course;
+package acme.testing.lecturer.lecture;
 
 import java.util.Collection;
 
@@ -19,11 +19,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.course.Course;
+import acme.entities.course.Lecture;
 import acme.testing.TestHarness;
 import acme.testing.lecturer.LecturerTestRepository;
 
-class LecturerCourseShowTest extends TestHarness {
+class LecturerLectureShowTest extends TestHarness {
 
 	// Internal state ---------------------------------------------------------
 
@@ -32,28 +32,28 @@ class LecturerCourseShowTest extends TestHarness {
 
 	// Test data --------------------------------------------------------------
 
-	final String						path	= "/lecturer/course/show";
+	final String						path	= "/lecturer/lecture/show";
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/lecturer/course/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	void test100Positive(final int recordIndex, final String code, final String title, final String courseAbstract, final String nature, final String price, final String moreInfo, final String draftMode) {
+	@CsvFileSource(resources = "/lecturer/lecture/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	void test100Positive(final int recordIndex, final String title, final String lectureAbstract, final String nature, final String body, final String moreInfo, final String lecturer, final String draftMode) {
 		// HINT: this test signs in as an employer, lists all of the jobs, click on  
 		// HINT+ one of them, and checks that the form has the expected data.
 
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Courses", "My courses");
+		super.clickOnMenu("My lectures");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 
-		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("courseAbstract", courseAbstract);
+		super.checkInputBoxHasValue("lectureAbstract", lectureAbstract);
 		super.checkInputBoxHasValue("nature", nature);
-		super.checkInputBoxHasValue("retailPrice", price);
+		super.checkInputBoxHasValue("body", body);
 		super.checkInputBoxHasValue("moreInfo", moreInfo);
+		super.checkInputBoxHasValue("lecturer", lecturer);
 		super.checkInputBoxHasValue("draftMode", draftMode);
 
 		super.signOut();
@@ -69,13 +69,13 @@ class LecturerCourseShowTest extends TestHarness {
 	void test300Hacking() {
 		// HINT: this test tries to show an unpublished job by someone who is not the principal.
 
-		Collection<Course> courses;
+		Collection<Lecture> lectures;
 		String param;
 
-		courses = this.repository.findManyCoursesByLecturerUsername("lecturer1");
-		for (final Course course : courses)
-			if (course.isDraftMode()) {
-				param = String.format("id=%d", course.getId());
+		lectures = this.repository.findManyLecturesByLecturerUsername("lecturer1");
+		for (final Lecture lecture : lectures)
+			if (lecture.isDraftMode()) {
+				param = String.format("id=%d", lecture.getId());
 
 				super.checkLinkExists("Sign in");
 				super.request(this.path, param);

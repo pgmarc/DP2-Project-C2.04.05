@@ -1,0 +1,7 @@
+recordIndex,title,lectureAbstract,nature,body,moreInfo,lecturer,draftMode
+0,"Clase doble teórico-práctica","Una clase mixta de toda la vida",BALANCED,"Se explicaran cosas teóricas y se pondrán en práctica en la misma clase",,"Acme, Lecturer1",false
+1,Introduction to Computer Science 01,"Learn algorithms, data structures, programming languages, and software engineering major lectures!!!",BALANCED,"Esta lecture no sirve de mucho pero esta graciosa cuanto menos y es obligatoria para aprobar jajaja.",https://example.com/A-001,"Acme, Lecturer1",true
+2,Practica en grupo,Una clase de practica simple y pura,HANDS_ON,Se pondran en practica las cosas explicadas en clase sobre el trabajo,,"Acme, Lecturer1",false
+3,Teoría preciosa,Una clase de teoría simple y pura,THEORETICAL,Se explicaran cosas para realizar el trabajo grupal,,"Acme, Lecturer1",false
+
+
