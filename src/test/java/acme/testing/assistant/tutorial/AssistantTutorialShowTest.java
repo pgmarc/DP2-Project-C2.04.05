@@ -57,17 +57,32 @@ public class AssistantTutorialShowTest extends TestHarness {
 	@Test
 	public void test300hacking() {
 
+		final Tutorial tutorial = ((List<Tutorial>) this.repository.findAllTutorials()).get(0);
+		final String path = "/assistant/tutorial/show";
+		final String query = "id=" + tutorial.getId();
+
+		super.checkLinkExists("Sign in");
+		super.request(path, query);
+		super.checkPanicExists();
+
 		super.signIn("Administrator1", "administrator1");
+		super.request(path, query);
+		super.checkPanicExists();
+		super.signOut();
 
-		final List<Tutorial> tutorials = (List<Tutorial>) this.repository.findAllTutorials();
+		super.signIn("lecturer1", "lecturer1");
+		super.request(path, query);
+		super.checkPanicExists();
+		super.signOut();
 
-		for (final Tutorial tutorial : tutorials) {
-			final int id = tutorial.getId();
-			super.request("/assistant/tutorial/show?id=" + id);
-			super.checkCurrentPath("/assistant/tutorial/show?id=" + id);
-			super.checkPanicExists();
-		}
+		super.signIn("student1", "student1");
+		super.request(path, query);
+		super.checkPanicExists();
+		super.signOut();
 
+		super.signIn("auditor1", "auditor1");
+		super.request(path, query);
+		super.checkPanicExists();
 		super.signOut();
 	}
 

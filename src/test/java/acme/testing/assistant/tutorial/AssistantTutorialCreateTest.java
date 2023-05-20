@@ -1,6 +1,7 @@
 
 package acme.testing.assistant.tutorial;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -23,7 +24,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("abstrac", abstrac);
 		super.fillInputBoxIn("goals", goals);
-		super.checkInputBoxHasValue("assistantName", assistantName); //TODO
+		super.checkInputBoxHasValue("assistantName", assistantName);
 
 		super.checkSubmitExists("Create");
 		super.clickOnSubmit("Create");
@@ -41,7 +42,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.checkInputBoxHasValue("abstrac", abstrac);
 		super.checkInputBoxHasValue("goals", goals);
 		super.checkInputBoxHasValue("estimatedHours", estimatedHours);
-		super.checkInputBoxHasValue("assistantName", assistantName); //TODO
+		super.checkInputBoxHasValue("assistantName", assistantName);
 
 		super.checkButtonExists("Sessions");
 		super.clickOnButton("Sessions");
@@ -73,6 +74,36 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.checkErrorsExist();
 		super.checkCurrentPath("/assistant/tutorial/create");
 
+		super.signOut();
+	}
+
+	@Test
+	public void test300hacking() {
+
+		final String path = "/assistant/tutorial/create";
+
+		super.checkLinkExists("Sign in");
+		super.request(path);
+		super.checkPanicExists();
+
+		super.signIn("Administrator1", "administrator1");
+		super.request(path);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("lecturer1", "lecturer1");
+		super.request(path);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("student1", "student1");
+		super.request(path);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("auditor1", "auditor1");
+		super.request(path);
+		super.checkPanicExists();
 		super.signOut();
 	}
 }

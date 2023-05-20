@@ -37,12 +37,30 @@ public class AssistantTutorialListMineTest extends TestHarness {
 	@Test
 	public void test300hacking() {
 
-		super.signIn("Administrator1", "administrator1");
+		final String path = "/assistant/tutorial/list";
 
-		super.request("/assistant/tutorial/list");
-		super.checkCurrentPath("/assistant/tutorial/list");
+		super.checkLinkExists("Sign in");
+		super.request(path);
 		super.checkPanicExists();
 
+		super.signIn("Administrator1", "administrator1");
+		super.request(path);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("lecturer1", "lecturer1");
+		super.request(path);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("student1", "student1");
+		super.request(path);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("auditor1", "auditor1");
+		super.request(path);
+		super.checkPanicExists();
 		super.signOut();
 	}
 
