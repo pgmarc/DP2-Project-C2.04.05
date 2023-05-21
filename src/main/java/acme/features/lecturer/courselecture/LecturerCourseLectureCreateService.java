@@ -81,12 +81,12 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 		if (!super.getBuffer().getErrors().hasErrors("course"))
 			super.state(object.getCourse().isDraftMode(), "course", "lecturer.courseLecture.form.error.publishedCourse");
 		if (!super.getBuffer().getErrors().hasErrors("course") && !super.getBuffer().getErrors().hasErrors("lecture"))
-			super.state(object.getCourse().getLecturer().getId() == object.getLecture().getLecturer().getId(), "*", "lecturer.course.form.error.notYourCourse");
+			super.state(object.getCourse().getLecturer().getId() == object.getLecture().getLecturer().getId(), "course", "lecturer.course.form.error.notYourCourse");
 		if (!super.getBuffer().getErrors().hasErrors("course") && !super.getBuffer().getErrors().hasErrors("lecture")) {
 			final int courseId = object.getCourse().getId();
 			final int lectureId = object.getLecture().getId();
 			final List<CourseLecture> cl = this.repository.getCourseLecturesByIds(courseId, lectureId);
-			super.state(cl.isEmpty(), "*", "lecturer.course.form.error.lectureInCourse");
+			super.state(cl.isEmpty(), "lecture", "lecturer.course.form.error.lectureInCourse");
 		}
 
 	}

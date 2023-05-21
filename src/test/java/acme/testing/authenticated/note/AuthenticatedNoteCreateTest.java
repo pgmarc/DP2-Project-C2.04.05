@@ -36,7 +36,7 @@ class AuthenticatedNoteCreateTest extends TestHarness {
 		super.fillInputBoxIn("moreInfo", moreInfo);
 		super.clickOnSubmit("Create");
 
-		super.clickOnMenu("Courses", "My courses");
+		super.clickOnMenu("Notes");
 		super.checkListingExists();
 		super.checkColumnHasValue(recordIndex, 0, instantiationMoment);
 		super.checkColumnHasValue(recordIndex, 1, title);
