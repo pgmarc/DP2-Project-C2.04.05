@@ -24,6 +24,12 @@ master.menu.anonymous.favourite-link.carbersor = 77938703Y: Bermejo Soria, Carlo
 master.menu.anonymous.favourite-link.dangalmar = 29504092Z: Gallardo Martos, Daniel
 master.menu.anonymous.favourite-link.carzarrei = 32099918Z: Zarzuela Reina, Carlos
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.offers = View offers
+
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
@@ -46,6 +52,11 @@ master.menu.provider.favourite-link = Favourite link
 
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
+
+# master.menu.company ##########################################################
+
+master.menu.company = Company
+master.menu.company.list = Practica
 
 # master.menu.student ##########################################################
 
@@ -77,19 +88,18 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.company = Company data
+master.menu.user-account.become-company = Become a company
 master.menu.user-account.become-assistant = Become an assistant
 master.menu.user-account.assistant = Assistant
 master.menu.user-account.lecturer = Lecturer data
 master.menu.user-account.become-lecturer = Become a lecturer
 
-# master.menu.courses ###################################################
-master.menu.courses= Courses
-master.menu.any.courses = All courses
+# master.menu.lecturer ###################################################
+master.menu.lecturer = Lecturer
 master.menu.lecturer.courses = My courses
+master.menu.lecturer.lectures = My lectures
 master.menu.lecturer.courseLectures = Add lectures to courses
-
-# master.menu.lectures ###################################################
-master.menu.lectures = My lectures
 
 # master.menu.notes ####################################################
 master.menu.note = Notes
