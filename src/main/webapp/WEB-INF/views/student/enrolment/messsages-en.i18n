@@ -34,6 +34,9 @@ authenticated.enrolment.form.button.update = Update
 authenticated.enrolment.form.button.delete = Delete
 authenticated.enrolment.form.button.finalized = Finalized Enrolment
 authenticated.enrolment.form.button.workspace = Workspace
+authenticated.enrolment.list.label.finalized = State
+authenticated.enrolment.list.label.draftMode.True = Finalized
+authenticated.enrolment.list.label.draftMode.False = Not finalized
 
 authenticated.activity.form.validate.code = (Duplicate Code) Another enrolment already has this code
 authenticated.enrolment.list.label.validate.creditCardNumber = You must introduce a valid credit card number

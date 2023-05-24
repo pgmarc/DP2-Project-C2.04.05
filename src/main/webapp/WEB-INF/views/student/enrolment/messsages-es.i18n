@@ -33,6 +33,9 @@ authenticated.enrolment.form.button.update = Actualizar
 authenticated.enrolment.form.button.delete = Borrar
 authenticated.enrolment.form.button.finalized = Finalizar Matrícula
 authenticated.enrolment.form.button.workspace = Espacio de trabajo
+authenticated.enrolment.list.label.finalized = Estado
+authenticated.enrolment.list.label.draftMode.True = Finalizado
+authenticated.enrolment.list.label.draftMode.False = No finalizado
 
 authenticated.enrolment.list.label.validate.holder = Debes introducir el nombre del propietario
 authenticated.enrolment.list.label.validate.creditCardNumber = Debes introducir un número de tarjeta válido
