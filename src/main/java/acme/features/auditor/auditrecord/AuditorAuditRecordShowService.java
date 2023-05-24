@@ -1,5 +1,5 @@
 
-package acme.features.auditor.auditRecord;
+package acme.features.auditor.auditrecord;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,7 +51,8 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 
 	@Override
 	public void unbind(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Tuple tuple;
 

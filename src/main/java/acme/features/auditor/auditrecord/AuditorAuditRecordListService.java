@@ -1,5 +1,5 @@
 
-package acme.features.auditor.auditRecord;
+package acme.features.auditor.auditrecord;
 
 import java.util.Collection;
 
@@ -15,15 +15,17 @@ import acme.roles.Auditor;
 @Service
 public class AuditorAuditRecordListService extends AbstractService<Auditor, AuditRecord> {
 
+	private static final String				MASTERID	= "masterId";
+
 	@Autowired
-	protected AuditorAuditRecordRepository repository;
+	protected AuditorAuditRecordRepository	repository;
 
 
 	@Override
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("masterId", int.class);
+		status = super.getRequest().hasData(AuditorAuditRecordListService.MASTERID, int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -34,7 +36,7 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		int auditId;
 		Audit audit;
 
-		auditId = super.getRequest().getData("masterId", int.class);
+		auditId = super.getRequest().getData(AuditorAuditRecordListService.MASTERID, int.class);
 		audit = this.repository.findOneAuditById(auditId);
 		status = audit != null && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 
@@ -46,7 +48,7 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		Collection<AuditRecord> objects;
 		int masterId;
 
-		masterId = super.getRequest().getData("masterId", int.class);
+		masterId = super.getRequest().getData(AuditorAuditRecordListService.MASTERID, int.class);
 		objects = this.repository.findManyAuditRecordsByAuditId(masterId);
 
 		super.getBuffer().setData(objects);
@@ -54,7 +56,8 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 
 	@Override
 	public void unbind(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Tuple tuple;
 
@@ -65,18 +68,19 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 
 	@Override
 	public void unbind(final Collection<AuditRecord> objects) {
-		assert objects != null;
+		if (objects == null)
+			throw new NullPointerException();
 
 		int masterId;
 		final Audit audit;
 		boolean showCreate;
 
-		masterId = super.getRequest().getData("masterId", int.class);
+		masterId = super.getRequest().getData(AuditorAuditRecordListService.MASTERID, int.class);
 		audit = this.repository.findOneAuditById(masterId);
 		showCreate = super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 
 		super.getResponse().setGlobal("showCreate", showCreate);
-		super.getResponse().setGlobal("masterId", masterId);
+		super.getResponse().setGlobal(AuditorAuditRecordListService.MASTERID, masterId);
 	}
 
 }

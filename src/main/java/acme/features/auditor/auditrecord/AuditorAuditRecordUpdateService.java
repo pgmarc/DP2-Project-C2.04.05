@@ -1,5 +1,5 @@
 
-package acme.features.auditor.auditRecord;
+package acme.features.auditor.auditrecord;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +13,11 @@ import acme.roles.Auditor;
 @Service
 public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, AuditRecord> {
 
+	private static final String				ENDDATE		= "endDate";
+	private static final String				INITDATE	= "initDate";
+
 	@Autowired
-	protected AuditorAuditRecordRepository repository;
+	protected AuditorAuditRecordRepository	repository;
 
 
 	@Override
@@ -52,40 +55,46 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 
 	@Override
 	public void bind(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
-		super.bind(object, "subject", "assesment", "mark", "initDate", "endDate", "moreInfo");
+		super.bind(object, "subject", "assesment", "mark", AuditorAuditRecordUpdateService.INITDATE, AuditorAuditRecordUpdateService.ENDDATE, "moreInfo");
 	}
 
 	@Override
 	public void validate(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
-		if (!super.getBuffer().getErrors().hasErrors("initDate") && !super.getBuffer().getErrors().hasErrors("endDate"))
-			if (!MomentHelper.isBefore(object.getInitDate(), object.getEndDate()))
-				super.state(false, "endDate", "auditor.audit-record.form.error.end-before-start");
-			else {
-				final int hours = (int) MomentHelper.computeDuration(object.getInitDate(), object.getEndDate()).toHours();
-				if (hours > 1)
-					super.state(false, "endDate", "auditor.audit-record.form.error.duration");
+		if (!super.getBuffer().getErrors().hasErrors(AuditorAuditRecordUpdateService.INITDATE) && !super.getBuffer().getErrors().hasErrors(AuditorAuditRecordUpdateService.ENDDATE)) {
+			if (!MomentHelper.isBefore(object.getInitDate(), object.getEndDate())) {
+				super.state(false, AuditorAuditRecordUpdateService.ENDDATE, "auditor.audit-record.form.error.end-before-start");
+			} else {
+				final double hours = MomentHelper.computeDuration(object.getInitDate(), object.getEndDate()).toHours();
+				final double minutes = MomentHelper.computeDuration(object.getInitDate(), object.getEndDate()).toMinutes();
+				if (hours > 1 || hours == 1 && minutes > 0)
+					super.state(false, AuditorAuditRecordUpdateService.ENDDATE, "auditor.audit-record.form.error.duration");
 			}
+	}
 
 	}
 
 	@Override
 	public void perform(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "subject", "assesment", "mark", "initDate", "endDate", "moreInfo");
+		tuple = super.unbind(object, "subject", "assesment", "mark", AuditorAuditRecordUpdateService.INITDATE, AuditorAuditRecordUpdateService.ENDDATE, "moreInfo");
 		tuple.put("masterId", object.getAudit().getId());
 		tuple.put("draftMode", object.getAudit().isDraftMode());
 

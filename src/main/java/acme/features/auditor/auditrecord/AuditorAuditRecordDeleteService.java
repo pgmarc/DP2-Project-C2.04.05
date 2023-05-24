@@ -1,5 +1,5 @@
 
-package acme.features.auditor.auditRecord;
+package acme.features.auditor.auditrecord;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,27 +51,31 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 
 	@Override
 	public void bind(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		super.bind(object, "subject", "assesment", "mark", "initDate", "endDate", "moreInfo");
 	}
 
 	@Override
 	public void validate(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 	}
 
 	@Override
 	public void perform(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		this.repository.delete(object);
 	}
 
 	@Override
 	public void unbind(final AuditRecord object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Tuple tuple;
 
