@@ -25,12 +25,6 @@ class LecturerCourseListMineTest extends TestHarness {
 	}
 
 	@Test
-	void test200Negative() {
-		// HINT: there aren't any negative tests for this feature since it's a listing that
-		// HINT+ doesn't involve entering any data into any forms.
-	}
-
-	@Test
 	void test300Hacking() {
 		super.checkLinkExists("Sign in");
 		super.request("/lecturer/course/list-mine");

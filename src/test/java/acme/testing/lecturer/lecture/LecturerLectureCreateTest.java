@@ -1,14 +1,3 @@
-/*
- * EmployerJobCreateTest.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.testing.lecturer.lecture;
 
@@ -23,8 +12,6 @@ class LecturerLectureCreateTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	void test100Positive(final int recordIndex, final String title, final String lectureAbstract, final String nature, final String body, final String moreInfo) {
-		// HINT: this test authenticates as an employer and then lists his or her
-		// HINT: jobs, creates a new one, and check that it's been created properly.
 
 		super.signIn("lecturer1", "lecturer1");
 
@@ -61,7 +48,6 @@ class LecturerLectureCreateTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	void test200Negative(final int recordIndex, final String title, final String lectureAbstract, final String nature, final String body, final String moreInfo) {
-		// HINT: this test attempts to create jobs with incorrect data.
 
 		super.signIn("lecturer1", "lecturer1");
 

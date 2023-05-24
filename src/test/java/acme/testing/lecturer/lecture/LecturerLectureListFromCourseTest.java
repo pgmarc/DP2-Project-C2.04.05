@@ -28,7 +28,7 @@ class LecturerLectureListFromCourseTest extends TestHarness {
 		super.clickOnMenu("Courses", "My courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(3);
+		super.clickOnListingRecord(4);
 
 		super.checkButtonExists("Lectures");
 		super.clickOnButton("Lectures");
@@ -41,14 +41,7 @@ class LecturerLectureListFromCourseTest extends TestHarness {
 	}
 
 	@Test
-	void test200Negative() {
-		// HINT: there aren't any negative tests for this feature since it's a listing that
-		// HINT+ doesn't involve entering any data into any forms.
-	}
-
-	@Test
 	void test300Hacking() {
-		// HINT: this test tries to show an unpublished job by someone who is not the principal.
 
 		Collection<Course> courses;
 		String param;

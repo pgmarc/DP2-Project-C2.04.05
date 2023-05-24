@@ -25,12 +25,8 @@ import acme.testing.lecturer.LecturerTestRepository;
 
 class LecturerLectureUpdateTest extends TestHarness {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	protected LecturerTestRepository	repository;
-
-	// Test methods ------------------------------------------------------------
 
 	final String						path	= "/lecturer/lecture/update";
 

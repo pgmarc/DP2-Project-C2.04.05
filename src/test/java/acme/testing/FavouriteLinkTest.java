@@ -14,10 +14,10 @@ package acme.testing;
 
 import org.junit.jupiter.api.Test;
 
-public class FavouriteLinkTest extends TestHarness {
+class FavouriteLinkTest extends TestHarness {
 
 	@Test
-	public void test100Positive() {
+	void test100Positive() {
 		super.requestHome();
 		super.clickOnMenu("Anonymous", "77927548Y: González Marcos, Pedro");
 		super.checkCurrentUrl("https://www.twitch.tv");
