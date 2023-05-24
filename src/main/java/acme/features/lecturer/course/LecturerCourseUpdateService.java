@@ -78,7 +78,7 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void validate(final Course object) {
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			final List<Course> courses = this.repository.getAllCourses();
+			final List<Course> courses = this.repository.getAllOtherCourses(object.getId());
 			super.state(courses.stream().map(Course::getCode).noneMatch(c -> Objects.equals(c, object.getCode())), "code", "lecturer.course.form.error.duplicatedCode");
 			if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
 				final String currencies = this.repository.getSupportedCurrencies();

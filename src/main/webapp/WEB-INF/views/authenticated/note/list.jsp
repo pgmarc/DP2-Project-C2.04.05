@@ -18,9 +18,5 @@
 <acme:list>
 	<acme:list-column code="authenticated.note.list.label.instantiationMoment" path="instantiationMoment"/>
 	<acme:list-column code="authenticated.note.list.label.title" path="title"/>
-	<acme:list-column code="authenticated.note.list.label.fullName" path="fullName"/>
-	<acme:list-column code="authenticated.note.list.label.message" path="message"/>
-	<acme:list-column code="authenticated.note.list.label.email" path="email"/>
-	<acme:list-column code="authenticated.note.list.label.moreInfo" path="moreInfo"/>
 </acme:list>
 <acme:button code="authenticated.note.list.button.create" action="/authenticated/note/create"/>

@@ -74,7 +74,7 @@ public class LecturerCourseLectureShowService extends AbstractService<Lecturer, 
 	public void unbind(final CourseLecture object) {
 		Tuple tuple;
 		tuple = super.unbind(object, "id");
-		tuple.put("course", object.getCourse().getCode());
+		tuple.put("course", object.getCourse().getTitle());
 		tuple.put("lecture", object.getLecture().getTitle());
 		super.getResponse().setData(tuple);
 	}

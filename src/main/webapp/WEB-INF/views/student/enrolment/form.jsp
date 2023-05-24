@@ -41,5 +41,5 @@
 	<acme:submit test="${_command == 'show' && draftMode == true}" code="authenticated.enrolment.form.button.delete" action="/student/enrolment/delete?id=${id}"/>
 	<acme:button test="${_command == 'show' && draftMode == true}" code="authenticated.enrolment.form.button.finalized" action="/student/enrolment/finalized?id=${id}"/>
 	<acme:button test="${_command == 'show' && draftMode == false}" code="authenticated.enrolment.form.button.workspace" action="/student/activity/list?id=${id}"/>
-
+  
 </acme:form>

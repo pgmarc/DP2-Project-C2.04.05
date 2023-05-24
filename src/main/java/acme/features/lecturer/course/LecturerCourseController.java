@@ -14,7 +14,7 @@ import acme.roles.Lecturer;
 public class LecturerCourseController extends AbstractController<Lecturer, Course> {
 
 	@Autowired
-	protected LecturerCourseListService		listService;
+	protected LecturerCourseListMineService		listService;
 
 	@Autowired
 	protected LecturerCourseShowService		showService;

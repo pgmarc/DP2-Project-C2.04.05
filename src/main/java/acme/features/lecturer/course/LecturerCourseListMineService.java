@@ -13,7 +13,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerCourseListService extends AbstractService<Lecturer, Course> {
+public class LecturerCourseListMineService extends AbstractService<Lecturer, Course> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -45,7 +45,7 @@ public class LecturerCourseListService extends AbstractService<Lecturer, Course>
 	public void unbind(final Course object) {
 		Tuple tuple;
 		final Lecturer lecturer = object.getLecturer();
-		tuple = super.unbind(object, "code", "title", "courseAbstract", "nature", "retailPrice", "moreInfo");
+		tuple = super.unbind(object, "code", "title");
 		tuple.put("lecturer", lecturer.getIdentity().getFullName());
 		super.getResponse().setData(tuple);
 	}
