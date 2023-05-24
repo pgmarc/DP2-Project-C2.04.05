@@ -8,6 +8,7 @@
 	<acme:list-column code="authenticated.enrolment.list.label.motivation" path="motivation"/>
 	<acme:list-column code="authenticated.enrolment.list.label.courseCode" path="courseCode"/>
 	<acme:list-column code="authenticated.enrolment.list.label.courseTitle" path="courseTitle"/>
+	<acme:list-column code="authenticated.enrolment.list.label.finalized" path="draftMode"/>
 
 </acme:list>
 

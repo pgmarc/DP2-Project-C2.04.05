@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>72</x>
+      <y>120</y>
+      <w>186</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Role&gt;&gt;
+Auditor
+--
++ professionalId: String{NotNull, NotBlank, Length(0,25)}
++ firm: String{NotNull, NotBlank, Length(0,75)}
++ certifications: String{NotNull, NotBlank, Length(0,100)}
++ moreInfo: String{NotBlank}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>276</y>
+      <w>258</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Audit
+--
++  code: String{NotNull, NotBlank, Unique, Pattern("[A-Z]{1,3}[0-9][0-9]{3}")}
++  conclusion: String{NotNull, NotBlank,Length(0,100)}
++  strongPoints: String{NotNull, NotBlank, Length(0,100)}
++  weakPoints: String{NotNull, NotBlank, Length(0,100)}
++/ mark: String(NotNull, Transient)
++ draftMode: boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>366</y>
+      <w>270</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Mark is computed as the mode of the marks
+in the auditingrecords.
+If a mark is tied, they break randomly
+strongPoints and weakPoints are a String, with each element separated
+by ";"
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>372</x>
+      <y>372</y>
+      <w>252</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Period will be set a a floating number between 0.01, and 1,
+since the range is of 1 hour and the minimum time is 0.01 seconds
+
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>372</x>
+      <y>276</y>
+      <w>222</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+AuditRecord
+--
++ subject: String{NotBlank, Length(0,75)}
++ assesment: String{NotBlank, Length(0,100)}
++ mark: String{NotBlank, Pattern("(?:A\+|A|B|C|D|F|F\-)")}
++ initDate: Date{NotNull, Past}
++ endDate: Date{NotNull, Past}
++ moreInfo: String{NotBlank}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>282</x>
+      <y>312</y>
+      <w>102</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1..n</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>48</x>
+      <y>78</y>
+      <w>192</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Audit Entity has a 1:N relationship
+with the entity Course
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>192</y>
+      <w>30</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=1
+m1=0..n</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>372</x>
+      <y>180</y>
+      <w>222</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Form&gt;&gt;
+AuditorDashboard
+--
++ theoryAudits: int
++ auditTheoryStats: Statistic{NotNull}
++ auditRecordTheoryStats: Statistic {NotNull}
++ handOnAudits: int
++ balancedAudits: int</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

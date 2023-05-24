@@ -17,8 +17,10 @@ import acme.roles.Auditor;
 @Service
 public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
 
+	private static final String			DRAFTMODE	= "draftMode";
+
 	@Autowired
-	protected AuditorAuditRepository repository;
+	protected AuditorAuditRepository	repository;
 
 
 	@Override
@@ -61,11 +63,21 @@ public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void unbind(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
+		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", AuditorAuditListService.DRAFTMODE);
+		if (!object.isDraftMode()) {
+			if (super.getRequest().getLocale().getLanguage().equals("es"))
+				tuple.put(AuditorAuditListService.DRAFTMODE, "No es Borrador");
+			else
+				tuple.put(AuditorAuditListService.DRAFTMODE, "Not Draft");
+		} else if (super.getRequest().getLocale().getLanguage().equals("es"))
+			tuple.put(AuditorAuditListService.DRAFTMODE, "Borrador");
+		else
+			tuple.put(AuditorAuditListService.DRAFTMODE, "Draft");
 
 		super.getResponse().setData(tuple);
 	}

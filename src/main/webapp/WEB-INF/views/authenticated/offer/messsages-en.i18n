@@ -1,0 +1,11 @@
+authenticated.offer.form.label.heading = Heading
+authenticated.offer.form.label.summary = Summary
+authenticated.offer.form.label.startingDate = Starts
+authenticated.offer.form.label.endingDate = Ends
+authenticated.offer.form.label.price = Price
+authenticated.offer.form.label.moreInfo = More information
+
+authenticated.offer.list.label.heading = Heading
+authenticated.offer.list.label.startingDate = Starts
+authenticated.offer.list.label.endingDate = Ends
+
