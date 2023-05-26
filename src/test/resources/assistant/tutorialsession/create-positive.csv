@@ -1,0 +1,5 @@
+recordIndexTutorial,draftMode,title,abstrac,goals,sessionNature,startDate,finishDate
+0,true,First session,The only session for this tutorial.,Learn basics.,THEORETICAL,2022/08/02 00:00,2022/08/02 01:00
+1,false,Success essentials.,No need for more.,Success.,THEORETICAL,2022/02/02 17:00,2022/02/02 18:00
+2,true,.,.,.,HANDS_ON,2022/08/01 10:00,2022/08/01 13:00
+2,true,Second session,The first session for this tutorial.,Learn basics.,THEORETICAL,2022/08/01 08:00,2022/08/01 10:30

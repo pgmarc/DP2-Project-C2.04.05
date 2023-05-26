@@ -1,0 +1,12 @@
+recordIndexTutorial,draftMode,title,abstrac,goals,startDate,finishDate
+0,true,,a,a,2022/08/02 00:00,2022/08/02 01:00
+0,true,a,,a,2022/08/02 00:00,2022/08/02 01:00
+0,true,a,a,,2022/08/02 00:00,2022/08/02 01:00
+0,true,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,a,a,2022/08/02 00:00,2022/08/02 01:00
+0,true,a,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,a,2022/08/02 00:00,2022/08/02 01:00
+0,true,a,a,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2022/08/02 00:00,2022/08/02 01:00
+0,true,a,a,a,2022/08/02 00:00,2000/08/02 01:00
+0,true,a,a,a,2022/08/02 00:00,2022/08/02 10:00
+1,false,Success essentials.,No need for more.,Success.,2022/02/02 17:00,2022/02/02 18:00
+2,true,,.,.,2022/08/01 10:00,2022/08/01 13:00
+2,true,,The first session for this tutorial.,Learn basics.,2022/08/01 08:00,2022/08/01 10:30
