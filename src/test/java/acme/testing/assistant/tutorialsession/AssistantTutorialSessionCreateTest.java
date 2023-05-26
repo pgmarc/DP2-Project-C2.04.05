@@ -19,7 +19,7 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/assistant/tutorialsession/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/assistant/tutorialsession/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100positive(final int recordIndexTutorial, final String draftMode, final String title, final String abstrac, final String goals, final String sessionNature, final String startDate, final String finishDate) {
 
 		super.signIn("assistant1", "assistant1");
@@ -59,8 +59,8 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 	}
 
 	@ParameterizedTest()
-	@CsvFileSource(resources = "/assistant/tutorial/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200negative(final int recordIndexTutorial, final String draftMode, final String title, final String abstrac, final String goals, final String startDate, final String finishDate) {
+	@CsvFileSource(resources = "/assistant/tutorialsession/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200negative(final int recordIndexTutorial, final String draftMode, final String title, final String abstrac, final String goals, final String sessionNature, final String startDate, final String finishDate) {
 
 		super.signIn("assistant1", "assistant1");
 
@@ -85,6 +85,7 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 			super.fillInputBoxIn("title", title);
 			super.fillInputBoxIn("abstrac", abstrac);
 			super.fillInputBoxIn("goals", goals);
+			super.fillInputBoxIn("sessionNature", sessionNature);
 			super.fillInputBoxIn("startDate", startDate);
 			super.fillInputBoxIn("finishDate", finishDate);
 			super.checkSubmitExists("Create");

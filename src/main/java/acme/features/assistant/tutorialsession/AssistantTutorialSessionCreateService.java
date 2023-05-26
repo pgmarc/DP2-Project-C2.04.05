@@ -50,8 +50,12 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 	@Override
 	public void authorise() {
 		boolean status;
+		Tutorial tutorial;
+		int id;
 
-		status = super.getRequest().getPrincipal().hasRole(Assistant.class);
+		id = super.getRequest().getData("tutorialId", int.class);
+		tutorial = this.repository.findOneTutorialById(id);
+		status = super.getRequest().getPrincipal().hasRole(Assistant.class) && tutorial != null && tutorial.getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
