@@ -33,3 +33,11 @@ Deliverable 3, V3.0.0:
 - Modificar perfil de los principales Roles
 
 Deliverable 4, V4.0.0:
+- Test Suit sobre Audit
+- Test Suit sobre AuditRecord
+- Test Suit sobre Notes
+- Test Suit sobre Tutorial
+- Test Suit sobre TutorialSession
+- Test Suit sobre Enrollment
+- Test Suit sobre Lecture
+- Test Suit sobre Course
