@@ -75,23 +75,20 @@ class StudentEnrolmentCreateTest extends TestHarness {
 	@Test
 	void test300Hacking() {
 
-		super.checkLinkExists("Sign in");
-		super.request("/student/enrolment/create", "courseId=20");
-		super.checkPanicExists();
-
-		super.signIn("administrator1", "administrator1");
-		super.clickOnMenu("Courses", "All courses");
-		super.clickOnListingRecord(1);
+		super.signIn("student1", "student1");
+		super.clickOnMenu("Courses", "All the courses");
+		super.clickOnListingRecord(0);
 		final String currentQuery = super.getCurrentQuery().split("=")[1];
 		super.request("/student/enrolment/create", "courseId=" + currentQuery);
 		super.checkPanicExists();
 		super.signOut();
 
-		super.signIn("student1", "student1");
-		super.clickOnMenu("Courses", "All the courses");
-		super.clickOnListingRecord(0);
-		final String currentQuery2 = super.getCurrentQuery().split("=")[1];
-		super.request("/student/enrolment/create", "courseId=" + currentQuery2);
+		super.checkLinkExists("Sign in");
+		super.request("/student/enrolment/create", "courseId=" + currentQuery);
+		super.checkPanicExists();
+
+		super.signIn("administrator1", "administrator1");
+		super.request("/student/enrolment/create", "courseId=" + currentQuery);
 		super.checkPanicExists();
 		super.signOut();
 	}
