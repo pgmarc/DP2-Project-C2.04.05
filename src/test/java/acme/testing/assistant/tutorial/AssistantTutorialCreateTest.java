@@ -9,6 +9,9 @@ import acme.testing.TestHarness;
 
 public class AssistantTutorialCreateTest extends TestHarness {
 
+	final String path = "/assistant/tutorial/create";
+
+
 	@ParameterizedTest()
 	@CsvFileSource(resources = "/assistant/tutorial/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100positive(final int recordIndex, final String code, final String title, final String abstrac, final String goals, final String estimatedHours, final String assistantName) {
@@ -80,29 +83,27 @@ public class AssistantTutorialCreateTest extends TestHarness {
 	@Test
 	public void test300hacking() {
 
-		final String path = "/assistant/tutorial/create";
-
 		super.checkLinkExists("Sign in");
-		super.request(path);
+		super.request(this.path);
 		super.checkPanicExists();
 
 		super.signIn("Administrator1", "administrator1");
-		super.request(path);
+		super.request(this.path);
 		super.checkPanicExists();
 		super.signOut();
 
 		super.signIn("lecturer1", "lecturer1");
-		super.request(path);
+		super.request(this.path);
 		super.checkPanicExists();
 		super.signOut();
 
 		super.signIn("student1", "student1");
-		super.request(path);
+		super.request(this.path);
 		super.checkPanicExists();
 		super.signOut();
 
 		super.signIn("auditor1", "auditor1");
-		super.request(path);
+		super.request(this.path);
 		super.checkPanicExists();
 		super.signOut();
 	}

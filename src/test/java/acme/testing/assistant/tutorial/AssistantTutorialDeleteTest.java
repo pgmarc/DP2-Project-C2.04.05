@@ -1,7 +1,7 @@
 
 package acme.testing.assistant.tutorial;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,7 +14,9 @@ import acme.testing.TestHarness;
 public class AssistantTutorialDeleteTest extends TestHarness {
 
 	@Autowired
-	protected AssistantTutorialTestRepository repository;
+	protected AssistantTutorialTestRepository	repository;
+
+	final String								path	= "/assistant/tutorial/delete";
 
 
 	@ParameterizedTest()
@@ -30,51 +32,56 @@ public class AssistantTutorialDeleteTest extends TestHarness {
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 
-		if (draftMode == "true") {
+		if (draftMode.equals("true")) {
 			super.checkSubmitExists("Delete");
 			super.clickOnSubmit("Delete");
 			super.checkNotPanicExists();
 			super.checkCurrentPath("/assistant/tutorial/list");
 			super.checkListingExists();
-		}
+		} else
+			super.checkNotSubmitExists("Delete");
 
 		super.signOut();
-	}
-
-	@Test()
-	public void test200negative() {
-		//No negative test needed
 	}
 
 	@Test
-	public void test300hacking() {
+	void test300Hacking() {
+		Collection<Tutorial> tutorials;
+		String query;
 
-		final Tutorial tutorial = ((List<Tutorial>) this.repository.findAllTutorials()).get(0);
-		final String path = "/assistant/tutorial/delete";
-		final String query = "id=" + tutorial.getId();
+		tutorials = this.repository.findManyTutorialsByAssitantUsername("assistant1");
+		for (final Tutorial tutorial : tutorials) {
+			query = String.format("id=%d", tutorial.getId());
 
-		super.checkLinkExists("Sign in");
-		super.request(path, query);
-		super.checkPanicExists();
+			super.checkLinkExists("Sign in");
+			super.request(this.path, query);
+			super.checkPanicExists();
 
-		super.signIn("Administrator1", "administrator1");
-		super.request(path, query);
-		super.checkPanicExists();
-		super.signOut();
+			super.signIn("Administrator1", "administrator1");
+			super.request(this.path, query);
+			super.checkPanicExists();
+			super.signOut();
 
-		super.signIn("lecturer1", "lecturer1");
-		super.request(path, query);
-		super.checkPanicExists();
-		super.signOut();
+			super.signIn("lecturer1", "lecturer1");
+			super.request(this.path, query);
+			super.checkPanicExists();
+			super.signOut();
 
-		super.signIn("student1", "student1");
-		super.request(path, query);
-		super.checkPanicExists();
-		super.signOut();
+			super.signIn("student1", "student1");
+			super.request(this.path, query);
+			super.checkPanicExists();
+			super.signOut();
 
-		super.signIn("auditor1", "auditor1");
-		super.request(path, query);
-		super.checkPanicExists();
-		super.signOut();
+			super.signIn("auditor1", "auditor1");
+			super.request(this.path, query);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("assistant2", "assistant2");
+			super.request(this.path, query);
+			super.checkPanicExists();
+			super.signOut();
+
+		}
 	}
 }
