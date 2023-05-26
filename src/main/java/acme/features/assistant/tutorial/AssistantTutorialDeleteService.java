@@ -54,7 +54,7 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 		id = super.getRequest().getData("id", int.class);
 		tutorial = this.repository.findOneTutorialById(id);
 		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = tutorial != null && super.getRequest().getPrincipal().hasRole(assistant) && assistant.getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant) && assistant.getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -72,7 +72,6 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 
 	@Override
 	public void bind(final Tutorial object) {
-		assert object != null;
 		Course course;
 		Assistant assistant;
 
@@ -87,12 +86,16 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 
 	@Override
 	public void validate(final Tutorial object) {
-		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("assistant")) {
+			Assistant assistant;
+
+			assistant = object.getAssistant();
+			super.state(assistant.getId() == super.getRequest().getPrincipal().getActiveRoleId(), "assistant", "assistant.tutorial.form.error.assistant");
+		}
 	}
 
 	@Override
 	public void perform(final Tutorial object) {
-		assert object != null;
 
 		Collection<TutorialSession> sessions;
 
@@ -103,7 +106,6 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 
 	@Override
 	public void unbind(final Tutorial object) {
-		assert object != null;
 
 		Tuple tuple;
 

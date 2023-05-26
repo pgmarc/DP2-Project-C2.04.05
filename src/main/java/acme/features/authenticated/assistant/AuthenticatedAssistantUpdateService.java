@@ -63,26 +63,23 @@ public class AuthenticatedAssistantUpdateService extends AbstractService<Authent
 
 	@Override
 	public void bind(final Assistant object) {
-		assert object != null;
 
 		super.bind(object, "supervisor", "expertiseFields", "resume", "moreInfo");
 	}
 
 	@Override
 	public void validate(final Assistant object) {
-		assert object != null;
+		//No need for validation
 	}
 
 	@Override
 	public void perform(final Assistant object) {
-		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Assistant object) {
-		assert object != null;
 
 		Tuple tuple;
 

@@ -50,8 +50,12 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 	@Override
 	public void authorise() {
 		boolean status;
+		Tutorial tutorial;
+		int id;
 
-		status = super.getRequest().getPrincipal().hasRole(Assistant.class);
+		id = super.getRequest().getData("tutorialId", int.class);
+		tutorial = this.repository.findOneTutorialById(id);
+		status = super.getRequest().getPrincipal().hasRole(Assistant.class) && tutorial != null && tutorial.getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -77,7 +81,6 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 	@Override
 	public void bind(final TutorialSession object) {
-		assert object != null;
 		super.bind(object, "title", "abstrac", "goals", "sessionNature", "startDate", "finishDate");
 	}
 
@@ -116,19 +119,18 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 	@Override
 	public void perform(final TutorialSession object) {
-		assert object != null;
 		Tutorial tutorial;
-
-		tutorial = this.repository.findOneTutorialById(super.getRequest().getData("tutorialId", int.class));
-		tutorial = this.getUpdatedTutorial(tutorial, object);
+		Tutorial updatedTutorial;
 
 		this.repository.save(object);
-		this.repository.save(tutorial);
+
+		tutorial = this.repository.findOneTutorialById(super.getRequest().getData("tutorialId", int.class));
+		updatedTutorial = this.getUpdatedTutorial(tutorial);
+		this.repository.save(updatedTutorial);
 	}
 
 	@Override
 	public void unbind(final TutorialSession object) {
-		assert object != null;
 		Tutorial tutorial;
 		Tuple tuple;
 		SelectChoices choices;
@@ -145,16 +147,20 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		super.getResponse().setData(tuple);
 	}
 
-	private Tutorial getUpdatedTutorial(final Tutorial tutorial, final TutorialSession object) {
-		double newHours;
+	private Tutorial getUpdatedTutorial(final Tutorial tutorial) {
+		double newHours = 0.;
 		Date start;
 		Date finish;
+		tutorial.setEstimatedHours(0.);
 
-		start = object.getStartDate();
-		finish = object.getFinishDate();
-		newHours = (double) MomentHelper.computeDuration(start, finish).toMinutes() / 60;
+		for (final TutorialSession ts : this.repository.findTutorialSessionsByTutorialId(tutorial.getId())) {
+			start = ts.getStartDate();
+			finish = ts.getFinishDate();
+			newHours += (double) MomentHelper.computeDuration(start, finish).toMinutes() / 60;
+		}
 
-		tutorial.setEstimatedHours(tutorial.getEstimatedHours() + newHours);
+		newHours = Double.valueOf(String.format("%.2f", newHours));
+		tutorial.setEstimatedHours(newHours > 999.99 ? 999.99 : newHours);
 
 		return tutorial;
 	}
