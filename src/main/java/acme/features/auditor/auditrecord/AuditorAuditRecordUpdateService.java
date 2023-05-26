@@ -66,17 +66,14 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		if (object == null)
 			throw new NullPointerException();
 
-		if (!super.getBuffer().getErrors().hasErrors(AuditorAuditRecordUpdateService.INITDATE) && !super.getBuffer().getErrors().hasErrors(AuditorAuditRecordUpdateService.ENDDATE)) {
-			if (!MomentHelper.isBefore(object.getInitDate(), object.getEndDate())) {
+		if (!super.getBuffer().getErrors().hasErrors(AuditorAuditRecordUpdateService.INITDATE) && !super.getBuffer().getErrors().hasErrors(AuditorAuditRecordUpdateService.ENDDATE))
+			if (!MomentHelper.isBefore(object.getInitDate(), object.getEndDate()))
 				super.state(false, AuditorAuditRecordUpdateService.ENDDATE, "auditor.audit-record.form.error.end-before-start");
-			} else {
+			else {
 				final double hours = MomentHelper.computeDuration(object.getInitDate(), object.getEndDate()).toHours();
-				final double minutes = MomentHelper.computeDuration(object.getInitDate(), object.getEndDate()).toMinutes();
-				if (hours > 1 || hours == 1 && minutes > 0)
+				if (hours < 1)
 					super.state(false, AuditorAuditRecordUpdateService.ENDDATE, "auditor.audit-record.form.error.duration");
 			}
-	}
-
 	}
 
 	@Override

@@ -16,6 +16,7 @@ import acme.roles.Auditor;
 public class AuditorAuditRecordListService extends AbstractService<Auditor, AuditRecord> {
 
 	private static final String				MASTERID	= "masterId";
+	private static final String				ISCONFIRMED	= "isCorrection";
 
 	@Autowired
 	protected AuditorAuditRecordRepository	repository;
@@ -52,6 +53,15 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		objects = this.repository.findManyAuditRecordsByAuditId(masterId);
 
 		super.getBuffer().setData(objects);
+
+		final Audit audit;
+		final boolean showCreate;
+		audit = this.repository.findOneAuditById(masterId);
+		showCreate = super.getRequest().getPrincipal().hasRole(audit.getAuditor());
+
+		super.getResponse().setGlobal("showCreate", showCreate);
+		super.getResponse().setGlobal(AuditorAuditRecordListService.MASTERID, masterId);
+
 	}
 
 	@Override
@@ -61,26 +71,15 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "subject", "assesment", "mark", "initDate", "endDate", "moreInfo");
-
+		tuple = super.unbind(object, "subject", "assesment", "mark", "initDate", "endDate", "moreInfo", AuditorAuditRecordListService.ISCONFIRMED);
+		if (!object.isCorrection())
+			tuple.put(AuditorAuditRecordListService.ISCONFIRMED, "Normal");
+		else if (super.getRequest().getLocale().getLanguage().equals("es"))
+			tuple.put(AuditorAuditRecordListService.ISCONFIRMED, "Corrección");
+		else
+			tuple.put(AuditorAuditRecordListService.ISCONFIRMED, "Correction");
 		super.getResponse().setData(tuple);
-	}
 
-	@Override
-	public void unbind(final Collection<AuditRecord> objects) {
-		if (objects == null)
-			throw new NullPointerException();
-
-		int masterId;
-		final Audit audit;
-		boolean showCreate;
-
-		masterId = super.getRequest().getData(AuditorAuditRecordListService.MASTERID, int.class);
-		audit = this.repository.findOneAuditById(masterId);
-		showCreate = super.getRequest().getPrincipal().hasRole(audit.getAuditor());
-
-		super.getResponse().setGlobal("showCreate", showCreate);
-		super.getResponse().setGlobal(AuditorAuditRecordListService.MASTERID, masterId);
 	}
 
 }
