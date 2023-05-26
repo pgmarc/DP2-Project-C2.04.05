@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>72</x>
-      <y>120</y>
+      <y>90</y>
       <w>186</w>
       <h>78</h>
     </coordinates>
@@ -23,7 +23,7 @@ Auditor
     <id>UMLClass</id>
     <coordinates>
       <x>30</x>
-      <y>276</y>
+      <y>246</y>
       <w>258</w>
       <h>84</h>
     </coordinates>
@@ -43,7 +43,7 @@ Audit
     <id>UMLNote</id>
     <coordinates>
       <x>0</x>
-      <y>366</y>
+      <y>336</y>
       <w>270</w>
       <h>54</h>
     </coordinates>
@@ -56,45 +56,10 @@ bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>372</x>
-      <y>372</y>
-      <w>252</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>Period will be set a a floating number between 0.01, and 1,
-since the range is of 1 hour and the minimum time is 0.01 seconds
-
-
-bg=red</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>372</x>
-      <y>276</y>
-      <w>222</w>
-      <h>78</h>
-    </coordinates>
-    <panel_attributes>bg=green
-&lt;&lt;Entity&gt;&gt;
-AuditRecord
---
-+ subject: String{NotBlank, Length(0,75)}
-+ assesment: String{NotBlank, Length(0,100)}
-+ mark: String{NotBlank, Pattern("(?:A\+|A|B|C|D|F|F\-)")}
-+ initDate: Date{NotNull, Past}
-+ endDate: Date{NotNull, Past}
-+ moreInfo: String{NotBlank}</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>282</x>
-      <y>312</y>
+      <y>282</y>
       <w>102</w>
       <h>24</h>
     </coordinates>
@@ -106,7 +71,7 @@ m2=1..n</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>48</x>
-      <y>78</y>
+      <y>48</y>
       <w>192</w>
       <h>24</h>
     </coordinates>
@@ -119,7 +84,7 @@ bg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>150</x>
-      <y>192</y>
+      <y>162</y>
       <w>30</w>
       <h>96</h>
     </coordinates>
@@ -132,7 +97,7 @@ m1=0..n</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>372</x>
-      <y>180</y>
+      <y>150</y>
       <w>222</w>
       <h>78</h>
     </coordinates>
@@ -145,6 +110,27 @@ AuditorDashboard
 + auditRecordTheoryStats: Statistic {NotNull}
 + handOnAudits: int
 + balancedAudits: int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>372</x>
+      <y>234</y>
+      <w>222</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+AuditRecord
+--
++ subject: String{NotBlank, Length(0,75)}
++ assesment: String{NotBlank, Length(0,100)}
++ mark: String{NotBlank, Pattern("(?:A\+|A|B|C|D|F|F\-)")}
++ initDate: Date{NotNull, Past, Temporal(TIMESTAMP)}
++ endDate: Date{NotNull, Past, Temporal(TIMESTAMP)}
++ moreInfo: String{NotBlank}
++ isCorrection: boolean</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

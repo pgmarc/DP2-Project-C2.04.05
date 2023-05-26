@@ -984,21 +984,6 @@ bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>2075</x>
-      <y>310</y>
-      <w>210</w>
-      <h>25</h>
-    </coordinates>
-    <panel_attributes>Period will be set a a floating number between 0.01, and 1,
-since the range is of 1 hour and the minimum time is 0.01 seconds
-
-
-bg=red</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
       <x>830</x>
@@ -1058,9 +1043,9 @@ m2=0..n</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>2075</x>
-      <y>230</y>
+      <y>225</y>
       <w>185</w>
-      <h>70</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Entity&gt;&gt;
@@ -1071,7 +1056,8 @@ AuditRecord
 + mark: String{NotBlank, Pattern("(?:A\+|A|B|C|D|F|F\-)")}
 + initDate: Date{NotNull, Past, Temporal(TIMESTAMP)}
 + endDate: Date{NotNull, Past, Temporal(TIMESTAMP)}
-+ moreInfo: String{NotBlank}</panel_attributes>
++ moreInfo: String{NotBlank}
++ isCorrection: boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
