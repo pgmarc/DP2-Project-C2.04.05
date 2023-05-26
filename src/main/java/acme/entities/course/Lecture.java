@@ -52,5 +52,4 @@ public class Lecture extends AbstractEntity {
 	protected Lecturer			lecturer;
 
 	protected boolean			draftMode;
-
 }
