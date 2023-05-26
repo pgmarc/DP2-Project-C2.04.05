@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-student.dashboard.form.title.general-indicators = Tu tablero
+student.dashboard.form.title.general-indicators = Your dashboard
 student.dashboard.form.title.application-statuses = Application statuses  
 
 student.dashboard.form.label.number-theory =  Number of theory activities

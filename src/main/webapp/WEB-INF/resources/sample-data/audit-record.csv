@@ -1,5 +1,5 @@
-key,subject,assesment,mark,init-date,end-date,more-info,key:audit
-audit-record-01,D&T2,This assesment does have a lot of content. So much we cannot write it all. We will try to use all we,C,2021/07/29 01:00,2021/07/30 00:00,null,audit-01
-audit-record-02,This subject name requires nearly seventy five characters. Its pretty loong,have to explain it,F-,2021/12/31 23:59,2021/01/01 01:00,null,audit-02
-audit-record-04,This subject name requires nearly seventy five characters. Its pretty loong,have to explain it,B,2021/12/31 23:59,2021/01/01 01:00,null,audit-02
-audit-record-03,B,A,A+,2021/08/30 00:01,2021/08/30 05:01,https://en.cppreference.com/w/c/language,audit-03
+key,subject,assesment,mark,init-date,end-date,more-info,key:audit,isCorrection
+audit-record-01,D&T2,This assesment does have a lot of content. So much we cannot write it all. We will try to use all we,C,2021/07/29 01:00,2021/07/29 02:00,null,audit-01,false
+audit-record-02,This subject name requires nearly seventy five characters. Its pretty loong,have to explain it,F-,2021/12/31 23:59,2022/01/01 02:00,null,audit-02,false
+audit-record-04,This subject name requires nearly seventy five characters. Its pretty loong,have to explain it,B,2021/12/31 23:59,2022/01/01 02:00,null,audit-02,false
+audit-record-03,B,A,A+,2021/08/30 02:50,2021/08/30 05:30,https://en.cppreference.com/w/c/language,audit-03,false

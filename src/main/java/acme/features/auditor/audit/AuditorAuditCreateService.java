@@ -13,15 +13,16 @@ import acme.roles.Auditor;
 @Service
 public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
+	private static final String			COURSEID	= "courseId";
 	@Autowired
-	protected AuditorAuditRepository repository;
+	protected AuditorAuditRepository	repository;
 
 
 	@Override
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("courseId", int.class);
+		status = super.getRequest().hasData(AuditorAuditCreateService.COURSEID, int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -32,7 +33,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 		int courseId;
 		Course course;
 
-		courseId = super.getRequest().getData("courseId", int.class);
+		courseId = super.getRequest().getData(AuditorAuditCreateService.COURSEID, int.class);
 		course = this.repository.findOneCourseById(courseId);
 		status = course != null && super.getRequest().getPrincipal().hasRole(Auditor.class) && !course.isDraftMode();
 
@@ -48,7 +49,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 		object = new Audit();
 		auditor = this.repository.findOneAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
-		courseId = super.getRequest().getData("courseId", int.class);
+		courseId = super.getRequest().getData(AuditorAuditCreateService.COURSEID, int.class);
 		course = this.repository.findOneCourseById(courseId);
 		object.setDraftMode(true);
 		object.setAuditor(auditor);
@@ -59,7 +60,8 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void bind(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		int auditorId;
 		Auditor auditor;
@@ -68,7 +70,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
 		auditor = this.repository.findOneAuditorById(auditorId);
-		courseId = super.getRequest().getData("courseId", int.class);
+		courseId = super.getRequest().getData(AuditorAuditCreateService.COURSEID, int.class);
 		course = this.repository.findOneCourseById(courseId);
 
 		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
@@ -79,7 +81,8 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void validate(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Audit audit;
@@ -93,14 +96,16 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void perform(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Tuple tuple;
 		int auditorId;
@@ -110,12 +115,12 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
 		auditor = this.repository.findOneAuditorById(auditorId);
-		courseId = super.getRequest().getData("courseId", int.class);
+		courseId = super.getRequest().getData(AuditorAuditCreateService.COURSEID, int.class);
 		course = this.repository.findOneCourseById(courseId);
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
 		tuple.put("auditor", auditor);
 		tuple.put("course", course);
-		super.getResponse().setGlobal("courseId", courseId);
+		super.getResponse().setGlobal(AuditorAuditCreateService.COURSEID, courseId);
 
 		super.getResponse().setData(tuple);
 	}

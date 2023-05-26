@@ -1,0 +1,9 @@
+recordIndex,code,title,courseAbstract,price,moreInfo
+0,ZZ 999,Curso con codigo repetido,Descripcion normal,EUR 120.89,""
+1,A 001,Curso con moneda invalida,Una descripcion cualquiera,QPM 125.25,""
+2,A 002,Curso con precio negativo,Con su descripcion,USD -345.10,""
+1,A 001, Curso con url invalida,Con su descripcion,GBP 320.00,hola
+0,,Un curso sin codigo,Tiene descripcion pero no codigo,USD 275.58,""
+0,W 203,,Este curse tiene descripción pero no titulo,EUR 4893.96,https://example.com/WJP-203
+0,AF 390,Un curso sin descripcion,,GBP 216483.12,""
+0,YOU 019,Un curso sin precio,Este si tiene descripcion,,https://example.com/YOU-019

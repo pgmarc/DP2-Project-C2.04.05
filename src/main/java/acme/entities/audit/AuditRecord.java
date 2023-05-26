@@ -39,7 +39,8 @@ public class AuditRecord extends AbstractEntity {
 	@Pattern(regexp = "(?:A\\+|A|B|C|D|F|F\\-)")
 	protected String			mark;
 
-	// initDate and endDate between 1 hour of length
+	boolean						isCorrection;
+
 	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)

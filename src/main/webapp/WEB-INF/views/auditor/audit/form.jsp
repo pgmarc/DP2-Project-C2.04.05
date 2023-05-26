@@ -14,6 +14,7 @@
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">
 			<acme:button code="auditor.audit.form.button.audit-records" action="/auditor/audit-record/list?masterId=${id}"/>			
+			<acme:button code="auditor.audit.form.button.create.audit-records" action="/auditor/audit-record/create?masterId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:button code="auditor.audit.form.button.audit-records" action="/auditor/audit-record/list?masterId=${id}"/>

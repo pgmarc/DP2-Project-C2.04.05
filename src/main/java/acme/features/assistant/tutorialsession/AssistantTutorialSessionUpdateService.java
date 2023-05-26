@@ -75,7 +75,6 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 
 	@Override
 	public void bind(final TutorialSession object) {
-		assert object != null;
 		Tutorial tutorial;
 
 		tutorial = this.repository.findOneTutorialByTutorialSessionId(super.getRequest().getData("id", int.class));
@@ -113,19 +112,18 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 
 	@Override
 	public void perform(final TutorialSession object) {
-		assert object != null;
 		Tutorial tutorial;
-
+		Tutorial updatedTutorial;
 		tutorial = this.repository.findOneTutorialByTutorialSessionId(object.getId());
-		tutorial = this.getUpdatedTutorial(tutorial, object);
 
-		this.repository.save(tutorial);
 		this.repository.save(object);
+
+		updatedTutorial = this.getUpdatedTutorial(tutorial);
+		this.repository.save(updatedTutorial);
 	}
 
 	@Override
 	public void unbind(final TutorialSession object) {
-		assert object != null;
 		Tutorial tutorial;
 		Tuple tuple;
 		SelectChoices choices;
@@ -142,26 +140,20 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 		super.getResponse().setData(tuple);
 	}
 
-	private Tutorial getUpdatedTutorial(final Tutorial tutorial, final TutorialSession object) {
-		double newHours;
+	private Tutorial getUpdatedTutorial(final Tutorial tutorial) {
+		double newHours = 0.;
 		Date start;
 		Date finish;
+		tutorial.setEstimatedHours(0.);
 
-		start = object.getStartDate();
-		finish = object.getFinishDate();
-		newHours = (double) MomentHelper.computeDuration(start, finish).toMinutes() / 60;
+		for (final TutorialSession ts : this.repository.findTutorialSessionsByTutorialId(tutorial.getId())) {
+			start = ts.getStartDate();
+			finish = ts.getFinishDate();
+			newHours += (double) MomentHelper.computeDuration(start, finish).toMinutes() / 60;
+		}
 
-		TutorialSession oldSession;
-		double oldHours;
-		Date oldStart;
-		Date oldFinish;
-
-		oldSession = this.repository.findOneTutorialSessionsById(object.getId());
-		oldStart = oldSession.getStartDate();
-		oldFinish = oldSession.getFinishDate();
-		oldHours = (double) MomentHelper.computeDuration(oldStart, oldFinish).toMinutes() / 60;
-
-		tutorial.setEstimatedHours(tutorial.getEstimatedHours() + newHours - oldHours);
+		newHours = Double.valueOf(String.format("%.2f", newHours));
+		tutorial.setEstimatedHours(newHours > 999.99 ? 999.99 : newHours);
 
 		return tutorial;
 	}

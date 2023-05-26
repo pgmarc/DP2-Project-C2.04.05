@@ -44,7 +44,7 @@ public class AnyCourseListService extends AbstractService<Any, Course> {
 	public void unbind(final Course object) {
 		Tuple tuple;
 		final Lecturer lecturer = object.getLecturer();
-		tuple = super.unbind(object, "code", "title", "courseAbstract", "nature", "retailPrice", "moreInfo");
+		tuple = super.unbind(object, "code", "title");
 		tuple.put("lecturer", lecturer.getIdentity().getFullName());
 		super.getResponse().setData(tuple);
 	}

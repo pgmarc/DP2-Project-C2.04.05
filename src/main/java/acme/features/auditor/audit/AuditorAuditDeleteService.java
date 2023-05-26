@@ -54,7 +54,8 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void bind(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
 		object.setDraftMode(true);
@@ -62,12 +63,14 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void validate(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 	}
 
 	@Override
 	public void perform(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		final Collection<AuditRecord> auditRecords;
 
@@ -78,7 +81,8 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void unbind(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Tuple tuple;
 

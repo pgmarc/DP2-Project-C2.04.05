@@ -22,16 +22,24 @@ authenticated.enrolment.list.label.goals = Objetivos
 authenticated.enrolment.list.label.workTime = Tiempo de trabajo
 authenticated.enrolment.list.label.course = Curso
 authenticated.enrolment.list.label.holder = Nombre de propietario
-authenticated.enrolment.list.label.lowerNibble = Cuatro últimos dígitos
+authenticated.enrolment.list.label.creditCardNumber = Número de tarjeta de crédito
+authenticated.enrolment.list.label.expiryDate = Fecha de expiración
+authenticated.enrolment.list.label.securityCode = Código de seguridad (CVC o CVV)
 
 authenticated.activity.form.validate.code = (Codigo Duplicado) Otra matrícula ya tiene este código
 
 authenticated.enrolment.form.button.create = Crear
 authenticated.enrolment.form.button.update = Actualizar
 authenticated.enrolment.form.button.delete = Borrar
-authenticated.enrolment.form.button.Finalized = Finalizar Matrícula
+authenticated.enrolment.form.button.finalized = Finalizar Matrícula
 authenticated.enrolment.form.button.workspace = Espacio de trabajo
+authenticated.enrolment.list.label.finalized = Estado
+authenticated.enrolment.list.label.draftMode.True = Finalizado
+authenticated.enrolment.list.label.draftMode.False = No finalizado
 
 authenticated.enrolment.list.label.validate.holder = Debes introducir el nombre del propietario
-authenticated.enrolment.list.label.validate.lowerNibble = Debes introducir los últimos 4 dígitos
+authenticated.enrolment.list.label.validate.creditCardNumber = Debes introducir un número de tarjeta válido
+authenticated.enrolment.list.label.validate.expiryDate.format = Debes tener el siguiente formato MM/YY
+authenticated.enrolment.list.label.validate.expiryDate = La fecha debe estar en el futuro
+authenticated.enrolment.list.label.validate.securityCode = El código de seguridad son 3 dígitos
 authenticated.activity.form.validate.workTime = No puedes exceder las mil horas de trabajo en esta matrícula

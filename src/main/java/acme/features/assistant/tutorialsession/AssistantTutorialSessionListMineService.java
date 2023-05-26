@@ -36,7 +36,7 @@ public class AssistantTutorialSessionListMineService extends AbstractService<Ass
 	public void authorise() {
 		boolean status;
 
-		status = super.getRequest().getPrincipal().isAuthenticated();
+		status = super.getRequest().getPrincipal().isAuthenticated() && super.getRequest().getPrincipal().hasRole(Assistant.class);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -54,7 +54,6 @@ public class AssistantTutorialSessionListMineService extends AbstractService<Ass
 
 	@Override
 	public void unbind(final TutorialSession object) {
-		assert object != null;
 		Tuple tuple;
 		int tutorialId;
 		Tutorial tutorial;

@@ -1,9 +1,7 @@
 
 package acme.features.auditor.audit;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +15,10 @@ import acme.roles.Auditor;
 @Service
 public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
 
+	private static final String			DRAFTMODE	= "draftMode";
+
 	@Autowired
-	protected AuditorAuditRepository repository;
+	protected AuditorAuditRepository	repository;
 
 
 	@Override
@@ -51,21 +51,28 @@ public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
 	}
 
 	private String getMark(final Collection<String> markByAudit) {
-		final List<String> topMark = new LinkedList<>();
-		topMark.addAll(Arrays.asList("A+", "A", "B", "C", "D", "F", "F-"));
-		for (final String mark : topMark)
-			if (markByAudit.contains(mark))
-				return mark;
+		if (!markByAudit.isEmpty())
+			return ((List<String>) markByAudit).get(0);
 		return "NR";
 	}
 
 	@Override
 	public void unbind(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
+		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", AuditorAuditListService.DRAFTMODE);
+		if (!object.isDraftMode()) {
+			if (super.getRequest().getLocale().getLanguage().equals("es"))
+				tuple.put(AuditorAuditListService.DRAFTMODE, "No es Borrador");
+			else
+				tuple.put(AuditorAuditListService.DRAFTMODE, "Not Draft");
+		} else if (super.getRequest().getLocale().getLanguage().equals("es"))
+			tuple.put(AuditorAuditListService.DRAFTMODE, "Borrador");
+		else
+			tuple.put(AuditorAuditListService.DRAFTMODE, "Draft");
 
 		super.getResponse().setData(tuple);
 	}

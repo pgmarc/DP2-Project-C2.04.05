@@ -64,18 +64,9 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneActivityById(id);
 
-		this.workTimeAnterior = this.getActivityWorkTime(object);
+		this.workTimeAnterior = object.getWorkTime();
 
 		super.getBuffer().setData(object);
-	}
-
-	private double getActivityWorkTime(final Activity object) {
-		long horas;
-		double minutosEnPorcentaje;
-
-		horas = MomentHelper.computeDuration(object.getStartDate(), object.getEndDate()).toMinutes() / 60;
-		minutosEnPorcentaje = (double) (MomentHelper.computeDuration(object.getStartDate(), object.getEndDate()).toMinutes() - horas * 60) / 60;
-		return Math.round((horas + minutosEnPorcentaje) * 100.0) / 100.0;
 	}
 
 	@Override

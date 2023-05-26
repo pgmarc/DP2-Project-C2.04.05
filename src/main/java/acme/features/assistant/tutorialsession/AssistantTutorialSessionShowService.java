@@ -35,8 +35,14 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 	@Override
 	public void authorise() {
 		boolean status;
+		int id;
+		Tutorial tutorial;
+		Assistant assistant;
 
-		status = super.getRequest().getPrincipal().isAuthenticated();
+		id = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialByTutorialSessionId(id);
+		assistant = tutorial == null ? null : tutorial.getAssistant();
+		status = tutorial != null && super.getRequest().getPrincipal().hasRole(assistant) && assistant.getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -54,7 +60,6 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 
 	@Override
 	public void unbind(final TutorialSession object) {
-		assert object != null;
 		Tutorial tutorial;
 		Tuple tuple;
 		SelectChoices choices;

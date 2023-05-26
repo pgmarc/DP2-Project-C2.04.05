@@ -32,6 +32,9 @@ public interface LecturerCourseRepository extends AbstractRepository {
 	@Query("select c from Course c")
 	public List<Course> getAllCourses();
 
+	@Query("select c from Course c where c.id != :id")
+	public List<Course> getAllOtherCourses(int id);
+
 	@Query("select sc.supportedCurrencies from SystemCurrency sc")
 	public String getSupportedCurrencies();
 

@@ -23,7 +23,9 @@
 		</jstl:otherwise>
 	</jstl:choose>
 	<acme:input-textbox code="lecturer.course.form.label.lecturer" path="lecturer" readonly="true"/>
+	<jstl:if test="${_command != 'create'}">
 	<acme:input-textbox code="lecturer.course.form.label.draftMode" path="draftMode" readonly="true"/>
+	</jstl:if>
 	<jstl:if test="${_command == 'show'}">
 		<acme:button code="lecturer.course.form.button.lectures" action="/lecturer/lecture/list-from-course?masterId=${id}"/>
 	</jstl:if>

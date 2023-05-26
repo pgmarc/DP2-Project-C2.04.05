@@ -69,7 +69,6 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 
 	@Override
 	public void bind(final Tutorial object) {
-		assert object != null;
 		Course course;
 		Assistant assistant;
 
@@ -84,7 +83,6 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 
 	@Override
 	public void validate(final Tutorial object) {
-		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("assistant")) {
 			Assistant assistant;
@@ -96,14 +94,12 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 
 	@Override
 	public void perform(final Tutorial object) {
-		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Tutorial object) {
-		assert object != null;
 
 		Tuple tuple;
 

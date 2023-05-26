@@ -40,7 +40,7 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 		id = super.getRequest().getData("id", int.class);
 		tutorial = this.repository.findOneTutorialById(id);
 		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = super.getRequest().getPrincipal().hasRole(assistant) && assistant.getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
+		status = assistant != null && super.getRequest().getPrincipal().hasRole(assistant) && assistant.getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -58,7 +58,6 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 
 	@Override
 	public void unbind(final Tutorial object) {
-		assert object != null;
 		Assistant assistant;
 		Course course;
 		Tuple tuple;
