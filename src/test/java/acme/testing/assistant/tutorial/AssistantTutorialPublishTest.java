@@ -54,11 +54,10 @@ public class AssistantTutorialPublishTest extends TestHarness {
 		Collection<Tutorial> tutorials;
 		String query;
 
-		tutorials = this.repository.findManyTutorialsByAssitantUsername("assistant1");
-		for (final Tutorial tutorial : tutorials)
+		tutorials = this.repository.findManyTutorialsByAssitantUsername("assistant2");
+		for (final Tutorial tutorial : tutorials) {
+			query = String.format("id=%d", tutorial.getId());
 			if (tutorial.isDraftMode()) {
-				query = String.format("id=%d", tutorial.getId());
-
 				super.checkLinkExists("Sign in");
 				super.request(this.path, query);
 				super.checkPanicExists();
@@ -83,29 +82,16 @@ public class AssistantTutorialPublishTest extends TestHarness {
 				super.checkPanicExists();
 				super.signOut();
 
-				super.signIn("assistant2", "assistant2");
-				super.request(this.path, query);
-				super.checkPanicExists();
-				super.signOut();
-
-			}
-	}
-
-	@Test
-	void test301Hacking() {
-		Collection<Tutorial> tutorials;
-		String query;
-
-		tutorials = this.repository.findManyTutorialsByAssitantUsername("assitant1");
-		for (final Tutorial tutorial : tutorials)
-			if (!tutorial.isDraftMode()) {
-				query = String.format("id=%d", tutorial.getId());
-
 				super.signIn("assistant1", "assistant1");
 				super.request(this.path, query);
 				super.checkPanicExists();
 				super.signOut();
-
+			} else {
+				super.signIn("assistant2", "assistant2");
+				super.request(this.path, query);
+				super.checkPanicExists();
+				super.signOut();
 			}
+		}
 	}
 }

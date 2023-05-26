@@ -49,39 +49,44 @@ public class AssistantTutorialDeleteTest extends TestHarness {
 		Collection<Tutorial> tutorials;
 		String query;
 
-		tutorials = this.repository.findManyTutorialsByAssitantUsername("assistant1");
+		tutorials = this.repository.findManyTutorialsByAssitantUsername("assistant2");
 		for (final Tutorial tutorial : tutorials) {
 			query = String.format("id=%d", tutorial.getId());
+			if (tutorial.isDraftMode()) {
+				super.checkLinkExists("Sign in");
+				super.request(this.path, query);
+				super.checkPanicExists();
 
-			super.checkLinkExists("Sign in");
-			super.request(this.path, query);
-			super.checkPanicExists();
+				super.signIn("Administrator1", "administrator1");
+				super.request(this.path, query);
+				super.checkPanicExists();
+				super.signOut();
 
-			super.signIn("Administrator1", "administrator1");
-			super.request(this.path, query);
-			super.checkPanicExists();
-			super.signOut();
+				super.signIn("lecturer1", "lecturer1");
+				super.request(this.path, query);
+				super.checkPanicExists();
+				super.signOut();
 
-			super.signIn("lecturer1", "lecturer1");
-			super.request(this.path, query);
-			super.checkPanicExists();
-			super.signOut();
+				super.signIn("student1", "student1");
+				super.request(this.path, query);
+				super.checkPanicExists();
+				super.signOut();
 
-			super.signIn("student1", "student1");
-			super.request(this.path, query);
-			super.checkPanicExists();
-			super.signOut();
+				super.signIn("auditor1", "auditor1");
+				super.request(this.path, query);
+				super.checkPanicExists();
+				super.signOut();
 
-			super.signIn("auditor1", "auditor1");
-			super.request(this.path, query);
-			super.checkPanicExists();
-			super.signOut();
-
-			super.signIn("assistant2", "assistant2");
-			super.request(this.path, query);
-			super.checkPanicExists();
-			super.signOut();
-
+				super.signIn("assistant1", "assistant1");
+				super.request(this.path, query);
+				super.checkPanicExists();
+				super.signOut();
+			} else {
+				super.signIn("assistant2", "assistant2");
+				super.request(this.path, query);
+				super.checkPanicExists();
+				super.signOut();
+			}
 		}
 	}
 }

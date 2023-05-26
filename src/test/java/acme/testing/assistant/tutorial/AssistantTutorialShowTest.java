@@ -39,14 +39,14 @@ public class AssistantTutorialShowTest extends TestHarness {
 		super.checkInputBoxHasValue("estimatedHours", estimatedHours);
 		super.checkInputBoxHasValue("draftMode", draftMode);
 
-		if (draftMode.equals("false")) {
-			super.checkButtonExists("Update");
-			super.checkButtonExists("Delete");
-			super.checkButtonExists("Publish");
+		if (draftMode.equals("true")) {
+			super.checkSubmitExists("Update");
+			super.checkSubmitExists("Delete");
+			super.checkSubmitExists("Publish");
 		}
 		super.checkButtonExists("Sessions");
 		super.checkButtonExists("Course");
-		super.checkNotButtonExists("Create");
+		super.checkNotSubmitExists("Create");
 
 		super.signOut();
 	}

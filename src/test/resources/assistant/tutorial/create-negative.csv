@@ -1,10 +1,10 @@
 recordIndex,code,title,abstrac,goals
-2,"","Test 1","Test 1","Test1"
-3,"BaB4245","Test 2","Test 2","Test2"
-4,"BBB5555","","Test 3","Test3"
-5,"BBB6666","Test 4","","Test4"
-5,"BBB7777","Test 5","Test 5",""
-5,"BBB8888","Test 5","Test 5",""
-5,"BBB9999","Test 6","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","Test6"
-5,"BBB1111","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","Test 7","Test7"
-5,"BBB2222","Test 8","Test 8","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+0,,Test 1,Test 1,Test1
+0,BaB4245,Test 2,Test 2,Test2
+0,BBB5555,,Test 3,Test3
+0,BBB6666,Test 4,,Test4
+0,BBB7777,Test 5,Test 5,
+0,BBB8888,Test 5,Test 5,
+0,BBB9999,Test 6,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Test6
+0,BBB1111,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Test 7,Test7
+0,BBB2222,Test 8,Test 8,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
