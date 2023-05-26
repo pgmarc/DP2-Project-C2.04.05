@@ -15,7 +15,6 @@ lecturer.course.list.label.nature = Naturaleza
 lecturer.course.list.label.retailPrice = Precio
 lecturer.course.list.label.moreInfo = más Información
 lecturer.course.list.label.lecturer = Profesor
-lecturer.course.list.label.draftMode = Modo borrador
 lecturer.course.list.button.create = Crear
 
 lecturer.course.form.label.code = Código
@@ -25,7 +24,6 @@ lecturer.course.form.label.nature = Naturaleza
 lecturer.course.form.label.retailPrice = Precio
 lecturer.course.form.label.moreInfo = más Información
 lecturer.course.form.label.lecturer = Profesor
-lecturer.course.form.label.draftMode = Modo borrador
 lecturer.course.form.button.lectures = Clases
 lecturer.course.form.button.submitUpdate = Confirmar
 lecturer.course.form.button.create = Crear
@@ -34,7 +32,3 @@ lecturer.course.form.button.publish = Publicar
 lecturer.course.form.button.delete = Eliminar
 lecturer.course.form.error.theoryReject = Los cursos puramente teóricos no pueden ser publicados.
 lecturer.course.form.error.notPublishedLectures = Todas las clases del curso deben publicarse antes de publicar el curso
-lecturer.course.form.error.duplicatedCode = Este código ya está en uso, por favor elija otro código
-lecturer.course.form.error.invalidPrice = Por favor inserte una moneda válida
-lecturer.course.form.error.negativePrice = El precio no puede ser negativo
-

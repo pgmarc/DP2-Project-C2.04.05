@@ -77,13 +77,13 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	@Override
 	public void validate(final Course object) {
 		if (!super.getBuffer().getErrors().hasErrors("*")) {
+			final Nature nature = object.getNature();
+			super.state(nature != Nature.THEORETICAL, "*", "lecturer.course.form.error.theoryReject");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("*")) {
 			final List<Lecture> lectures = this.repository.getLecturesFromCourse(object.getId());
 			final Stream<Boolean> lecturesDraftModes = lectures.stream().map(Lecture::isDraftMode);
 			super.state(lecturesDraftModes.allMatch(dm -> !dm), "*", "lecturer.course.form.error.notPublishedLectures");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("*")) {
-			final Nature nature = object.getNature();
-			super.state(nature != Nature.THEORETICAL, "*", "lecturer.course.form.error.theoryReject");
 		}
 	}
 

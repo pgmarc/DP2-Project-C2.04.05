@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AuthenticatedTutorialRepository extends AbstractRepository {
 
-	@Query("SELECT t FROM Tutorial t WHERE t.draftMode = false")
+	@Query("SELECT t FROM Tutorial t")
 	Collection<Tutorial> findAllTutorials();
 
 	@Query("SELECT t FROM Tutorial t WHERE t.id = :id")

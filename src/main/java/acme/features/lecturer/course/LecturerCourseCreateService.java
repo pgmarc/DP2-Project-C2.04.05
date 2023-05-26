@@ -12,9 +12,6 @@
 
 package acme.features.lecturer.course;
 
-import java.util.List;
-import java.util.Objects;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,16 +61,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void validate(final Course object) {
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			final List<Course> courses = this.repository.getAllCourses();
-			super.state(courses.stream().map(Course::getCode).noneMatch(c -> Objects.equals(c, object.getCode())), "code", "lecturer.course.form.error.duplicatedCode");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			final String currencies = this.repository.getSupportedCurrencies();
-			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", "lecturer.course.form.error.invalidCurrency");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
-			super.state(object.getRetailPrice().getAmount() >= 0, "retailPrice", "lecturer.course.form.error.negativePrice");
+		//No custom constraints to implement
 	}
 
 	@Override
