@@ -1,17 +1,15 @@
-recordIndex,code,title,abstrac,goals
-0,a,How to multiply!,No,Nothing
-0,,Introduction to calculus!,Yes and No,Nothing
-0,AAA2222,Introduction to calculus!,No,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-0,AAA2222,How to multiply!,No,
-0,AAA2222,How to multiply!,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Nothing
-0,AAA2222,How to multiply!,,Nothing
-0,AAA2222,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,No,Nothing
-0,AAA2222,,No,Nothing
-2,a,Introduction to calculus!,Yes and No,To say
-2,,Introduction to calculus!,Yes and No,To say
-2,AAA8888,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Yes and No,To say
-2,AAA8888,,Yes and No,To say
-2,AAA8888,Introduction to calculus!,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,To say
-2,AAA8888,Introduction to calculus!,,To say
-2,AAA8888,Introduction to calculus!,Yes and No,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-2,AAA8888,Introduction to calculus!,Yes and No,
+recordIndexTutorial,recordIndexSession,draftMode,title,abstrac,goals,sessionNature,startDate,finishDate
+0,0,true,,a,a,THEORETICAL,2022/08/02 01:00,2022/08/02 01:30
+0,0,true,a,,a,THEORETICAL,2022/08/02 01:00,2022/08/02 01:30
+0,0,true,a,a,,THEORETICAL,2022/08/02 01:00,2022/08/02 01:30
+0,0,true,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,a,a,THEORETICAL,2022/08/02 01:00,2022/08/02 01:30
+0,0,true,a,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,a,THEORETICAL,2022/08/02 01:00,2022/08/02 01:30
+0,0,true,a,a,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,THEORETICAL,2022/08/02 01:00,2022/08/02 01:30
+0,0,true,a,a,a,THEORETICAL,2000/08/02 01:00,2022/08/02 01:30
+0,0,true,a,a,a,THEORETICAL,2022/08/02 01:00,2000/08/02 01:30
+0,0,true,,,,THEORETICAL,2022/08/02 01:00,2022/08/02 01:30
+0,0,true,a,,,THEORETICAL,2022/08/02 01:00,2022/08/02 01:30
+0,0,true,,,a,THEORETICAL,2022/08/02 01:00,2022/08/02 01:30
+1,0,false,Success essentials1,No need for more1.,Success1.,THEORETICAL,2022/02/02 17:10,2022/02/02 18:00
+2,0,true,a.,,a.,HANDS_ON,2022/08/01 11:00,2022/08/01 13:00
+2,1,false,,The first session for this tutorial.!,Leaarn basics.!,THEORETICAL,2022/08/01 09:00,2022/08/01 11:30

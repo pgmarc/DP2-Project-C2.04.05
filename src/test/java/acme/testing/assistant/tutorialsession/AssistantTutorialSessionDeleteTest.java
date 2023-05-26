@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.entities.tutorial.Tutorial;
+import acme.entities.tutorial.TutorialSession;
 import acme.testing.TestHarness;
 
 public class AssistantTutorialSessionDeleteTest extends TestHarness {
@@ -16,28 +17,37 @@ public class AssistantTutorialSessionDeleteTest extends TestHarness {
 	@Autowired
 	protected AssistantTutorialSessionTestRepository	repository;
 
-	final String								path	= "/assistant/tutorial/delete";
+	final String										path	= "/assistant/tutorial-session/delete";
 
 
-	@ParameterizedTest()
-	@CsvFileSource(resources = "/assistant/tutorial/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100positive(final int recordIndex, final String draftMode) {
+	@ParameterizedTest
+	@CsvFileSource(resources = "/assistant/tutorialsession/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100positive(final int recordIndexTutorial, final int recordIndexSession, final int numOfSessions, final String draftMode) {
 
 		super.signIn("assistant1", "assistant1");
 
 		super.clickOnMenu("Tutorials", "My tutorials");
 		super.checkCurrentPath("/assistant/tutorial/list");
 		super.checkListingExists();
+		super.checkNotListingEmpty();
+		super.sortListing(0, "asc");
 
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(recordIndexTutorial);
+		super.checkButtonExists("Sessions");
+		super.clickOnButton("Sessions");
+		super.checkListingExists();
+		super.checkNotListingEmpty();
+		super.sortListing(0, "asc");
+		super.clickOnListingRecord(recordIndexSession);
 		super.checkFormExists();
 
 		if (draftMode.equals("true")) {
 			super.checkSubmitExists("Delete");
 			super.clickOnSubmit("Delete");
-			super.checkNotPanicExists();
-			super.checkCurrentPath("/assistant/tutorial/list");
-			super.checkListingExists();
+			if (numOfSessions > 1)
+				super.checkListingExists();
+			else
+				super.checkErrorsExist();
 		} else
 			super.checkNotSubmitExists("Delete");
 
@@ -45,14 +55,15 @@ public class AssistantTutorialSessionDeleteTest extends TestHarness {
 	}
 
 	@Test
-	void test300Hacking() {
-		Collection<Tutorial> tutorials;
+	public void test300hacking() {
 		String query;
 
-		tutorials = this.repository.findManyTutorialsByAssitantUsername("assistant2");
-		for (final Tutorial tutorial : tutorials) {
-			query = String.format("id=%d", tutorial.getId());
-			if (tutorial.isDraftMode()) {
+		final Collection<Tutorial> tutorials = this.repository.findManyTutorialsByAssitantUsername("assistant2");
+		for (final Tutorial t : tutorials) {
+			final Collection<TutorialSession> sessions = this.repository.findTutorialSessionsByTutorialId(t.getId());
+			for (final TutorialSession ts : sessions) {
+				query = String.format("id=%d", ts.getId());
+
 				super.checkLinkExists("Sign in");
 				super.request(this.path, query);
 				super.checkPanicExists();
@@ -81,12 +92,15 @@ public class AssistantTutorialSessionDeleteTest extends TestHarness {
 				super.request(this.path, query);
 				super.checkPanicExists();
 				super.signOut();
-			} else {
-				super.signIn("assistant2", "assistant2");
-				super.request(this.path, query);
-				super.checkPanicExists();
-				super.signOut();
+
+				if (!t.isDraftMode()) {
+					super.signIn("assistant2", "assistant2");
+					super.request(this.path, query);
+					super.checkPanicExists();
+					super.signOut();
+				}
 			}
+
 		}
 	}
 }

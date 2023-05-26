@@ -49,6 +49,7 @@ public class AssistantTutorialSessionShowTest extends TestHarness {
 		super.checkInputBoxHasValue("sessionNature", sessionNature);
 		super.checkInputBoxHasValue("startDate", startDate);
 		super.checkInputBoxHasValue("finishDate", finishDate);
+		super.checkButtonExists("Tutorial");
 
 		super.signOut();
 	}
