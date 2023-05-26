@@ -33,6 +33,6 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	@Query("select ar from AuditRecord ar where ar.audit.id = :id")
 	Collection<AuditRecord> findManyAuditRecordsByAuditId(int id);
 
-	@Query("select ar.mark from AuditRecord ar where ar.audit.id = :id group by ar.mark order by count(ar.mark)")
+	@Query("select ar.mark from AuditRecord ar where ar.audit.id = :id group by ar.mark order by count(ar.mark) desc")
 	Collection<String> getMarkByAudit(int id);
 }

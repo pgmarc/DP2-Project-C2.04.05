@@ -1,9 +1,7 @@
 
 package acme.features.auditor.audit;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,11 +51,8 @@ public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
 	}
 
 	private String getMark(final Collection<String> markByAudit) {
-		final List<String> topMark = new LinkedList<>();
-		topMark.addAll(Arrays.asList("A+", "A", "B", "C", "D", "F", "F-"));
-		for (final String mark : topMark)
-			if (markByAudit.contains(mark))
-				return mark;
+		if (!markByAudit.isEmpty())
+			return ((List<String>) markByAudit).get(0);
 		return "NR";
 	}
 

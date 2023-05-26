@@ -1,9 +1,7 @@
 
 package acme.features.any.audit;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +42,7 @@ public class AnyAuditListService extends AbstractService<Any, Audit> {
 		objects = this.repository.findManyAuditsByCourseId(courseId);
 
 		for (final Audit audit : objects)
-			if (audit.getMark() == null)
-				audit.setMark(this.getMark(this.repository.getMarkByAudit(audit.getId())));
+			audit.setMark(this.getMark(this.repository.getMarkByAudit(audit.getId())));
 
 		super.getBuffer().setData(objects);
 		super.getResponse().setGlobal("showCreate", !this.repository.findOneCourseById(super.getRequest().getData(AnyAuditListService.COURSEID, int.class)).isDraftMode() && super.getRequest().getPrincipal().hasRole(Auditor.class));
@@ -53,11 +50,8 @@ public class AnyAuditListService extends AbstractService<Any, Audit> {
 	}
 
 	private String getMark(final Collection<String> markByAudit) {
-		final List<String> topMark = new LinkedList<>();
-		topMark.addAll(Arrays.asList("A+", "A", "B", "C", "D", "F", "F-"));
-		for (final String mark : topMark)
-			if (markByAudit.contains(mark))
-				return mark;
+		if (!markByAudit.isEmpty())
+			return ((List<String>) markByAudit).get(0);
 		return "NR";
 	}
 
@@ -70,7 +64,6 @@ public class AnyAuditListService extends AbstractService<Any, Audit> {
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "mark", "draftMode");
 		super.getResponse().setGlobal("showCreate", !this.repository.findOneCourseById(super.getRequest().getData(AnyAuditListService.COURSEID, int.class)).isDraftMode() && super.getRequest().getPrincipal().hasRole(Auditor.class));
-		super.getResponse().setGlobal(AnyAuditListService.COURSEID, super.getRequest().getData(AnyAuditListService.COURSEID, int.class));
 		super.getResponse().setData(tuple);
 	}
 }

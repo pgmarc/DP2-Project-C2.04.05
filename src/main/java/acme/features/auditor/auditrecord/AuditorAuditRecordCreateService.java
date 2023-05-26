@@ -69,7 +69,9 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		auditId = super.getRequest().getData(AuditorAuditRecordCreateService.MASTERID, int.class);
 		audit = this.repository.findOneAuditById(auditId);
 
-		super.bind(object, "subject", "assesment", "mark", AuditorAuditRecordCreateService.INITDATE, AuditorAuditRecordCreateService.ENDDATE, "moreInfo");
+		object.setCorrection(!audit.isDraftMode());
+
+		super.bind(object, "subject", "assesment", "mark", AuditorAuditRecordCreateService.INITDATE, AuditorAuditRecordCreateService.ENDDATE, "moreInfo", "isCorrection");
 		object.setAudit(audit);
 
 	}
@@ -77,16 +79,14 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	@Override
 	public void validate(final AuditRecord object) {
 
-		if (!super.getBuffer().getErrors().hasErrors(AuditorAuditRecordCreateService.INITDATE) && !super.getBuffer().getErrors().hasErrors(AuditorAuditRecordCreateService.ENDDATE)) {
-			if (!MomentHelper.isBefore(object.getInitDate(), object.getEndDate())) {
+		if (!super.getBuffer().getErrors().hasErrors(AuditorAuditRecordCreateService.INITDATE) && !super.getBuffer().getErrors().hasErrors(AuditorAuditRecordCreateService.ENDDATE))
+			if (!MomentHelper.isBefore(object.getInitDate(), object.getEndDate()))
 				super.state(false, AuditorAuditRecordCreateService.ENDDATE, "auditor.audit-record.form.error.end-before-start");
-			} else {
+			else {
 				final double hours = MomentHelper.computeDuration(object.getInitDate(), object.getEndDate()).toHours();
-				final double minutes = MomentHelper.computeDuration(object.getInitDate(), object.getEndDate()).toMinutes();
-				if (hours > 1 || hours == 1 && minutes > 0)
+				if (hours < 1)
 					super.state(false, AuditorAuditRecordCreateService.ENDDATE, "auditor.audit-record.form.error.duration");
 			}
-		}
 	}
 
 	@Override
