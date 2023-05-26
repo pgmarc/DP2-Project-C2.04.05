@@ -36,12 +36,12 @@ public class Audit extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	@Pattern(regexp = ".+(;.+)*")
+	@Pattern(regexp = ".+(;.+)*+")
 	protected String			strongPoints;
 
 	@NotBlank
 	@Length(max = 100)
-	@Pattern(regexp = ".+(;.+)*")
+	@Pattern(regexp = ".+(;.+)*+")
 	protected String			weakPoints;
 
 	@Transient

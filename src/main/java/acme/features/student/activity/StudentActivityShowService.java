@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolment.Activity;
+import acme.enumerates.Nature;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -55,7 +57,12 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 	@Override
 	public void unbind(final Activity object) {
 		Tuple tuple;
-		tuple = super.unbind(object, "title", "abstract$", "moreInfo", "type", "startDate", "endDate", "enrolment");
+		SelectChoices choices;
+
+		choices = SelectChoices.from(Nature.class, object.getType());
+
+		tuple = super.unbind(object, "title", "abstract$", "moreInfo", "type", "startDate", "endDate");
+		tuple.put("types", choices);
 
 		super.getResponse().setData(tuple);
 	}
