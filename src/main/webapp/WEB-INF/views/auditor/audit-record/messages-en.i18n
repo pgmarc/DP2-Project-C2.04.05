@@ -2,6 +2,7 @@ auditor.audit-record.list.label.subject: Subject
 auditor.audit-record.list.label.assesment: Assesment
 auditor.audit-record.list.label.mark: Mark
 auditor.audit-record.list.label.initDate: Initial Date
+auditor.audit-record.list.label.correction: Correction
 auditor.audit-record.list.label.endDate: End Date
 auditor.audit-record.list.label.moreInfo: More Info
 auditor.audit-record.list.button.create: Create

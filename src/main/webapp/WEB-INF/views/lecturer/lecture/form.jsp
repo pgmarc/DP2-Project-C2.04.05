@@ -12,6 +12,8 @@
 			<acme:input-textbox code="lecturer.lecture.form.label.nature" path="nature" readonly="true"/>
 			<acme:input-textarea code="lecturer.lecture.form.label.retailPrice" path="body" readonly="true"/>
 			<acme:input-url code="lecturer.lecture.form.label.moreInfo" path="moreInfo" readonly="true"/>
+			<acme:input-textbox code="lecturer.lecture.form.label.lecturer" path="lecturer" readonly="true"/>
+			<acme:input-textbox code="lecturer.lecture.form.label.draftMode" path="draftMode" readonly="true"/>
 		</jstl:when>
 		<jstl:otherwise>
 			<acme:input-textbox code="lecturer.lecture.form.label.title" path="title"/>
@@ -19,10 +21,9 @@
 			<acme:input-select code="lecturer.lecture.form.label.nature" path="nature" choices="${natures}"/>
 			<acme:input-textarea code="lecturer.lecture.form.label.retailPrice" path="body"/>
 			<acme:input-url code="lecturer.lecture.form.label.moreInfo" path="moreInfo"/>
+			<acme:input-textbox code="lecturer.lecture.form.label.lecturer" path="lecturer" readonly="true"/>
 		</jstl:otherwise>
 	</jstl:choose>
-	<acme:input-textbox code="lecturer.lecture.form.label.lecturer" path="lecturer" readonly="true"/>
-	<acme:input-textbox code="lecturer.lecture.form.label.draftMode" path="draftMode" readonly="true"/>
 	<acme:submit test="${_command == 'update'}" code="lecturer.lecture.form.button.submitUpdate" 
 	action="/lecturer/lecture/update"/>
 	<acme:submit test="${_command == 'create'}" code="lecturer.lecture.form.button.create" 

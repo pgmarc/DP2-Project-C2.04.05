@@ -1,0 +1,3 @@
+recordIndex,title,lectureAbstract,nature,body,moreInfo
+1,Lecture con un cuerpo muy grande,Con la descripción de tamaño medio bien redactada,HANDS_ON,¡¡Este cuerpo es excesivamente largo porque hay que probar todos los casos de datos  al actualizar!!,https://example.com/lecture-2
+4,Lecture con un titulo excesivamente largo respecto a lo normal en un titulo,Con una descripcion normalita,THEORETICAL,Con un cuerpo tamaño medio como cualquier otra lecture bien redactada,https://example.com/lecture-1

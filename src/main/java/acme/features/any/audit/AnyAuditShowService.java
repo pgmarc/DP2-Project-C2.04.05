@@ -66,7 +66,8 @@ public class AnyAuditShowService extends AbstractService<Any, Audit> {
 
 	@Override
 	public void unbind(final Audit object) {
-		assert object != null;
+		if (object == null)
+			throw new NullPointerException();
 
 		Tuple tuple;
 

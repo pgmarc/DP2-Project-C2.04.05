@@ -54,7 +54,7 @@
 		<acme:menu-option code="master.menu.peeps" access="hasRole('Any')" action="/any/peep/list" />
 			
       	
-      	<acme:menu-option code="master.menu.courses" access="hasRole('Any')">
+      	<acme:menu-option code="master.menu.courses" access="hasRole('Any') && !hasRole('Student')">
       		<acme:menu-suboption code="master.menu.any.courses" action="/any/course/list"/>
 			<acme:menu-suboption code="master.menu.lecturer.courses" action="/lecturer/course/list-mine" access="hasRole('Lecturer')"/>
 			<acme:menu-suboption code="master.menu.lecturer.courseLectures" action="/lecturer/course-lecture/list" access="hasRole('Lecturer')"/>			

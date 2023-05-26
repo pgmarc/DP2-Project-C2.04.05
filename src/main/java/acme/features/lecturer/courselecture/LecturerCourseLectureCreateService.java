@@ -13,8 +13,6 @@
 package acme.features.lecturer.courselecture;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +20,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.course.Course;
 import acme.entities.course.CourseLecture;
 import acme.entities.course.Lecture;
-import acme.enumerates.Nature;
+import acme.features.lecturer.UpdateCourseNature;
 import acme.features.lecturer.course.LecturerCourseRepository;
 import acme.features.lecturer.lecture.LecturerLectureRepository;
 import acme.framework.components.jsp.SelectChoices;
@@ -44,21 +42,6 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 	@Autowired
 	protected LecturerCourseRepository			courseRepository;
 
-
-	private void updateCourseNature(final Course object) {
-		Stream<Nature> lectures;
-		lectures = this.lectureRepository.getLecturesFromCourse(object.getId()).stream().map(Lecture::getNature);
-		final int theoryLectures = lectures.filter(n -> n == Nature.THEORETICAL).collect(Collectors.toList()).size();
-		final int handsOnLectures = lectures.filter(n -> n == Nature.HANDS_ON).collect(Collectors.toList()).size();
-		final int balancedLectures = lectures.filter(n -> n == Nature.BALANCED).collect(Collectors.toList()).size();
-		if (theoryLectures > handsOnLectures && theoryLectures > balancedLectures)
-			object.setNature(Nature.THEORETICAL);
-		else if (handsOnLectures > theoryLectures && handsOnLectures > balancedLectures)
-			object.setNature(Nature.HANDS_ON);
-		else
-			object.setNature(Nature.BALANCED);
-		this.courseRepository.save(object);
-	}
 
 	@Override
 	public void check() {
@@ -98,12 +81,12 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 		if (!super.getBuffer().getErrors().hasErrors("course"))
 			super.state(object.getCourse().isDraftMode(), "course", "lecturer.courseLecture.form.error.publishedCourse");
 		if (!super.getBuffer().getErrors().hasErrors("course") && !super.getBuffer().getErrors().hasErrors("lecture"))
-			super.state(object.getCourse().getLecturer().getId() == object.getLecture().getLecturer().getId(), "*", "Solo puedes añadir tus lectures a tus cursos");
+			super.state(object.getCourse().getLecturer().getId() == object.getLecture().getLecturer().getId(), "course", "lecturer.course.form.error.notYourCourse");
 		if (!super.getBuffer().getErrors().hasErrors("course") && !super.getBuffer().getErrors().hasErrors("lecture")) {
 			final int courseId = object.getCourse().getId();
 			final int lectureId = object.getLecture().getId();
 			final List<CourseLecture> cl = this.repository.getCourseLecturesByIds(courseId, lectureId);
-			super.state(cl.isEmpty(), "*", "La lecture ya esta en ese curso");
+			super.state(cl.isEmpty(), "lecture", "lecturer.course.form.error.lectureInCourse");
 		}
 
 	}
@@ -115,7 +98,7 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 		id = object.getCourse().getId();
 		course = this.courseRepository.getCourseById(id);
 		this.repository.save(object);
-		this.updateCourseNature(course);
+		UpdateCourseNature.updateCourseNature(course, this.lectureRepository, this.courseRepository);
 	}
 
 	@Override

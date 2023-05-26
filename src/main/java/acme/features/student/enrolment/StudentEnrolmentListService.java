@@ -54,6 +54,15 @@ public class StudentEnrolmentListService extends AbstractService<Student, Enrolm
 		tuple = super.unbind(object, "code", "motivation", "goals", "workTime", "draftMode", "student");
 		tuple.put("courseCode", object.getCourse().getCode());
 		tuple.put("courseTitle", object.getCourse().getTitle());
+		if (object.isDraftMode())
+			if (super.getRequest().getLocale().getLanguage().equals("es"))
+				tuple.put("draftMode", "No finalizado");
+			else
+				tuple.put("draftMode", "Not finalized");
+		else if (super.getRequest().getLocale().getLanguage().equals("es"))
+			tuple.put("draftMode", "Finalizado");
+		else
+			tuple.put("draftMode", "Finalized");
 
 		super.getResponse().setData(tuple);
 	}

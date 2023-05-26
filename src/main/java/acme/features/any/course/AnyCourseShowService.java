@@ -49,6 +49,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 		final Lecturer lecturer = object.getLecturer();
 		tuple = super.unbind(object, "code", "title", "courseAbstract", "nature", "retailPrice", "moreInfo");
 		tuple.put("lecturer", lecturer.getIdentity().getFullName());
+		super.getResponse().setGlobal("courseId", object.getId());
 		super.getResponse().setData(tuple);
 	}
 }

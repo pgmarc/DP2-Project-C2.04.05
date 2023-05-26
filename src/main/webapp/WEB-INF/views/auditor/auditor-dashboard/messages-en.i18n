@@ -1,0 +1,12 @@
+auditor.dashboard.form.title.general-indicators = Your Dashboard
+auditor.dashboard.form.label.theory = Total Audits from Theory Courses  
+auditor.dashboard.form.label.handon =  Total Audits from HandOn Courses
+auditor.dashboard.form.label.balanced = Total Audits from Balanced Courses
+auditor.dashboard.form.label.audit-record-max =  Max amount of audit records from an audit
+auditor.dashboard.form.label.audit-record-min =  Min amount of audit records from an audit
+auditor.dashboard.form.label.audit-record-average =  Average amount of audit records from an audit
+auditor.dashboard.form.label.audit-record-deviation =  Deviation of the amount of audit records from the audits
+auditor.dashboard.form.label.audit-record-time-max =  Maximum duration of the audit records( in hours )
+auditor.dashboard.form.label.audit-record-time-min =  Minimum duration of the audit records( in hours )
+auditor.dashboard.form.label.audit-record-time-average =  Average time length of the audit records( in hours )
+auditor.dashboard.form.label.audit-record-time-deviation =  Deviation time length of the audit records( in hours )
