@@ -15,6 +15,14 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
+<div class= "row">
+	<div class="col-md">
+		<p>
+			<acme:message code="company.addendum.list.disclaimer"/>
+		</p>
+	</div>
+</div>
+
 <acme:list>
 	<acme:list-column code="company.session.list.label.startingDate" path="startingDate"/>
 	<acme:list-column code="company.session.list.label.endingDate" path="endingDate"/>

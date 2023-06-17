@@ -6,6 +6,8 @@ company.session.form.label.moreInfo = More information
 company.session.form.label.addendum = Addendum
 company.session.form.label.confirmation = Confirmation
 
+company.addendum.list.disclaimer = Normal sessions are displayed with - and addendum are displayed with !
+
 company.session.list.label.startingDate=Starts
 company.session.list.label.endingDate=Ends
 company.session.list.label.title = Title
