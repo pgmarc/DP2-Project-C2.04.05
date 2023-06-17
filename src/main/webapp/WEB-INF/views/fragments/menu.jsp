@@ -80,6 +80,7 @@
 		
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
 			<acme:menu-suboption code="master.menu.company.list" action="/company/practicum/list"/>
+			<acme:menu-suboption code="master.menu.company.dashboard" action="/company/company-dashboard/show"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.student.enrolment.head" access="hasRole('Student')">
