@@ -39,7 +39,8 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 	@Override
 	public void authorise() {
 
-		int userAccountId, practicumSessionId;
+		int userAccountId;
+		int practicumSessionId;
 		Company company;
 		PracticumSession practicumSession;
 		Practicum practicum;
@@ -88,6 +89,7 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 		Date minimumDeadline;
 		Date maximumDeadline;
 		Date baseMoment;
+		int practicumId;
 		boolean isOneWeekAhead;
 		boolean isOneWeekLong;
 		boolean isSixMonthLongMax;
@@ -98,7 +100,8 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 		Double total;
 
 		baseMoment = MomentHelper.getBaseMoment();
-		estimatedTotalTime = this.practicumRepository.computeEstimatedTotalTime(session.getPracticum().getId());
+		practicumId = session.getPracticum().getId();
+		estimatedTotalTime = this.practicumRepository.findPracticumEstimatedTotalTimeByPracticumId(practicumId);
 
 		if (!super.getBuffer().getErrors().hasErrors("startingDate") && !super.getBuffer().getErrors().hasErrors("endingDate")) {
 
