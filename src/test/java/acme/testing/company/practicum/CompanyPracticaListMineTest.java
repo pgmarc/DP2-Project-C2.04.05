@@ -25,10 +25,7 @@ public class CompanyPracticaListMineTest extends TestHarness {
 		super.signOut();
 	}
 
-	@Test
-	public void test200Negative() {
-		// No negative cases involiving a list operation since there is not input data involved
-	}
+	// No negative cases involiving a list operation since there is not input data involved
 
 	@Test
 	public void test300Hacking() {

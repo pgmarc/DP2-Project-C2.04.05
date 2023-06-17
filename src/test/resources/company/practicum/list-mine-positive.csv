@@ -1,3 +1,5 @@
-recordIndex,code,title,practicum-abstract,goals
-0,A000,,In this lesson we will learn about ACME framework,Learn data model.Implement features
-
+recordIndex,code,title
+0,A000,Introduction to ACME JOBS
+1,A001,Learn to monitor microservices
+2,A003,Introduction to ACME JOBS
+3,A004,Learn to monitor microservices
