@@ -88,5 +88,4 @@ public class Practicum extends AbstractEntity {
 	public void setPracticaPeriodLength() {
 		this.practicaPeriodLength = this.getPracticaPeriodLength();
 	}
-
 }
