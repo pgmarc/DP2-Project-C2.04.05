@@ -8,4 +8,4 @@
 	<acme:list-column code="company.practicum.list.label.title" path="title"/>
 </acme:list>
 
-<acme:button test="${_command == 'list'}" code="company.practicum.form.button.create" action="/company/practicum/create"/>
+<acme:button test="${_command == 'list-mine'}" code="company.practicum.form.button.create" action="/company/practicum/create"/>

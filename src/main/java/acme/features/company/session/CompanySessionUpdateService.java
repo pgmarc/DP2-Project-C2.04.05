@@ -108,16 +108,16 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 			isStartingDateBeforeEndingDate = MomentHelper.isBefore(session.getStartingDate(), session.getEndingDate());
 			super.state(isStartingDateBeforeEndingDate, "*", "company.session.form.error.endingDate-before-startingDate");
 
-			minimumDeadline = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
-			isOneWeekAhead = MomentHelper.isAfter(session.getStartingDate(), minimumDeadline);
+			minimumDeadline = MomentHelper.deltaFromCurrentMoment(1, ChronoUnit.WEEKS);
+			isOneWeekAhead = MomentHelper.isAfterOrEqual(session.getStartingDate(), minimumDeadline);
 			super.state(isOneWeekAhead, "*", "company.session.form.error.min-deadline");
 
-			maximumDeadline = MomentHelper.deltaFromMoment(baseMoment, 365, ChronoUnit.DAYS);
+			maximumDeadline = MomentHelper.deltaFromMoment(baseMoment, 1, ChronoUnit.YEARS);
 			isStartingDateUnderDeadline = MomentHelper.isBefore(session.getStartingDate(), maximumDeadline);
 			isEndingDateUnderDeadline = MomentHelper.isBeforeOrEqual(session.getEndingDate(), maximumDeadline);
 			super.state(isStartingDateUnderDeadline && isEndingDateUnderDeadline, "*", "company.session.form.error.max-deadline");
 
-			isOneWeekLong = MomentHelper.isLongEnough(session.getStartingDate(), session.getEndingDate(), 7, ChronoUnit.DAYS);
+			isOneWeekLong = MomentHelper.isLongEnough(session.getStartingDate(), session.getEndingDate(), 1, ChronoUnit.WEEKS);
 			super.state(isOneWeekLong, "*", "company.session.form.error.min-duration");
 
 			isSixMonthLongMax = !MomentHelper.isLongEnough(session.getStartingDate(), session.getEndingDate(), 180, ChronoUnit.DAYS);
