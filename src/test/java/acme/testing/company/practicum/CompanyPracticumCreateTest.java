@@ -1,7 +1,6 @@
 
 package acme.testing.company.practicum;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -49,7 +48,6 @@ public class CompanyPracticumCreateTest extends TestHarness {
 		super.signOut();
 	}
 
-	@Disabled
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String course, final String code, final String title, final String practicumAbstract, final String goals) {
@@ -72,7 +70,6 @@ public class CompanyPracticumCreateTest extends TestHarness {
 		super.signOut();
 	}
 
-	@Disabled
 	@Test
 	public void test300Hacking() {
 
