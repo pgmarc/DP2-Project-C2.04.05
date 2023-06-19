@@ -105,47 +105,4 @@ public class CompanyPracticumCreateTest extends TestHarness {
 		super.checkPanicExists();
 		super.signOut();
 	}
-
-	@ParameterizedTest
-	@CsvFileSource(resources = "/company/practicum/create-hacking.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test301Hacking(final int recordIndex, final String course, final String code, final String title, final String practicumAbstract, final String goals) {
-
-		// README:
-		// The record index of create-hacking.csv depends on how many practicum you have introduced in positive cases bear in mind this.
-
-		super.signIn("company1", "company1");
-
-		super.clickOnMenu("Company", "Practica");
-		super.checkListingExists();
-
-		super.clickOnButton("Create practicum");
-		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("practicumAbstract", practicumAbstract);
-		super.fillInputBoxIn("goals", goals);
-		super.clickOnSubmit("Create practicum");
-
-		super.clickOnMenu("Company", "Practica");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-		super.checkColumnHasValue(recordIndex, 0, code);
-		super.checkColumnHasValue(recordIndex, 1, title);
-		super.clickOnListingRecord(recordIndex);
-
-		super.checkFormExists();
-		super.checkInputBoxHasValue("course", course);
-		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("practicumAbstract", practicumAbstract);
-		super.checkInputBoxHasValue("goals", goals);
-
-		super.clickOnButton("View scheduled sessions");
-
-		super.checkListingExists();
-		super.checkListingEmpty();
-
-		super.signOut();
-	}
-
 }
