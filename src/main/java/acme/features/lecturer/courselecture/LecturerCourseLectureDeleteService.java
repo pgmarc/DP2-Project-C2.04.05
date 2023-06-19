@@ -13,6 +13,8 @@
 package acme.features.lecturer.courselecture;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,11 +46,14 @@ public class LecturerCourseLectureDeleteService extends AbstractService<Lecturer
 
 
 	private void updateCourseNature(final Course object) {
-		List<Lecture> lectures;
-		lectures = this.lectureRepository.getLecturesFromCourse(object.getId());
-		if (lectures.stream().map(Lecture::getNature).allMatch(n -> n == Nature.THEORETICAL))
+		Stream<Nature> lectures;
+		lectures = this.lectureRepository.getLecturesFromCourse(object.getId()).stream().map(Lecture::getNature);
+		final int theoryLectures = lectures.filter(n -> n == Nature.THEORETICAL).collect(Collectors.toList()).size();
+		final int handsOnLectures = lectures.filter(n -> n == Nature.HANDS_ON).collect(Collectors.toList()).size();
+		final int balancedLectures = lectures.filter(n -> n == Nature.BALANCED).collect(Collectors.toList()).size();
+		if (theoryLectures > handsOnLectures && theoryLectures > balancedLectures)
 			object.setNature(Nature.THEORETICAL);
-		else if (lectures.stream().map(Lecture::getNature).allMatch(n -> n == Nature.HANDS_ON))
+		else if (handsOnLectures > theoryLectures && handsOnLectures > balancedLectures)
 			object.setNature(Nature.HANDS_ON);
 		else
 			object.setNature(Nature.BALANCED);

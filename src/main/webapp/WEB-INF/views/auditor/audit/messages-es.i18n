@@ -16,5 +16,7 @@ auditor.audit.form.button.update = Modificar
 auditor.audit.form.button.delete = Borrar
 auditor.audit.form.button.publish = Publicar
 auditor.audit.form.button.create = Crear
+auditor.audit.list.label.draftMode.off = No es Borrador
+auditor.audit.list.label.draftMode.on = Borrador
 
 auditor.audit.form.error.duplicated-code="Codigo Duplicado"

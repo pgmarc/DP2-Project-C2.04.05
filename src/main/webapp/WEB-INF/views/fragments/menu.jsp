@@ -50,15 +50,18 @@
 			<acme:menu-suboption code="master.menu.auditor.audit.list" action="/auditor/audit/list"/>
 		</acme:menu-option>
 
-     	<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.authenticated.note" action="/authenticated/note/list"/>
-			<acme:menu-suboption code="master.menu.authenticated.offers" action="/authenticated/offer/list"/>
+     	<acme:menu-option code="master.menu.note" access="isAuthenticated()" action="/authenticated/note/list"/>
+      				<acme:menu-option code="master.menu.authenticated.offers" action="/authenticated/offer/list"/>
+
+		<acme:menu-option code="master.menu.peeps" access="hasRole('Any')" action="/any/peep/list" />
+      	
+      	<acme:menu-option code="master.menu.courses" access="hasRole('Any')">
+      		<acme:menu-suboption code="master.menu.any.courses" action="/any/course/list"/>
+			<acme:menu-suboption code="master.menu.lecturer.courses" action="/lecturer/course/list-mine" access="hasRole('Lecturer')"/>
+			<acme:menu-suboption code="master.menu.lecturer.courseLectures" action="/lecturer/course-lecture/list" access="hasRole('Lecturer')"/>			
       	</acme:menu-option>
       	
-		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
-			<acme:menu-suboption code="master.menu.any.peeps" action="/any/peep/list"/>
-			<acme:menu-suboption code="master.menu.any.courses" action="/any/course/list"/>
-      	</acme:menu-option>
+      	<acme:menu-option code="master.menu.lectures" access="hasRole('Lecturer')" action="/lecturer/lecture/list-all" />
       	
 		<acme:menu-option code="master.menu.bulletin" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.bulletin.list" action="/authenticated/bulletin/list"/>
