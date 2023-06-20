@@ -1,0 +1,24 @@
+company.dashboard.form.title= Dashboard
+company.dashboard.form.label.average-practicum-sessions= Average duration of practicum sessions
+company.dashboard.form.label.deviation-practicum-sessions= Standard deviation duration of practicum sessions
+company.dashboard.form.label.min-practicum-sessions= Minimum duration of practicum sessions
+company.dashboard.form.label.max-practicum-sessions= Maximun duration of practicum sessions
+
+company.dashboard.form.label.average-practicum-length= Average duration of practicum
+company.dashboard.form.label.deviation-practicum-length= Standard deviation duration of practicum
+company.dashboard.form.label.min-practicum-length= Minimum duration of practicum
+company.dashboard.form.label.max-practicum-length= Maximun duration of practicum
+company.dashboard.form.label.active-practicum-month = Active practicum grouped by month last year
+
+company.dashboard.form.label.january = January
+company.dashboard.form.label.february = February
+company.dashboard.form.label.march = March
+company.dashboard.form.label.april = April
+company.dashboard.form.label.may = May
+company.dashboard.form.label.june = June
+company.dashboard.form.label.july = July
+company.dashboard.form.label.august = August
+company.dashboard.form.label.september = September
+company.dashboard.form.label.october = October
+company.dashboard.form.label.november = November
+company.dashboard.form.label.december = December
