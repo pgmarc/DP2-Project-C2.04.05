@@ -8,4 +8,4 @@ course-06,PDN 839,lecturer-01,Arquitectura y Servicio de Redes,¿Pero esto que e
 course-07,A 001,lecturer-01,Curso para publicar,Un curso de prueba,BALANCED,EUR 200.99,,true
 course-08,A 002,lecturer-01,Curso puramente teórico,Un curso de prueba,THEORETICAL,EUR 200.99,,true
 course-09,A 003,lecturer-01,Curso teórico,"Un curso teórico, pero no puramente teorico",THEORETICAL,EUR 200.99,,true
-course-10,DP 000,lecturer-01,Diseño y Pruebas ,HANDS_ON,EUR 300.50,null,false
+course-10,DP 000,lecturer-01,Diseño y Pruebas,"Un curso teórico, pero no puramente teorico",HANDS_ON,EUR 300.50,,false
