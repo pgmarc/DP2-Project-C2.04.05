@@ -35,15 +35,28 @@ public class CompanyPracticaListMineTest extends TestHarness {
 		super.request("/company/practicum/list-mine");
 		super.checkPanicExists();
 
-		// Check if you can request a listing being a lecturer user
-		super.signIn("lecturer1", "lecturer1");
-		super.request("/company/practicum/list-mine");
+		super.signIn("administrator1", "administrator1");
+		super.request("/company/practicum/create");
 		super.checkPanicExists();
 		super.signOut();
 
-		// Check if you can request a listing being an admin user
-		super.signIn("administrator1", "administrator1");
-		super.request("/company/practicum/list-mine");
+		super.signIn("assistant1", "assistant1");
+		super.request("/company/practicum/create");
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("auditor1", "auditor1");
+		super.request("/company/practicum/create");
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("lecturer1", "lecturer1");
+		super.request("/company/practicum/create");
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("student1", "student1");
+		super.request("/company/practicum/create");
 		super.checkPanicExists();
 		super.signOut();
 	}
