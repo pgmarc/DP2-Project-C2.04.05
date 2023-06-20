@@ -121,7 +121,7 @@ public class CompanyPracticumPublishTest extends TestHarness {
 
 	@Test
 	public void test301Hacking() {
-		// HINT: this test tries to publish a published job that was registered by the principal.
+		// This test tries to publish a published practicum that was registered by other company.
 
 		final Collection<Practicum> practica;
 		String params;
