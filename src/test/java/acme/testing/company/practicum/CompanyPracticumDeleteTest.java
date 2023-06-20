@@ -37,6 +37,25 @@ public class CompanyPracticumDeleteTest extends TestHarness {
 	}
 
 	@Test
+	public void test200Negative() {
+
+		final Collection<Practicum> practica;
+		String param;
+
+		practica = this.repository.findPracticaByCompanyUsername("company1");
+		for (final Practicum practicum : practica)
+			if (!practicum.isDraftMode()) {
+				param = String.format("id=%d", practicum.getId());
+
+				super.signIn("company1", "company1");
+				super.request("/company/practicum/delete", param);
+				super.checkPanicExists();
+				super.signOut();
+
+			}
+	}
+
+	@Test
 	public void test300Hacking() {
 
 		final Collection<Practicum> practica;

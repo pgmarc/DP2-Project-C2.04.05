@@ -79,6 +79,27 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 	}
 
 	@Test
+	public void test200Negative() {
+		// This test tries to update a practicum with a role other than "Company",
+		// or using a company who is not the owner.
+
+		final Collection<Practicum> practica;
+		String param;
+
+		practica = this.repository.findPracticaByCompanyUsername("company1");
+		for (final Practicum practicum : practica)
+			if (!practicum.isDraftMode()) {
+
+				param = String.format("id=%d", practicum.getId());
+
+				super.signIn("company1", "company1");
+				super.request("/company/practicum/update", param);
+				super.checkPanicExists();
+				super.signOut();
+			}
+	}
+
+	@Test
 	public void test300Hacking() {
 		// This test tries to update a practicum with a role other than "Company",
 		// or using a company who is not the owner.
