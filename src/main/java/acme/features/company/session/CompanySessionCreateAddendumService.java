@@ -97,6 +97,7 @@ public class CompanySessionCreateAddendumService extends AbstractService<Company
 		Date minimumDeadline;
 		Date maximumDeadline;
 		Date baseMoment;
+		int practicumId;
 		boolean isOneWeekAhead;
 		boolean isOneWeekLong;
 		boolean isSixMonthLongMax;
@@ -108,7 +109,8 @@ public class CompanySessionCreateAddendumService extends AbstractService<Company
 		Double total;
 
 		baseMoment = MomentHelper.getBaseMoment();
-		estimatedTotalTime = this.practicumRepository.computeEstimatedTotalTime(addendum.getPracticum().getId());
+		practicumId = addendum.getPracticum().getId();
+		estimatedTotalTime = this.practicumRepository.findPracticumEstimatedTotalTimeByPracticumId(practicumId);
 
 		if (!super.getBuffer().getErrors().hasErrors("startingDate") && !super.getBuffer().getErrors().hasErrors("endingDate")) {
 

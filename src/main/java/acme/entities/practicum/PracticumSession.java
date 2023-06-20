@@ -59,9 +59,14 @@ public class PracticumSession extends AbstractEntity {
 
 	public double getDuration() {
 
-		long durationInSeconds;
+		long durationInSeconds = 0;
+		boolean isStartingDateBeforeEndingDate = false;
 
-		durationInSeconds = MomentHelper.computeDuration(this.startingDate, this.endingDate).getSeconds();
+		if (this.startingDate != null && this.endingDate != null)
+			isStartingDateBeforeEndingDate = MomentHelper.isBefore(this.startingDate, this.endingDate);
+		if (isStartingDateBeforeEndingDate)
+			durationInSeconds = MomentHelper.computeDuration(this.startingDate, this.endingDate).getSeconds();
+
 		return Math.round(durationInSeconds / 3600.0 * 100.0) / 100.0;
 
 	}

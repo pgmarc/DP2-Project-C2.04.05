@@ -36,9 +36,13 @@ public interface CompanyPracticumRepository extends AbstractRepository {
 	@Query("SELECT session FROM PracticumSession session WHERE session.practicum.id = :practicumId")
 	Collection<PracticumSession> findSessionsByPracticumId(int practicumId);
 
-	@Query("SELECT count(session) FROM PracticumSession session WHERE session.practicum.id = :practicumId AND session.addendum = FALSE")
+	@Query("SELECT p.estimatedTotalTime FROM Practicum p WHERE p.id = :practicumId")
+	Double findPracticumEstimatedTotalTimeByPracticumId(int practicumId);
+
+	@Query("SELECT COUNT(session) FROM PracticumSession session WHERE session.practicum.id = :practicumId AND session.addendum = FALSE")
 	Integer countPracticumSessionsByPracticumId(int practicumId);
 
-	@Query("SELECT sum(session.duration) FROM PracticumSession session WHERE session.practicum.id = :practicumId")
+	@Query("SELECT SUM(session.duration) FROM PracticumSession session WHERE session.practicum.id = :practicumId")
 	Double computeEstimatedTotalTime(int practicumId);
+
 }

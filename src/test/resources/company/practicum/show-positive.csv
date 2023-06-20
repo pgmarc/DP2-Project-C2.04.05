@@ -1,0 +1,5 @@
+recordIndex,code,title,practicum-abstract,goals,draft-mode,starting-date,ending-date,estimated-total-time,practica-period-length
+0,A000,Introduction to ACME JOBS,In this lesson we will learn about ACME framework,Learn data model.Implement features,true,2022/08/06 00:00,2022/08/13 00:00,168.00,7.00
+1,A001,Learn to monitor microservices,In this practica you will be maintaining Services,Maintain Services. Monitor services.,true,2022/08/06 00:00,2022/09/02 00:00,336.00,27.00
+2,A003,Introduction to ACME JOBS,In this lesson we will learn about ACME framework,Learn data model.Implement features,false,,,0.00,0.00
+3,A004,Learn to monitor microservices,In this practica you will be maintaining Services,Maintain Services. Monitor services.,false,2022/08/06 00:00,2022/09/02 00:00,504.00,27.00

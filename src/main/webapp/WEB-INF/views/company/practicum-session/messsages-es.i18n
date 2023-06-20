@@ -6,6 +6,8 @@ company.session.form.label.moreInfo = Mas información
 company.session.form.label.addendum = Sesión Extra
 company.session.form.label.confirmation = Confirmación
 
+company.addendum.list.disclaimer = Las sesiones normales tienen un guión y los apéndices una signo de exclamación
+
 company.session.list.label.startingDate = Empieza
 company.session.list.label.endingDate = Acaba
 company.session.list.label.title=Título

@@ -79,6 +79,11 @@
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
+			<acme:menu-suboption code="master.menu.company.list" action="/company/practicum/list-mine"/>
+			<acme:menu-suboption code="master.menu.company.dashboard" action="/company/company-dashboard/show"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.student.enrolment.head" access="hasRole('Student')">
 			<acme:menu-suboption code="master.menu.student.enrolment" action="/student/enrolment/list"/>
