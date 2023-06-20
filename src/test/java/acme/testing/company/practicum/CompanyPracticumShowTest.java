@@ -3,7 +3,6 @@ package acme.testing.company.practicum;
 
 import java.util.Collection;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -43,7 +42,6 @@ public class CompanyPracticumShowTest extends TestHarness {
 		super.signOut();
 	}
 
-	@Disabled
 	@Test
 	public void test300HackingShouldNotShowPracticumDetailsNotCompanyRole() {
 
@@ -87,7 +85,6 @@ public class CompanyPracticumShowTest extends TestHarness {
 			}
 	}
 
-	@Disabled
 	@Test
 	public void test301HackingShouldNotShowPracticumDetailsOfOtherCompany() {
 
