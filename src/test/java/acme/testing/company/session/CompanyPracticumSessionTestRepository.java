@@ -5,12 +5,12 @@ import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 
-import acme.entities.practicum.Practicum;
+import acme.entities.practicum.PracticumSession;
 import acme.framework.repositories.AbstractRepository;
 
 public interface CompanyPracticumSessionTestRepository extends AbstractRepository {
 
-	@Query("SELECT p from Practicum p where p.company.userAccount.username = :username")
-	Collection<Practicum> findPracticaByCompanyUsername(String username);
+	@Query("SELECT ps from PracticumSession ps WHERE ps.practicum.company.userAccount.username = :username AND ps.practicum.code = :code")
+	Collection<PracticumSession> findPracticumSessionsByCompanyUsernameAndPracticumCode(String username, String code);
 
 }

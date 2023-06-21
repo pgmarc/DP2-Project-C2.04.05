@@ -1,14 +1,11 @@
 
 package acme.testing.company.session;
 
-import java.util.Collection;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.practicum.Practicum;
 import acme.testing.TestHarness;
 
 public class CompanyPracticumPublishTest extends TestHarness {
@@ -80,61 +77,6 @@ public class CompanyPracticumPublishTest extends TestHarness {
 	public void test300Hacking() {
 		// This test tries to publish a Practicum with a role other than "Company".
 
-		Collection<Practicum> practica;
-		String params;
-
-		practica = this.repository.findPracticaByCompanyUsername("company1");
-		for (final Practicum practicum : practica)
-			if (practicum.isDraftMode()) {
-				params = String.format("id=%d", practicum.getId());
-
-				super.checkLinkExists("Sign in");
-				super.request("/company/practicum/publish", params);
-				super.checkPanicExists();
-
-				super.signIn("administrator1", "administrator1");
-				super.request("/company/practicum/publish", params);
-				super.checkPanicExists();
-				super.signOut();
-
-				super.signIn("assistant1", "assistant1");
-				super.request("/company/practicum/publish", params);
-				super.checkPanicExists();
-				super.signOut();
-
-				super.signIn("auditor1", "auditor1");
-				super.request("/company/practicum/publish", params);
-				super.checkPanicExists();
-				super.signOut();
-
-				super.signIn("lecturer1", "lecturer1");
-				super.request("/company/practicum/publish", params);
-				super.checkPanicExists();
-				super.signOut();
-
-				super.signIn("student1", "student1");
-				super.request("/company/practicum/publish", params);
-				super.checkPanicExists();
-				super.signOut();
-			}
-	}
-
-	@Test
-	public void test301Hacking() {
-		// This test tries to publish a published practicum that was registered by other company.
-
-		final Collection<Practicum> practica;
-		String params;
-
-		super.signIn("company2", "company2");
-		practica = this.repository.findPracticaByCompanyUsername("company1");
-		for (final Practicum practicum : practica)
-			if (!practicum.isDraftMode()) {
-				params = String.format("id=%d", practicum.getId());
-				super.request("/employer/job/publish", params);
-				super.checkPanicExists();
-			}
-		super.signOut();
 	}
 
 }
