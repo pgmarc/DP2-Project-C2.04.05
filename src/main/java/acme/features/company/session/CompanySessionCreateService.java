@@ -123,7 +123,7 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 			isOneWeekLong = MomentHelper.isLongEnough(session.getStartingDate(), session.getEndingDate(), 1, ChronoUnit.WEEKS);
 			super.state(isOneWeekLong, "*", "company.session.form.error.min-duration");
 
-			isSixMonthLongMax = !MomentHelper.isLongEnough(session.getStartingDate(), session.getEndingDate(), 180, ChronoUnit.DAYS);
+			isSixMonthLongMax = !MomentHelper.isLongEnough(session.getStartingDate(), session.getEndingDate(), 6, ChronoUnit.MONTHS);
 			super.state(isSixMonthLongMax, "*", "company.session.form.error.max-duration");
 
 			session.setDuration();
