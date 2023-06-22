@@ -49,7 +49,7 @@ public class PracticumSession extends AbstractEntity {
 	double						duration;
 
 	@URL
-	@Length(min = 1, max = 255)
+	@Length(max = 255)
 	protected String			moreInfo;
 
 	@NotNull
