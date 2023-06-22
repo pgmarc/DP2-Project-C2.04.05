@@ -1,105 +1,119 @@
 
 package acme.testing.company.session;
 
-import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.entities.practicum.PracticumSession;
 import acme.testing.TestHarness;
 
 public class CompanyPracticumSessionCreateTest extends TestHarness {
 
+	@Autowired
+	private CompanyPracticumSessionTestRepository repository;
+
+
 	@ParameterizedTest
-	@CsvFileSource(resources = "/company/practicum/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String course, final String code, final String title, final String practicumAbstract, final String goals) {
+	@CsvFileSource(resources = "/company/practicum-session/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int recordIndex, final int practicumIndex, final String title, final String sessionAbstract, final String startingDate, final String endingDate, final String moreInfo) {
 
 		super.signIn("company1", "company1");
 
 		super.clickOnMenu("Company", "Practica");
 		super.checkListingExists();
-
-		super.clickOnButton("Create practicum");
-		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("practicumAbstract", practicumAbstract);
-		super.fillInputBoxIn("goals", goals);
-		super.clickOnSubmit("Create practicum");
-
-		super.clickOnMenu("Company", "Practica");
-		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(recordIndex, 0, code);
-		super.checkColumnHasValue(recordIndex, 1, title);
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(practicumIndex);
 
 		super.checkFormExists();
-		super.checkInputBoxHasValue("course", course);
-		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("practicumAbstract", practicumAbstract);
-		super.checkInputBoxHasValue("goals", goals);
-
 		super.clickOnButton("View scheduled sessions");
+		super.clickOnButton("Create session");
+
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("sessionAbstract", sessionAbstract);
+		super.fillInputBoxIn("startingDate", startingDate);
+		super.fillInputBoxIn("endingDate", endingDate);
+		super.fillInputBoxIn("moreInfo", moreInfo);
+
+		super.clickOnSubmit("Create session");
 
 		super.checkListingExists();
-		super.checkListingEmpty();
+		super.checkNotListingEmpty();
+		super.checkColumnHasValue(recordIndex, 0, startingDate);
+		super.checkColumnHasValue(recordIndex, 1, endingDate);
+		super.checkColumnHasValue(recordIndex, 2, title);
+		super.checkColumnHasValue(recordIndex, 3, "-");
 
 		super.signOut();
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/company/practicum/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String course, final String code, final String title, final String practicumAbstract, final String goals) {
+	@CsvFileSource(resources = "/company/practicum-session/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int recordIndex, final String title, final String sessionAbstract, final String startingDate, final String endingDate, final String moreInfo) {
 
 		super.signIn("company1", "company1");
 
 		super.clickOnMenu("Company", "Practica");
-		super.clickOnButton("Create practicum");
-		super.checkFormExists();
+		super.clickOnListingRecord(recordIndex);
+		super.clickOnButton("View scheduled sessions");
+		super.clickOnButton("Create session");
 
-		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("practicumAbstract", practicumAbstract);
-		super.fillInputBoxIn("goals", goals);
-		super.clickOnSubmit("Create practicum");
+		super.fillInputBoxIn("sessionAbstract", sessionAbstract);
+		super.fillInputBoxIn("startingDate", startingDate);
+		super.fillInputBoxIn("endingDate", endingDate);
+		super.fillInputBoxIn("moreInfo", moreInfo);
+		super.clickOnSubmit("Create session");
 
 		super.checkErrorsExist();
 
 		super.signOut();
 	}
 
-	@Test
-	public void test300Hacking() {
+	@ParameterizedTest
+	@CsvFileSource(resources = "/company/practicum-session/create-hacking.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test300Hacking(final String username, final String practicumCode) {
 
-		super.checkLinkExists("Sign in");
-		super.request("/company/practicum/create");
-		super.checkPanicExists();
+		final Collection<PracticumSession> sessions = this.repository.findPracticumSessionsByCompanyUsernameAndPracticumCode(username, practicumCode);
+		final List<PracticumSession> limitedSessions = new ArrayList<PracticumSession>(sessions);
+		String param;
 
-		super.signIn("administrator1", "administrator1");
-		super.request("/company/practicum/create");
-		super.checkPanicExists();
-		super.signOut();
+		for (final PracticumSession session : limitedSessions.stream().limit(2).collect(Collectors.toList())) {
+			param = String.format("practicumId=%d", session.getPracticum().getId());
+			super.checkLinkExists("Sign in");
+			super.request("/company/practicum-session/create", param);
+			super.checkPanicExists();
 
-		super.signIn("assistant1", "assistant1");
-		super.request("/company/practicum/create");
-		super.checkPanicExists();
-		super.signOut();
+			super.signIn("administrator1", "administrator1");
+			super.request("/company/practicum-session/create", param);
+			super.checkPanicExists();
+			super.signOut();
 
-		super.signIn("auditor1", "auditor1");
-		super.request("/company/practicum/create");
-		super.checkPanicExists();
-		super.signOut();
+			super.signIn("assistant1", "assistant1");
+			super.request("/company/practicum-session/create", param);
+			super.checkPanicExists();
+			super.signOut();
 
-		super.signIn("lecturer1", "lecturer1");
-		super.request("/company/practicum/create");
-		super.checkPanicExists();
-		super.signOut();
+			super.signIn("auditor1", "auditor1");
+			super.request("/company/practicum-session/create", param);
+			super.checkPanicExists();
+			super.signOut();
 
-		super.signIn("student1", "student1");
-		super.request("/company/practicum/create");
-		super.checkPanicExists();
-		super.signOut();
+			super.signIn("lecturer1", "lecturer1");
+			super.request("/company/practicum-session/create", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("company2", "company2");
+			super.request("/company/practicum-session/create", param);
+			super.checkPanicExists();
+			super.signOut();
+		}
+
 	}
 }
