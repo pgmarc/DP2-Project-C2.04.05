@@ -84,7 +84,7 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 		String param;
 
 		for (final PracticumSession session : limitedSessions.stream().limit(2).collect(Collectors.toList())) {
-			param = String.format("idd=%d", session.getId());
+			param = String.format("id=%d", session.getId());
 			super.checkLinkExists("Sign in");
 			super.request("/company/practicum-session/update", param);
 			super.checkPanicExists();
@@ -114,7 +114,6 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 		}
-
 	}
 
 }
