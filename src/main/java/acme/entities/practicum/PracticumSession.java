@@ -8,7 +8,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -45,7 +44,6 @@ public class PracticumSession extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endingDate;
 
-	@Digits(integer = 4, fraction = 2)
 	double						duration;
 
 	@URL
@@ -58,21 +56,19 @@ public class PracticumSession extends AbstractEntity {
 	protected Practicum			practicum;
 
 
-	public double getDuration() {
+	public void setDuration() {
 
 		long durationInSeconds = 0;
 		boolean isStartingDateBeforeEndingDate = false;
+		double result;
 
 		if (this.startingDate != null && this.endingDate != null)
 			isStartingDateBeforeEndingDate = MomentHelper.isBefore(this.startingDate, this.endingDate);
 		if (isStartingDateBeforeEndingDate)
 			durationInSeconds = MomentHelper.computeDuration(this.startingDate, this.endingDate).getSeconds();
 
-		return Math.round(durationInSeconds / 3600.0 * 100.0) / 100.0;
+		result = Math.round(durationInSeconds / 3600.0 * 100.0) / 100.0;
 
-	}
-
-	public void setDuration() {
-		this.duration = this.getDuration();
+		this.duration = result;
 	}
 }

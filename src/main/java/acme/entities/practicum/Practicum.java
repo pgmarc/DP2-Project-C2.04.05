@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -61,10 +60,8 @@ public class Practicum extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Company			company;
 
-	@Digits(integer = 5, fraction = 2)
 	protected double			estimatedTotalTime;
 
-	@Digits(integer = 5, fraction = 2)
 	protected double			practicaPeriodLength;
 
 
@@ -74,18 +71,15 @@ public class Practicum extends AbstractEntity {
 		this.setPracticaPeriodLength();
 	}
 
-	public double getPracticaPeriodLength() {
+	public void setPracticaPeriodLength() {
 
 		long durationInSeconds = 0;
+		double result;
 
 		if (this.startingDate != null && this.endingDate != null)
 			durationInSeconds = MomentHelper.computeDuration(this.startingDate, this.endingDate).getSeconds();
 
-		return Math.round(durationInSeconds / 3600.0 * 100.0) / 100.0;
-
-	}
-
-	public void setPracticaPeriodLength() {
-		this.practicaPeriodLength = this.getPracticaPeriodLength();
+		result = Math.round(durationInSeconds / 3600.0 * 100.0) / 100.0;
+		this.practicaPeriodLength = result;
 	}
 }

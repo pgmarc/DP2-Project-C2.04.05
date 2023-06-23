@@ -91,7 +91,6 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 
 		Date minimumDeadline;
 		Date maximumDeadline;
-		Date baseMoment;
 		int practicumId;
 		boolean isOneWeekAhead;
 		boolean isOneWeekLong;
@@ -102,7 +101,6 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 		Double estimatedTotalTime;
 		Double total;
 
-		baseMoment = MomentHelper.getBaseMoment();
 		practicumId = session.getPracticum().getId();
 		estimatedTotalTime = this.practicumRepository.findPracticumEstimatedTotalTimeByPracticumId(practicumId);
 
@@ -115,20 +113,20 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 			isOneWeekAhead = MomentHelper.isAfterOrEqual(session.getStartingDate(), minimumDeadline);
 			super.state(isOneWeekAhead, "*", "company.session.form.error.min-deadline");
 
-			maximumDeadline = MomentHelper.deltaFromMoment(baseMoment, 1, ChronoUnit.YEARS);
+			maximumDeadline = new Date(4133977199000L); // 2100/12/31 23:59:59 CEST
 			isStartingDateUnderDeadline = MomentHelper.isBefore(session.getStartingDate(), maximumDeadline);
-			isEndingDateUnderDeadline = MomentHelper.isBeforeOrEqual(session.getEndingDate(), maximumDeadline);
+			isEndingDateUnderDeadline = MomentHelper.isBefore(session.getEndingDate(), maximumDeadline);
 			super.state(isStartingDateUnderDeadline && isEndingDateUnderDeadline, "*", "company.session.form.error.max-deadline");
 
 			isOneWeekLong = MomentHelper.isLongEnough(session.getStartingDate(), session.getEndingDate(), 1, ChronoUnit.WEEKS);
 			super.state(isOneWeekLong, "*", "company.session.form.error.min-duration");
 
-			isSixMonthLongMax = !MomentHelper.isLongEnough(session.getStartingDate(), session.getEndingDate(), 6, ChronoUnit.MONTHS);
+			isSixMonthLongMax = !MomentHelper.isLongEnough(session.getStartingDate(), session.getEndingDate(), 1000, ChronoUnit.HOURS);
 			super.state(isSixMonthLongMax, "*", "company.session.form.error.max-duration");
 
 			session.setDuration();
 			total = estimatedTotalTime + session.getDuration();
-			super.state(total <= 9999.99, "*", "company.session.form.error.reach-estimated-total-time-limit");
+			super.state(total <= 99999.99, "*", "company.session.form.error.reach-estimated-total-time-limit");
 
 		}
 	}
