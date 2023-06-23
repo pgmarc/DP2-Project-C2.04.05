@@ -27,11 +27,11 @@ public class Note extends AbstractEntity {
 	protected Date				instantiationMoment;
 
 	@NotBlank
-	@Length(max = 75)
+	@Length(min = 1, max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 100)
+	@Length(min = 1, max = 100)
 	protected String			message;
 
 	@Email
