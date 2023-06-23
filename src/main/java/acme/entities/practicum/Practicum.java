@@ -61,10 +61,10 @@ public class Practicum extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Company			company;
 
-	@Digits(integer = 4, fraction = 2)
+	@Digits(integer = 5, fraction = 2)
 	protected double			estimatedTotalTime;
 
-	@Digits(integer = 4, fraction = 2)
+	@Digits(integer = 5, fraction = 2)
 	protected double			practicaPeriodLength;
 
 

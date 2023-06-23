@@ -16,3 +16,4 @@ recordIndex,practicumIndex,title,session-abstract,starting-date,ending-date,more
 14,4,փորձարկում,փորձարկում,2023/07/20 00:00,2023/07/27 00:00,https://example.org
 15,4,δοκιμές,δοκιμές,2023/07/21 00:00,2023/07/28 00:00,https://example.org
 16,4,<script>alert('Hacked)</script>,<script>alert('Hacked)</script>,2023/07/22 00:00,2023/07/29 00:00,https://example.org
+17,4,Maximun practicum session scheduled,Maximun practicum session scheduled,2100/12/24 23:59,2100/12/31 23:59,https://example.org
