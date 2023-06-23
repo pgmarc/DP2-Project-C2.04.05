@@ -37,7 +37,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 		final String name;
 		today = MomentHelper.getCurrentMoment();
 		principal = super.getRequest().getPrincipal();
-		name = this.repository.getUserAccountById(principal.getAccountId()).getIdentity().getFullName();
+		name = this.repository.findUserAccountById(principal.getAccountId()).getIdentity().getFullName();
 		final Note object = new Note();
 		object.setInstantiationMoment(today);
 		object.setFullName(name);
@@ -50,16 +50,20 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 		Principal principal;
 		final String name;
 		principal = super.getRequest().getPrincipal();
-		name = this.repository.getUserAccountById(principal.getAccountId()).getIdentity().getFullName();
+		name = this.repository.findUserAccountById(principal.getAccountId()).getIdentity().getFullName();
 		moment = MomentHelper.getCurrentMoment();
-		super.bind(object, "instantiationMoment", "title", "fullName", "message", "email", "moreInfo");
+		super.bind(object, "instantiationMoment", "title", "fullName", "message", "email", "moreInfo", "confirmation");
 		object.setFullName(name);
 		object.setInstantiationMoment(moment);
 	}
 
 	@Override
 	public void validate(final Note object) {
-		//
+
+		boolean isConfirmed;
+
+		isConfirmed = super.getRequest().getData("confirmation", boolean.class);
+		super.state(isConfirmed, "confirmation", "authenticated.note.form.error.must-confirm-note");
 	}
 
 	@Override

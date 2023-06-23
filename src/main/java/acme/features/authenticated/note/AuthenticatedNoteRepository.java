@@ -14,12 +14,12 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AuthenticatedNoteRepository extends AbstractRepository {
 
-	@Query("select n from Note n where (:date - n.instantiationMoment < 30) ")
-	public List<Note> listNotes(Date date);
+	@Query("SELECT n FROM Note n WHERE :startingDate < n.instantiationMoment AND n .instantiationMoment <= :currentDate ")
+	public List<Note> findNotesNotOlderThanOneMonth(Date startingDate, Date currentDate);
 
-	@Query("select n from Note n where n.id = :id")
-	public Note showNote(int id);
+	@Query("SELECT n from Note n WHERE n.id = :id")
+	public Note findNoteById(int id);
 
-	@Query("select ua from UserAccount ua where ua.id = :id")
-	public UserAccount getUserAccountById(int id);
+	@Query("SELECT ua FROM UserAccount ua WHERE ua.id = :id")
+	public UserAccount findUserAccountById(int id);
 }

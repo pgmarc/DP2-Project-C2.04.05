@@ -1,19 +1,5 @@
-# messages-es.i18n
-#
-# Copyright (C) 2012-2023 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
-
 authenticated.note.list.label.instantiationMoment = Momento de instanciación
 authenticated.note.list.label.title = Titulo
-authenticated.note.list.label.fullName = Nombre completo
-authenticated.note.list.label.message = Mensaje
-authenticated.note.list.label.email = Email
-authenticated.note.list.label.moreInfo = Más información
 authenticated.note.list.button.create = Crear
 
 authenticated.note.form.label.instantiationMoment = Momento de instanciación
@@ -22,7 +8,7 @@ authenticated.note.form.label.fullName = Nombre completo
 authenticated.note.form.label.message = Mensaje
 authenticated.note.form.label.email = Email
 authenticated.note.form.label.moreInfo = Más información
+authenticated.note.form.label.confirmation = Confirmación
 authenticated.note.form.button.create = Crear
-authenticated.note.form.button.close = Cancelar
-authenticated.note.form.button.create.modal.title = ¿Está seguro de que quiere crear esta nota?
-authenticated.note.form.button.create.modal.body = Tenga en cuenta que no podrá modificarla ni borrarla en el futuro
+
+authenticated.note.form.error.must-confirm-note = Debe confirmar si quiere crear la nota, después no podrá ni actualizar ni borrar la nota
