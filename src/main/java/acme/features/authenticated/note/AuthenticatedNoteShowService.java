@@ -32,14 +32,18 @@ public class AuthenticatedNoteShowService extends AbstractService<Authenticated,
 	@Override
 	public void authorise() {
 
-		boolean status;
+		boolean isBeforeCurrentMoment;
+		boolean isInInterval;
+		final boolean status;
 		final Date currentDate;
 
 		final int id = super.getRequest().getData("id", int.class);
 		final Note note = this.repository.findNoteById(id);
 		currentDate = MomentHelper.getCurrentMoment();
 
-		status = !MomentHelper.isLongEnough(note.getInstantiationMoment(), currentDate, 1, ChronoUnit.MONTHS);
+		isBeforeCurrentMoment = MomentHelper.isBefore(note.getInstantiationMoment(), currentDate);
+		isInInterval = !MomentHelper.isLongEnough(note.getInstantiationMoment(), currentDate, 1, ChronoUnit.MONTHS);
+		status = isBeforeCurrentMoment && isInInterval;
 
 		super.getResponse().setAuthorised(status);
 	}
