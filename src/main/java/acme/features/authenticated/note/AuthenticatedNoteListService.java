@@ -35,8 +35,8 @@ public class AuthenticatedNoteListService extends AbstractService<Authenticated,
 	public void load() {
 		Date currentDate;
 		Date oneMonthAgo;
-		oneMonthAgo = MomentHelper.deltaFromCurrentMoment(-1, ChronoUnit.MONTHS);
 		currentDate = MomentHelper.getCurrentMoment();
+		oneMonthAgo = MomentHelper.deltaFromCurrentMoment(-1, ChronoUnit.MONTHS);
 		final List<Note> object = this.repository.findNotesNotOlderThanOneMonth(oneMonthAgo, currentDate);
 		super.getBuffer().setData(object);
 	}

@@ -14,7 +14,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AuthenticatedNoteRepository extends AbstractRepository {
 
-	@Query("SELECT n FROM Note n WHERE :startingDate < n.instantiationMoment AND n .instantiationMoment <= :currentDate ")
+	@Query("SELECT n FROM Note n WHERE :startingDate < n.instantiationMoment AND n .instantiationMoment < :currentDate ")
 	public List<Note> findNotesNotOlderThanOneMonth(Date startingDate, Date currentDate);
 
 	@Query("SELECT n from Note n WHERE n.id = :id")
