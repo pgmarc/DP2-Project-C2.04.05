@@ -38,12 +38,12 @@ public class Banner extends AbstractEntity {
 	protected Date				displayFinish;
 
 	@NotBlank
-	@Length(min = 1, max = 75)
-	protected String			slogan;
-
-	@NotBlank
 	@URL
 	protected String			picture;
+
+	@NotBlank
+	@Length(min = 1, max = 75)
+	protected String			slogan;
 
 	@NotBlank
 	@URL
