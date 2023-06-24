@@ -7,7 +7,7 @@
 <acme:form>
 	<acme:input-moment code="authenticated.note.form.label.instantiationMoment" path="instantiationMoment" readonly="true"/>
 	<acme:input-textbox code="authenticated.note.form.label.title" path="title"/>
-	<acme:input-textbox code="authenticated.note.form.label.fullName" path="fullName" readonly="true"/>
+	<acme:input-textbox code="authenticated.note.form.label.author" path="author" readonly="true"/>
 	<acme:input-textbox code="authenticated.note.form.label.message" path="message"/>
 	<acme:input-email code="authenticated.note.form.label.email" path="email"/>
 	<acme:input-url code="authenticated.note.form.label.moreInfo" path="moreInfo"/>

@@ -61,7 +61,7 @@ public class AuthenticatedNoteShowService extends AbstractService<Authenticated,
 	@Override
 	public void unbind(final Note object) {
 		Tuple tuple;
-		tuple = super.unbind(object, "instantiationMoment", "title", "fullName", "message", "email", "moreInfo");
+		tuple = super.unbind(object, "instantiationMoment", "title", "author", "message", "email", "moreInfo");
 
 		super.getResponse().setData(tuple);
 	}

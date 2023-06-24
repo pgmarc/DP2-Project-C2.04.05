@@ -4,7 +4,7 @@ authenticated.note.list.button.create = Crear
 
 authenticated.note.form.label.instantiationMoment = Momento de instanciación
 authenticated.note.form.label.title = Titulo
-authenticated.note.form.label.fullName = Nombre completo
+authenticated.note.form.label.author = Autor
 authenticated.note.form.label.message = Mensaje
 authenticated.note.form.label.email = Email
 authenticated.note.form.label.moreInfo = Más información

@@ -32,29 +32,29 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 
 	@Override
 	public void load() {
-		Date today;
+		Date currentDate;
 		Principal principal;
-		final String name;
-		today = MomentHelper.getCurrentMoment();
+		final String author;
+		final String username;
+		final String fullname;
+		currentDate = MomentHelper.getCurrentMoment();
+
 		principal = super.getRequest().getPrincipal();
-		name = this.repository.findUserAccountById(principal.getAccountId()).getIdentity().getFullName();
+		username = principal.getUsername();
+		fullname = this.repository.findUserAccountById(principal.getAccountId()).getIdentity().getFullName();
+		author = username + " - " + fullname;
+
 		final Note object = new Note();
-		object.setInstantiationMoment(today);
-		object.setFullName(name);
+		object.setInstantiationMoment(currentDate);
+		object.setAuthor(author);
+
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final Note object) {
-		Date moment;
-		Principal principal;
-		final String name;
-		principal = super.getRequest().getPrincipal();
-		name = this.repository.findUserAccountById(principal.getAccountId()).getIdentity().getFullName();
-		moment = MomentHelper.getCurrentMoment();
-		super.bind(object, "instantiationMoment", "title", "fullName", "message", "email", "moreInfo", "confirmation");
-		object.setFullName(name);
-		object.setInstantiationMoment(moment);
+	public void bind(final Note note) {
+
+		super.bind(note, "title", "message", "email", "moreInfo", "confirmation");
 	}
 
 	@Override
@@ -67,15 +67,15 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 	}
 
 	@Override
-	public void perform(final Note object) {
+	public void perform(final Note note) {
 
-		this.repository.save(object);
+		this.repository.save(note);
 	}
 
 	@Override
-	public void unbind(final Note object) {
+	public void unbind(final Note note) {
 		Tuple tuple;
-		tuple = super.unbind(object, "instantiationMoment", "title", "fullName", "message", "email", "moreInfo");
+		tuple = super.unbind(note, "instantiationMoment", "title", "author", "message", "email", "moreInfo");
 
 		super.getResponse().setData(tuple);
 	}
