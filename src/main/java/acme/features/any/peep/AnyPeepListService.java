@@ -1,7 +1,7 @@
 
 package acme.features.any.peep;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,14 +30,18 @@ public class AnyPeepListService extends AbstractService<Any, Peep> {
 
 	@Override
 	public void load() {
-		final List<Peep> object = this.repository.listPeeps();
-		super.getBuffer().setData(object);
+
+		Collection<Peep> peeps;
+		peeps = this.repository.findAllPeeps();
+		super.getBuffer().setData(peeps);
+
 	}
 
 	@Override
-	public void unbind(final Peep object) {
+	public void unbind(final Peep peep) {
+
 		Tuple tuple;
-		tuple = super.unbind(object, "instantiationMoment", "title", "nick", "message", "email", "moreInfo");
+		tuple = super.unbind(peep, "instantiationMoment", "title", "nick", "message", "email", "moreInfo");
 
 		super.getResponse().setData(tuple);
 	}

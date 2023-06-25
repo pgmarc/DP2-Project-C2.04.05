@@ -1,18 +1,24 @@
 
 package acme.features.any.peep;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import acme.entities.message.Peep;
+import acme.framework.components.accounts.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
+@Repository
 public interface AnyPeepRepository extends AbstractRepository {
 
-	@Query("Select p from Peep p")
-	public List<Peep> listPeeps();
+	@Query("SELECT p FROM Peep p")
+	public Collection<Peep> findAllPeeps();
 
-	@Query("Select p from Peep p where p.id = :id")
-	public Peep showPeep(int id);
+	@Query("SELECT p FROM Peep p WHERE p.id = :id")
+	public Peep findPeepById(int id);
+
+	@Query("SELECT ua FROM UserAccount ua WHERE ua.id = :id")
+	public UserAccount findUserAccountById(int id);
 }
