@@ -60,11 +60,11 @@ public class AuthenticatedOfferShowService extends AbstractService<Authenticated
 	}
 
 	@Override
-	public void unbind(final Offer object) {
+	public void unbind(final Offer offer) {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "heading", "summary", "startingDate", "startingDate", "endingDate", "price", "moreInfo");
+		tuple = super.unbind(offer, "heading", "summary", "startingDate", "endingDate", "price", "moreInfo");
 
 		super.getResponse().setData(tuple);
 	}
