@@ -70,6 +70,7 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 		List<String> currencies;
 		final double minAmount = 0;
 		final double maxAmount = 1_000_000;
+		Date oneDaySinceInstantiationMoment;
 		Date maximumAvailability;
 		boolean isStartingDateBeforeEndingDate;
 		boolean isEndingDateBeforeMaximumDate;
@@ -89,7 +90,8 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 			isStartingDateBeforeEndingDate = MomentHelper.isBefore(offer.getStartingDate(), offer.getEndingDate());
 			super.state(isStartingDateBeforeEndingDate, "*", "administrator.offer.form.error.endingDate-before-startingDate");
 
-			isOneDayAhead = MomentHelper.isLongEnough(offer.getInstantiationMoment(), offer.getStartingDate(), 1, ChronoUnit.DAYS);
+			oneDaySinceInstantiationMoment = MomentHelper.deltaFromMoment(offer.getInstantiationMoment(), 1, ChronoUnit.DAYS);
+			isOneDayAhead = MomentHelper.isAfterOrEqual(offer.getStartingDate(), oneDaySinceInstantiationMoment);
 			super.state(isOneDayAhead, "*", "administrator.offer.form.error.out-minAvailability");
 
 			maximumAvailability = new Date(4_133_977_199_000L); // 2100/12/31 23:59:59 CEST
