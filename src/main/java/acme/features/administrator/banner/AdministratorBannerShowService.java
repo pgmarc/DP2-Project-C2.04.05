@@ -12,12 +12,8 @@ import acme.framework.services.AbstractService;
 @Service
 public class AdministratorBannerShowService extends AbstractService<Administrator, Banner> {
 
-	//Internal State
-
 	@Autowired
 	protected AdministratorBannerRepository repository;
-
-	//AbstractService Interface
 
 
 	@Override

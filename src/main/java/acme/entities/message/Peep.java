@@ -4,6 +4,8 @@ package acme.entities.message;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -21,31 +23,30 @@ import lombok.Setter;
 @Setter
 public class Peep extends AbstractEntity {
 
-	// Serialisation identifier -----------------------------------------------
-
 	protected static final long	serialVersionUID	= 1L;
-
-	// Attributes -------------------------------------------------------------
 
 	@NotNull
 	@Past
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				instantiationMoment;
 
 	@NotBlank
-	@Length(max = 75)
+	@Length(min = 1, max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 75)
+	@Length(min = 1, max = 75)
 	protected String			nick;
 
 	@NotBlank
-	@Length(max = 100)
+	@Length(min = 1, max = 100)
 	protected String			message;
 
 	@Email
+	@Length(max = 255)
 	protected String			email;
 
 	@URL
+	@Length(max = 255)
 	protected String			moreInfo;
 }

@@ -1,13 +1,3 @@
-# menu-en.i18n
-#
-# Copyright (C) 2012-2023 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
-
 # master.menu #################################################################
 
 master.menu.home = Home
@@ -18,6 +8,8 @@ master.menu.sign-out = Sign out
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
+master.menu.any.courses = List courses
+master.menu.any.peeps = List peeps
 master.menu.anonymous.favourite-link.pedgonmar2 = 77927548Y: González Marcos, Pedro
 master.menu.anonymous.favourite-link.fermatgom = 30696569X: Mateos Gómez, Fernando José
 master.menu.anonymous.favourite-link.carbersor = 77938703Y: Bermejo Soria, Carlos
@@ -27,8 +19,12 @@ master.menu.anonymous.favourite-link.carzarrei = 32099918Z: Zarzuela Reina, Carl
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Authenticated
-master.menu.authenticated.offers = View offers
-
+master.menu.authenticated.bulletins = List bulletins
+master.menu.authenticated.courses = List courses
+master.menu.authenticated.notes = List notes
+master.menu.authenticated.offers = List offers
+master.menu.authenticated.peeps = List peeps
+master.menu.authenticated.tutorials = List tutorials
 
 # master.menu.administrator ###################################################
 
@@ -39,19 +35,15 @@ master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 master.menu.administrator.system-currency = System currency
+master.menu.administrator.banners = List banners
+master.menu.administrator.offers = List offers
+master.menu.administrator.bulletin.create = Create bulletin
 
-master.menu.banner = Banners
-master.menu.banner.list = Banner list
-
-# master.menu.provider ########################################################
-
-master.menu.provider = Provider
-master.menu.provider.favourite-link = Favourite link
-
-# master.menu.consumer ##########################################################
-
-master.menu.consumer = Consumer
-master.menu.consumer.favourite-link = Favourite link
+# master.menu.auditor ############################################################
+master.menu.auditor = Auditor
+master.menu.auditor.audit.list = List Audits
+master.menu.auditor.dashboard = My Dashboard
+master.menu.auditor.dashboard.head = Dashboard
 
 # master.menu.company ##########################################################
 
@@ -63,59 +55,36 @@ master.menu.company.dashboard = My Dashboard
 
 master.menu.student = Student
 master.menu.student.link = Favourite link
-master.menu.user-account.become-student = Become a student
-master.menu.user-account.student= Student data
-
 master.menu.student.enrolment.head= Enrolments
 master.menu.student.enrolment= Your Enrolments
-
 master.menu.student.course.head= Courses
 master.menu.student.course= All the courses
-
 master.menu.student.dashboard.head= Dashboard
 master.menu.student.dashboard= Your dashboard
-
-# master.menu.bulletin ##########################################################
-
-master.menu.bulletin = Bulletins
-master.menu.bulletin.list = List Bulletins
-master.menu.bulletin.create = Create a bulletin
 
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
-master.menu.user-account.provider = Provider data
-master.menu.user-account.become-provider = Become a provider
-master.menu.user-account.consumer = Consumer data
-master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.assistant = Assistant data
+master.menu.user-account.become-assistant = Become an assistant
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
 master.menu.user-account.company = Company data
 master.menu.user-account.become-company = Become a company
-master.menu.user-account.become-assistant = Become an assistant
-master.menu.user-account.assistant = Assistant
 master.menu.user-account.lecturer = Lecturer data
 master.menu.user-account.become-lecturer = Become a lecturer
-
-# master.menu.notes ####################################################
-master.menu.note = Notes
+master.menu.user-account.student= Student data
+master.menu.user-account.become-student = Become a student
 
 # master.menu.courses ###################################################
 master.menu.courses= Courses
-master.menu.any.courses = All Courses
 master.menu.lecturer.courses = My courses
 master.menu.lecturer.courseLectures = Add lectures to courses
 
 # master.menu.lectures ###################################################
+master.menu.lecturer = Lecturer
 master.menu.lectures = My lectures
-
-# master.menu.auditor ############################################################
-master.menu.auditor = Auditor
-master.menu.auditor.audit.list = List Audits
-master.menu.user-account.become-auditor = Become an auditor
-master.menu.user-account.auditor = Update Auditor
-
-# master.menu.peeps ###################################################
-master.menu.peeps = Peeps
 
 # master.menu.tutorial ####################################################
 

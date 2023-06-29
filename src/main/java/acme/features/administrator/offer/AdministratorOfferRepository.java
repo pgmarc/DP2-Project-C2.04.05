@@ -14,7 +14,7 @@ import acme.framework.repositories.AbstractRepository;
 public interface AdministratorOfferRepository extends AbstractRepository {
 
 	@Query("SELECT offer FROM Offer offer")
-	Collection<Offer> findPublishedHandsOnCourses();
+	Collection<Offer> findAllOffers();
 
 	@Query("SELECT offer FROM Offer offer WHERE offer.id = :offerId")
 	Offer findOfferById(int offerId);

@@ -19,4 +19,9 @@
 		<acme:button code="any.audit.form.button.audit.create" action="/auditor/audit/create?courseId=${id}"/>
 	</jstl:when>
 </jstl:choose>
+
+<acme:check-access test="hasRole('Authenticated')">
+	<acme:button code="authenticated.practicum.form.button.list" action="/authenticated/practicum/list?courseId=${id}"/>
+</acme:check-access>
+
 <acme:button code="any.audit.form.button.audit.list" action="/any/audit/list?courseId=${id}"/> 		

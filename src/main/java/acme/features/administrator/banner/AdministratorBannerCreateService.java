@@ -10,20 +10,14 @@ import org.springframework.stereotype.Service;
 import acme.entities.offer.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.MomentHelper;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 
 @Service
 public class AdministratorBannerCreateService extends AbstractService<Administrator, Banner> {
 
-	//Internal State
-
 	@Autowired
 	protected AdministratorBannerRepository repository;
-
-	//AbstractService Interface
 
 
 	@Override
@@ -43,51 +37,61 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	@Override
 	public void load() {
 		Banner object;
+		Date currentMoment;
+
+		currentMoment = MomentHelper.getCurrentMoment();
 
 		object = new Banner();
+		object.setLastModified(currentMoment);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final Banner object) {
+	public void bind(final Banner banner) {
 
-		super.bind(object, "displayStart", "displayFinish", "slogan", "picture", "target");
-		object.setLastModified(MomentHelper.getCurrentMoment());
+		super.bind(banner, "displayStart", "displayFinish", "slogan", "picture", "target");
 	}
 
 	@Override
-	public void validate(final Banner object) {
+	public void validate(final Banner banner) {
 
-		if (!super.getBuffer().getErrors().hasErrors("displayFinish")) {
-			final Date start = object.getDisplayStart();
-			final Date finish = object.getDisplayFinish();
-			super.state(MomentHelper.isLongEnough(start, finish, 7, ChronoUnit.DAYS), "displayFinish", "administrator.banner.error.short-display-period");
+		boolean isOneWeekLong;
+		boolean isDisplayStartingDateBeforeDisplayFinishDate;
+		final boolean isDisplayStartAfterInstatiationMoment;
+		final boolean isDisplayFinishAfterInstatiationMoment;
+		final Date instantiationMoment = banner.getLastModified();
+		final Date displayStart = banner.getDisplayStart();
+		final Date displayFinish = banner.getDisplayFinish();
+
+		if (!super.getBuffer().getErrors().hasErrors("displayStart") && !super.getBuffer().getErrors().hasErrors("displayFinish")) {
+
+			isDisplayStartAfterInstatiationMoment = MomentHelper.isAfter(displayStart, instantiationMoment);
+			isDisplayFinishAfterInstatiationMoment = MomentHelper.isAfter(displayFinish, instantiationMoment);
+			super.state(isDisplayStartAfterInstatiationMoment && isDisplayFinishAfterInstatiationMoment, "*", "administrator.banner.error.after-instantiation-moment");
+
+			isDisplayStartingDateBeforeDisplayFinishDate = MomentHelper.isBefore(displayStart, displayFinish);
+			super.state(isDisplayStartingDateBeforeDisplayFinishDate, "*", "administrator.banner.error.displayFinish-before-displayStart");
+
+			isOneWeekLong = MomentHelper.isLongEnough(displayStart, displayFinish, 1, ChronoUnit.WEEKS);
+			super.state(isOneWeekLong, "*", "administrator.banner.error.short-display-period");
 		}
 
 	}
 
 	@Override
-	public void perform(final Banner object) {
+	public void perform(final Banner banner) {
 
-		this.repository.save(object);
+		this.repository.save(banner);
 	}
 
 	@Override
-	public void unbind(final Banner object) {
+	public void unbind(final Banner banner) {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "displayStart", "displayFinish", "slogan", "picture", "target");
-		tuple.put("lastModified", MomentHelper.getCurrentMoment());
+		tuple = super.unbind(banner, "lastModified", "displayStart", "displayFinish", "slogan", "picture", "target");
 
 		super.getResponse().setData(tuple);
 	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
-	}
-
 }

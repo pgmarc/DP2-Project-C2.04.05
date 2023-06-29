@@ -9,3 +9,4 @@
 	<acme:list-column code="administrator.offer.list.label.heading" path="heading"/>	
 </acme:list>
 
+<acme:button code="administrator.offer.list.button.create" action="/administrator/offer/create"/>

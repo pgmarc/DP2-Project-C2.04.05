@@ -1,0 +1,19 @@
+recordIndex,practicumIndex,title,session-abstract,starting-date,ending-date,more-info
+0,4,Example data,Example data,2022/08/06 00:00,2022/08/13 00:00,https://example.org
+1,4,TitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitle,Title with 75 characters,2022/08/07 00:00,2022/08/14 00:00,https://example.org
+2,4,T,Title with 1 character,2022/08/08 00:00,2022/08/15 00:00,https://example.org
+3,4,Practicum session abstract 100 characters,PSAbstractPSAbstractPSAbstractPSAbstractPSAbstractPSAbstractPSAbstractPSAbstractPSAbstractPSAbstract,2022/08/09 00:00,2022/08/16 00:00,https://example.org
+4,4,Practicum session abstract 1 character,A,2022/08/10 00:00,2022/08/17 00:00,https://example.org
+5,4,Maximun of 1000 hours duration of practicum session,Example data,2022/08/11 00:00,2022/09/16 15:59,https://example.org
+6,4,Minimun of 1 week duration of practicum session,Example data,2022/08/12 00:00,2022/08/19 00:00,https://example.org
+7,4,Testing maximun deadline counting from base moment,Example data,2023/07/13 00:00,2023/07/20 00:00,https://example.org
+8,4,Testing URL,Testing URL,2023/07/14 00:00,2023/07/21 00:00,ftp:
+9,4,Testing URL 255 characters,Testing URL,2023/07/15 00:00,2023/07/22 00:00,http://invalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256Uff.acme.es
+10,4,Testing Blank URL,Testing Blank URL,2023/07/16 00:00,2023/07/23 00:00,http://invalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256UffinvalidURL256Uff.acme.es
+11,4,тестирование,тестирование,2023/07/17 00:00,2023/07/24 00:00,https://example.org
+12,4,テスト,テスト,2023/07/18 00:00,2023/07/25 00:00,https://example.org
+13,4,테스트,테스트,2023/07/19 00:00,2023/07/26 00:00,https://example.org
+14,4,փորձարկում,փորձարկում,2023/07/20 00:00,2023/07/27 00:00,https://example.org
+15,4,δοκιμές,δοκιμές,2023/07/21 00:00,2023/07/28 00:00,https://example.org
+16,4,<script>alert('Hacked)</script>,<script>alert('Hacked)</script>,2023/07/22 00:00,2023/07/29 00:00,https://example.org
+17,4,Maximun practicum session scheduled,Maximun practicum session scheduled,2100/12/24 23:59,2100/12/31 23:59,https://example.org

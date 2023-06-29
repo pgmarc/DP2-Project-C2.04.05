@@ -18,6 +18,7 @@ public class AnyPeepShowService extends AbstractService<Any, Peep> {
 
 	@Override
 	public void check() {
+
 		boolean status;
 		status = super.getRequest().hasData("id", int.class);
 		super.getResponse().setChecked(status);
@@ -30,15 +31,20 @@ public class AnyPeepShowService extends AbstractService<Any, Peep> {
 
 	@Override
 	public void load() {
-		final int id = super.getRequest().getData("id", int.class);
-		final Peep object = this.repository.showPeep(id);
-		super.getBuffer().setData(object);
+
+		int id;
+		Peep peep;
+
+		id = super.getRequest().getData("id", int.class);
+		peep = this.repository.findPeepById(id);
+		super.getBuffer().setData(peep);
 	}
 
 	@Override
-	public void unbind(final Peep object) {
+	public void unbind(final Peep peep) {
+
 		Tuple tuple;
-		tuple = super.unbind(object, "instantiationMoment", "title", "nick", "message", "email", "moreInfo");
+		tuple = super.unbind(peep, "instantiationMoment", "title", "nick", "message", "email", "moreInfo");
 
 		super.getResponse().setData(tuple);
 	}

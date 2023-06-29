@@ -69,39 +69,37 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 		String supportedCurrencies;
 		List<String> currencies;
 		final double minAmount = 0;
-		final double maxAmount = 1000000;
-		Date minimunAvailability;
+		final double maxAmount = 1_000_000;
+		Date oneDaySinceInstantiationMoment;
 		Date maximumAvailability;
-		Date baseMoment;
-		boolean isAmountBetweenRange;
-		boolean isSupportedCurrency;
 		boolean isStartingDateBeforeEndingDate;
 		boolean isEndingDateBeforeMaximumDate;
 		boolean isOneWeekLong;
-		final boolean isOneDayAhead;
+		boolean isOneDayAhead;
+		boolean isAmountBetweenRange;
+		boolean isSupportedCurrency;
 
 		price = offer.getPrice();
 		systemCurrency = this.repository.showSystemCurrency();
 		supportedCurrencies = systemCurrency.getSupportedCurrencies();
-		baseMoment = MomentHelper.getBaseMoment();
 
 		currencies = Arrays.asList(supportedCurrencies.trim().split(";"));
 
 		if (!super.getBuffer().getErrors().hasErrors()) {
 
 			isStartingDateBeforeEndingDate = MomentHelper.isBefore(offer.getStartingDate(), offer.getEndingDate());
-			super.state(isStartingDateBeforeEndingDate, "*", "company.session.form.error.endingDate-before-startingDate");
+			super.state(isStartingDateBeforeEndingDate, "*", "administrator.offer.form.error.endingDate-before-startingDate");
 
-			minimunAvailability = MomentHelper.deltaFromMoment(offer.getInstantiationMoment(), 1, ChronoUnit.DAYS);
-			isOneDayAhead = MomentHelper.isAfter(offer.getStartingDate(), minimunAvailability);
-			super.state(isOneDayAhead, "*", "a");
+			oneDaySinceInstantiationMoment = MomentHelper.deltaFromMoment(offer.getInstantiationMoment(), 1, ChronoUnit.DAYS);
+			isOneDayAhead = MomentHelper.isAfterOrEqual(offer.getStartingDate(), oneDaySinceInstantiationMoment);
+			super.state(isOneDayAhead, "*", "administrator.offer.form.error.out-minAvailability");
 
-			maximumAvailability = MomentHelper.deltaFromMoment(baseMoment, 100, ChronoUnit.YEARS);
-			isEndingDateBeforeMaximumDate = MomentHelper.isBefore(offer.getStartingDate(), maximumAvailability);
-			super.state(isEndingDateBeforeMaximumDate, "*", "company.session.form.error.max-deadline");
+			maximumAvailability = new Date(4_133_977_199_000L); // 2100/12/31 23:59:59 CEST
+			isEndingDateBeforeMaximumDate = MomentHelper.isBeforeOrEqual(offer.getStartingDate(), maximumAvailability);
+			super.state(isEndingDateBeforeMaximumDate, "*", "administrator.offer.form.error.out-maxAvailability");
 
-			isOneWeekLong = MomentHelper.isLongEnough(offer.getStartingDate(), offer.getEndingDate(), 7, ChronoUnit.DAYS);
-			super.state(isOneWeekLong, "*", "company.session.form.error.min-duration");
+			isOneWeekLong = MomentHelper.isLongEnough(offer.getStartingDate(), offer.getEndingDate(), 1, ChronoUnit.WEEKS);
+			super.state(isOneWeekLong, "*", "administrator.offer.form.error.min-duration");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("price")) {
@@ -126,7 +124,7 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 
 		Tuple tuple;
 
-		tuple = super.unbind(offer, "heading", "summary", "startingDate", "endingDate", "price", "moreInfo");
+		tuple = super.unbind(offer, "instantiationMoment", "heading", "summary", "startingDate", "endingDate", "price", "moreInfo");
 
 		super.getResponse().setData(tuple);
 

@@ -1,6 +1,7 @@
 
 package acme.features.authenticated.note;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
 
@@ -32,9 +33,11 @@ public class AuthenticatedNoteListService extends AbstractService<Authenticated,
 
 	@Override
 	public void load() {
-		Date today;
-		today = MomentHelper.getCurrentMoment();
-		final List<Note> object = this.repository.listNotes(today);
+		Date currentDate;
+		Date oneMonthAgo;
+		currentDate = MomentHelper.getCurrentMoment();
+		oneMonthAgo = MomentHelper.deltaFromCurrentMoment(-1, ChronoUnit.MONTHS);
+		final List<Note> object = this.repository.findNotesNotOlderThanOneMonth(oneMonthAgo, currentDate);
 		super.getBuffer().setData(object);
 	}
 

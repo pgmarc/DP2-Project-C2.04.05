@@ -1,12 +1,16 @@
 
 package acme.features.authenticated.note;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.message.Note;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -18,27 +22,46 @@ public class AuthenticatedNoteShowService extends AbstractService<Authenticated,
 
 	@Override
 	public void check() {
+
 		boolean status;
 		status = super.getRequest().hasData("id", int.class);
 		super.getResponse().setChecked(status);
+
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+
+		boolean isBeforeCurrentMoment;
+		boolean isInInterval;
+		final boolean status;
+		final Date currentDate;
+
+		final int id = super.getRequest().getData("id", int.class);
+		final Note note = this.repository.findNoteById(id);
+		currentDate = MomentHelper.getCurrentMoment();
+
+		isBeforeCurrentMoment = MomentHelper.isBefore(note.getInstantiationMoment(), currentDate);
+		isInInterval = !MomentHelper.isLongEnough(note.getInstantiationMoment(), currentDate, 1, ChronoUnit.MONTHS);
+		status = isBeforeCurrentMoment && isInInterval;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		final int id = super.getRequest().getData("id", int.class);
-		final Note object = this.repository.showNote(id);
-		super.getBuffer().setData(object);
+		final int id;
+		final Note note;
+
+		id = super.getRequest().getData("id", int.class);
+		note = this.repository.findNoteById(id);
+		super.getBuffer().setData(note);
 	}
 
 	@Override
 	public void unbind(final Note object) {
 		Tuple tuple;
-		tuple = super.unbind(object, "instantiationMoment", "title", "fullName", "message", "email", "moreInfo");
+		tuple = super.unbind(object, "instantiationMoment", "title", "author", "message", "email", "moreInfo");
 
 		super.getResponse().setData(tuple);
 	}

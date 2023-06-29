@@ -1,17 +1,19 @@
 key,instantiation-moment,heading,summary,starting-date,ending-date,price,more-info
-offer-01,2022/03/14 23:59,This is a heading,Summary,2022/03/15 23:59,2022/03/22 23:59,EUR 15.00,http://example.com
-offer-02,2022/07/30 00:00,This is a heading,Summary,2022/07/31 00:00,2022/03/23 12:00,USD 15.00,http://example.com
-offer-03,2021/01/01 00:00,This is a heading,Summary,2022/01/02 00:00,2023/03/23 12:00,GBP 15.00,http://example.com
-offer-04,2021/12/31 23:59,This is a heading,Summary,2022/01/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
-offer-05,2021/02/28 23:59,This is a heading,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
-offer-06,2021/02/28 23:59,a,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
-offer-07,2021/02/28 23:59,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
-offer-08,2021/02/28 23:59,This is a header,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
-offer-09,2021/02/28 23:59,"\ª!""·$%&/()=?¿*P¨´´-.,{}|@\#~€¬^:;áéíóúàèìòù",Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
-offer-10,2021/02/28 23:59,Это безумие,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
-offer-11,2021/02/28 23:59,هذا جنون,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
-offer-12,2021/02/28 23:59,This is a heading,a,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
-offer-13,2021/02/28 23:59,This is a heading,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
-offer-14,2021/02/28 23:59,This is a heading,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,null
-offer-15,2021/02/28 23:59,This is a heading,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
-offer-16,2021/02/28 23:59,This is a heading,Summary,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,http://example.com
+offer-01,2019/07/30 00:00,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Heading 75 characters,2020/03/15 23:59,2022/03/22 23:59,EUR 45.00,https://example.com
+offer-02,2020/07/30 00:00,a,Heading 1 character,2021/06/15 00:00,2022/03/23 12:00,USD 15.00,https://example.com
+offer-03,2006/01/01 00:00,Summary 100 characters,SuuuummarySuuuummarySuuuummarySuuuummarySuuuummarySuuuummarySuuuummarySuuuummarySuuuummarySuuuummary,2007/03/02 10:00,2023/03/23 12:00,"GBP 1,000.00",https://example.com
+offer-04,2015/12/31 23:59,Summary 1 character,S,2016/01/01 23:59,2023/03/23 12:00,"EUR 16,543.00",https://example.com
+offer-05,2022/07/30 00:00,One day since 2022/07/30 00:00,One day since 2022/07/30 00:00,2022/07/31 00:00,2023/03/23 12:00,EUR 3.00,https://example.com
+offer-06,2022/07/30 00:00,Exactly 1 week,Exactly 1 week,2022/07/31 00:00,2022/08/07 00:00,"USD 10,000.00",https://example.com
+offer-07,2003/02/28 23:59,Trying EUR,Trying EUR,2004/01/19 14:09,2026/03/23 00:00,EUR 15.00,https://example.com
+offer-08,2021/02/28 23:59,Trying GBP,Trying GBP,2022/03/01 23:59,2023/03/23 12:00,GBP 15.00,https://example.com
+offer-9,2009/02/28 23:59,Trying USD,Trying USD,2010/11/05 16:00,2023/01/03 07:00,USD 15.00,https://example.com
+offer-10,2018/02/28 23:59,Trying link,Trying link,2019/06/19 04:00,2022/08/10 12:00,EUR 7.99,https://example.com
+offer-11,2021/02/28 23:59,No link provided,No link provided,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,null
+offer-12,2005/02/28 23:59,"\ª!""·$%&/()=?¿*P¨´´-.,{}|@\#~€¬^:;áéíóúàèìòù","\ª!""·$%&/()=?¿*P¨´´-.,{}|@\#~€¬^:;áéíóúàèìòù",2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,https://example.com
+offer-13,2021/02/28 23:59,Это безумие,Это безумие,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,https://example.com
+offer-14,2021/02/28 23:59,هذا جنون,هذا جنون,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,https://example.com
+offer-15,2021/02/28 23:59,Բարեւ,Բարեւ,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,https://example.com
+offer-16,2021/02/28 23:59,Γειά σου,Γειά σου,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,https://example.com
+offer-17,2021/02/28 23:59,こんにちは,こんにちは,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,https://example.com
+offer-18,2021/02/28 23:59,안녕하세요,안녕하세요,2022/03/01 23:59,2023/03/23 12:00,EUR 15.00,https://example.com

@@ -88,18 +88,16 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 
 		Date minimumDeadline;
 		Date maximumDeadline;
-		Date baseMoment;
 		int practicumId;
 		boolean isOneWeekAhead;
 		boolean isOneWeekLong;
-		boolean isSixMonthLongMax;
+		boolean isThousandHoursLongMax;
 		boolean isStartingDateBeforeEndingDate;
 		boolean isStartingDateUnderDeadline;
 		boolean isEndingDateUnderDeadline;
 		Double estimatedTotalTime;
 		Double total;
 
-		baseMoment = MomentHelper.getBaseMoment();
 		practicumId = session.getPracticum().getId();
 		estimatedTotalTime = this.practicumRepository.findPracticumEstimatedTotalTimeByPracticumId(practicumId);
 
@@ -112,7 +110,7 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 			isOneWeekAhead = MomentHelper.isAfterOrEqual(session.getStartingDate(), minimumDeadline);
 			super.state(isOneWeekAhead, "*", "company.session.form.error.min-deadline");
 
-			maximumDeadline = MomentHelper.deltaFromMoment(baseMoment, 1, ChronoUnit.YEARS);
+			maximumDeadline = new Date(4133977199000L); // 2100/12/31 23:59:59 CEST
 			isStartingDateUnderDeadline = MomentHelper.isBefore(session.getStartingDate(), maximumDeadline);
 			isEndingDateUnderDeadline = MomentHelper.isBeforeOrEqual(session.getEndingDate(), maximumDeadline);
 			super.state(isStartingDateUnderDeadline && isEndingDateUnderDeadline, "*", "company.session.form.error.max-deadline");
@@ -120,8 +118,8 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 			isOneWeekLong = MomentHelper.isLongEnough(session.getStartingDate(), session.getEndingDate(), 1, ChronoUnit.WEEKS);
 			super.state(isOneWeekLong, "*", "company.session.form.error.min-duration");
 
-			isSixMonthLongMax = !MomentHelper.isLongEnough(session.getStartingDate(), session.getEndingDate(), 180, ChronoUnit.DAYS);
-			super.state(isSixMonthLongMax, "*", "company.session.form.error.max-duration");
+			isThousandHoursLongMax = !MomentHelper.isLongEnough(session.getStartingDate(), session.getEndingDate(), 1000, ChronoUnit.HOURS);
+			super.state(isThousandHoursLongMax, "*", "company.session.form.error.max-duration");
 
 			session.setDuration();
 			total = estimatedTotalTime + session.getDuration();

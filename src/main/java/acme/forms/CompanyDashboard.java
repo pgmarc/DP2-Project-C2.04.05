@@ -13,13 +13,13 @@ public class CompanyDashboard extends AbstractForm {
 
 	protected int[]				practicaPerCourseLastYear;
 
-	private Double				sessionsPeriodLengthAveragePerPractica;
+	private double				sessionsPeriodLengthAveragePerPractica;
 
-	private Double				sessionsPeriodLengthDeviationPerPractica;
+	private double				sessionsPeriodLengthDeviationPerPractica;
 
-	private Double				sessionsPeriodLengthMinimumPerPractica;
+	private double				sessionsPeriodLengthMinimumPerPractica;
 
-	private Double				sessionsPeriodLengthMaximunPerPractica;
+	private double				sessionsPeriodLengthMaximunPerPractica;
 
 	protected double			practicaPeriodLengthAverage;
 
