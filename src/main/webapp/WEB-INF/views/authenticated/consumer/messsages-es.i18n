@@ -1,4 +1,4 @@
-authenticated.consumer.form.label.compañía = Compañía
+authenticated.consumer.form.label.company = Compañía
 authenticated.consumer.form.label.sector = Sector
 
 authenticated.consumer.form.button.create = Registrar
