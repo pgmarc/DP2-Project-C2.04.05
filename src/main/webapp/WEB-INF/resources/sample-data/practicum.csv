@@ -1,8 +1,0 @@
-key,key:company,key:course,code,title,practicum-abstract,goals,draft-mode,starting-date,ending-date,estimated-total-time,practica-period-length
-practicum-01,company-01,course-10,A000,Introduction to ACME JOBS,In this lesson we will learn about ACME framework,Learn data model.Implement features,true,2022/08/06 00:00,2022/08/13 00:00,168.00,168.00
-practicum-02,company-01,course-10,A001,Learn to monitor microservices,In this practica you will be maintaining Services,Maintain Services. Monitor services.,true,2022/08/06 00:00,2022/09/02 00:00,336.00,648.00
-practicum-03,company-02,course-10,A002,Session abstract,In this practica you will be maintaining Services,Maintain Services. Monitor services.,true,2022/08/06 00:00,2022/08/13 00:00,0.00,0.00
-practicum-04,company-01,course-10,A003,Introduction to ACME JOBS,In this lesson we will learn about ACME framework,Learn data model.Implement features,false,2022/08/06 00:00,2022/08/13 00:00,168.00,168.00
-practicum-05,company-01,course-10,A004,Learn to monitor microservices,In this practica you will be maintaining Services,Maintain Services. Monitor services.,false,2022/08/06 00:00,2022/09/08 00:00,504.00,792.00
-practicum-06,company-02,course-10,A005,Session abstract,In this practica you will be maintaining Services,Maintain Services. Monitor services.,false,2022/08/06 00:00,2022/08/13 00:00,0,0
-practicum-07,company-01,course-10,A006,Practicum to update,Practicum to update,Practicum to update,true,null,null,0,0
