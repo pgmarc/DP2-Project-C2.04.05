@@ -1,7 +1,0 @@
-authenticated.company.form.label.name = Name
-authenticated.company.form.label.vatNumber = VAT Number
-authenticated.company.form.label.summary = About us
-authenticated.company.form.label.moreInfo = More info
-
-authenticated.company.form.button.create = Register
-authenticated.company.form.button.update = Update

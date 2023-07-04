@@ -1,7 +1,0 @@
-authenticated.company.form.label.name = Nombre
-authenticated.company.form.label.vatNumber = CIF
-authenticated.company.form.label.summary = Sobre nosotros
-authenticated.company.form.label.moreInfo = Mas informción
-
-authenticated.company.form.button.create = Registrar
-authenticated.company.form.button.update = Actualizar
