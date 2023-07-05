@@ -22,11 +22,7 @@ import lombok.Setter;
 @Setter
 public class Bulletin extends AbstractEntity {
 
-	// Serialisation identifier -----------------------------------------------
-
 	protected static final long	serialVersionUID	= 1L;
-
-	// Attributes -------------------------------------------------------------
 
 	@NotNull
 	@Past
@@ -44,6 +40,7 @@ public class Bulletin extends AbstractEntity {
 	protected boolean			critical;
 
 	@URL
+	@Length(max = 255)
 	protected String			moreInfo;
 
 }
