@@ -15,7 +15,6 @@ import org.hibernate.validator.constraints.Length;
 
 import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
-import acme.framework.helpers.MomentHelper;
 import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
@@ -64,22 +63,4 @@ public class Practicum extends AbstractEntity {
 
 	protected double			practicaPeriodLength;
 
-
-	public void updatePracticaPeriodLength(final Date startingDate, final Date endingDate) {
-		this.setStartingDate(startingDate);
-		this.setEndingDate(endingDate);
-		this.setPracticaPeriodLength();
-	}
-
-	public void setPracticaPeriodLength() {
-
-		long durationInSeconds = 0;
-		double result;
-
-		if (this.startingDate != null && this.endingDate != null)
-			durationInSeconds = MomentHelper.computeDuration(this.startingDate, this.endingDate).getSeconds();
-
-		result = Math.round(durationInSeconds / 3600.0 * 100.0) / 100.0;
-		this.practicaPeriodLength = result;
-	}
 }

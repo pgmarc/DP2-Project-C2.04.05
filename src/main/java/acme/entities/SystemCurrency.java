@@ -15,11 +15,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SystemCurrency extends AbstractEntity {
-	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
-
-	// Attributes -------------------------------------------------------------
 
 	@Length(min = 3, max = 3)
 	@NotBlank

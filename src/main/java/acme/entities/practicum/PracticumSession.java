@@ -15,7 +15,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
-import acme.framework.helpers.MomentHelper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -55,20 +54,4 @@ public class PracticumSession extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Practicum			practicum;
 
-
-	public void setDuration() {
-
-		long durationInSeconds = 0;
-		boolean isStartingDateBeforeEndingDate = false;
-		double result;
-
-		if (this.startingDate != null && this.endingDate != null)
-			isStartingDateBeforeEndingDate = MomentHelper.isBefore(this.startingDate, this.endingDate);
-		if (isStartingDateBeforeEndingDate)
-			durationInSeconds = MomentHelper.computeDuration(this.startingDate, this.endingDate).getSeconds();
-
-		result = Math.round(durationInSeconds / 3600.0 * 100.0) / 100.0;
-
-		this.duration = result;
-	}
 }
