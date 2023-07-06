@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- 
-  - pom.xml 
-  -   
-  - Copyright (C) 2012-2023 Rafael Corchuelo. 
-  -
-  - In keeping with the traditional purpose of furthering education and research, it is 
-  - the policy of the copyright owner to permit non-commercial use and redistribution of 
-  - this software. It has been tested carefully, but it is not guaranteed for any particular 
-  - purposes. The copyright owner does not offer any warranties or representations, nor do 
-  - they accept any liabilities with respect to them. 
-  -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	
-	<name>Acme-L3-D04</name>
-	<description>Proyect developed for DP2. C1.04.05</description>
+	<name>Acme-L3-D03</name>
+	<description>Proyect developed for DP2. C3.04.05</description>
 
 	<groupId>Acme</groupId>	
-	<artifactId>Acme-L3-D04</artifactId>
+	<artifactId>Acme-L3-D03</artifactId>
 	<version>23.5.0</version>
 	<packaging>war</packaging>
 
