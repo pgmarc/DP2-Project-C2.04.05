@@ -1,12 +1,12 @@
 key,lastModified,displayStart,displayFinish,slogan,target,picture
 banner-01,2000/01/01 00:00,2000/01/02 00:00,2000/01/09 00:00,Minimun posible banner to schedule,https://example.org,https://i.imgur.com/2bvab7y.jpeg
-banner-02,2100/12/23 23:59,2100/12/24 23:59,2100/12/31 23:59,Maximun possible banner to schedule,https://example.org,https://i.imgur.com/aTco5L6.jpeg
+banner-02,2000/01/01 00:00,2100/12/24 23:59,2100/12/31 23:59,Maximun possible banner to schedule,https://example.org,https://i.imgur.com/aTco5L6.jpeg
 banner-03,2022/07/29 00:00,2022/07/30 00:00,2022/08/06 00:00,Date scheduled one day ahead system clock,https://example.org,https://i.imgur.com/f1yeHVO.jpeg
 banner-04,2005/02/15 00:00,2021/10/15 12:00,2024/01/01 22:00,Programming working first time,https://example.org,https://i.imgur.com/ERlalrq.jpeg
 banner-05,2016/01/01 22:00,2017/01/01 22:00,2024/02/01 22:00,Internet explorer in a nutshell,https://example.org,https://i.imgur.com/nUkCpA8.jpeg
 banner-06,2016/01/01 22:00,2017/01/01 22:00,2024/02/01 22:00,a,https://example.org,https://i.imgur.com/nUkCpA8.jpeg
 banner-07,2016/01/01 22:00,2017/01/01 22:00,2024/02/01 22:00,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,https://example.org,https://i.imgur.com/kPSdzDX.png
-banner-08,2020/04/08 11:00,2020/01¡6/05 09:00,2027/02/01 00:00,Very long link to document,https://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,https://i.imgur.com/kCLnBDB.png
+banner-08,2020/04/08 11:00,2020/06/05 09:00,2027/02/01 00:00,Very long link to document,https://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,https://i.imgur.com/kCLnBDB.png
 banner-09,2009/02/21 13:44,2011/11/11 11:00,2023/01/01 00:00,Very long picture,https://example.org,https://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 banner-10,2012/12/12 12:00,2013/01/06 11:00,2042/01/01 00:00,тяжелый,https://example.org,https://i.redd.it/tfugj4n3l6ez.png
 banner-11,2012/12/12 12:00,2013/01/06 11:00,2042/01/01 00:00,ծանր,https://example.org,https://i.redd.it/tfugj4n3l6ez.png
