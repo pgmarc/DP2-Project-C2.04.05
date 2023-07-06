@@ -15,3 +15,6 @@ user-account-assistant-02,true,"UserIdentity{name: 'Rosa', surname: 'Lia', email
 user-account-assistant-03,true,"UserIdentity{name: 'Mateos', surname: 'Gomez', email: 'matgom@acme.com'}",assistant3,assistant3
 user-account-auditor-01,true,"UserIdentity{name: 'Fernando José', surname: 'Mateos Gómez', email: 'test1@email.com'}",auditor1,auditor1
 user-account-auditor-02,true,"UserIdentity{name: 'Fernando José', surname: 'Mateos Gómez', email: 'test2@email.com'}",auditor2,auditor2
+user-account-provider-01,true,"UserIdentity{name: 'Provider', surname: 'Acme', email: 'provider1@acme.com'}",provider1,provider1
+user-account-provider-02,true,"UserIdentity{name: 'Provider', surname: 'Acme', email: 'provider2@acme.com'}",provider2,provider2
+user-account-consumer-01,true,"UserIdentity{name: 'Consumer', surname: 'Acme', email: 'consumer1@acme.com'}",consumer1,consumer1
