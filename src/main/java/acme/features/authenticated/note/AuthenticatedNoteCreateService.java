@@ -34,7 +34,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 	public void load() {
 		Date currentDate;
 		Principal principal;
-		final String author;
+		String author;
 		final String username;
 		final String fullname;
 		currentDate = MomentHelper.getCurrentMoment();
@@ -43,6 +43,10 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 		username = principal.getUsername();
 		fullname = this.repository.findUserAccountById(principal.getAccountId()).getIdentity().getFullName();
 		author = username + " - " + fullname;
+
+		// If author is long than 75 characters truncate to 75 characters
+		if (author.length() > 75)
+			author = author.substring(0, 75);
 
 		final Note object = new Note();
 		object.setInstantiationMoment(currentDate);
