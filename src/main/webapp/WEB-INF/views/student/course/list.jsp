@@ -8,5 +8,4 @@
 	<acme:list-column code="authenticated.course.list.label.title" path="title"/>
 	<acme:list-column code="authenticated.course.list.label.abstract" path="courseAbstract"/>
 	<acme:list-column code="authenticated.course.list.label.nature" path="nature"/>
-
 </acme:list>

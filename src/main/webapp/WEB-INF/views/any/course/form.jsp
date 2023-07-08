@@ -1,4 +1,3 @@
-
 <%@page language="java"%>
 <%@page language="java" import="acme.framework.helpers.PrincipalHelper"%>
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>

@@ -7,4 +7,3 @@
 	<acme:list-column code="authenticated.practicum.list.label.code" path="code"/>
 	<acme:list-column code="authenticated.practicum.list.label.title" path="title"/>
 </acme:list>
-
