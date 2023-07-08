@@ -53,15 +53,17 @@ public class AuthenticatedPracticumShowService extends AbstractService<Authentic
 	}
 
 	@Override
-	public void unbind(final Practicum object) {
+	public void unbind(final Practicum practicum) {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "practicumAbstract", "goals", "startingDate", "endingDate", "estimatedTotalTime", "practicaPeriodLength");
-		tuple.put("companyName", object.getCompany().getName());
-		tuple.put("companyVatNumber", object.getCompany().getVatNumber());
-		tuple.put("companySummary", object.getCompany().getSummary());
-		tuple.put("companyMoreInfo", object.getCompany().getMoreInfo());
+		final double practicumPeriodLength = practicum.getPracticaPeriodLength() / 24;
+		tuple = super.unbind(practicum, "code", "title", "practicumAbstract", "goals", "startingDate", "endingDate", "estimatedTotalTime");
+		tuple.put("practicaPeriodLength", practicumPeriodLength);
+		tuple.put("companyName", practicum.getCompany().getName());
+		tuple.put("companyVatNumber", practicum.getCompany().getVatNumber());
+		tuple.put("companySummary", practicum.getCompany().getSummary());
+		tuple.put("companyMoreInfo", practicum.getCompany().getMoreInfo());
 
 		super.getResponse().setData(tuple);
 	}
