@@ -41,7 +41,7 @@ public class AuthenticatedOfferListService extends AbstractService<Authenticated
 		Collection<Offer> offers;
 		currentMoment = MomentHelper.getCurrentMoment();
 
-		offers = this.repository.findOffers(currentMoment);
+		offers = this.repository.findAvailableOffers(currentMoment);
 
 		super.getBuffer().setData(offers);
 	}

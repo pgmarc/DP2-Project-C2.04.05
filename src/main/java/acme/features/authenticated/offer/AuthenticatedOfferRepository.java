@@ -14,7 +14,7 @@ import acme.framework.repositories.AbstractRepository;
 public interface AuthenticatedOfferRepository extends AbstractRepository {
 
 	@Query("SELECT offer FROM Offer offer WHERE :date BETWEEN offer.startingDate AND offer.endingDate")
-	Collection<Offer> findOffers(Date date);
+	Collection<Offer> findAvailableOffers(Date date);
 
 	@Query("SELECT offer FROM Offer offer WHERE offer.id = :offerId AND :date BETWEEN offer.startingDate AND offer.endingDate")
 	Offer findOfferById(int offerId, Date date);
