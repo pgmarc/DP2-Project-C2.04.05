@@ -1,6 +1,8 @@
 
 package acme.features.administrator.bulletin;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,20 +10,14 @@ import acme.entities.message.Bulletin;
 import acme.features.authenticated.bulletin.AuthenticatedBulletinRepository;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.MomentHelper;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 
 @Service
 public class AdministratorBulletinCreateService extends AbstractService<Administrator, Bulletin> {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	protected AuthenticatedBulletinRepository repository;
-
-	// AbstractService<Authenticated, Activity> ---------------------------
 
 
 	@Override
@@ -40,45 +36,48 @@ public class AdministratorBulletinCreateService extends AbstractService<Administ
 
 	@Override
 	public void load() {
-		Bulletin object;
+		Bulletin bulletin;
 
-		object = new Bulletin();
-		object.setInstantiationMoment(MomentHelper.getCurrentMoment());
+		Date currentMoment;
 
-		super.getBuffer().setData(object);
+		currentMoment = MomentHelper.getCurrentMoment();
+
+		bulletin = new Bulletin();
+		bulletin.setInstantiationMoment(currentMoment);
+
+		super.getBuffer().setData(bulletin);
 	}
 
 	@Override
-	public void bind(final Bulletin object) {
-		assert object != null;
+	public void bind(final Bulletin bulletin) {
+		assert bulletin != null;
 
-		super.bind(object, "moreInfo", "critical", "message", "title");
+		super.bind(bulletin, "title", "message", "critical", "moreInfo", "confirmation");
 	}
 
 	@Override
-	public void validate(final Bulletin object) {
-		assert object != null;
+	public void validate(final Bulletin bulletin) {
+		assert bulletin != null;
+
+		boolean isConfirmed;
+
+		isConfirmed = super.getRequest().getData("confirmation", boolean.class);
+		super.state(isConfirmed, "confirmation", "administrator.bulletin.form.error.label.confirmation");
 	}
 
 	@Override
-	public void perform(final Bulletin object) {
-		assert object != null;
+	public void perform(final Bulletin bulletin) {
+		assert bulletin != null;
 
-		this.repository.save(object);
+		this.repository.save(bulletin);
 	}
 
 	@Override
-	public void unbind(final Bulletin object) {
+	public void unbind(final Bulletin bulletin) {
 		Tuple tuple;
 
-		tuple = super.unbind(object, "moreInfo", "critical", "message", "title");
+		tuple = super.unbind(bulletin, "instantiationMoment", "title", "message", "critical", "moreInfo");
 
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
 	}
 }

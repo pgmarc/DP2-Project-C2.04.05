@@ -4,7 +4,6 @@ authenticated.bulletin.list.label.critical = Critical
 authenticated.bulletin.list.label.moreInfo = More Information
 authenticated.bulletin.list.label.instantiationMoment = Instantiation Moment
 
-
 authenticated.bulletin.form.button.create = Create
 authenticated.bulletin.form.button.close = Cancel
 authenticated.bulletin.form.button.create.modal.title = Are you sure you want to create this bulletin?
