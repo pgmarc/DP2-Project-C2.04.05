@@ -50,14 +50,12 @@ public class AdministratorBulletinCreateService extends AbstractService<Administ
 
 	@Override
 	public void bind(final Bulletin bulletin) {
-		assert bulletin != null;
 
 		super.bind(bulletin, "title", "message", "critical", "moreInfo", "confirmation");
 	}
 
 	@Override
 	public void validate(final Bulletin bulletin) {
-		assert bulletin != null;
 
 		boolean isConfirmed;
 
@@ -67,7 +65,6 @@ public class AdministratorBulletinCreateService extends AbstractService<Administ
 
 	@Override
 	public void perform(final Bulletin bulletin) {
-		assert bulletin != null;
 
 		this.repository.save(bulletin);
 	}
