@@ -8,4 +8,3 @@
 	<acme:list-column code="authenticated.offer.list.label.endingDate" path="endingDate"/>
 	<acme:list-column code="authenticated.offer.list.label.heading" path="heading"/>	
 </acme:list>
-

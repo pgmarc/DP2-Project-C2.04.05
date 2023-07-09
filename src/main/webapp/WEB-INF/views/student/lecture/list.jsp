@@ -6,5 +6,4 @@
 <acme:list>
 	<acme:list-column code="authenticated.lecture.list.label.title" path="title"/>
 	<acme:list-column code="authenticated.lecture.list.label.abstract" path="lectureAbstract"/>
-
 </acme:list>
