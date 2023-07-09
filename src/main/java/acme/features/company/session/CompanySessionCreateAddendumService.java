@@ -96,7 +96,6 @@ public class CompanySessionCreateAddendumService extends AbstractService<Company
 
 		Date minimumDeadline;
 		Date maximumDeadline;
-		Date baseMoment;
 		int practicumId;
 		boolean isOneWeekAhead;
 		boolean isOneWeekLong;
@@ -108,7 +107,6 @@ public class CompanySessionCreateAddendumService extends AbstractService<Company
 		Double estimatedTotalTime;
 		Double total;
 
-		baseMoment = MomentHelper.getBaseMoment();
 		practicumId = addendum.getPracticum().getId();
 		estimatedTotalTime = this.practicumRepository.findPracticumEstimatedTotalTimeByPracticumId(practicumId);
 
@@ -117,24 +115,24 @@ public class CompanySessionCreateAddendumService extends AbstractService<Company
 			isStartingDateBeforeEndingDate = MomentHelper.isBefore(addendum.getStartingDate(), addendum.getEndingDate());
 			super.state(isStartingDateBeforeEndingDate, "*", "company.session.form.error.endingDate-before-startingDate");
 
-			minimumDeadline = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
-			isOneWeekAhead = MomentHelper.isAfter(addendum.getStartingDate(), minimumDeadline);
+			minimumDeadline = MomentHelper.deltaFromCurrentMoment(1, ChronoUnit.WEEKS);
+			isOneWeekAhead = MomentHelper.isAfterOrEqual(addendum.getStartingDate(), minimumDeadline);
 			super.state(isOneWeekAhead, "*", "company.session.form.error.min-deadline");
 
-			maximumDeadline = MomentHelper.deltaFromMoment(baseMoment, 365, ChronoUnit.DAYS);
+			maximumDeadline = new Date(4133977199000L); // 2100/12/31 23:59:59 CEST
 			isStartingDateUnderDeadline = MomentHelper.isBefore(addendum.getStartingDate(), maximumDeadline);
-			isEndingDateUnderDeadline = MomentHelper.isBeforeOrEqual(addendum.getEndingDate(), maximumDeadline);
+			isEndingDateUnderDeadline = MomentHelper.isBefore(addendum.getEndingDate(), maximumDeadline);
 			super.state(isStartingDateUnderDeadline && isEndingDateUnderDeadline, "*", "company.session.form.error.max-deadline");
 
-			isOneWeekLong = MomentHelper.isLongEnough(addendum.getStartingDate(), addendum.getEndingDate(), 7, ChronoUnit.DAYS);
+			isOneWeekLong = MomentHelper.isLongEnough(addendum.getStartingDate(), addendum.getEndingDate(), 1, ChronoUnit.WEEKS);
 			super.state(isOneWeekLong, "*", "company.session.form.error.min-duration");
 
-			isSixMonthLongMax = !MomentHelper.isLongEnough(addendum.getStartingDate(), addendum.getEndingDate(), 180, ChronoUnit.DAYS);
+			isSixMonthLongMax = !MomentHelper.isLongEnough(addendum.getStartingDate(), addendum.getEndingDate(), 1000, ChronoUnit.HOURS);
 			super.state(isSixMonthLongMax, "*", "company.session.form.error.max-duration");
 
 			addendum.setDuration();
 			total = estimatedTotalTime + addendum.getDuration();
-			super.state(total <= 9999.99, "*", "company.session.form.error.reach-estimated-total-time-limit");
+			super.state(total <= 99999.99, "*", "company.session.form.error.reach-estimated-total-time-limit");
 
 		}
 
@@ -179,7 +177,6 @@ public class CompanySessionCreateAddendumService extends AbstractService<Company
 
 		tuple = super.unbind(addendum, "title", "sessionAbstract", "startingDate", "endingDate", "moreInfo", "addendum");
 		tuple.put("practicumId", practicumId);
-		tuple.put("confirmation", false);
 
 		super.getResponse().setData(tuple);
 	}

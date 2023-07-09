@@ -1,4 +1,16 @@
 key,instantiation-moment,title,message,critical,more-info
-bulletin-1,2022/07/30 00:00,Important Security Update,Actualización requerida antes del 31 de marzo para continuar accediendo a nuestros servicios adecua.,true,null
-bulletin-2,2020/02/29 23:59,Explorando las posibilidades de la inteligencia artificial para mejorar más,Un mensaje,false,https://example.com/new-feature
-bulletin-3,2018/02/20 21:30,A,a,false,null
+bulletin-01,2022/07/29 23:59,Important Security Update,Actualización requerida antes del 31 de marzo para continuar accediendo a nuestros servicios,true,https://example.org
+bulletin-02,2020/02/29 23:59,T,Title with one character,true,https://example.org
+bulletin-03,2018/02/20 21:30,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Title with,true,https://example.org
+bulletin-04,2010/01/15 01:15,Message with one character,M,true,https://example.org
+bulletin-05,2009/10/24 09:32,Message with 100 characters,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,true,https://example.org
+bulletin-06,2009/12/31 23:59,Critical bulletin,Critical bulletin,true,https://example.org
+bulletin-07,2018/02/20 21:30,Non critical bulletin,Non critical bulletin,false,https://example.org
+bulletin-08,2015/10/04 21:00,Link 255 characters,Link 255 characters,true,https://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bulletin-09,2003/11/03 04:00,No link provided,No link provided,true,null
+bulletin-10,2007/04/17 23:00,тестирование,тестирование,true,https://example.org
+bulletin-11,2007/04/17 23:00,փորձարկում,փորձարկում,true,https://example.org
+bulletin-12,2016/09/12 12:21,テスト,テスト,true,https://example.org
+bulletin-13,2018/03/18 06:15,테스트,테스트,true,https://example.org
+bulletin-14,2007/04/17 23:00,δοκιμή,δοκιμή,true,https://example.org
+bulletin-15,2010/05/14 13:00,测试,测试,true,https://example.org
