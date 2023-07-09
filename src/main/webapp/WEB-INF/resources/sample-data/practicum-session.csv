@@ -1,9 +1,13 @@
 key,key:practicum,title,session-abstract,starting-date,ending-date,more-info,addendum,duration
-practicum-session-01,practicum-01,Implementing the data model,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false,168.00
-practicum-session-02,practicum-02,Advanced feature of Acme framework,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false,168.00
+practicum-session-01,practicum-01,Implementing the data model,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://example.org,false,168.00
+practicum-session-02,practicum-02,Advanced feature of Acme framework,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://example.org,false,168.00
 practicum-session-03,practicum-02,This is a title,Session abstract,2022/08/26 00:00,2022/09/02 00:00,null,false,168.00
-practicum-session-04,practicum-03,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false,168.00
-practicum-session-05,practicum-04,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false,168.00
-practicum-session-06,practicum-05,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://youtube.com,false,168.00
+practicum-session-04,practicum-03,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://example.org,false,168.00
+practicum-session-05,practicum-04,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://example.org,false,168.00
+practicum-session-06,practicum-05,This is a title,Session abstract,2022/08/06 00:00,2022/08/13 00:00,https://example.org,false,168.00
 practicum-session-07,practicum-05,This is a title,Session abstract,2022/08/20 00:00,2022/08/27 00:00,null,false,168.00
 practicum-session-08,practicum-05,Best practices in acme,Auxiliary session due to worker strike,2022/09/01 00:00,2022/09/08 00:00,null,true,168.00
+practicum-session-09,practicum-06,Introduction Acme framework,Learn fundamentals,2021/07/30 00:00,2021/08/06 00:00,https://example.org,false,168.00
+practicum-session-10,practicum-06,Getting started Acme framework,Starting writtiing some code,2021/10/01 00:00,2021/11/11 15:00,https://example.org,false,999.00
+practicum-session-11,practicum-06,Intantiate a project,Start delivering your work,2022/01/01 00:00,2022/01/08 00:00,https://example.org,false,168.00
+practicum-session-12,practicum-08,Spring architecture,Learn the core of the framework,2022/01/31 00:00,2022/02/07 00:00,https://example.org,false,168.00
