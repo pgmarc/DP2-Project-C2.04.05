@@ -49,7 +49,7 @@ class StudentEnrolmentCreateTest extends TestHarness {
 		super.fillInputBoxIn("goals", goals);
 		super.clickOnSubmit("Create");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
@@ -77,7 +77,7 @@ class StudentEnrolmentCreateTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 		super.clickOnMenu("Courses", "All the courses");
-		super.clickOnListingRecord(0);
+		super.clickOnListingRecord(1);
 		final String currentQuery = super.getCurrentQuery().split("=")[1];
 		super.request("/student/enrolment/create", "courseId=" + currentQuery);
 		super.checkPanicExists();
