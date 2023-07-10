@@ -14,7 +14,7 @@ class LecturerCourseLectureListTest extends TestHarness {
 	void test100Positive(final int recordIndex, final String course, final String lecture) {
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Courses", "Add lectures to courses");
+		super.clickOnMenu("Lecturer", "Add lectures to courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 

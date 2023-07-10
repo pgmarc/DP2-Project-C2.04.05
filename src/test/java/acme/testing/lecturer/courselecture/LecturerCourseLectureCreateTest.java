@@ -14,7 +14,7 @@ class LecturerCourseLectureCreateTest extends TestHarness {
 	void test100Positive(final int recordIndex, final String course, final String lecture) {
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Courses", "Add lectures to courses");
+		super.clickOnMenu("Lecturer", "Add lectures to courses");
 		super.checkListingExists();
 
 		super.clickOnButton("Create");
@@ -23,7 +23,7 @@ class LecturerCourseLectureCreateTest extends TestHarness {
 		super.fillInputBoxIn("lecture", lecture);
 		super.clickOnSubmit("Create");
 
-		super.clickOnMenu("Courses", "Add lectures to courses");
+		super.clickOnMenu("Lecturer", "Add lectures to courses");
 		super.checkListingExists();
 		super.checkColumnHasValue(recordIndex, 0, course);
 		super.checkColumnHasValue(recordIndex, 1, lecture);
@@ -41,7 +41,7 @@ class LecturerCourseLectureCreateTest extends TestHarness {
 	void test200Negative(final int recordIndex, final String course, final String lecture) {
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Courses", "Add lectures to courses");
+		super.clickOnMenu("Lecturer", "Add lectures to courses");
 		super.checkListingExists();
 
 		super.clickOnButton("Create");
