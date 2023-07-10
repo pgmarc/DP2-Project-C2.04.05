@@ -52,7 +52,7 @@ class LecturerLecturePublishTest extends TestHarness {
 
 		super.clickOnMenu("Lecturer", "My courses");
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(6);
+		super.clickOnListingRecord(7);
 		super.checkFormExists();
 		super.checkButtonExists("Lectures");
 		super.clickOnButton("Lectures");
