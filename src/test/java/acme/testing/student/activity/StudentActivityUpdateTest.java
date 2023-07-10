@@ -15,7 +15,7 @@ class StudentActivityUpdateTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.clickOnListingRecord(0);
 
@@ -30,7 +30,7 @@ class StudentActivityUpdateTest extends TestHarness {
 		super.fillInputBoxIn("endDate", endDate);
 		super.clickOnSubmit("Update");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.clickOnListingRecord(0);
 
@@ -58,7 +58,7 @@ class StudentActivityUpdateTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.clickOnListingRecord(0);
 
@@ -83,7 +83,7 @@ class StudentActivityUpdateTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.clickOnListingRecord(0);
 

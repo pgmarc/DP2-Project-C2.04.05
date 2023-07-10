@@ -14,7 +14,7 @@ class StudentActivityListTest extends TestHarness {
 	void test100Positive(final int recordIndex, final String title, final String abstract$) {
 
 		super.signIn("student1", "student1");
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.clickOnListingRecord(0);
 		super.clickOnButton("Workspace");
@@ -32,7 +32,7 @@ class StudentActivityListTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.clickOnListingRecord(0);
 
