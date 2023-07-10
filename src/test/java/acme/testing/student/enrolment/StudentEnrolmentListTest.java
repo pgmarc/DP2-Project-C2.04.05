@@ -15,7 +15,7 @@ class StudentEnrolmentListTest extends TestHarness {
 
 		super.signIn("student2", "student2");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 

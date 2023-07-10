@@ -15,7 +15,7 @@ class StudentEnrolmentFinalizedTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.clickOnListingRecord(recordIndex);
 
@@ -35,7 +35,7 @@ class StudentEnrolmentFinalizedTest extends TestHarness {
 	@Test
 	void test200Hacking() {
 		super.signIn("student1", "student1");
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(1);
 		final String currentQuery = super.getCurrentQuery().split("=")[1];
@@ -62,7 +62,7 @@ class StudentEnrolmentFinalizedTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.checkColumnHasValue(recordIndex, 4, "Not finalized");
 		super.clickOnListingRecord(recordIndex);
@@ -75,7 +75,7 @@ class StudentEnrolmentFinalizedTest extends TestHarness {
 		super.fillInputBoxIn("securityCode", securityCode);
 		super.clickOnSubmit("Finalized Enrolment");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.checkColumnHasValue(recordIndex, 4, "Finalized");
 		super.clickOnListingRecord(recordIndex);
