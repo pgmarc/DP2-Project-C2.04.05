@@ -10,9 +10,9 @@ class StudentEnrolmentShowTest extends TestHarness {
 	@Test
 	void test100Hacking() {
 		super.signIn("student1", "student1");
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(0);
+		super.clickOnListingRecord(1);
 		final String currentQuery = super.getCurrentQuery().split("=")[1];
 		super.signOut();
 
