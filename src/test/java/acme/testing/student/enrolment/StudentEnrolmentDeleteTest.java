@@ -12,7 +12,7 @@ class StudentEnrolmentDeleteTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
@@ -30,7 +30,7 @@ class StudentEnrolmentDeleteTest extends TestHarness {
 	@Test
 	void test300Hacking() {
 		super.signIn("student2", "student2");
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(1);
 		final String currentQuery = super.getCurrentQuery().split("=")[1];
