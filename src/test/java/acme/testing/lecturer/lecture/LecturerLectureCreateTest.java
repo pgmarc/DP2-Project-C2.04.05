@@ -15,7 +15,7 @@ class LecturerLectureCreateTest extends TestHarness {
 
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("My lectures");
+		super.clickOnMenu("Lecturer", "My lectures");
 		super.checkListingExists();
 
 		super.clickOnButton("Create");
@@ -27,7 +27,7 @@ class LecturerLectureCreateTest extends TestHarness {
 		super.fillInputBoxIn("moreInfo", moreInfo);
 		super.clickOnSubmit("Create");
 
-		super.clickOnMenu("My lectures");
+		super.clickOnMenu("Lecturer", "My lectures");
 		super.checkListingExists();
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.checkColumnHasValue(recordIndex, 1, lectureAbstract);
@@ -51,7 +51,7 @@ class LecturerLectureCreateTest extends TestHarness {
 
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("My lectures");
+		super.clickOnMenu("Lecturer", "My lectures");
 		super.checkListingExists();
 
 		super.clickOnButton("Create");

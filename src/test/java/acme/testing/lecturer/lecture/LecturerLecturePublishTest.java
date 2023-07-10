@@ -26,7 +26,7 @@ class LecturerLecturePublishTest extends TestHarness {
 
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("My lectures");
+		super.clickOnMenu("Lecturer", "My lectures");
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.clickOnListingRecord(recordIndex);
@@ -50,7 +50,7 @@ class LecturerLecturePublishTest extends TestHarness {
 
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Courses", "My courses");
+		super.clickOnMenu("Lecturer", "My courses");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(6);
 		super.checkFormExists();

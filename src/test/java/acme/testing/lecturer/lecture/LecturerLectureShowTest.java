@@ -26,7 +26,7 @@ class LecturerLectureShowTest extends TestHarness {
 
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("My lectures");
+		super.clickOnMenu("Lecturer", "My lectures");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
