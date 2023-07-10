@@ -26,7 +26,7 @@ public class AssistantTutorialSessionShowTest extends TestHarness {
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Tutorials", "My tutorials");
+		super.clickOnMenu("My tutorials");
 		super.checkCurrentPath("/assistant/tutorial/list");
 		super.checkListingExists();
 		super.checkNotListingEmpty();
@@ -68,7 +68,7 @@ public class AssistantTutorialSessionShowTest extends TestHarness {
 				super.request(this.path, query);
 				super.checkPanicExists();
 
-				super.signIn("Administrator1", "administrator1");
+				super.signIn("administrator1", "administrator1");
 				super.request(this.path, query);
 				super.checkPanicExists();
 				super.signOut();
