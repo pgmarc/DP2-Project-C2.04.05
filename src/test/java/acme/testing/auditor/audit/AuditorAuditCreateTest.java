@@ -19,7 +19,7 @@ class AuditorAuditCreateTest extends TestHarness {
 
 		super.signIn("auditor1", "auditor1");
 
-		super.clickOnMenu("Courses", "All Courses");
+		super.clickOnMenu("Authenticated", "List courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
@@ -55,7 +55,7 @@ class AuditorAuditCreateTest extends TestHarness {
 
 		super.signIn("auditor1", "auditor1");
 
-		super.clickOnMenu("Courses", "All Courses");
+		super.clickOnMenu("Authenticated", "List courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
