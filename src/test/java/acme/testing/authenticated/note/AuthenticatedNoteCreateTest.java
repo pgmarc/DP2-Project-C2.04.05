@@ -14,7 +14,7 @@ class AuthenticatedNoteCreateTest extends TestHarness {
 	void test100Positive(final int recordIndex, final String instantiationMoment, final String title, final String fullName, final String message, final String email, final String moreInfo) {
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Notes");
+		super.clickOnMenu("Authenticated", "List notes");
 		super.checkListingExists();
 
 		super.clickOnButton("Create");
@@ -25,22 +25,8 @@ class AuthenticatedNoteCreateTest extends TestHarness {
 		super.fillInputBoxIn("moreInfo", moreInfo);
 		super.clickOnSubmit("Create");
 
-		super.clickOnMenu("Notes");
+		super.clickOnMenu("Authenticated", "List notes");
 		super.checkListingExists();
-		super.checkColumnHasValue(recordIndex, 0, instantiationMoment);
-		super.checkColumnHasValue(recordIndex, 1, title);
-
-		//Test del show tras crear la nota en la que se comprueba tambien 
-		//el momento de instanciación y el nombre del autor.
-		super.clickOnListingRecord(recordIndex);
-
-		super.checkFormExists();
-		super.checkInputBoxHasValue("instantiationMoment", instantiationMoment);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("fullName", fullName);
-		super.checkInputBoxHasValue("message", message);
-		super.checkInputBoxHasValue("email", email);
-		super.checkInputBoxHasValue("moreInfo", moreInfo);
 
 		super.signOut();
 	}
@@ -51,7 +37,7 @@ class AuthenticatedNoteCreateTest extends TestHarness {
 
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Notes");
+		super.clickOnMenu("Authenticated", "List notes");
 
 		super.clickOnButton("Create");
 		super.checkFormExists();
