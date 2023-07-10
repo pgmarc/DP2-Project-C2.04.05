@@ -12,7 +12,7 @@ public class StudentActivityDeleteTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(0);
@@ -35,7 +35,7 @@ public class StudentActivityDeleteTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.clickOnListingRecord(0);
 
