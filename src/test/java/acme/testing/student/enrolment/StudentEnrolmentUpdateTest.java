@@ -15,7 +15,7 @@ class StudentEnrolmentUpdateTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
@@ -26,7 +26,7 @@ class StudentEnrolmentUpdateTest extends TestHarness {
 		super.fillInputBoxIn("goals", goals);
 		super.clickOnSubmit("Update");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
@@ -46,7 +46,7 @@ class StudentEnrolmentUpdateTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Enrolments", "Your Enrolments");
+		super.clickOnMenu("Courses", "Your Enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
@@ -66,8 +66,8 @@ class StudentEnrolmentUpdateTest extends TestHarness {
 	void test300Hacking() {
 
 		super.signIn("student1", "student1");
-		super.clickOnMenu("Enrolments", "Your Enrolments");
-		super.clickOnListingRecord(0);
+		super.clickOnMenu("Courses", "Your Enrolments");
+		super.clickOnListingRecord(1);
 		final String currentQuery = super.getCurrentQuery().split("=")[1];
 		super.signOut();
 
