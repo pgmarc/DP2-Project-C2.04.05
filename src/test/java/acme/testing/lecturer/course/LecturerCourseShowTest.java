@@ -25,7 +25,7 @@ class LecturerCourseShowTest extends TestHarness {
 	void test100Positive(final int recordIndex, final String code, final String title, final String courseAbstract, final String nature, final String price, final String moreInfo, final String draftMode) {
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Courses", "My courses");
+		super.clickOnMenu("Lecturer", "My courses");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();

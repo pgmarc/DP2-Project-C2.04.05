@@ -14,7 +14,7 @@ class LecturerCourseListMineTest extends TestHarness {
 	void test100Positive(final int recordIndex, final String code, final String title) {
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Courses", "My courses");
+		super.clickOnMenu("Lecturer", "My courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
